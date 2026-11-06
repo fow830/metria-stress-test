@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 import pytest
-from jsonschema import Draft202012Validator
+from jsonschema import Draft202012Validator, FormatChecker
 
 from metria.model import aggregate_overall, dimension, undeclared
 from metria.render import render_report
@@ -16,7 +16,7 @@ from metria.runner import load_policy, run_subject, policy_digest
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = json.loads((ROOT / "schema" / "stress-run.schema.json").read_text(encoding="utf-8"))
-VALIDATOR = Draft202012Validator(SCHEMA)
+VALIDATOR = Draft202012Validator(SCHEMA, format_checker=FormatChecker())
 
 
 def test_score_always_null_in_dimension() -> None:

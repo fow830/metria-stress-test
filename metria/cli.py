@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import argparse
-import json
+import re
 import shutil
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 from typing import Optional, Tuple
+from urllib.parse import urlparse
 
 from metria import __version__
 from metria.runner import load_policy, run_subject
@@ -17,17 +18,36 @@ from metria.render import render_report
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_POLICY = ROOT / "policy" / "cold_external.yaml"
+_SHA_RE = re.compile(r"^[0-9a-f]{7,40}$", re.IGNORECASE)
 
 
 def _parse_target(target: str) -> Tuple[str, Optional[str], bool]:
-    """Return (path_or_url, sha_or_none, is_git_url)."""
-    if target.startswith("http://") or target.startswith("https://") or target.startswith("git@"):
-        if "@" in target.rsplit("/", 1)[-1] or target.count("@") >= 1:
-            # allow https://github.com/org/repo@sha
-            if "://" in target:
-                base, _, sha = target.rpartition("@")
-                if base.startswith("http") and len(sha) >= 7:
-                    return base, sha, True
+    """Return (path_or_url, sha_or_none, is_git_url).
+
+    SHA is taken from a trailing @ only when it matches ^[0-9a-f]{7,40}$.
+    Userinfo @ in URLs (e.g. https://oauth2@host/repo) is not a SHA separator (N-4).
+    """
+    if target.startswith("git@"):
+        # git@host:path[@sha] — last @sha only if hex
+        if target.count("@") >= 2:
+            base, _, maybe = target.rpartition("@")
+            if _SHA_RE.match(maybe):
+                return base, maybe.lower(), True
+        return target, None, True
+    if target.startswith("http://") or target.startswith("https://"):
+        parsed = urlparse(target)
+        # rpartition on full string; accept SHA only when hex-shaped and not userinfo.
+        base, sep, maybe = target.rpartition("@")
+        if sep and _SHA_RE.match(maybe) and "://" in base:
+            # Ensure the @ we split is not the userinfo separator.
+            # userinfo form: scheme://userinfo@host/... — after rpartition, base still contains ://
+            # and maybe is path-like without scheme. Hex SHA won't equal a hostname/path typically;
+            # additionally require no "/" in maybe and that urlparse(base).netloc is non-empty.
+            base_parsed = urlparse(base)
+            if base_parsed.scheme and base_parsed.netloc and "/" not in maybe:
+                return base, maybe.lower(), True
+        # Ignore parsed beyond validation that URL is well-formed enough to attempt.
+        _ = parsed
         return target, None, True
     path = Path(target).expanduser().resolve()
     return str(path), None, False
@@ -51,7 +71,11 @@ def _checkout(url: str, sha: Optional[str], dest: Path) -> str:
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="metria",
-        description="Metria Stress Test — status-first evidence protocol (score always null/uncalibrated).",
+        description=(
+            "Metria Stress Test — status-first evidence protocol (score always null/uncalibrated). "
+            "WARNING: `metria run` may execute subject test code in an isolated scrubbed venv "
+            "unless --no-tests is set."
+        ),
     )
     p.add_argument("--version", action="version", version=f"metria {__version__}")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -68,7 +92,11 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--policy", type=Path, default=None, help="Path to policy YAML")
     run.add_argument("--out", type=Path, default=Path("metria-out"), help="Output directory")
     run.add_argument("--no-osv", action="store_true", help="Skip OSV network queries")
-    run.add_argument("--no-tests", action="store_true", help="Discover/collect only; do not execute pytest")
+    run.add_argument(
+        "--no-tests",
+        action="store_true",
+        help="Static test discovery only; do not import or execute subject code",
+    )
     run.add_argument("--print-report", action="store_true", help="Print human report to stdout")
     return p
 
@@ -84,12 +112,16 @@ def main(argv: Optional[list] = None) -> int:
         return 2
     policy = load_policy(policy_path)
     if args.profile and policy.get("name") and policy["name"] != args.profile:
-        # allow file to define name; warn only
-        pass
+        print(
+            f"warning: --profile {args.profile!r} does not match policy name "
+            f"{policy.get('name')!r}; using policy file as-is",
+            file=sys.stderr,
+        )
 
     target, embedded_sha, is_url = _parse_target(args.target)
     sha = args.sha or embedded_sha
     tmp = None
+    worktree = None
     try:
         if is_url:
             tmp = Path(tempfile.mkdtemp(prefix="metria-subject-"))
@@ -102,7 +134,13 @@ def main(argv: Optional[list] = None) -> int:
                 print(f"not a directory: {root}", file=sys.stderr)
                 return 2
             if sha:
-                subprocess.check_call(["git", "checkout", "-q", sha], cwd=str(root))
+                # N-3: never git checkout inside the operator's working copy.
+                worktree = Path(tempfile.mkdtemp(prefix="metria-worktree-"))
+                subprocess.check_call(
+                    ["git", "worktree", "add", "--detach", str(worktree), sha],
+                    cwd=str(root),
+                )
+                root = worktree
             repo_url = args.repo_url or target
             resolved_sha = sha
 
@@ -127,6 +165,19 @@ def main(argv: Optional[list] = None) -> int:
     finally:
         if tmp is not None:
             shutil.rmtree(tmp, ignore_errors=True)
+        if worktree is not None:
+            # Best-effort worktree cleanup from the original target if it is a git repo.
+            try:
+                origin = Path(target)
+                subprocess.run(
+                    ["git", "worktree", "remove", "--force", str(worktree)],
+                    cwd=str(origin),
+                    capture_output=True,
+                    check=False,
+                )
+            except Exception:
+                pass
+            shutil.rmtree(worktree, ignore_errors=True)
 
 
 if __name__ == "__main__":

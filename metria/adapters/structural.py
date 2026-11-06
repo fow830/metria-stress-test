@@ -6,13 +6,15 @@ import ast
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
-from metria.discovery import SKIP_DIRS, count_loc, iter_files
+from metria.discovery import count_loc, existing_skip_dirs, is_test_fixture_path, iter_files
 from metria.model import dimension
+from metria.sandbox import scrub_text_paths
 
 SECRET_PATTERNS: List[Tuple[str, re.Pattern[str]]] = [
     ("aws_access_key_id", re.compile(r"AKIA[0-9A-Z]{16}")),
@@ -20,7 +22,8 @@ SECRET_PATTERNS: List[Tuple[str, re.Pattern[str]]] = [
     ("private_key_header", re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----")),
 ]
 
-DANGEROUS_CALLS = {
+# Builtins only — Attribute calls like re.compile must not match (N-1).
+DANGEROUS_BUILTINS = {
     "eval": ("high", "Use of eval()"),
     "exec": ("high", "Use of exec()"),
     "compile": ("medium", "Use of compile() on dynamic input"),
@@ -33,14 +36,10 @@ class _DangerVisitor(ast.NodeVisitor):
         self.findings: List[Dict[str, Any]] = []
 
     def visit_Call(self, node: ast.Call) -> None:
-        name = None
-        if isinstance(node.func, ast.Name):
-            name = node.func.id
-        elif isinstance(node.func, ast.Attribute):
-            name = node.func.attr
-        if name in DANGEROUS_CALLS:
-            sev, title = DANGEROUS_CALLS[name]
-            self.findings.append(self._finding(f"ast:{name}", title, sev, node.lineno, ["ast"]))
+        # N-1: only bare Name builtins (eval/exec/compile), never Attribute.attr
+        if isinstance(node.func, ast.Name) and node.func.id in DANGEROUS_BUILTINS:
+            sev, title = DANGEROUS_BUILTINS[node.func.id]
+            self.findings.append(self._finding(f"ast:{node.func.id}", title, sev, node.lineno, ["ast"]))
         # subprocess(..., shell=True)
         if isinstance(node.func, ast.Attribute) and node.func.attr in {"run", "Popen", "call", "check_output"}:
             for kw in node.keywords:
@@ -55,7 +54,6 @@ class _DangerVisitor(ast.NodeVisitor):
                         )
                     )
         if isinstance(node.func, ast.Attribute) and node.func.attr == "loads":
-            # pickle.loads
             if isinstance(node.func.value, ast.Name) and node.func.value.id == "pickle":
                 self.findings.append(
                     self._finding("ast:pickle_loads", "pickle.loads()", "high", node.lineno, ["ast"])
@@ -85,21 +83,23 @@ def _scan_secrets(root: Path) -> List[Dict[str, Any]]:
         except OSError:
             continue
         rel = str(path.relative_to(root)).replace("\\", "/")
+        fixture = is_test_fixture_path(rel)
         for kind, pattern in SECRET_PATTERNS:
             for m in pattern.finditer(text):
                 line = text.count("\n", 0, m.start()) + 1
                 fp = hashlib.sha256(f"{kind}:{rel}:{line}".encode()).hexdigest()[:16]
-                findings.append(
-                    {
-                        "fingerprint": f"struct:secret:{kind}:{fp}",
-                        "title": f"Possible secret ({kind}) at {rel}:{line}",
-                        "severity": "critical",
-                        "detectors": ["secret_regex"],
-                        "confirmation": "unconfirmed",
-                        "lens_routing_rule": "secret_head_to_structural",
-                        "evidence_refs": ["structural/secrets.json"],
-                    }
-                )
+                finding: Dict[str, Any] = {
+                    "fingerprint": f"struct:secret:{kind}:{fp}",
+                    "title": f"Possible secret ({kind}) at {rel}:{line}",
+                    "severity": "medium" if fixture else "critical",
+                    "detectors": ["secret_regex"],
+                    "confirmation": "unconfirmed",
+                    "lens_routing_rule": "secret_head_to_structural",
+                    "evidence_refs": ["structural/secrets.json"],
+                }
+                if fixture:
+                    finding["title"] = f"Test-fixture key material ({kind}) at {rel}:{line}"
+                findings.append(finding)
                 if len(findings) >= 50:
                     return findings
     return findings
@@ -124,46 +124,80 @@ def _scan_ast(root: Path) -> List[Dict[str, Any]]:
     return findings
 
 
-def _run_ruff(root: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any], List[Dict[str, Any]]]:
-    tools = []
+def _ruff_argv() -> Optional[List[str]]:
+    """Prefer `python -m ruff`, else PATH ruff binary (B4)."""
+    mod = subprocess.run(
+        [sys.executable, "-m", "ruff", "--version"],
+        capture_output=True,
+        text=True,
+        timeout=30,
+        check=False,
+    )
+    if mod.returncode == 0:
+        return [sys.executable, "-m", "ruff"]
+    path = shutil.which("ruff")
+    if path:
+        return [path]
+    return None
+
+
+def _run_ruff(root: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any], List[Dict[str, Any]], List[Dict[str, Any]]]:
+    tools: List[Dict[str, Any]] = []
     findings: List[Dict[str, Any]] = []
-    metrics: Dict[str, Any] = {"ruff_ran": False, "ruff_issue_count": 0}
+    suppressions: List[Dict[str, Any]] = []
+    metrics: Dict[str, Any] = {"ruff_ran": False, "ruff_issue_count": 0, "ruff_absent": False}
+    argv_base = _ruff_argv()
+    if argv_base is None:
+        metrics["ruff_absent"] = True
+        tools.append({"name": "ruff", "version": "absent", "ruleset_digest": None})
+        return findings, metrics, tools, suppressions
     try:
         ver = subprocess.run(
-            [sys.executable, "-m", "ruff", "--version"],
+            [*argv_base, "--version"],
             capture_output=True,
             text=True,
             timeout=30,
             check=False,
         )
-        if ver.returncode != 0:
-            return findings, metrics, tools
         version = (ver.stdout or ver.stderr or "unknown").strip()
-        tools.append({"name": "ruff", "version": version, "ruleset_digest": None})
+        tools.append({"name": "ruff", "version": version, "ruleset_digest": "metria-isolated-SBE9F82x"})
+        # N-2: --isolated so subject noqa/config cannot silence; explicit select.
         proc = subprocess.run(
-            [sys.executable, "-m", "ruff", "check", "--output-format", "json", str(root)],
+            [
+                *argv_base,
+                "check",
+                "--isolated",
+                "--select",
+                "S,B,E9,F821,F822,F823",
+                "--output-format",
+                "json",
+                str(root),
+            ],
             capture_output=True,
             text=True,
             timeout=120,
             check=False,
         )
         metrics["ruff_ran"] = True
-        if not proc.stdout.strip():
-            return findings, metrics, tools
-        data = json.loads(proc.stdout)
+        raw_out = scrub_text_paths(proc.stdout or "", root)
+        if not raw_out.strip():
+            return findings, metrics, tools, suppressions
+        data = json.loads(raw_out)
         metrics["ruff_issue_count"] = len(data)
-        # Keep only security-ish / bugbear codes as structural signal; do not dump style noise.
-        interesting = {"S", "B", "E9", "F821", "F822", "F823"}
-        for item in data[:40]:
+        # Filter interesting first, THEN cap (N-2).
+        interesting = []
+        for item in data:
             code = str(item.get("code") or "")
-            if not any(code.startswith(p) for p in interesting):
-                continue
+            if code.startswith(("S", "B", "E9")) or code in {"F821", "F822", "F823"}:
+                interesting.append(item)
+        for item in interesting[:40]:
+            code = str(item.get("code") or "")
             loc = item.get("location") or {}
             path = item.get("filename") or ""
             try:
                 rel = str(Path(path).resolve().relative_to(root.resolve())).replace("\\", "/")
             except Exception:
-                rel = path
+                rel = scrub_text_paths(path, root)
             line = loc.get("row") or 0
             msg = item.get("message") or code
             fp = hashlib.sha256(f"ruff:{code}:{rel}:{line}".encode()).hexdigest()[:16]
@@ -178,9 +212,22 @@ def _run_ruff(root: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any], List[Di
                     "evidence_refs": ["structural/ruff.json"],
                 }
             )
+        # Note subject-config gaming surface: we force --isolated; record that.
+        suppressions.append(
+            {
+                "rule": "ruff-isolated",
+                "path": ".",
+                "justification": "Metria runs ruff --isolated with fixed select; subject noqa/config ignored",
+                "expires_at": None,
+                "source": "policy",
+            }
+        )
     except (FileNotFoundError, subprocess.TimeoutExpired, json.JSONDecodeError, OSError) as exc:
         metrics["ruff_error"] = str(exc)
-    return findings, metrics, tools
+        metrics["ruff_absent"] = True
+        if not tools:
+            tools.append({"name": "ruff", "version": "absent", "ruleset_digest": None})
+    return findings, metrics, tools, suppressions
 
 
 def run_structural(root: Path, evidence_dir: Path) -> Dict[str, Any]:
@@ -188,7 +235,7 @@ def run_structural(root: Path, evidence_dir: Path) -> Dict[str, Any]:
     loc = count_loc(root)
     secret_findings = _scan_secrets(root)
     ast_findings = _scan_ast(root)
-    ruff_findings, ruff_metrics, ruff_tools = _run_ruff(root)
+    ruff_findings, ruff_metrics, ruff_tools, ruff_suppressions = _run_ruff(root)
 
     (evidence_dir / "secrets.json").write_text(
         json.dumps(secret_findings, indent=2), encoding="utf-8"
@@ -196,12 +243,31 @@ def run_structural(root: Path, evidence_dir: Path) -> Dict[str, Any]:
     (evidence_dir / "ast.json").write_text(json.dumps(ast_findings, indent=2), encoding="utf-8")
     (evidence_dir / "ruff.json").write_text(json.dumps(ruff_findings, indent=2), encoding="utf-8")
 
-    findings = secret_findings + ast_findings + ruff_findings
-    hard = []
-    # HEAD-tree secrets are hard fail only when pattern is high-confidence key material
+    findings = list(secret_findings + ast_findings + ruff_findings)
+    hard: List[str] = []
+    # B6: HEAD-tree secrets hard-fail only outside test fixtures.
     for f in secret_findings:
+        title = f["title"]
+        rel_part = ""
+        if " at " in title:
+            rel_part = title.split(" at ", 1)[-1].rsplit(":", 1)[0]
+        if is_test_fixture_path(rel_part):
+            continue
         if "aws_access_key_id" in f["fingerprint"] or "private_key_header" in f["fingerprint"]:
             hard.append(f["title"])
+
+    if ruff_metrics.get("ruff_absent"):
+        findings.append(
+            {
+                "fingerprint": "struct:ruff_absent",
+                "title": "ruff detector absent on runner — structural coverage reduced",
+                "severity": "low",
+                "detectors": ["ruff"],
+                "confirmation": "unconfirmed",
+                "lens_routing_rule": "sast_or_secret_to_structural",
+                "evidence_refs": ["structural/ruff.json"],
+            }
+        )
 
     high = sum(1 for f in findings if f.get("severity") in {"high", "critical"})
     if hard:
@@ -213,13 +279,15 @@ def run_structural(root: Path, evidence_dir: Path) -> Dict[str, Any]:
     else:
         status = "pass"
 
+    confidence = "low" if ruff_metrics.get("ruff_absent") else "medium"
     tools = [{"name": "metria-ast", "version": "0.1.0", "ruleset_digest": None}] + ruff_tools
     tools.append({"name": "metria-secret-regex", "version": "0.1.0", "ruleset_digest": None})
+    excluded = existing_skip_dirs(root)
 
     return dimension(
         lens_id="structural",
         status=status,
-        confidence="medium",
+        confidence=confidence,
         findings=findings,
         hard_gate_failures=hard,
         raw_metrics={
@@ -239,9 +307,10 @@ def run_structural(root: Path, evidence_dir: Path) -> Dict[str, Any]:
             "languages_analyzed": ["python"] if loc["py_files"] else [],
             "loc_analyzed": loc["py_loc"],
             "loc_total": loc["total_loc"],
-            "excluded_paths": sorted(SKIP_DIRS),
-            "exclusion_reasons": {d: "tooling_or_vcs" for d in sorted(SKIP_DIRS)},
+            "excluded_paths": excluded,
+            "exclusion_reasons": {d: "tooling_or_vcs" for d in excluded},
         },
         tools=tools,
+        suppressions_applied=ruff_suppressions,
         maturity="core",
     )

@@ -1,5 +1,8 @@
 {
   "lockfiles": [],
   "packages": [],
-  "component_count": 0
+  "runtime_packages": [],
+  "non_runtime_packages": [],
+  "component_count": 0,
+  "runtime_component_count": 0
 }

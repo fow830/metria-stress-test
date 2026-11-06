@@ -1,1 +1,522 @@
-[]
+[
+  {
+    "fingerprint": "struct:ruff:S101:360fd43598f9a17a",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_auth.py:235",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S324:e73fcb0e725199e4",
+    "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at <subject>/httpx/_auth.py:309",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:483e3b7dbd27edfb",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:681",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:f557bb26caba01f5",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:690",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:40c8a25884b9c9ce",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:822",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:d58b7b3531d5267c",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_client.py:1029",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:303a6412fe828b2e",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:1428",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:e56b9102c891555c",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:1437",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:b609f12046a8b48b",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:1570",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:058edc405f8f46ef",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_client.py:1778",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:f4da5ea040776c78",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:221",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:ff3cc046bfc131e2",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:222",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:37c867e9d5033346",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:223",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:3161f22163944aa6",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:224",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:62a87899b56ad04f",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_content.py:204",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:3a04f566be007bc6",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_decoders.py:162",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:556e991967e84bd7",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_main.py:282",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S105:a6839ed87a6e4b63",
+    "title": "ruff S105: Possible hardcoded password assigned to: \"password\" at <subject>/httpx/_main.py:294",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:db339bae480f6f59",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_models.py:407",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:b50257076b59cfa2",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_models.py:421",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:7f6e3fdf70e8e067",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_models.py:1135",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:40c72f7a38f330e8",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:90",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:6426f9645e65c948",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:139",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:9475583458bc44bd",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:146",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:3ba579417637ef6f",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:168",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:4a314d18385248c0",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:169",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:98bf1449005750fc",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:170",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:3192edac11828cbb",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:221",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:5e51e975ad523748",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:238",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:70d4405f3669a06e",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:362",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:85bc6efd9be6f701",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:379",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:be3616062ed7a20c",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/wsgi.py:138",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:e4869b775dff86d1",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/wsgi.py:139",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:a70629df7696aa0c",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_urlparse.py:229",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:3043c4536ee00933",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_urlparse.py:245",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:763723236114746a",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:316",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:caeb8367da593025",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:331",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:7f17dca101e407c8",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:347",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:c02b90b6ea7352cd",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:366",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:e16a80b88bb873c6",
+    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_urls.py:426",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  }
+]

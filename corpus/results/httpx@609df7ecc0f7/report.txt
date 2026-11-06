@@ -1,21 +1,21 @@
-Metria — WARN                      commit 609df7e · policy digest sha256:75b23f41d9a… · schema 0.1
+Metria — WARN                      commit 609df7e · policy digest sha256:493d5e44b95… · schema 0.1
 
 HARD GATES
   (none)
 
 LENSES
-  structural       WARN           finding_count=25 · high_or_critical=8 · secrets_head=0
-  supply_chain     WARN           components=15
+  structural       WARN           finding_count=48 · high_or_critical=8 · secrets_head=0
+  supply_chain     WARN           components=20
   controls         UNDECLARED  
   test_adequacy    NOT MEASURED   suite=collect_failed · test_file_count=31
   architectural    UNDECLARED  
   normative        UNDECLARED    [experimental]
 
 TOP RISKS
-  1. GHSA-537c-gmf6-5ccf in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels
-  2. GHSA-6w46-j5rx-g56g in pytest==8.3.1: pytest has vulnerable tmpdir handling
-  3. GHSA-79v4-65xg-pq4g in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels
-  4. GHSA-h4gh-qq45-vh27 in cryptography==43.0.0: pyca/cryptography has a vulnerable OpenSSL included in cryptography wheels
-  5. GHSA-jwv3-5hgf-82ww in cryptography==43.0.0: python-cryptography: Duplicate self-signed intermediates can cause exponential path-building
+  1. pickle.loads() at tests/models/test_requests.py:210
+  2. pickle.loads() at tests/models/test_responses.py:964
+  3. pickle.loads() at tests/models/test_requests.py:219
+  4. pickle.loads() at tests/models/test_requests.py:227
+  5. pickle.loads() at tests/models/test_requests.py:202
 
-evidence · sha256 553b38c0066d… · reproducible: metria run <repo>@609df7ecc0f7cb10a1c998aa9c269bba77337c5f --profile cold_external
+evidence · sha256 dcedb8fab98a… · reproducible: metria run <repo>@609df7ecc0f7cb10a1c998aa9c269bba77337c5f --profile cold_external

@@ -1,18 +1,18 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_098817563615",
+  "run_id": "run_f50290acc530",
   "subject": {
     "repo_url": "https://github.com/encode/httpx",
     "commit_sha": "609df7ecc0f7cb10a1c998aa9c269bba77337c5f",
-    "tree_digest": "sha256:a79ac892269f4ea7cdd8eac9ef2fdaa5ea5d614e96c1ecf8418c9b68038ae184"
+    "tree_digest": "git_tree:eb588c22adc997f4cff844ffd0c71e77c4ee9a7e"
   },
-  "runner_image_digest": null,
-  "policy_digest": "sha256:75b23f41d9adf7ae28b7ed5fe584e505d837cd227e22db137cdc188757825e55",
-  "started_at": "2026-11-06T19:25:12Z",
-  "finished_at": "2026-11-06T19:25:19Z",
+  "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
+  "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
+  "started_at": "2026-11-06T19:52:26Z",
+  "finished_at": "2026-11-06T19:52:45Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 6
+    "used_s": 19
   },
   "overall": "warn",
   "lenses": {
@@ -129,234 +129,534 @@
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:491f957f9f458cb5",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:37",
+          "fingerprint": "struct:ruff:S101:360fd43598f9a17a",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_auth.py:235",
           "severity": "medium",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:b3ecb621096048b9",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:45",
+          "fingerprint": "struct:ruff:S324:e73fcb0e725199e4",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at <subject>/httpx/_auth.py:309",
           "severity": "medium",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:b72b7465f0a099be",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:64",
-          "severity": "medium",
+          "fingerprint": "struct:ruff:B028:483e3b7dbd27edfb",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:681",
+          "severity": "low",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:7ba6afabe7e0f474",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:80",
-          "severity": "medium",
+          "fingerprint": "struct:ruff:B028:f557bb26caba01f5",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:690",
+          "severity": "low",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:d94240ff22ca844e",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:81",
-          "severity": "medium",
+          "fingerprint": "struct:ruff:B028:40c8a25884b9c9ce",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:822",
+          "severity": "low",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:12cb008ca118afcc",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:82",
+          "fingerprint": "struct:ruff:S101:d58b7b3531d5267c",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_client.py:1029",
           "severity": "medium",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:ea1ad40c9d74e44c",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:83",
-          "severity": "medium",
+          "fingerprint": "struct:ruff:B028:303a6412fe828b2e",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:1428",
+          "severity": "low",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:54e4b2c511255a18",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:84",
-          "severity": "medium",
+          "fingerprint": "struct:ruff:B028:e56b9102c891555c",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:1437",
+          "severity": "low",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:166e6fc63c966b99",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:85",
-          "severity": "medium",
+          "fingerprint": "struct:ruff:B028:b609f12046a8b48b",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:1570",
+          "severity": "low",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:c58b6a69acbd8347",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:86",
+          "fingerprint": "struct:ruff:S101:058edc405f8f46ef",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_client.py:1778",
           "severity": "medium",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:527d93a508bb2906",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:87",
+          "fingerprint": "struct:ruff:S101:f4da5ea040776c78",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:221",
           "severity": "medium",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:d1e2ec0efbff713a",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:93",
+          "fingerprint": "struct:ruff:S101:ff3cc046bfc131e2",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:222",
           "severity": "medium",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:3ca6e3523831a928",
-          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:94",
+          "fingerprint": "struct:ruff:S101:37c867e9d5033346",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:223",
           "severity": "medium",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:cbc0ebfc82011a6a",
-          "title": "Use of compile() on dynamic input at httpx/_utils.py:26",
+          "fingerprint": "struct:ruff:S101:3161f22163944aa6",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:224",
           "severity": "medium",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:d847734b8c3a3490",
-          "title": "Use of compile() on dynamic input at httpx/_utils.py:380",
-          "severity": "medium",
+          "fingerprint": "struct:ruff:B028:62a87899b56ad04f",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_content.py:204",
+          "severity": "low",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:45a1b7f125381348",
-          "title": "Use of compile() on dynamic input at httpx/_utils.py:384",
+          "fingerprint": "struct:ruff:S101:3a04f566be007bc6",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_decoders.py:162",
           "severity": "medium",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
           ]
         },
         {
-          "fingerprint": "struct:ast:compile:1c76e2df9bb5a192",
-          "title": "Use of compile() on dynamic input at httpx/_utils.py:388",
-          "severity": "medium",
+          "fingerprint": "struct:ruff:B904:556e991967e84bd7",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_main.py:282",
+          "severity": "low",
           "detectors": [
-            "ast"
+            "ruff"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "sast_or_secret_to_structural",
           "evidence_refs": [
-            "structural/ast:compile.json"
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S105:a6839ed87a6e4b63",
+          "title": "ruff S105: Possible hardcoded password assigned to: \"password\" at <subject>/httpx/_main.py:294",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:db339bae480f6f59",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_models.py:407",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:b50257076b59cfa2",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_models.py:421",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:7f6e3fdf70e8e067",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_models.py:1135",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:40c72f7a38f330e8",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:90",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:6426f9645e65c948",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:139",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:9475583458bc44bd",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:146",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:3ba579417637ef6f",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:168",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:4a314d18385248c0",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:169",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:98bf1449005750fc",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:170",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:3192edac11828cbb",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:221",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:5e51e975ad523748",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:238",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:70d4405f3669a06e",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:362",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:85bc6efd9be6f701",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:379",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:be3616062ed7a20c",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/wsgi.py:138",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:e4869b775dff86d1",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/wsgi.py:139",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:a70629df7696aa0c",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_urlparse.py:229",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:3043c4536ee00933",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_urlparse.py:245",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:763723236114746a",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:316",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:caeb8367da593025",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:331",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:7f17dca101e407c8",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:347",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:c02b90b6ea7352cd",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:366",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:e16a80b88bb873c6",
+          "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_urls.py:426",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
           ]
         }
       ],
       "raw_metrics": {
-        "finding_count": 25,
+        "finding_count": 48,
         "high_or_critical": 8,
         "secrets_head": 0,
-        "ast_findings": 25,
+        "ast_findings": 8,
         "ruff_ran": true,
-        "ruff_issue_count": 0,
+        "ruff_issue_count": 1360,
+        "ruff_absent": false,
         "py_files": 61
       },
       "evidence_refs": [
@@ -371,34 +671,10 @@
         "loc_analyzed": 18256,
         "loc_total": 49080,
         "excluded_paths": [
-          ".eggs",
-          ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".git"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
-          ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".git": "tooling_or_vcs"
         }
       },
       "tools": [
@@ -410,7 +686,7 @@
         {
           "name": "ruff",
           "version": "ruff 0.15.1",
-          "ruleset_digest": null
+          "ruleset_digest": "metria-isolated-SBE9F82x"
         },
         {
           "name": "metria-secret-regex",
@@ -418,7 +694,15 @@
           "ruleset_digest": null
         }
       ],
-      "suppressions_applied": [],
+      "suppressions_applied": [
+        {
+          "rule": "ruff-isolated",
+          "path": ".",
+          "justification": "Metria runs ruff --isolated with fixed select; subject noqa/config ignored",
+          "expires_at": null,
+          "source": "policy"
+        }
+      ],
       "maturity": "core",
       "rubric_id": null
     },
@@ -431,134 +715,72 @@
       "hard_gate_failures": [],
       "findings": [
         {
-          "fingerprint": "sca:GHSA-537c-gmf6-5ccf:cryptography@43.0.0",
-          "title": "GHSA-537c-gmf6-5ccf in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels",
-          "severity": "high",
+          "fingerprint": "sca:unpinned:anyio",
+          "title": "Unpinned runtime dependency anyio (CVE lookup skipped)",
+          "severity": "low",
           "detectors": [
-            "osv"
+            "inventory"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/osv.json"
+            "supply_chain/inventory.json"
           ]
         },
         {
-          "fingerprint": "sca:GHSA-79v4-65xg-pq4g:cryptography@43.0.0",
-          "title": "GHSA-79v4-65xg-pq4g in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels",
-          "severity": "high",
+          "fingerprint": "sca:unpinned:certifi",
+          "title": "Unpinned runtime dependency certifi (CVE lookup skipped)",
+          "severity": "low",
           "detectors": [
-            "osv"
+            "inventory"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/osv.json"
+            "supply_chain/inventory.json"
           ]
         },
         {
-          "fingerprint": "sca:GHSA-h4gh-qq45-vh27:cryptography@43.0.0",
-          "title": "GHSA-h4gh-qq45-vh27 in cryptography==43.0.0: pyca/cryptography has a vulnerable OpenSSL included in cryptography wheels",
-          "severity": "high",
+          "fingerprint": "sca:unpinned:idna",
+          "title": "Unpinned runtime dependency idna (CVE lookup skipped)",
+          "severity": "low",
           "detectors": [
-            "osv"
+            "inventory"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/osv.json"
+            "supply_chain/inventory.json"
           ]
         },
         {
-          "fingerprint": "sca:GHSA-jwv3-5hgf-82ww:cryptography@43.0.0",
-          "title": "GHSA-jwv3-5hgf-82ww in cryptography==43.0.0: python-cryptography: Duplicate self-signed intermediates can cause exponential path-building",
-          "severity": "high",
+          "fingerprint": "sca:unpinned:sniffio",
+          "title": "Unpinned runtime dependency sniffio (CVE lookup skipped)",
+          "severity": "low",
           "detectors": [
-            "osv"
+            "inventory"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/osv.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:GHSA-m959-cc7f-wv43:cryptography@43.0.0",
-          "title": "GHSA-m959-cc7f-wv43 in cryptography==43.0.0: cryptography has incomplete DNS name constraint enforcement on peer names",
-          "severity": "high",
-          "detectors": [
-            "osv"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/osv.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:GHSA-xvg9-69gf-fjrf:mkdocs-material@9.5.30",
-          "title": "GHSA-xvg9-69gf-fjrf in mkdocs-material==9.5.30: Material for MkDocs: DOM XSS in search suggestions via query parameter",
-          "severity": "high",
-          "detectors": [
-            "osv"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/osv.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:PYSEC-2026-3864:mkdocs-material@9.5.30",
-          "title": "PYSEC-2026-3864 in mkdocs-material==9.5.30: Material for MkDocs: DOM XSS in search suggestions via query parameter",
-          "severity": "high",
-          "detectors": [
-            "osv"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/osv.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:GHSA-6w46-j5rx-g56g:pytest@8.3.1",
-          "title": "GHSA-6w46-j5rx-g56g in pytest==8.3.1: pytest has vulnerable tmpdir handling",
-          "severity": "high",
-          "detectors": [
-            "osv"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/osv.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:PYSEC-2026-1845:pytest@8.3.1",
-          "title": "PYSEC-2026-1845 in pytest==8.3.1: pytest has vulnerable tmpdir handling",
-          "severity": "high",
-          "detectors": [
-            "osv"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/osv.json"
+            "supply_chain/inventory.json"
           ]
         }
       ],
       "raw_metrics": {
-        "components": 15,
+        "components": 20,
+        "runtime_components": 5,
+        "non_runtime_components": 15,
         "lockfiles": [
           "pyproject.toml",
           "requirements.txt"
         ],
         "sbom_files": [],
-        "osv_queries": 14,
-        "osv_vuln_hits": 15,
-        "osv_skipped_unpinned": 1,
-        "osv_errors": 0
+        "osv_queries": 1,
+        "osv_vuln_hits": 0,
+        "osv_skipped_unpinned": 4,
+        "osv_errors": 0,
+        "osv_error_samples": []
       },
       "evidence_refs": [
         "supply_chain/inventory.json",
@@ -569,37 +791,13 @@
         "languages_analyzed": [
           "python"
         ],
-        "loc_analyzed": 18256,
-        "loc_total": 49098,
+        "loc_analyzed": 0,
+        "loc_total": 49080,
         "excluded_paths": [
-          ".eggs",
-          ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".git"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
-          ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".git": "tooling_or_vcs"
         }
       },
       "tools": [
@@ -622,7 +820,8 @@
           "id": "inventory",
           "status": "pass",
           "raw_metrics": {
-            "components": 15,
+            "components": 20,
+            "runtime_components": 5,
             "lockfiles": [
               "pyproject.toml",
               "requirements.txt"
@@ -661,36 +860,12 @@
           "python"
         ],
         "loc_analyzed": 18256,
-        "loc_total": 49098,
+        "loc_total": 49080,
         "excluded_paths": [
-          ".eggs",
-          ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".git"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
-          ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".git": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -736,48 +911,58 @@
         ],
         "pytest_config_present": true,
         "suite": "collect_failed",
-        "collect_exit": 4
+        "collect_exit": 4,
+        "runner": {
+          "python": "3.9.6",
+          "platform": "macOS-26.1-arm64-arm-64bit",
+          "implementation": "CPython"
+        },
+        "install": {
+          "installed": [
+            "pytest",
+            "-e .[test]"
+          ],
+          "attempts": [
+            {
+              "args": [
+                "pip",
+                "install",
+                "pip",
+                "pytest"
+              ],
+              "returncode": 0,
+              "stderr_tail": ""
+            },
+            {
+              "args": [
+                "-e",
+                ".[test]"
+              ],
+              "returncode": 0,
+              "stderr_tail": "WARNING: httpx 0.27.2 does not provide the extra 'test'\n"
+            }
+          ],
+          "ok": true
+        }
       },
       "evidence_refs": [
         "test_adequacy/layout.json",
+        "test_adequacy/runner.json",
         "test_adequacy/collect.txt",
-        "test_adequacy/collect_failed.txt"
+        "test_adequacy/collect_failed.txt",
+        "test_adequacy/install.json"
       ],
       "analysis_scope": {
         "languages_analyzed": [
           "python"
         ],
         "loc_analyzed": 18256,
-        "loc_total": 49098,
+        "loc_total": 49080,
         "excluded_paths": [
-          ".eggs",
-          ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".git"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
-          ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".git": "tooling_or_vcs"
         }
       },
       "tools": [
@@ -790,7 +975,7 @@
       "suppressions_applied": [],
       "maturity": "core",
       "rubric_id": null,
-      "null_reason": "build_failed",
+      "null_reason": "test_env_unavailable",
       "null_owner": "metria",
       "null_display": "NOT MEASURED"
     },
@@ -821,36 +1006,12 @@
           "python"
         ],
         "loc_analyzed": 18256,
-        "loc_total": 49098,
+        "loc_total": 49080,
         "excluded_paths": [
-          ".eggs",
-          ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".git"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
-          ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".git": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -882,36 +1043,12 @@
           "python"
         ],
         "loc_analyzed": 18256,
-        "loc_total": 49098,
+        "loc_total": 49080,
         "excluded_paths": [
-          ".eggs",
-          ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".git"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
-          ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".git": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -925,29 +1062,29 @@
   },
   "top_risks": [
     {
-      "summary": "GHSA-537c-gmf6-5ccf in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels",
-      "finding_fingerprint": "sca:GHSA-537c-gmf6-5ccf:cryptography@43.0.0"
+      "summary": "pickle.loads() at tests/models/test_requests.py:210",
+      "finding_fingerprint": "struct:ast:pickle_loads:0c86fffac58ebe3b"
     },
     {
-      "summary": "GHSA-6w46-j5rx-g56g in pytest==8.3.1: pytest has vulnerable tmpdir handling",
-      "finding_fingerprint": "sca:GHSA-6w46-j5rx-g56g:pytest@8.3.1"
+      "summary": "pickle.loads() at tests/models/test_responses.py:964",
+      "finding_fingerprint": "struct:ast:pickle_loads:34c2e5faca0b2662"
     },
     {
-      "summary": "GHSA-79v4-65xg-pq4g in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels",
-      "finding_fingerprint": "sca:GHSA-79v4-65xg-pq4g:cryptography@43.0.0"
+      "summary": "pickle.loads() at tests/models/test_requests.py:219",
+      "finding_fingerprint": "struct:ast:pickle_loads:45dee64e6927ff27"
     },
     {
-      "summary": "GHSA-h4gh-qq45-vh27 in cryptography==43.0.0: pyca/cryptography has a vulnerable OpenSSL included in cryptography wheels",
-      "finding_fingerprint": "sca:GHSA-h4gh-qq45-vh27:cryptography@43.0.0"
+      "summary": "pickle.loads() at tests/models/test_requests.py:227",
+      "finding_fingerprint": "struct:ast:pickle_loads:5b593ff09fcbc042"
     },
     {
-      "summary": "GHSA-jwv3-5hgf-82ww in cryptography==43.0.0: python-cryptography: Duplicate self-signed intermediates can cause exponential path-building",
-      "finding_fingerprint": "sca:GHSA-jwv3-5hgf-82ww:cryptography@43.0.0"
+      "summary": "pickle.loads() at tests/models/test_requests.py:202",
+      "finding_fingerprint": "struct:ast:pickle_loads:7abb4dcd42dcbabf"
     }
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "553b38c0066dc983124b837f5b2cac509e678302b1398591296fbfdbb4552d15",
-    "manifest_sha256": "1f8e41712fcb0fcf2810875c0fee073c3aa7fcb724159a1675a27b873701c751"
+    "sha256": "dcedb8fab98ace9eed266b4fe09a1cf7aa5788a4ab0329198eba62c07c3d0619",
+    "manifest_sha256": "bbd4da7cddcd3bf4c2a87c1587a19ace9f58b5e3d4e6d9426f4124c157103339"
   }
 }

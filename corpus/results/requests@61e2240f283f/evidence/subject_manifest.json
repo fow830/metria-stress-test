@@ -1,5 +1,5 @@
 {
-  "root": "/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5",
+  "root": ".",
   "loc": {
     "py_loc": 11209,
     "total_loc": 46071,
@@ -40,32 +40,70 @@
   "sbom_files": [],
   "packages": [
     {
+      "name": "certifi",
+      "specifier": ">=2017.4.17",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
+      "name": "charset_normalizer",
+      "specifier": ">=2",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
       "name": "httpbin",
-      "specifier": "~=0.10.0"
+      "specifier": "~=0.10.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "idna",
+      "specifier": ">=2.5",
+      "class": "runtime",
+      "source": "setup.cfg"
     },
     {
       "name": "pytest",
-      "specifier": ">=2.8.0"
+      "specifier": ">=2.8.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
     },
     {
       "name": "pytest-cov",
-      "specifier": ""
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
     },
     {
       "name": "pytest-httpbin",
-      "specifier": "==2.0.0"
+      "specifier": "==2.0.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
     },
     {
       "name": "Sphinx",
-      "specifier": "==7.2.6"
+      "specifier": "==7.2.6",
+      "class": "docs",
+      "source": "docs/requirements.txt"
     },
     {
       "name": "trustme",
-      "specifier": ""
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "urllib3",
+      "specifier": ">=1.21.1",
+      "class": "runtime",
+      "source": "setup.cfg"
     },
     {
       "name": "wheel",
-      "specifier": ""
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
     }
   ],
   "languages": [

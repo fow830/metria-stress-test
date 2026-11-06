@@ -5,65 +5,250 @@
   ],
   "packages": [
     {
+      "name": "anyio",
+      "specifier": "",
+      "class": "runtime",
+      "source": "pyproject.toml"
+    },
+    {
       "name": "build",
-      "specifier": "==1.2.1"
+      "specifier": "==1.2.1",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "certifi",
+      "specifier": "",
+      "class": "runtime",
+      "source": "pyproject.toml"
     },
     {
       "name": "chardet",
-      "specifier": "==5.2.0"
+      "specifier": "==5.2.0",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "coverage",
-      "specifier": ""
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "cryptography",
-      "specifier": "==43.0.0"
+      "specifier": "==43.0.0",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "httpcore",
+      "specifier": "==1.",
+      "class": "runtime",
+      "source": "pyproject.toml"
+    },
+    {
+      "name": "idna",
+      "specifier": "",
+      "class": "runtime",
+      "source": "pyproject.toml"
     },
     {
       "name": "mkautodoc",
-      "specifier": "==0.2.0"
+      "specifier": "==0.2.0",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "mkdocs",
-      "specifier": "==1.6.0"
+      "specifier": "==1.6.0",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "mkdocs-material",
-      "specifier": "==9.5.30"
+      "specifier": "==9.5.30",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "mypy",
-      "specifier": "==1.11.0"
+      "specifier": "==1.11.0",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "pytest",
-      "specifier": "==8.3.1"
+      "specifier": "==8.3.1",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "ruff",
-      "specifier": "==0.5.4"
+      "specifier": "==0.5.4",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "sniffio",
+      "specifier": "",
+      "class": "runtime",
+      "source": "pyproject.toml"
     },
     {
       "name": "trio",
-      "specifier": "==0.26.0"
+      "specifier": "==0.26.0",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "trio-typing",
-      "specifier": "==0.10.0"
+      "specifier": "==0.10.0",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "trustme",
-      "specifier": "==1.1.0"
+      "specifier": "==1.1.0",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "twine",
-      "specifier": "==5.1.1"
+      "specifier": "==5.1.1",
+      "class": "dev",
+      "source": "requirements.txt"
     },
     {
       "name": "uvicorn",
-      "specifier": "==0.30.3"
+      "specifier": "==0.30.3",
+      "class": "dev",
+      "source": "requirements.txt"
     }
   ],
-  "component_count": 15
+  "runtime_packages": [
+    {
+      "name": "anyio",
+      "specifier": "",
+      "class": "runtime",
+      "source": "pyproject.toml"
+    },
+    {
+      "name": "certifi",
+      "specifier": "",
+      "class": "runtime",
+      "source": "pyproject.toml"
+    },
+    {
+      "name": "httpcore",
+      "specifier": "==1.",
+      "class": "runtime",
+      "source": "pyproject.toml"
+    },
+    {
+      "name": "idna",
+      "specifier": "",
+      "class": "runtime",
+      "source": "pyproject.toml"
+    },
+    {
+      "name": "sniffio",
+      "specifier": "",
+      "class": "runtime",
+      "source": "pyproject.toml"
+    }
+  ],
+  "non_runtime_packages": [
+    {
+      "name": "build",
+      "specifier": "==1.2.1",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "chardet",
+      "specifier": "==5.2.0",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "coverage",
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "cryptography",
+      "specifier": "==43.0.0",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "mkautodoc",
+      "specifier": "==0.2.0",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "mkdocs",
+      "specifier": "==1.6.0",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "mkdocs-material",
+      "specifier": "==9.5.30",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "mypy",
+      "specifier": "==1.11.0",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "pytest",
+      "specifier": "==8.3.1",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "ruff",
+      "specifier": "==0.5.4",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "trio",
+      "specifier": "==0.26.0",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "trio-typing",
+      "specifier": "==0.10.0",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "trustme",
+      "specifier": "==1.1.0",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "twine",
+      "specifier": "==5.1.1",
+      "class": "dev",
+      "source": "requirements.txt"
+    },
+    {
+      "name": "uvicorn",
+      "specifier": "==0.30.3",
+      "class": "dev",
+      "source": "requirements.txt"
+    }
+  ],
+  "component_count": 20,
+  "runtime_component_count": 5
 }

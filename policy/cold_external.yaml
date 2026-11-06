@@ -6,8 +6,8 @@ description: >
   History secrets are out of scope for hard gates in v0.1.
 
 wall_clock_s: 1800
-test_collect_timeout_s: 60
-test_run_timeout_s: 180
+test_collect_timeout_s: 120
+test_run_timeout_s: 300
 
 cve:
   # OSV hits with severity critical become hard gates in the MVP adapter.

@@ -464,8 +464,8 @@ tests/test_utils.py::TestGuessFilename::test_guess_filename_invalid[value1]
 tests/test_utils.py::TestGuessFilename::test_guess_filename_valid[value-bytes]
 tests/test_utils.py::TestGuessFilename::test_guess_filename_valid[value-str]
 tests/test_utils.py::TestExtractZippedPaths::test_unzipped_paths_unchanged[/]
-tests/test_utils.py::TestExtractZippedPaths::test_unzipped_paths_unchanged[/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_utils.py]
-tests/test_utils.py::TestExtractZippedPaths::test_unzipped_paths_unchanged[/Users/user/Library/Python/3.9/lib/python/site-packages/pytest/__init__.py]
+tests/test_utils.py::TestExtractZippedPaths::test_unzipped_paths_unchanged[<subject>/tests/test_utils.py]
+tests/test_utils.py::TestExtractZippedPaths::test_unzipped_paths_unchanged[<metria-tmp>
 tests/test_utils.py::TestExtractZippedPaths::test_unzipped_paths_unchanged[/etc/invalid/location]
 tests/test_utils.py::TestExtractZippedPaths::test_zipped_paths_extracted
 tests/test_utils.py::TestExtractZippedPaths::test_invalid_unc_path
@@ -605,5 +605,11 @@ tests/test_utils.py::test_set_environ[a_new_key-None]
 tests/test_utils.py::test_set_environ_raises_exception
 tests/test_utils.py::test_should_bypass_proxies_win_registry_ProxyOverride_value
 
-606 tests collected in 0.34s
+=============================== warnings summary ===============================
+../metria-adeq-zju6h2rf/venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+  <metria-tmp>:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+606 tests collected in 0.35s
 

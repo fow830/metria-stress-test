@@ -1,1 +1,522 @@
-[]
+[
+  {
+    "fingerprint": "struct:ruff:S311:65b86b8c6386ad5c",
+    "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at <subject>/examples/termui/termui.py:43",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S311:6eeb7d8b4db55b7f",
+    "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at <subject>/examples/termui/termui.py:47",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:bd8ebb78927c62d4",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:70",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:f0ab810c7d0f25a9",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:163",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S311:9729fda6dab84a5e",
+    "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at <subject>/src/click/_compat.py:431",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:0a8323a94b4ef511",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:551",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:064c3947717a3c29",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:599",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S605:042bc468a5835731",
+    "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at <subject>/src/click/_termui_impl.py:380",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S607:01cb735cd39bbd8e",
+    "title": "ruff S607: Starting a process with a partial executable path at <subject>/src/click/_termui_impl.py:380",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S605:8232a887a75efe50",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:388",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S602:6d269653d75ee9cb",
+    "title": "ruff S602: `subprocess` call with `shell=True` identified, security issue at <subject>/src/click/_termui_impl.py:414",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S605:2212491ed651f1c3",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:460",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S605:cd04d6bac0cd5f6a",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:499",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S602:8b3a49dc4b792d6e",
+    "title": "ruff S602: `subprocess` call with `shell=True` identified, security issue at <subject>/src/click/_termui_impl.py:514",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S603:f69d8533eb098760",
+    "title": "ruff S603: `subprocess` call: check for execution of untrusted input at <subject>/src/click/_termui_impl.py:593",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S605:fb22c9680c74734b",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:604",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S605:575fb33e46463b77",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:613",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S603:9ce5a7558c136980",
+    "title": "ruff S603: `subprocess` call: check for execution of untrusted input at <subject>/src/click/_termui_impl.py:620",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S607:82d0b268e9b8529a",
+    "title": "ruff S607: Starting a process with a partial executable path at <subject>/src/click/_termui_impl.py:620",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:2e3814ae9bf88128",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/_winconsole.py:30",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:f8e1e4f39ca89b58",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_winconsole.py:195",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B905:5869514e0250a6c8",
+    "title": "ruff B905: `zip()` without an explicit `strict=` parameter at <subject>/src/click/core.py:92",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:174abfebb1c92942",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1683",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:d654aeef7b807be4",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1705",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:46307ff03e35fdce",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1877",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:909c1a4bc64e706c",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1928",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:6b47ee62cfc5e2d3",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:2876",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:c7fb39cb792600fd",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/decorators.py:210",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:b7a0d8710b85123d",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/decorators.py:211",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:6b5acaba2f3b6858",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/parser.py:225",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S607:f31bd7b2976501e3",
+    "title": "ruff S607: Starting a process with a partial executable path at <subject>/src/click/shell_completion.py:309",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:28309fdf6f07f243",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/shell_completion.py:448",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:f3c6bd95d302df1d",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/testing.py:326",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:d66ac7068dab5afa",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/testing.py:336",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B905:0bb1211fb6787893",
+    "title": "ruff B905: `zip()` without an explicit `strict=` parameter at <subject>/src/click/types.py:996",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:ad36c3572b31db6d",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/utils.py:39",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:10a77098af66b1aa",
+    "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:18",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:971db31844eaaed2",
+    "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:19",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:76e1a98e6b33861e",
+    "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:41",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:2e373d62895db7cd",
+    "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:42",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  }
+]

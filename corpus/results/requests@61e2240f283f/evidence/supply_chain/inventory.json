@@ -6,33 +6,142 @@
   ],
   "packages": [
     {
+      "name": "certifi",
+      "specifier": ">=2017.4.17",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
+      "name": "charset_normalizer",
+      "specifier": ">=2",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
       "name": "httpbin",
-      "specifier": "~=0.10.0"
+      "specifier": "~=0.10.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "idna",
+      "specifier": ">=2.5",
+      "class": "runtime",
+      "source": "setup.cfg"
     },
     {
       "name": "pytest",
-      "specifier": ">=2.8.0"
+      "specifier": ">=2.8.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
     },
     {
       "name": "pytest-cov",
-      "specifier": ""
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
     },
     {
       "name": "pytest-httpbin",
-      "specifier": "==2.0.0"
+      "specifier": "==2.0.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
     },
     {
       "name": "Sphinx",
-      "specifier": "==7.2.6"
+      "specifier": "==7.2.6",
+      "class": "docs",
+      "source": "docs/requirements.txt"
     },
     {
       "name": "trustme",
-      "specifier": ""
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "urllib3",
+      "specifier": ">=1.21.1",
+      "class": "runtime",
+      "source": "setup.cfg"
     },
     {
       "name": "wheel",
-      "specifier": ""
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
     }
   ],
-  "component_count": 7
+  "runtime_packages": [
+    {
+      "name": "certifi",
+      "specifier": ">=2017.4.17",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
+      "name": "charset_normalizer",
+      "specifier": ">=2",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
+      "name": "idna",
+      "specifier": ">=2.5",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
+      "name": "urllib3",
+      "specifier": ">=1.21.1",
+      "class": "runtime",
+      "source": "setup.cfg"
+    }
+  ],
+  "non_runtime_packages": [
+    {
+      "name": "httpbin",
+      "specifier": "~=0.10.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "pytest",
+      "specifier": ">=2.8.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "pytest-cov",
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "pytest-httpbin",
+      "specifier": "==2.0.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "Sphinx",
+      "specifier": "==7.2.6",
+      "class": "docs",
+      "source": "docs/requirements.txt"
+    },
+    {
+      "name": "trustme",
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "wheel",
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    }
+  ],
+  "component_count": 11,
+  "runtime_component_count": 4
 }

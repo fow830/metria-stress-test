@@ -141,26 +141,30 @@ def aggregate_overall(lenses: Dict[str, Dict[str, Any]]) -> str:
 
 
 def top_risks_from_lenses(lenses: Dict[str, Dict[str, Any]], limit: int = 5) -> List[Dict[str, str]]:
+    """N-7: hard gates reference the underlying finding fingerprint (no hardgate: pseudo-fp)."""
     severity_rank = {"critical": 0, "high": 1, "medium": 2, "low": 3, "info": 4}
     items = []
     for lens in lenses.values():
+        hard_titles = set(lens.get("hard_gate_failures") or [])
         for finding in lens.get("findings") or []:
-            items.append(
-                (
-                    severity_rank.get(finding.get("severity", "info"), 9),
-                    finding.get("fingerprint", ""),
-                    finding.get("title", ""),
-                )
-            )
-        for gate in lens.get("hard_gate_failures") or []:
-            items.append((0, f"hardgate:{lens['id']}", gate))
+            title = finding.get("title", "")
+            rank = severity_rank.get(finding.get("severity", "info"), 9)
+            if title in hard_titles:
+                rank = 0
+            items.append((rank, finding.get("fingerprint", ""), title))
+        # Hard-gate titles with no matching finding (should be rare) still surface once.
+        for gate in hard_titles:
+            if not any(f.get("title") == gate for f in (lens.get("findings") or [])):
+                items.append((0, f"hardgate:{lens['id']}:{hashlib.sha256(gate.encode()).hexdigest()[:12]}", gate))
     items.sort(key=lambda x: (x[0], x[1]))
     out = []
     seen = set()
+    seen_titles = set()
     for _, fp, title in items:
-        if fp in seen:
+        if fp in seen or title in seen_titles:
             continue
         seen.add(fp)
+        seen_titles.add(title)
         out.append({"summary": title, "finding_fingerprint": fp})
         if len(out) >= limit:
             break

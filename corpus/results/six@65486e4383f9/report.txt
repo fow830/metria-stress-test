@@ -1,11 +1,11 @@
-Metria — WARN                      commit 65486e4 · policy digest sha256:75b23f41d9a… · schema 0.1
+Metria — WARN                      commit 65486e4 · policy digest sha256:493d5e44b95… · schema 0.1
 
 HARD GATES
   (none)
 
 LENSES
-  structural       WARN           finding_count=17 · high_or_critical=1 · secrets_head=0
-  supply_chain     WARN           components=0
+  structural       WARN           finding_count=41 · high_or_critical=1 · secrets_head=0
+  supply_chain     PASS           components=0
   controls         UNDECLARED  
   test_adequacy    WARN           suite=green · strong_oracle=False · test_file_count=1
   architectural    UNDECLARED  
@@ -14,8 +14,8 @@ LENSES
 TOP RISKS
   1. Use of exec() at six.py:735
   2. Suite green but no strong oracle (mutation/PBT) measured
-  3. No lockfile/requirements inventory found
-  4. ruff F821: Undefined name `basestring` at six.py:49
-  5. ruff F821: Undefined name `unicode` at test_six.py:1036
+  3. ruff S101: Use of `assert` detected at <subject>/test_six.py:54
+  4. ruff S101: Use of `assert` detected at <subject>/test_six.py:49
+  5. ruff S101: Use of `assert` detected at <subject>/test_six.py:164
 
-evidence · sha256 fb4da3bc7ca7… · reproducible: metria run <repo>@65486e4383f9f411da95937451205d3c7b61b9e1 --profile cold_external
+evidence · sha256 5c2eebb6bd6d… · reproducible: metria run <repo>@65486e4383f9f411da95937451205d3c7b61b9e1 --profile cold_external

@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import platform
 import subprocess
+import sys
 import time
 import uuid
 from pathlib import Path
@@ -13,7 +15,13 @@ from typing import Any, Dict, Optional
 import yaml
 
 from metria.adapters import structural, supply_chain, test_adequacy
-from metria.discovery import discover, find_architecture_rules, find_normative_artifacts, count_loc, SKIP_DIRS
+from metria.discovery import (
+    discover,
+    find_architecture_rules,
+    find_normative_artifacts,
+    count_loc,
+    existing_skip_dirs,
+)
 from metria.evidence import write_evidence_pack, write_json
 from metria.model import aggregate_overall, top_risks_from_lenses, undeclared, utc_now
 from metria.render import render_report
@@ -39,52 +47,54 @@ def git_commit_sha(root: Path) -> str:
 
 
 def git_tree_digest(root: Path) -> str:
-    # git write-tree requires index; use rev-parse HEAD^{tree}
+    # N-11: honest label of git tree id (not a content hash of the tree object bytes).
     tree = subprocess.check_output(
         ["git", "rev-parse", "HEAD^{tree}"], cwd=str(root), text=True
     ).strip()
-    return "sha256:" + hashlib.sha256(tree.encode("utf-8")).hexdigest()
+    return f"git_tree:{tree}"
+
+
+def runner_environment() -> Dict[str, Any]:
+    return {
+        "python": sys.version.split()[0],
+        "python_full": sys.version.replace("\n", " "),
+        "platform": platform.platform(),
+        "system": platform.system(),
+        "machine": platform.machine(),
+        "metria_version": "0.1.0",
+    }
+
+
+def _scope(root: Path) -> Dict[str, Any]:
+    loc = count_loc(root)
+    excluded = existing_skip_dirs(root)
+    return {
+        "languages_analyzed": ["python"] if loc["py_files"] else [],
+        "loc_analyzed": loc["py_loc"],
+        "loc_total": loc["total_loc"],
+        "excluded_paths": excluded,
+        "exclusion_reasons": {d: "tooling_or_vcs" for d in excluded},
+    }
 
 
 def _controls_undeclared(root: Path) -> Dict[str, Any]:
-    loc = count_loc(root)
     return undeclared(
         "controls",
         raw_metrics={"asvs_scope_provided": False},
         evidence_refs=["subject_manifest.json"],
-        analysis_scope={
-            "languages_analyzed": ["python"] if loc["py_files"] else [],
-            "loc_analyzed": loc["py_loc"],
-            "loc_total": loc["total_loc"],
-            "excluded_paths": sorted(SKIP_DIRS),
-            "exclusion_reasons": {d: "tooling_or_vcs" for d in sorted(SKIP_DIRS)},
-        },
+        analysis_scope=_scope(root),
     )
 
 
 def _architectural_undeclared(root: Path, manifest: Dict[str, Any]) -> Dict[str, Any]:
-    loc = count_loc(root)
     arch = manifest.get("architecture") or find_architecture_rules(root)
-    if any(arch.values()):
-        # declared rules exist but we do not execute them in this MVP slice → NOT MEASURED later;
-        # Claude: empty → UNDECLARED. If markers exist but we don't run: still treat as subject declared
-        # for discovery, but status remains null with adapter_gap / metria? Prefer subject undeclared
-        # only when none found.
-        pass
     if not any(arch.values()):
         return undeclared(
             "architectural",
             raw_metrics={"checked": ["import-linter", "ArchUnit", "Sonar architecture"], **arch},
             evidence_refs=["subject_manifest.json"],
-            analysis_scope={
-                "languages_analyzed": ["python"] if loc["py_files"] else [],
-                "loc_analyzed": loc["py_loc"],
-                "loc_total": loc["total_loc"],
-                "excluded_paths": sorted(SKIP_DIRS),
-                "exclusion_reasons": {d: "tooling_or_vcs" for d in sorted(SKIP_DIRS)},
-            },
+            analysis_scope=_scope(root),
         )
-    # Markers present but adapter does not execute fitness tests yet.
     from metria.model import not_measured
 
     return not_measured(
@@ -92,31 +102,18 @@ def _architectural_undeclared(root: Path, manifest: Dict[str, Any]) -> Dict[str,
         null_reason="adapter_gap",
         raw_metrics={"checked": ["import-linter", "ArchUnit", "Sonar architecture"], **arch},
         evidence_refs=["subject_manifest.json"],
-        analysis_scope={
-            "languages_analyzed": ["python"] if loc["py_files"] else [],
-            "loc_analyzed": loc["py_loc"],
-            "loc_total": loc["total_loc"],
-            "excluded_paths": sorted(SKIP_DIRS),
-            "exclusion_reasons": {d: "tooling_or_vcs" for d in sorted(SKIP_DIRS)},
-        },
+        analysis_scope=_scope(root),
     )
 
 
 def _normative_undeclared(root: Path, manifest: Dict[str, Any]) -> Dict[str, Any]:
-    loc = count_loc(root)
     normative = manifest.get("normative") or find_normative_artifacts(root)
     return undeclared(
         "normative",
         maturity="experimental",
         raw_metrics=normative,
         evidence_refs=["subject_manifest.json"],
-        analysis_scope={
-            "languages_analyzed": ["python"] if loc["py_files"] else [],
-            "loc_analyzed": loc["py_loc"],
-            "loc_total": loc["total_loc"],
-            "excluded_paths": sorted(SKIP_DIRS),
-            "exclusion_reasons": {d: "tooling_or_vcs" for d in sorted(SKIP_DIRS)},
-        },
+        analysis_scope=_scope(root),
     )
 
 
@@ -140,7 +137,9 @@ def run_subject(
     sha = (commit_sha or git_commit_sha(root)).lower()
     tree = git_tree_digest(root)
     manifest = discover(root)
+    env_info = runner_environment()
     write_json(evidence_root / "subject_manifest.json", manifest)
+    write_json(evidence_root / "runner_environment.json", env_info)
 
     structural_lens = structural.run_structural(root, evidence_root / "structural")
     supply_lens = supply_chain.run_supply_chain(
@@ -170,6 +169,10 @@ def run_subject(
 
     finished_at = utc_now()
     used = int(time.monotonic() - started)
+    # B4: record runner profile; schema allows null runner_image_digest — put digest-like tag here.
+    runner_tag = (
+        f"local:{env_info['system']}-{env_info['machine']}/cpython-{env_info['python']}"
+    )
     run: Dict[str, Any] = {
         "schema_version": SCHEMA_VERSION,
         "run_id": f"run_{uuid.uuid4().hex[:12]}",
@@ -178,7 +181,7 @@ def run_subject(
             "commit_sha": sha if len(sha) <= 40 else sha[:40],
             "tree_digest": tree,
         },
-        "runner_image_digest": None,
+        "runner_image_digest": runner_tag,
         "policy_digest": policy_digest(policy),
         "started_at": started_at,
         "finished_at": finished_at,
@@ -196,7 +199,6 @@ def run_subject(
         },
     }
 
-    # Containment: never emit banned aggregate fields
     for banned in ("ideal_score", "idealnost", "overall_score", "risk_score", "grade", "band"):
         run.pop(banned, None)
 

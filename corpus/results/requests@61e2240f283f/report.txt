@@ -1,24 +1,21 @@
-Metria — FAIL                      commit 61e2240 · policy digest sha256:75b23f41d9a… · schema 0.1
+Metria — WARN                      commit 61e2240 · policy digest sha256:493d5e44b95… · schema 0.1
 
 HARD GATES
-  structural       Possible secret (private_key_header) at tests/certs/valid/server/server.key:1
-  structural       Possible secret (private_key_header) at tests/certs/mtls/client/client.key:1
-  structural       Possible secret (private_key_header) at tests/certs/expired/ca/ca-private.key:1
-  structural       Possible secret (private_key_header) at tests/certs/expired/server/server.key:1
+  (none)
 
 LENSES
-  structural       FAIL           finding_count=20 · high_or_critical=12 · secrets_head=4
-  supply_chain     PASS           components=7
+  structural       WARN           finding_count=52 · high_or_critical=8 · secrets_head=4
+  supply_chain     WARN           components=11
   controls         UNDECLARED  
-  test_adequacy    FAIL           suite=failed · strong_oracle=False · test_file_count=9
+  test_adequacy    NOT MEASURED   suite=env_error · test_file_count=9
   architectural    UNDECLARED  
   normative        UNDECLARED    [experimental]
 
 TOP RISKS
-  1. Possible secret (private_key_header) at tests/certs/valid/server/server.key:1
-  2. Possible secret (private_key_header) at tests/certs/valid/server/server.key:1
-  3. Possible secret (private_key_header) at tests/certs/expired/ca/ca-private.key:1
-  4. Possible secret (private_key_header) at tests/certs/expired/server/server.key:1
-  5. Possible secret (private_key_header) at tests/certs/mtls/client/client.key:1
+  1. Use of exec() at setup.py:79
+  2. pickle.loads() at tests/test_requests.py:1488
+  3. pickle.loads() at tests/test_requests.py:2975
+  4. pickle.loads() at tests/test_requests.py:1512
+  5. pickle.loads() at tests/test_requests.py:1557
 
-evidence · sha256 02c3dc9a068f… · reproducible: metria run <repo>@61e2240f283f15780ac2d0e2cfefb0fd6fdab627 --profile cold_external
+evidence · sha256 23e17167841c… · reproducible: metria run <repo>@61e2240f283f15780ac2d0e2cfefb0fd6fdab627 --profile cold_external

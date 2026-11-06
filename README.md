@@ -19,13 +19,17 @@ metria run https://github.com/pallets/click@006ae84d651846c944331fff78e340701fe5
 
 Outputs: `stress-run.json` (schema v0.1), `report.txt`, `evidence.zip`.
 
+**Warning:** `metria run` may **execute subject test code** inside an isolated scrubbed
+venv (operator tokens/keys are not inherited). Use `--no-tests` for static discovery
+only — that mode does **not** import or run subject code.
+
 ## What v0.1 measures
 
 | Lens | v0.1 behavior |
 |------|----------------|
-| `structural` | AST danger patterns + HEAD-tree secret heuristics + optional `ruff` |
-| `supply_chain` | Lockfile/requirements inventory + OSV queries; `sbom_practice` as sub-result |
-| `test_adequacy` | pytest discovery/collect/run (budgeted); no strong oracle → `warn` |
+| `structural` | AST danger builtins + HEAD-tree secret heuristics + `ruff --isolated` (or `ruff` marked absent) |
+| `supply_chain` | Runtime deps from `pyproject`/`setup.cfg` + classified requirements; OSV (fail-closed on errors) |
+| `test_adequacy` | Static discovery; optional pytest in scrubbed venv with subject test deps installed |
 | `controls` | `UNDECLARED` |
 | `architectural` | `UNDECLARED` (or `NOT MEASURED` if markers found but not executed) |
 | `normative` | `UNDECLARED` · experimental |
@@ -48,7 +52,13 @@ Subjects are pinned in `corpus/subjects.yaml`. Publish all results, including FA
 ```bash
 python3 scripts/run_corpus.py
 # results → corpus/results/<id>@<sha12>/
+# runner profile → corpus/results/RUNNER_PROFILE.json
 ```
+
+Corpus reproducibility is tied to the documented runner profile (OS / CPython / tool
+versions in `RUNNER_PROFILE.json` and each run’s `runner_image_digest`). Re-run on the
+same profile; expect matching lens statuses (when OSV is unreachable, `supply_chain` is
+`NOT MEASURED`, never silent `PASS`).
 
 | id | repo | tag / pin |
 |----|------|-----------|

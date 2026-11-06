@@ -1,0 +1,27 @@
+{
+  "installed": [
+    "pytest",
+    "-e .[test]"
+  ],
+  "attempts": [
+    {
+      "args": [
+        "pip",
+        "install",
+        "pip",
+        "pytest"
+      ],
+      "returncode": 0,
+      "stderr_tail": ""
+    },
+    {
+      "args": [
+        "-e",
+        ".[test]"
+      ],
+      "returncode": 0,
+      "stderr_tail": "WARNING: six 1.16.0 does not provide the extra 'test'\n"
+    }
+  ],
+  "ok": true
+}

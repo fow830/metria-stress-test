@@ -1,5 +1,15 @@
 
-ImportError while loading conftest '/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-httpx-oma0we4u/tests/conftest.py'.
-tests/conftest.py:9: in <module>
-    import trustme
-E   ModuleNotFoundError: No module named 'trustme'
+ERROR: while parsing the following warning configuration:
+
+  ignore: trio.MultiError is deprecated since Trio 0.22.0:trio.TrioDeprecationWarning
+
+This error occurred:
+
+Traceback (most recent call last):
+  File "<metria-tmp>", line 1967, in parse_warning_filter
+    category: type[Warning] = _resolve_warning_category(category_)
+  File "<metria-tmp>", line 2012, in _resolve_warning_category
+    m = __import__(module, None, None, [klass])
+ModuleNotFoundError: No module named 'trio'
+
+

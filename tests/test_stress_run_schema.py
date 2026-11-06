@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 
 import pytest
-from jsonschema import Draft202012Validator
+from jsonschema import Draft202012Validator, FormatChecker
 from jsonschema.exceptions import ValidationError
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,7 +34,7 @@ INVALID = [
 def validator() -> Draft202012Validator:
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
     Draft202012Validator.check_schema(schema)
-    return Draft202012Validator(schema)
+    return Draft202012Validator(schema, format_checker=FormatChecker())
 
 
 def _load(name: str) -> dict:

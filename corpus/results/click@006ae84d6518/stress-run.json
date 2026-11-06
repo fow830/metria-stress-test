@@ -1,18 +1,18 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_6586bd4f9445",
+  "run_id": "run_88f5d39ba55d",
   "subject": {
     "repo_url": "https://github.com/pallets/click",
     "commit_sha": "006ae84d651846c944331fff78e340701fe58562",
-    "tree_digest": "sha256:d9023330dbd2c37144454a7d7f77b5b45c379b31bb4209bd241fb17fb2a0f18e"
+    "tree_digest": "git_tree:2a2e0a47bf878494db3dd5436114080dd2812dcc"
   },
-  "runner_image_digest": null,
-  "policy_digest": "sha256:75b23f41d9adf7ae28b7ed5fe584e505d837cd227e22db137cdc188757825e55",
-  "started_at": "2026-11-06T19:24:43Z",
-  "finished_at": "2026-11-06T19:24:46Z",
+  "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
+  "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
+  "started_at": "2026-11-06T19:51:17Z",
+  "finished_at": "2026-11-06T19:51:33Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 3
+    "used_s": 16
   },
   "overall": "warn",
   "lenses": {
@@ -24,19 +24,6 @@
       "confidence": "medium",
       "hard_gate_failures": [],
       "findings": [
-        {
-          "fingerprint": "struct:ast:compile:e2e52593d5817610",
-          "title": "Use of compile() on dynamic input at src/click/_compat.py:12",
-          "severity": "medium",
-          "detectors": [
-            "ast"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "sast_or_secret_to_structural",
-          "evidence_refs": [
-            "structural/ast:compile.json"
-          ]
-        },
         {
           "fingerprint": "struct:ast:shell_true:d7368410ec5400a6",
           "title": "subprocess call with shell=True at src/click/_termui_impl.py:414",
@@ -62,15 +49,536 @@
           "evidence_refs": [
             "structural/ast:shell_true.json"
           ]
+        },
+        {
+          "fingerprint": "struct:ruff:S311:65b86b8c6386ad5c",
+          "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at <subject>/examples/termui/termui.py:43",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S311:6eeb7d8b4db55b7f",
+          "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at <subject>/examples/termui/termui.py:47",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:bd8ebb78927c62d4",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:70",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:f0ab810c7d0f25a9",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:163",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S311:9729fda6dab84a5e",
+          "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at <subject>/src/click/_compat.py:431",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:0a8323a94b4ef511",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:551",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:064c3947717a3c29",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:599",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S605:042bc468a5835731",
+          "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at <subject>/src/click/_termui_impl.py:380",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S607:01cb735cd39bbd8e",
+          "title": "ruff S607: Starting a process with a partial executable path at <subject>/src/click/_termui_impl.py:380",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S605:8232a887a75efe50",
+          "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:388",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S602:6d269653d75ee9cb",
+          "title": "ruff S602: `subprocess` call with `shell=True` identified, security issue at <subject>/src/click/_termui_impl.py:414",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S605:2212491ed651f1c3",
+          "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:460",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S605:cd04d6bac0cd5f6a",
+          "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:499",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S602:8b3a49dc4b792d6e",
+          "title": "ruff S602: `subprocess` call with `shell=True` identified, security issue at <subject>/src/click/_termui_impl.py:514",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S603:f69d8533eb098760",
+          "title": "ruff S603: `subprocess` call: check for execution of untrusted input at <subject>/src/click/_termui_impl.py:593",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S605:fb22c9680c74734b",
+          "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:604",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S605:575fb33e46463b77",
+          "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:613",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S603:9ce5a7558c136980",
+          "title": "ruff S603: `subprocess` call: check for execution of untrusted input at <subject>/src/click/_termui_impl.py:620",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S607:82d0b268e9b8529a",
+          "title": "ruff S607: Starting a process with a partial executable path at <subject>/src/click/_termui_impl.py:620",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:2e3814ae9bf88128",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/_winconsole.py:30",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:f8e1e4f39ca89b58",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_winconsole.py:195",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B905:5869514e0250a6c8",
+          "title": "ruff B905: `zip()` without an explicit `strict=` parameter at <subject>/src/click/core.py:92",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:174abfebb1c92942",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1683",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:d654aeef7b807be4",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1705",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:46307ff03e35fdce",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1877",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:909c1a4bc64e706c",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1928",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:6b47ee62cfc5e2d3",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:2876",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:c7fb39cb792600fd",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/decorators.py:210",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:b7a0d8710b85123d",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/decorators.py:211",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:6b5acaba2f3b6858",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/parser.py:225",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S607:f31bd7b2976501e3",
+          "title": "ruff S607: Starting a process with a partial executable path at <subject>/src/click/shell_completion.py:309",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:28309fdf6f07f243",
+          "title": "ruff S101: Use of `assert` detected at <subject>/src/click/shell_completion.py:448",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:f3c6bd95d302df1d",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/testing.py:326",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:d66ac7068dab5afa",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/testing.py:336",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B905:0bb1211fb6787893",
+          "title": "ruff B905: `zip()` without an explicit `strict=` parameter at <subject>/src/click/types.py:996",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:ad36c3572b31db6d",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/utils.py:39",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:10a77098af66b1aa",
+          "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:18",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:971db31844eaaed2",
+          "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:19",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:76e1a98e6b33861e",
+          "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:41",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:2e373d62895db7cd",
+          "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:42",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
         }
       ],
       "raw_metrics": {
-        "finding_count": 3,
+        "finding_count": 42,
         "high_or_critical": 2,
         "secrets_head": 0,
-        "ast_findings": 3,
+        "ast_findings": 2,
         "ruff_ran": true,
-        "ruff_issue_count": 0,
+        "ruff_issue_count": 779,
+        "ruff_absent": false,
         "py_files": 71
       },
       "evidence_refs": [
@@ -85,34 +593,10 @@
         "loc_analyzed": 17551,
         "loc_total": 26186,
         "excluded_paths": [
-          ".eggs",
-          ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".git"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
-          ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".git": "tooling_or_vcs"
         }
       },
       "tools": [
@@ -124,7 +608,7 @@
         {
           "name": "ruff",
           "version": "ruff 0.15.1",
-          "ruleset_digest": null
+          "ruleset_digest": "metria-isolated-SBE9F82x"
         },
         {
           "name": "metria-secret-regex",
@@ -132,22 +616,30 @@
           "ruleset_digest": null
         }
       ],
-      "suppressions_applied": [],
+      "suppressions_applied": [
+        {
+          "rule": "ruff-isolated",
+          "path": ".",
+          "justification": "Metria runs ruff --isolated with fixed select; subject noqa/config ignored",
+          "expires_at": null,
+          "source": "policy"
+        }
+      ],
       "maturity": "core",
       "rubric_id": null
     },
     "supply_chain": {
       "id": "supply_chain",
-      "status": "warn",
+      "status": "pass",
       "score": null,
       "score_reason": "uncalibrated",
       "confidence": "low",
       "hard_gate_failures": [],
       "findings": [
         {
-          "fingerprint": "sca:no-lockfile",
-          "title": "No lockfile/requirements inventory found",
-          "severity": "medium",
+          "fingerprint": "sca:no-deps",
+          "title": "No runtime dependencies declared (components=0)",
+          "severity": "info",
           "detectors": [
             "inventory"
           ],
@@ -160,8 +652,14 @@
       ],
       "raw_metrics": {
         "components": 0,
+        "runtime_components": 0,
+        "non_runtime_components": 0,
         "lockfiles": [],
-        "sbom_files": []
+        "sbom_files": [],
+        "osv_queries": 0,
+        "osv_vuln_hits": 0,
+        "osv_skipped_unpinned": 0,
+        "osv_errors": 0
       },
       "evidence_refs": [
         "supply_chain/inventory.json",
@@ -172,37 +670,13 @@
         "languages_analyzed": [
           "python"
         ],
-        "loc_analyzed": 17551,
+        "loc_analyzed": 0,
         "loc_total": 26186,
         "excluded_paths": [
-          ".eggs",
-          ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".git"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
-          ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".git": "tooling_or_vcs"
         }
       },
       "tools": [
@@ -223,9 +697,10 @@
       "sub_results": [
         {
           "id": "inventory",
-          "status": "warn",
+          "status": "pass",
           "raw_metrics": {
             "components": 0,
+            "runtime_components": 0,
             "lockfiles": []
           }
         },
@@ -263,34 +738,12 @@
         "loc_analyzed": 17551,
         "loc_total": 26186,
         "excluded_paths": [
-          ".eggs",
           ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".pytest_cache"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
           ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".pytest_cache": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -351,12 +804,28 @@
         "pytest_config_present": false,
         "suite": "green",
         "pytest_exit": 0,
-        "strong_oracle": false
+        "strong_oracle": false,
+        "subject_code_executed": true,
+        "env_scrubbed": true,
+        "runner": {
+          "python": "3.9.6",
+          "platform": "macOS-26.1-arm64-arm-64bit",
+          "implementation": "CPython"
+        },
+        "install": {
+          "installed": [
+            "pytest",
+            "-e .[test]"
+          ],
+          "ok": true
+        }
       },
       "evidence_refs": [
         "test_adequacy/layout.json",
+        "test_adequacy/runner.json",
         "test_adequacy/collect.txt",
-        "test_adequacy/pytest.txt"
+        "test_adequacy/pytest.txt",
+        "test_adequacy/install.json"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -365,34 +834,10 @@
         "loc_analyzed": 17551,
         "loc_total": 26186,
         "excluded_paths": [
-          ".eggs",
-          ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".git"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
-          ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".git": "tooling_or_vcs"
         }
       },
       "tools": [
@@ -435,34 +880,12 @@
         "loc_analyzed": 17551,
         "loc_total": 26186,
         "excluded_paths": [
-          ".eggs",
           ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".pytest_cache"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
           ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".pytest_cache": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -496,34 +919,12 @@
         "loc_analyzed": 17551,
         "loc_total": 26186,
         "excluded_paths": [
-          ".eggs",
           ".git",
-          ".hg",
-          ".mypy_cache",
-          ".pytest_cache",
-          ".svn",
-          ".tox",
-          ".venv",
-          "__pycache__",
-          "build",
-          "dist",
-          "node_modules",
-          "venv"
+          ".pytest_cache"
         ],
         "exclusion_reasons": {
-          ".eggs": "tooling_or_vcs",
           ".git": "tooling_or_vcs",
-          ".hg": "tooling_or_vcs",
-          ".mypy_cache": "tooling_or_vcs",
-          ".pytest_cache": "tooling_or_vcs",
-          ".svn": "tooling_or_vcs",
-          ".tox": "tooling_or_vcs",
-          ".venv": "tooling_or_vcs",
-          "__pycache__": "tooling_or_vcs",
-          "build": "tooling_or_vcs",
-          "dist": "tooling_or_vcs",
-          "node_modules": "tooling_or_vcs",
-          "venv": "tooling_or_vcs"
+          ".pytest_cache": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -549,17 +950,17 @@
       "finding_fingerprint": "adeq:no_strong_oracle"
     },
     {
-      "summary": "No lockfile/requirements inventory found",
-      "finding_fingerprint": "sca:no-lockfile"
+      "summary": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:18",
+      "finding_fingerprint": "struct:ruff:S101:10a77098af66b1aa"
     },
     {
-      "summary": "Use of compile() on dynamic input at src/click/_compat.py:12",
-      "finding_fingerprint": "struct:ast:compile:e2e52593d5817610"
+      "summary": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1683",
+      "finding_fingerprint": "struct:ruff:S101:174abfebb1c92942"
     }
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "dbae3483be930b78fa4b26c62e22e4bcf31a38bc51445fb80afd0b8e9cf57510",
-    "manifest_sha256": "381aa51e2557d3092172a37de843e9e7e09de7b7c58d488b9834acb6e0e007b2"
+    "sha256": "17c4be6c49e9fc7bd6bd4729225e2c2062884c53b589902d76aa0fad599d0872",
+    "manifest_sha256": "51e0afc98af2eeaaabb557fe752f12ee2e4da87a519c56e4dcbbe075880ed666"
   }
 }

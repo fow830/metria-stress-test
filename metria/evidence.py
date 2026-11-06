@@ -1,4 +1,4 @@
-"""Evidence pack writer — zip + MANIFEST.sha256."""
+"""Evidence pack writer — zip + MANIFEST.sha256 (deterministic)."""
 
 from __future__ import annotations
 
@@ -7,6 +7,9 @@ import json
 import zipfile
 from pathlib import Path
 from typing import Dict, Tuple
+
+# Fixed zip timestamp so evidence.zip sha256 is reproducible (N-6).
+_ZIP_DATE = (1980, 1, 1, 0, 0, 0)
 
 
 def _file_sha256(path: Path) -> str:
@@ -38,8 +41,16 @@ def write_evidence_pack(evidence_root: Path, zip_path: Path) -> Tuple[str, str]:
     zip_path.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         for path in sorted(evidence_root.rglob("*")):
-            if path.is_file():
-                zf.write(path, arcname=str(path.relative_to(evidence_root)).replace("\\", "/"))
+            if not path.is_file():
+                continue
+            arcname = str(path.relative_to(evidence_root)).replace("\\", "/")
+            info = zipfile.ZipInfo(arcname)
+            info.date_time = _ZIP_DATE
+            info.compress_type = zipfile.ZIP_DEFLATED
+            # Stable external attrs (file, rw-r--r--)
+            info.external_attr = 0o644 << 16
+            with path.open("rb") as f:
+                zf.writestr(info, f.read())
     return _file_sha256(zip_path), manifest_sha
 
 

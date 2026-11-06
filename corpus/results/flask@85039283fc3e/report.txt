@@ -1,21 +1,21 @@
-Metria — WARN                      commit 8503928 · policy digest sha256:75b23f41d9a… · schema 0.1
+Metria — WARN                      commit 8503928 · policy digest sha256:493d5e44b95… · schema 0.1
 
 HARD GATES
   (none)
 
 LENSES
-  structural       WARN           finding_count=4 · high_or_critical=2 · secrets_head=0
-  supply_chain     WARN           components=21
+  structural       WARN           finding_count=44 · high_or_critical=2 · secrets_head=0
+  supply_chain     WARN           components=22
   controls         UNDECLARED  
-  test_adequacy    WARN           suite=green · strong_oracle=False · test_file_count=26
+  test_adequacy    NOT MEASURED   suite=collect_failed · test_file_count=26
   architectural    UNDECLARED  
   normative        UNDECLARED    [experimental]
 
 TOP RISKS
-  1. GHSA-29vq-49wr-vm6x in werkzeug==2.3.3: Werkzeug safe_join() allows Windows special device names
-  2. GHSA-2g68-c3qc-8985 in werkzeug==2.3.3: Werkzeug debugger vulnerable to remote execution when interacting with attacker controlled domain
-  3. GHSA-68rp-wp8r-4726 in flask==2.3.2: Flask session does not add `Vary: Cookie` header when accessed in some ways
-  4. GHSA-87hc-h4r5-73f7 in werkzeug==2.3.3: Werkzeug safe_join() allows Windows special device names with compound extensions
-  5. GHSA-cpwx-vrp4-4pq7 in jinja2==3.1.2: Jinja2 vulnerable to sandbox breakout through attr filter selecting format method
+  1. Use of eval() at src/flask/cli.py:1005
+  2. Use of exec() at src/flask/config.py:212
+  3. Use of compile() on dynamic input at src/flask/config.py:212
+  4. Use of compile() on dynamic input at src/flask/cli.py:1005
+  5. ruff S101: Use of `assert` detected at <subject>/examples/javascript/tests/test_js_example.py:16
 
-evidence · sha256 cb498f40e9a7… · reproducible: metria run <repo>@85039283fc3e986cced4ab39a3fe2b39314d06bb --profile cold_external
+evidence · sha256 dea222dd9ae4… · reproducible: metria run <repo>@85039283fc3e986cced4ab39a3fe2b39314d06bb --profile cold_external
