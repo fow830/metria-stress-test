@@ -66,8 +66,15 @@ policy/cold_external.yaml
 metria/                    # CLI + adapters
 corpus/subjects.yaml
 corpus/results/            # published runs
+docs/                      # playbook + Claude review reports
 tests/
 ```
+
+## Claude review (GitHub)
+
+External Claude reviews this PR via GitHub only (no zip packs).
+Playbook: [docs/CURSOR-CLAUDE-GITHUB-REVIEW-PLAYBOOK.md](docs/CURSOR-CLAUDE-GITHUB-REVIEW-PLAYBOOK.md).
+Reports land in `docs/reviews/claude-rN.md` on the same PR branch.
 
 ## License
 
