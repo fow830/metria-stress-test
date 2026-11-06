@@ -9,9 +9,10 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
-from typing import Dict, List, Mapping, Optional, Sequence, Tuple
+from typing import Dict, List, Mapping, Optional, Sequence, Set, Tuple
 
 # Allowlist only. Tokens/keys/secrets/AWS/GH/GIT credentials never pass through.
+# PYTHONPATH/PYTHONHOME omitted — operator import-path injection must not reach subject.
 _ENV_ALLOW = {
     "PATH",
     "LANG",
@@ -24,8 +25,6 @@ _ENV_ALLOW = {
     "TMPDIR",
     "TEMP",
     "TMP",
-    "PYTHONPATH",
-    "PYTHONHOME",
     "PYTHONNOUSERSITE",
     "PYTHONDONTWRITEBYTECODE",
     "PYTHONIOENCODING",
@@ -65,36 +64,70 @@ def scrub_env(
     return out
 
 
-_MAC_TMP = re.compile(
-    r"(?:/private)?/var/folders/[^\s:\"']+/metria-(?:adeq|home|subject|worktree|corpus)-[^\s:\"']*"
+_METRIA_TMP_RE = re.compile(
+    r"(?:"
+    r"(?:/private)?/var/folders/[^\s:\"']+"
+    r"|/var/tmp"
+    r"|/tmp"
+    r"|C:\\Users\\[^\\]+\\AppData\\Local\\Temp"
+    r")"
+    r"[/\\]metria-(?:adeq|home|subject|worktree|corpus)-[^\s:\"']*",
+    re.I,
 )
-_GENERIC_TMP = re.compile(
-    r"(?:/private)?/var/folders/[A-Za-z0-9_./\-]+"
-)
+_GENERIC_MAC_FOLDER = re.compile(r"(?:/private)?/var/folders/[A-Za-z0-9_./\-]+")
 
 
-def scrub_text_paths(text: str, root: Path) -> str:
-    """Replace absolute subject/tmp paths so evidence is portable (B4)."""
-    if not text:
-        return text
-    variants = []
+def _path_variants(path: Path) -> List[str]:
+    out: List[str] = [str(path)]
     try:
-        resolved = root.resolve()
-        variants.append(str(resolved))
+        resolved = path.resolve()
+        out.append(str(resolved))
         s = str(resolved)
         if s.startswith("/private/"):
-            variants.append(s[len("/private") :])
+            out.append(s[len("/private") :])
         elif s.startswith("/var/"):
-            variants.append("/private" + s)
+            out.append("/private" + s)
     except OSError:
-        variants.append(str(root))
-    variants.append(str(root))
-    for v in sorted(set(variants), key=len, reverse=True):
-        if v:
-            text = text.replace(v, "<subject>")
-    # Scrub metria temp venvs / homes, then any leftover macOS folder stubs.
-    text = _MAC_TMP.sub("<metria-tmp>", text)
-    text = _GENERIC_TMP.sub("<tmp>", text)
+        pass
+    return [v for v in out if v]
+
+
+def scrub_text_paths(
+    text: str,
+    root: Path,
+    *,
+    extra_roots: Optional[Sequence[Path]] = None,
+) -> str:
+    """Replace absolute subject/tmp paths so evidence is portable (B4 / N-r2-3)."""
+    if not text:
+        return text
+    subject_vars = sorted(set(_path_variants(root)), key=len, reverse=True)
+    for v in subject_vars:
+        text = text.replace(v, "<subject>")
+    other: List[str] = []
+    for r in extra_roots or ():
+        other.extend(_path_variants(r))
+    try:
+        other.extend(_path_variants(Path(tempfile.gettempdir())))
+    except OSError:
+        pass
+    for v in sorted(set(other), key=len, reverse=True):
+        # Only replace when still present as a concrete absolute prefix of a metria run dir;
+        # blanket tempdir replace would destroy unrelated /tmp mentions — regex handles those.
+        if "/metria-" in v or "\\metria-" in v:
+            text = text.replace(v, "<metria-tmp>")
+    text = _METRIA_TMP_RE.sub("<metria-tmp>", text)
+    text = _GENERIC_MAC_FOLDER.sub("<tmp>", text)
+    try:
+        td = str(Path(tempfile.gettempdir()).resolve())
+        text = re.sub(
+            re.escape(td) + r"[/\\]metria-(?:adeq|home|subject|worktree|corpus)-[^\s:\"']*",
+            "<metria-tmp>",
+            text,
+            flags=re.I,
+        )
+    except OSError:
+        pass
     return text
 
 
@@ -134,16 +167,43 @@ def create_subject_venv(work: Path) -> Tuple[Path, Path]:
     return py, pip
 
 
+def _declared_extras(root: Path) -> Set[str]:
+    extras: Set[str] = set()
+    pyproject = root / "pyproject.toml"
+    if pyproject.is_file():
+        try:
+            from metria.discovery import parse_pyproject_extras
+
+            extras.update(parse_pyproject_extras(pyproject))
+        except Exception:  # noqa: BLE001
+            pass
+    setup_cfg = root / "setup.cfg"
+    if setup_cfg.is_file():
+        try:
+            from metria.discovery import parse_setup_cfg_extras
+
+            extras.update(parse_setup_cfg_extras(setup_cfg))
+        except Exception:  # noqa: BLE001
+            pass
+    return {e.lower() for e in extras}
+
+
 def discover_install_targets(root: Path) -> List[List[str]]:
-    """Ordered pip install argument lists for subject test deps (best-effort)."""
+    """Ordered pip install argument lists for subject test deps (best-effort).
+
+    Only emits ``.[extra]`` for extras that metadata actually declares. After any
+    editable install, requirements*{test,dev}*.txt targets still follow (N-r2-2).
+    """
     targets: List[List[str]] = []
     pyproject = root / "pyproject.toml"
     setup_py = root / "setup.py"
     setup_cfg = root / "setup.cfg"
-    if pyproject.is_file() or setup_py.is_file() or setup_cfg.is_file():
-        # Prefer declared test/dev extras when present; always try bare editable.
+    has_packaging = pyproject.is_file() or setup_py.is_file() or setup_cfg.is_file()
+    declared = _declared_extras(root) if has_packaging else set()
+    if has_packaging:
         for extra in ("test", "tests", "dev", "testing"):
-            targets.append(["-e", f".[{extra}]"])
+            if extra in declared:
+                targets.append(["-e", f".[{extra}]"])
         targets.append(["-e", "."])
     for name in (
         "requirements-test.txt",
@@ -158,6 +218,9 @@ def discover_install_targets(root: Path) -> List[List[str]]:
         if path.is_file():
             targets.append(["-r", name])
     return targets
+
+
+_MISSING_EXTRA = re.compile(r"does not provide the extra", re.I)
 
 
 def install_subject_test_deps(
@@ -186,6 +249,7 @@ def install_subject_test_deps(
         return log
     log["installed"].append("pytest")
 
+    # Install editable (declared extras only) then ALWAYS continue to -r files.
     for args in discover_install_targets(root):
         proc = run_scrubbed(
             [str(pip), "install", "-q", *args],
@@ -193,22 +257,53 @@ def install_subject_test_deps(
             env=env,
             timeout=timeout_s,
         )
+        stderr = proc.stderr or ""
+        missing_extra = bool(_MISSING_EXTRA.search(stderr))
         entry = {
             "args": args,
             "returncode": proc.returncode,
-            "stderr_tail": (proc.stderr or "")[-500:],
+            "stderr_tail": stderr[-500:],
+            "missing_extra": missing_extra,
         }
         log["attempts"].append(entry)
-        if proc.returncode == 0:
+        if proc.returncode == 0 and not missing_extra:
             log["installed"].append(" ".join(args))
             log["ok"] = True
-            # One successful subject install is enough; keep going only for -r test files after editable.
-            if args[:1] == ["-e"]:
-                break
+            # Do not break after editable — requirements-dev/test must still run.
+            continue
+        # Missing-extra warning with rc=0 is a failed attempt for that target.
     if not log["ok"] and log["installed"]:
         # pytest alone may still collect pure-stdlib suites
         log["ok"] = True
     return log
+
+
+def pip_list_versions(pip: Path, env: Mapping[str, str], *, timeout_s: int = 60) -> Dict[str, str]:
+    """Return {normalized_name: version} from ``pip list --format json``."""
+    proc = run_scrubbed(
+        [str(pip), "list", "--format", "json"],
+        cwd=Path("."),
+        env=env,
+        timeout=timeout_s,
+    )
+    if proc.returncode != 0:
+        return {}
+    try:
+        import json
+
+        data = json.loads(proc.stdout or "[]")
+    except (json.JSONDecodeError, ValueError):
+        return {}
+    out: Dict[str, str] = {}
+    if isinstance(data, list):
+        for row in data:
+            if not isinstance(row, dict):
+                continue
+            name = str(row.get("name") or "").strip()
+            ver = str(row.get("version") or "").strip()
+            if name and ver:
+                out[name.lower().replace("_", "-")] = ver
+    return out
 
 
 def cleanup_dir(path: Optional[Path]) -> None:

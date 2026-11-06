@@ -20,8 +20,10 @@ metria run https://github.com/pallets/click@006ae84d651846c944331fff78e340701fe5
 Outputs: `stress-run.json` (schema v0.1), `report.txt`, `evidence.zip`.
 
 **Warning:** `metria run` may **execute subject test code** inside an isolated scrubbed
-venv (operator tokens/keys are not inherited). Use `--no-tests` for static discovery
-only — that mode does **not** import or run subject code.
+venv (operator env vars / tokens are not inherited). **Filesystem is not isolated** —
+subject code can still read absolute paths under the operator home; run on a throwaway
+machine/container for hostile subjects. Use `--no-tests` for static discovery only —
+that mode does **not** import or run subject code.
 
 ## What v0.1 measures
 
