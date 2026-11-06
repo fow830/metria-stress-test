@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run-minimal-001",
+  "subject": {
+    "repo_url": "https://github.com/example/demo",
+    "commit_sha": "3f9c2e1a4b5c6d7e8f901234567890abcdef0123",
+    "tree_digest": null
+  },
+  "runner_image_digest": null,
+  "started_at": "2026-11-06T18:00:00Z",
+  "finished_at": "2026-11-06T18:01:00Z",
+  "budget": {
+    "wall_clock_s": 900,
+    "used_s": 60
+  },
+  "policy_digest": "sha256:cold_external@0.1-placeholder",
+  "overall": "pass",
+  "hard_gate_failures": [],
+  "lenses": [
+    {
+      "id": "structural",
+      "status": "pass",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "rubric_id": null,
+      "confidence": "medium",
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 1200,
+        "loc_total": 1200,
+        "excluded_paths": [],
+        "exclusion_reasons": []
+      },
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "high_findings": 0,
+        "secrets_head": 0
+      },
+      "evidence_refs": ["sarif/merged.sarif"],
+      "tools": [
+        {
+          "name": "semgrep",
+          "version": "1.90.0",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "sub_results": []
+    }
+  ],
+  "top_risks": [],
+  "evidence_pack": {
+    "uri": "file://evidence.zip",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "manifest_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  }
+}

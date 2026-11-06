@@ -1,0 +1,230 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run-cold-001",
+  "subject": {
+    "repo_url": "https://github.com/example/cold-subject",
+    "commit_sha": "deadbeefcafebabe0123456789abcdef01234567",
+    "tree_digest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "runner_image_digest": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "started_at": "2026-11-06T19:00:00Z",
+  "finished_at": "2026-11-06T19:12:00Z",
+  "budget": {
+    "wall_clock_s": 1800,
+    "used_s": 720
+  },
+  "policy_digest": "sha256:cold_external@0.1-placeholder",
+  "overall": "fail",
+  "hard_gate_failures": [
+    "supply_chain:KEV CVE-2026-XXXX in requests 2.x (fix available, age>SLA)"
+  ],
+  "lenses": [
+    {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "rubric_id": null,
+      "confidence": "high",
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 41200,
+        "loc_total": 44000,
+        "excluded_paths": ["vendor/", "migrations/"],
+        "exclusion_reasons": ["third_party", "generated"]
+      },
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct:cwe-89:app/db.py:41",
+          "title": "Possible SQL injection sink",
+          "severity": "high",
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_finding→structural",
+          "detectors": ["semgrep"],
+          "evidence_refs": ["sarif/merged.sarif#struct:cwe-89:app/db.py:41"]
+        }
+      ],
+      "raw_metrics": {
+        "high": 3,
+        "multi_tool": 1,
+        "unconfirmed": 2,
+        "secrets_head": 0
+      },
+      "evidence_refs": ["sarif/merged.sarif"],
+      "tools": [
+        { "name": "semgrep", "version": "1.90.0", "ruleset_digest": "sha256:semgrep-rules-placeholder" },
+        { "name": "gitleaks", "version": "8.21.0", "ruleset_digest": null }
+      ],
+      "suppressions_applied": [],
+      "sub_results": []
+    },
+    {
+      "id": "supply_chain",
+      "status": "fail",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "rubric_id": null,
+      "confidence": "high",
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 0,
+        "loc_total": 44000,
+        "excluded_paths": [],
+        "exclusion_reasons": []
+      },
+      "hard_gate_failures": [
+        "KEV CVE-2026-XXXX in requests 2.x"
+      ],
+      "findings": [
+        {
+          "fingerprint": "sca:cve-2026-xxxx:requests@2.31.0",
+          "title": "KEV-listed CVE in requests",
+          "severity": "critical",
+          "confirmation": "multi_tool",
+          "lens_routing_rule": "dependency_cve→supply_chain",
+          "detectors": ["grype", "kev"],
+          "evidence_refs": ["sbom/grype.json#sca:cve-2026-xxxx:requests@2.31.0"]
+        }
+      ],
+      "raw_metrics": {
+        "components": 312,
+        "kev": 1,
+        "epss_ge_0_1": 2
+      },
+      "evidence_refs": ["sbom/cyclonedx.json", "sbom/grype.json"],
+      "tools": [
+        { "name": "syft", "version": "1.18.0", "ruleset_digest": null },
+        { "name": "grype", "version": "0.87.0", "ruleset_digest": null }
+      ],
+      "suppressions_applied": [],
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "pass",
+          "raw_metrics": { "components": 312 },
+          "evidence_refs": ["sbom/cyclonedx.json"]
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "raw_metrics": {},
+          "evidence_refs": []
+        }
+      ]
+    },
+    {
+      "id": "test_adequacy",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "rubric_id": null,
+      "confidence": "medium",
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 41200,
+        "loc_total": 44000,
+        "excluded_paths": ["vendor/"],
+        "exclusion_reasons": ["third_party"]
+      },
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:no-strong-oracle",
+          "title": "No strong oracle (mutation/PBT) disclosed",
+          "severity": "medium",
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap→test_adequacy",
+          "detectors": ["pytest", "coverage"],
+          "evidence_refs": ["junit.xml", "coverage.xml"]
+        }
+      ],
+      "raw_metrics": {
+        "suite": "green",
+        "line_cov": 0.71,
+        "strong_oracle": false
+      },
+      "evidence_refs": ["junit.xml", "coverage.xml"],
+      "tools": [
+        { "name": "pytest", "version": "8.3.0", "ruleset_digest": null },
+        { "name": "coverage", "version": "7.6.0", "ruleset_digest": null }
+      ],
+      "suppressions_applied": [],
+      "sub_results": []
+    },
+    {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "rubric_id": null,
+      "confidence": "low",
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {},
+      "evidence_refs": [],
+      "tools": [],
+      "suppressions_applied": [],
+      "sub_results": []
+    },
+    {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "rubric_id": null,
+      "confidence": "low",
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "checked": ["import-linter", "ArchUnit", "Sonar architecture"]
+      },
+      "evidence_refs": ["subject_manifest.json"],
+      "tools": [],
+      "suppressions_applied": [],
+      "sub_results": []
+    },
+    {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "rubric_id": null,
+      "confidence": "low",
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "experimental": true,
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi_found": "api/openapi.yaml",
+        "parity_tests": false
+      },
+      "evidence_refs": ["subject_manifest.json"],
+      "tools": [],
+      "suppressions_applied": [],
+      "sub_results": []
+    }
+  ],
+  "top_risks": [
+    {
+      "summary": "KEV CVE on request-path dependency requests 2.x",
+      "finding_fingerprint": "sca:cve-2026-xxxx:requests@2.31.0"
+    },
+    {
+      "summary": "Unconfirmed high SAST finding (SQL sink)",
+      "finding_fingerprint": "struct:cwe-89:app/db.py:41"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "file://evidence.zip",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "manifest_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+  }
+}

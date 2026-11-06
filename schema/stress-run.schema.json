@@ -1,0 +1,383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fow830/metria-stress-test/raw/main/schema/stress-run.schema.json",
+  "title": "Metria StressRun",
+  "description": "Status-first evidence protocol for cold external audits (MST). Aggregate verdicts are statuses only — no Ideal Score, no A–F grade/band, no numeric risk advisory.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "subject",
+    "started_at",
+    "finished_at",
+    "policy_digest",
+    "overall",
+    "lenses",
+    "hard_gate_failures"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1",
+      "description": "Contract version. Bump only via PR + corpus re-run."
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject": {
+      "$ref": "#/$defs/Subject"
+    },
+    "runner_image_digest": {
+      "type": ["string", "null"]
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finished_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "budget": {
+      "$ref": "#/$defs/Budget"
+    },
+    "policy_digest": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Hash of the pinned policy profile (e.g. cold_external@0.1)."
+    },
+    "overall": {
+      "type": "string",
+      "enum": ["pass", "warn", "fail"],
+      "description": "Hard-gate aggregation only. Null lenses do not pull pass or fail."
+    },
+    "hard_gate_failures": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "lenses": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/DimensionResult" }
+    },
+    "top_risks": {
+      "type": "array",
+      "description": "Ordered text risks for slides — no numbers, no letters.",
+      "items": { "$ref": "#/$defs/TopRisk" }
+    },
+    "evidence_pack": {
+      "$ref": "#/$defs/EvidencePack"
+    }
+  },
+  "$defs": {
+    "Subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repo_url", "commit_sha"],
+      "properties": {
+        "repo_url": { "type": "string", "minLength": 1 },
+        "commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{7,64}$"
+        },
+        "tree_digest": { "type": ["string", "null"] }
+      }
+    },
+    "Budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wall_clock_s", "used_s"],
+      "properties": {
+        "wall_clock_s": { "type": "number", "minimum": 0 },
+        "used_s": { "type": "number", "minimum": 0 }
+      }
+    },
+    "EvidencePack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uri", "sha256", "manifest_sha256"],
+      "properties": {
+        "uri": { "type": "string", "minLength": 1 },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "TopRisk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "finding_fingerprint"],
+      "properties": {
+        "summary": { "type": "string", "minLength": 1 },
+        "finding_fingerprint": { "type": "string", "minLength": 1 }
+      }
+    },
+    "AnalysisScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "languages_analyzed",
+        "loc_analyzed",
+        "loc_total",
+        "excluded_paths",
+        "exclusion_reasons"
+      ],
+      "properties": {
+        "languages_analyzed": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "loc_analyzed": { "type": "integer", "minimum": 0 },
+        "loc_total": { "type": "integer", "minimum": 0 },
+        "excluded_paths": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "exclusion_reasons": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "Tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "ruleset_digest": { "type": ["string", "null"] }
+      }
+    },
+    "Suppression": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule", "path", "justification", "source"],
+      "properties": {
+        "rule": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "justification": { "type": "string", "minLength": 1 },
+        "expires_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string",
+          "enum": ["subject", "policy"]
+        }
+      }
+    },
+    "Finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fingerprint",
+        "title",
+        "severity",
+        "confirmation",
+        "lens_routing_rule",
+        "detectors"
+      ],
+      "properties": {
+        "fingerprint": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "severity": {
+          "type": "string",
+          "enum": ["info", "low", "medium", "high", "critical"]
+        },
+        "confirmation": {
+          "type": "string",
+          "enum": ["unconfirmed", "multi_tool", "human_triaged"]
+        },
+        "lens_routing_rule": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Which non-overlap rule placed this finding in this lens."
+        },
+        "detectors": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "DimensionResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "status",
+        "score",
+        "score_reason",
+        "confidence",
+        "hard_gate_failures",
+        "findings",
+        "raw_metrics",
+        "evidence_refs",
+        "tools"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "structural",
+            "supply_chain",
+            "test_adequacy",
+            "controls",
+            "architectural",
+            "normative"
+          ],
+          "description": "Five-lens vision; protectability split into supply_chain + controls. normative is experimental."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warn", "fail", "null"],
+          "description": "Machine status. Human report maps null → UNDECLARED (subject) or NOT MEASURED (metria)."
+        },
+        "score": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "maximum": 100,
+          "description": "In schema v0.1 / product v1 always null (uncalibrated). Enabled per lens only after a published calibration corpus."
+        },
+        "score_reason": {
+          "type": "string",
+          "minLength": 1,
+          "description": "v1 default: uncalibrated."
+        },
+        "rubric_id": {
+          "type": ["string", "null"],
+          "description": "Pinned rubric id when a score is eventually enabled. Not a free-text formula."
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        },
+        "null_reason": {
+          "type": "string",
+          "enum": [
+            "not_declared_by_subject",
+            "build_failed",
+            "test_env_unavailable",
+            "timeout",
+            "adapter_gap",
+            "tool_error",
+            "out_of_scope"
+          ]
+        },
+        "null_owner": {
+          "type": "string",
+          "enum": ["subject", "metria"],
+          "description": "subject = finding about the repo; metria = our tooling debt."
+        },
+        "analysis_scope": {
+          "$ref": "#/$defs/AnalysisScope"
+        },
+        "hard_gate_failures": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "findings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Finding" }
+        },
+        "raw_metrics": {
+          "type": "object"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "tools": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Tool" }
+        },
+        "suppressions_applied": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Suppression" }
+        },
+        "sub_results": {
+          "type": "array",
+          "description": "Optional nested statuses (e.g. inventory vs sbom_practice) — never blended into a weighted sum.",
+          "items": { "$ref": "#/$defs/SubResult" }
+        },
+        "experimental": {
+          "type": "boolean",
+          "description": "True for normative in v1."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "const": "null" } },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["null_reason", "null_owner"]
+          }
+        },
+        {
+          "if": {
+            "not": {
+              "properties": { "score": { "type": "null" } }
+            }
+          },
+          "then": {
+            "required": ["rubric_id", "evidence_refs"],
+            "properties": {
+              "rubric_id": { "type": "string", "minLength": 1 },
+              "evidence_refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "minLength": 1 }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "SubResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "status": {
+          "type": "string",
+          "enum": ["pass", "warn", "fail", "null"]
+        },
+        "null_reason": {
+          "type": "string",
+          "enum": [
+            "not_declared_by_subject",
+            "build_failed",
+            "test_env_unavailable",
+            "timeout",
+            "adapter_gap",
+            "tool_error",
+            "out_of_scope"
+          ]
+        },
+        "null_owner": {
+          "type": "string",
+          "enum": ["subject", "metria"]
+        },
+        "raw_metrics": { "type": "object" },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1",
+  "run_id": "bad-scored-no-evidence",
+  "subject": {
+    "repo_url": "https://github.com/example/demo",
+    "commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "started_at": "2026-11-06T18:00:00Z",
+  "finished_at": "2026-11-06T18:01:00Z",
+  "policy_digest": "sha256:cold_external@0.1-placeholder",
+  "overall": "pass",
+  "hard_gate_failures": [],
+  "lenses": [
+    {
+      "id": "structural",
+      "status": "pass",
+      "score": 80,
+      "score_reason": "rubric-structural.v3",
+      "rubric_id": "structural.v3",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {},
+      "evidence_refs": [],
+      "tools": []
+    }
+  ]
+}
