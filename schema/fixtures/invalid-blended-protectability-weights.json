@@ -1,0 +1,164 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_fixture_invalid_protectability_weights",
+  "subject": {
+    "repo_url": "https://github.com/example/subject",
+    "commit_sha": "3f9c2e1",
+    "tree_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "policy_digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "started_at": "2026-11-06T12:00:00Z",
+  "finished_at": "2026-11-06T12:05:00Z",
+  "budget": { "wall_clock_s": 600, "used_s": 300 },
+  "overall": "pass",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "pass",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {},
+      "evidence_refs": [],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 1,
+        "loc_total": 1,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core"
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "pass",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {},
+      "evidence_refs": [],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 1,
+        "loc_total": 1,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "weights": {
+        "sbom": 0.3,
+        "cve": 0.35,
+        "slsa": 0.15,
+        "asvs": 0.2
+      },
+      "blended_score": 55
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {},
+      "evidence_refs": [],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 0,
+        "loc_total": 1,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "pass",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {},
+      "evidence_refs": [],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 1,
+        "loc_total": 1,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core"
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {},
+      "evidence_refs": [],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 0,
+        "loc_total": 1,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "null_reason": "adapter_gap",
+      "null_owner": "metria",
+      "null_display": "NOT MEASURED",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {},
+      "evidence_refs": [],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 0,
+        "loc_total": 1,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental"
+    }
+  },
+  "top_risks": [],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "9a1c111111111111111111111111111111111111111111111111111111111111",
+    "manifest_sha256": "9a1c222222222222222222222222222222222222222222222222222222222222"
+  }
+}

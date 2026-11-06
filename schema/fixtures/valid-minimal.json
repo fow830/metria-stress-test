@@ -1,0 +1,237 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_fixture_valid_minimal_001",
+  "subject": {
+    "repo_url": "https://github.com/example/subject",
+    "commit_sha": "3f9c2e1a4b5c6d7e8f901234567890abcdef012",
+    "tree_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "runner_image_digest": null,
+  "policy_digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "started_at": "2026-11-06T12:00:00Z",
+  "finished_at": "2026-11-06T12:05:00Z",
+  "budget": {
+    "wall_clock_s": 600,
+    "used_s": 300
+  },
+  "overall": "warn",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct-001",
+          "title": "Possible SQL string concat",
+          "severity": "high",
+          "detectors": ["semgrep"],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_finding_to_structural",
+          "evidence_refs": ["sarif/merged.sarif"]
+        }
+      ],
+      "raw_metrics": {
+        "high_findings": 1,
+        "secrets_head": 0
+      },
+      "evidence_refs": ["sarif/merged.sarif"],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 41200,
+        "loc_total": 44000,
+        "excluded_paths": ["vendor/", "migrations/"],
+        "exclusion_reasons": {
+          "vendor/": "third_party",
+          "migrations/": "generated"
+        }
+      },
+      "tools": [
+        {
+          "name": "semgrep",
+          "version": "1.90.0",
+          "ruleset_digest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core"
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "fail",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "high",
+      "hard_gate_failures": [
+        "KEV CVE-2026-XXXX in requests 2.x; fix available; age over SLA"
+      ],
+      "findings": [
+        {
+          "fingerprint": "sc-kev-001",
+          "title": "KEV CVE on request-path dependency",
+          "severity": "critical",
+          "detectors": ["grype"],
+          "confirmation": "multi_tool",
+          "lens_routing_rule": "cve_to_supply_chain",
+          "evidence_refs": ["sbom/cyclonedx.json", "vuln/grype.json"]
+        }
+      ],
+      "raw_metrics": {
+        "components": 312,
+        "kev_count": 1,
+        "epss_ge_0_1": 2
+      },
+      "evidence_refs": ["sbom/cyclonedx.json", "vuln/grype.json"],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 41200,
+        "loc_total": 44000,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [
+        { "name": "syft", "version": "1.18.0", "ruleset_digest": null },
+        { "name": "grype", "version": "0.86.0", "ruleset_digest": null }
+      ],
+      "suppressions_applied": [],
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "pass",
+          "raw_metrics": { "components": 312 }
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "null_display": "UNDECLARED",
+          "raw_metrics": { "published_sbom": false }
+        }
+      ],
+      "maturity": "core"
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "asvs_scope_provided": false
+      },
+      "evidence_refs": [],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 0,
+        "loc_total": 44000,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "suite_green": true,
+        "line_coverage_pct": 71,
+        "strong_oracle": false
+      },
+      "evidence_refs": ["junit.xml", "coverage.xml"],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 41200,
+        "loc_total": 44000,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [
+        { "name": "pytest", "version": "8.3.0", "ruleset_digest": null }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core"
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "fitness_rules_found": false,
+        "checked": ["import-linter", "ArchUnit", "Sonar architecture"]
+      },
+      "evidence_refs": [],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 0,
+        "loc_total": 44000,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "null_reason": "adapter_gap",
+      "null_owner": "metria",
+      "null_display": "NOT MEASURED",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi_found": true,
+        "openapi_path": "api/openapi.yaml",
+        "dual_truth_detector": false
+      },
+      "evidence_refs": [],
+      "analysis_scope": {
+        "languages_analyzed": ["python"],
+        "loc_analyzed": 0,
+        "loc_total": 44000,
+        "excluded_paths": [],
+        "exclusion_reasons": {}
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental"
+    }
+  },
+  "top_risks": [
+    {
+      "summary": "KEV CVE on request-path dependency",
+      "finding_fingerprint": "sc-kev-001"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "9a1c111111111111111111111111111111111111111111111111111111111111",
+    "manifest_sha256": "9a1c222222222222222222222222222222222222222222222222222222222222"
+  }
+}
