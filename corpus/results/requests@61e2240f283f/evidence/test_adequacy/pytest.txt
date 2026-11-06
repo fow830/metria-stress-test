@@ -1,0 +1,265 @@
+...............EEEEEEEE................EEEEEEEEEEE.......E
+==================================== ERRORS ====================================
+______ ERROR at setup of test_use_proxy_from_environment[http_proxy-http] ______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_lowlevel.py, line 289
+  @pytest.mark.parametrize("var,scheme", _proxy_combos)
+  def test_use_proxy_from_environment(httpbin, var, scheme):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_lowlevel.py::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+_____ ERROR at setup of test_use_proxy_from_environment[https_proxy-https] _____
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_lowlevel.py, line 289
+  @pytest.mark.parametrize("var,scheme", _proxy_combos)
+  def test_use_proxy_from_environment(httpbin, var, scheme):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_lowlevel.py::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+______ ERROR at setup of test_use_proxy_from_environment[all_proxy-http] _______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_lowlevel.py, line 289
+  @pytest.mark.parametrize("var,scheme", _proxy_combos)
+  def test_use_proxy_from_environment(httpbin, var, scheme):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_lowlevel.py::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+______ ERROR at setup of test_use_proxy_from_environment[all_proxy-https] ______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_lowlevel.py, line 289
+  @pytest.mark.parametrize("var,scheme", _proxy_combos)
+  def test_use_proxy_from_environment(httpbin, var, scheme):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_lowlevel.py::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+______ ERROR at setup of test_use_proxy_from_environment[HTTP_PROXY-http] ______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_lowlevel.py, line 289
+  @pytest.mark.parametrize("var,scheme", _proxy_combos)
+  def test_use_proxy_from_environment(httpbin, var, scheme):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_lowlevel.py::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+_____ ERROR at setup of test_use_proxy_from_environment[HTTPS_PROXY-https] _____
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_lowlevel.py, line 289
+  @pytest.mark.parametrize("var,scheme", _proxy_combos)
+  def test_use_proxy_from_environment(httpbin, var, scheme):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_lowlevel.py::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+______ ERROR at setup of test_use_proxy_from_environment[ALL_PROXY-http] _______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_lowlevel.py, line 289
+  @pytest.mark.parametrize("var,scheme", _proxy_combos)
+  def test_use_proxy_from_environment(httpbin, var, scheme):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_lowlevel.py::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+______ ERROR at setup of test_use_proxy_from_environment[ALL_PROXY-https] ______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_lowlevel.py, line 289
+  @pytest.mark.parametrize("var,scheme", _proxy_combos)
+  def test_use_proxy_from_environment(httpbin, var, scheme):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_lowlevel.py::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+__________ ERROR at setup of TestRequests.test_no_content_length[GET] __________
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 120
+      @pytest.mark.parametrize("method", ("GET", "HEAD"))
+      def test_no_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+_________ ERROR at setup of TestRequests.test_no_content_length[HEAD] __________
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 120
+      @pytest.mark.parametrize("method", ("GET", "HEAD"))
+      def test_no_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+_______ ERROR at setup of TestRequests.test_no_body_content_length[POST] _______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 125
+      @pytest.mark.parametrize("method", ("POST", "PUT", "PATCH", "OPTIONS"))
+      def test_no_body_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+_______ ERROR at setup of TestRequests.test_no_body_content_length[PUT] ________
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 125
+      @pytest.mark.parametrize("method", ("POST", "PUT", "PATCH", "OPTIONS"))
+      def test_no_body_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+______ ERROR at setup of TestRequests.test_no_body_content_length[PATCH] _______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 125
+      @pytest.mark.parametrize("method", ("POST", "PUT", "PATCH", "OPTIONS"))
+      def test_no_body_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+_____ ERROR at setup of TestRequests.test_no_body_content_length[OPTIONS] ______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 125
+      @pytest.mark.parametrize("method", ("POST", "PUT", "PATCH", "OPTIONS"))
+      def test_no_body_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+________ ERROR at setup of TestRequests.test_empty_content_length[POST] ________
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 130
+      @pytest.mark.parametrize("method", ("POST", "PUT", "PATCH", "OPTIONS"))
+      def test_empty_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+________ ERROR at setup of TestRequests.test_empty_content_length[PUT] _________
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 130
+      @pytest.mark.parametrize("method", ("POST", "PUT", "PATCH", "OPTIONS"))
+      def test_empty_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+_______ ERROR at setup of TestRequests.test_empty_content_length[PATCH] ________
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 130
+      @pytest.mark.parametrize("method", ("POST", "PUT", "PATCH", "OPTIONS"))
+      def test_empty_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+______ ERROR at setup of TestRequests.test_empty_content_length[OPTIONS] _______
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 130
+      @pytest.mark.parametrize("method", ("POST", "PUT", "PATCH", "OPTIONS"))
+      def test_empty_content_length(self, httpbin, method):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+_________ ERROR at setup of TestRequests.test_override_content_length __________
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 135
+      def test_override_content_length(self, httpbin):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+__ ERROR at setup of TestRequests.test_mixed_case_scheme_acceptable[http://] ___
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/test_requests.py, line 191
+      @pytest.mark.parametrize("scheme", ("http://", "HTTP://", "hTTp://", "HttP://"))
+      def test_mixed_case_scheme_acceptable(self, httpbin, scheme):
+file /private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py, line 25
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: _session_event_loop, anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, cov, doctest_namespace, event_loop, event_loop_policy, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, httpbin, httpbin_secure, monkeypatch, no_cover, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tests/test_requests.py::<event_loop>, tests/test_requests.py::TestRequests::<event_loop>, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, unused_tcp_port, unused_tcp_port_factory, unused_udp_port, unused_udp_port_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5/tests/conftest.py:25
+=========================== short test summary info ============================
+ERROR tests/test_lowlevel.py::test_use_proxy_from_environment[http_proxy-http]
+ERROR tests/test_lowlevel.py::test_use_proxy_from_environment[https_proxy-https]
+ERROR tests/test_lowlevel.py::test_use_proxy_from_environment[all_proxy-http]
+ERROR tests/test_lowlevel.py::test_use_proxy_from_environment[all_proxy-https]
+ERROR tests/test_lowlevel.py::test_use_proxy_from_environment[HTTP_PROXY-http]
+ERROR tests/test_lowlevel.py::test_use_proxy_from_environment[HTTPS_PROXY-https]
+ERROR tests/test_lowlevel.py::test_use_proxy_from_environment[ALL_PROXY-http]
+ERROR tests/test_lowlevel.py::test_use_proxy_from_environment[ALL_PROXY-https]
+ERROR tests/test_requests.py::TestRequests::test_no_content_length[GET]
+ERROR tests/test_requests.py::TestRequests::test_no_content_length[HEAD]
+ERROR tests/test_requests.py::TestRequests::test_no_body_content_length[POST]
+ERROR tests/test_requests.py::TestRequests::test_no_body_content_length[PUT]
+ERROR tests/test_requests.py::TestRequests::test_no_body_content_length[PATCH]
+ERROR tests/test_requests.py::TestRequests::test_no_body_content_length[OPTIONS]
+ERROR tests/test_requests.py::TestRequests::test_empty_content_length[POST]
+ERROR tests/test_requests.py::TestRequests::test_empty_content_length[PUT]
+ERROR tests/test_requests.py::TestRequests::test_empty_content_length[PATCH]
+ERROR tests/test_requests.py::TestRequests::test_empty_content_length[OPTIONS]
+ERROR tests/test_requests.py::TestRequests::test_override_content_length
+ERROR tests/test_requests.py::TestRequests::test_mixed_case_scheme_acceptable[http://]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 20 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+38 passed, 20 errors in 16.12s
+

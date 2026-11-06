@@ -1,0 +1,116 @@
+{
+  "root": "/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-httpx-oma0we4u",
+  "loc": {
+    "py_loc": 18256,
+    "total_loc": 49080,
+    "py_files": 61
+  },
+  "lockfiles": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "tests": {
+    "has_tests_dir": true,
+    "test_file_count": 31,
+    "test_files_sample": [
+      "tests/test_utils.py",
+      "tests/test_auth.py",
+      "tests/test_timeouts.py",
+      "tests/test_exported_members.py",
+      "tests/test_asgi.py",
+      "tests/test_exceptions.py",
+      "tests/test_decoders.py",
+      "tests/test_config.py",
+      "tests/test_content.py",
+      "tests/test_status_codes.py",
+      "tests/test_multipart.py",
+      "tests/test_wsgi.py",
+      "tests/test_api.py",
+      "tests/test_main.py",
+      "tests/models/test_cookies.py",
+      "tests/models/test_queryparams.py",
+      "tests/models/test_whatwg.py",
+      "tests/models/test_requests.py",
+      "tests/models/test_responses.py",
+      "tests/models/test_url.py"
+    ],
+    "pytest_config_present": true
+  },
+  "normative": {
+    "openapi": [],
+    "pact": [],
+    "json_schema": []
+  },
+  "architecture": {
+    "importlinter": false,
+    "import_linter_ini": false,
+    "archunit": false,
+    "sonar_architecture": false
+  },
+  "sbom_files": [],
+  "packages": [
+    {
+      "name": "build",
+      "specifier": "==1.2.1"
+    },
+    {
+      "name": "chardet",
+      "specifier": "==5.2.0"
+    },
+    {
+      "name": "coverage",
+      "specifier": ""
+    },
+    {
+      "name": "cryptography",
+      "specifier": "==43.0.0"
+    },
+    {
+      "name": "mkautodoc",
+      "specifier": "==0.2.0"
+    },
+    {
+      "name": "mkdocs",
+      "specifier": "==1.6.0"
+    },
+    {
+      "name": "mkdocs-material",
+      "specifier": "==9.5.30"
+    },
+    {
+      "name": "mypy",
+      "specifier": "==1.11.0"
+    },
+    {
+      "name": "pytest",
+      "specifier": "==8.3.1"
+    },
+    {
+      "name": "ruff",
+      "specifier": "==0.5.4"
+    },
+    {
+      "name": "trio",
+      "specifier": "==0.26.0"
+    },
+    {
+      "name": "trio-typing",
+      "specifier": "==0.10.0"
+    },
+    {
+      "name": "trustme",
+      "specifier": "==1.1.0"
+    },
+    {
+      "name": "twine",
+      "specifier": "==5.1.1"
+    },
+    {
+      "name": "uvicorn",
+      "specifier": "==0.30.3"
+    }
+  ],
+  "languages": [
+    "python"
+  ]
+}

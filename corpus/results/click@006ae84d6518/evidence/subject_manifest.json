@@ -1,0 +1,52 @@
+{
+  "root": "/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-click-wiwlumml",
+  "loc": {
+    "py_loc": 17551,
+    "total_loc": 26186,
+    "py_files": 71
+  },
+  "lockfiles": [],
+  "tests": {
+    "has_tests_dir": true,
+    "test_file_count": 20,
+    "test_files_sample": [
+      "tests/test_parser.py",
+      "tests/test_shell_completion.py",
+      "tests/test_basic.py",
+      "tests/test_utils.py",
+      "tests/test_termui.py",
+      "tests/test_options.py",
+      "tests/test_info_dict.py",
+      "tests/test_imports.py",
+      "tests/test_command_decorators.py",
+      "tests/test_commands.py",
+      "tests/test_compat.py",
+      "tests/test_formatting.py",
+      "tests/test_context.py",
+      "tests/test_chain.py",
+      "tests/test_normalization.py",
+      "tests/test_defaults.py",
+      "tests/test_custom_classes.py",
+      "tests/test_types.py",
+      "tests/test_arguments.py",
+      "tests/test_testing.py"
+    ],
+    "pytest_config_present": false
+  },
+  "normative": {
+    "openapi": [],
+    "pact": [],
+    "json_schema": []
+  },
+  "architecture": {
+    "importlinter": false,
+    "import_linter_ini": false,
+    "archunit": false,
+    "sonar_architecture": false
+  },
+  "sbom_files": [],
+  "packages": [],
+  "languages": [
+    "python"
+  ]
+}

@@ -1,0 +1,21 @@
+Metria — WARN                      commit 006ae84 · policy digest sha256:75b23f41d9a… · schema 0.1
+
+HARD GATES
+  (none)
+
+LENSES
+  structural       WARN           finding_count=3 · high_or_critical=2 · secrets_head=0
+  supply_chain     WARN           components=0
+  controls         UNDECLARED  
+  test_adequacy    WARN           suite=green · strong_oracle=False · test_file_count=20
+  architectural    UNDECLARED  
+  normative        UNDECLARED    [experimental]
+
+TOP RISKS
+  1. subprocess call with shell=True at src/click/_termui_impl.py:514
+  2. subprocess call with shell=True at src/click/_termui_impl.py:414
+  3. Suite green but no strong oracle (mutation/PBT) measured
+  4. No lockfile/requirements inventory found
+  5. Use of compile() on dynamic input at src/click/_compat.py:12
+
+evidence · sha256 dbae3483be93… · reproducible: metria run <repo>@006ae84d651846c944331fff78e340701fe58562 --profile cold_external

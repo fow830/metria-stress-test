@@ -1,0 +1,210 @@
+[
+  {
+    "fingerprint": "struct:ast:exec:0901a64ebd0ca000",
+    "title": "Use of exec() at setup.py:79",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:exec.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:c8475c4687f75ebe",
+    "title": "pickle.loads() at tests/test_requests.py:1484",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:15c9cd4ce970aaf5",
+    "title": "pickle.loads() at tests/test_requests.py:1488",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:bcefe8e289e10a2b",
+    "title": "pickle.loads() at tests/test_requests.py:1496",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:77fe8d43a636fdeb",
+    "title": "pickle.loads() at tests/test_requests.py:1512",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:ea5b529bff0af291",
+    "title": "pickle.loads() at tests/test_requests.py:1527",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:9cfb89ed3c8a3615",
+    "title": "pickle.loads() at tests/test_requests.py:1557",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:2dd52a7fa73c8e81",
+    "title": "pickle.loads() at tests/test_requests.py:2975",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:fa20b60f4722a760",
+    "title": "Use of compile() on dynamic input at src/requests/auth.py:262",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:e590b9b3b623b78d",
+    "title": "Use of compile() on dynamic input at src/requests/_internal_utils.py:12",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:2964274b3aa81660",
+    "title": "Use of compile() on dynamic input at src/requests/_internal_utils.py:13",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:7b3977658f104a4f",
+    "title": "Use of compile() on dynamic input at src/requests/_internal_utils.py:14",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:371aefdacf10f793",
+    "title": "Use of compile() on dynamic input at src/requests/_internal_utils.py:15",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:3b83c10ba67b9292",
+    "title": "Use of compile() on dynamic input at src/requests/utils.py:503",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:4088bd9e41b7a5c7",
+    "title": "Use of compile() on dynamic input at src/requests/utils.py:504",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:f8caa80b38179a69",
+    "title": "Use of compile() on dynamic input at src/requests/utils.py:505",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  }
+]

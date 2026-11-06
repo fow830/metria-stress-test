@@ -1,0 +1,31 @@
+name: cold_external
+version: "0.1"
+description: >
+  Cold external audit profile. Status-first. No Ideal Score.
+  Secrets hard-fail only on high-confidence HEAD-tree key material.
+  History secrets are out of scope for hard gates in v0.1.
+
+wall_clock_s: 1800
+test_collect_timeout_s: 60
+test_run_timeout_s: 180
+
+cve:
+  # OSV hits with severity critical become hard gates in the MVP adapter.
+  critical_is_hard_gate: true
+  query_osv: true
+
+secrets:
+  scope: head_tree
+  hard_gate_kinds:
+    - aws_access_key_id
+    - private_key_header
+
+lenses:
+  measure:
+    - structural
+    - supply_chain
+    - test_adequacy
+  undeclared_ok:
+    - controls
+    - architectural
+    - normative

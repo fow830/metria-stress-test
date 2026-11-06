@@ -1,0 +1,27 @@
+{
+  "has_tests_dir": true,
+  "test_file_count": 26,
+  "test_files_sample": [
+    "tests/test_basic.py",
+    "tests/test_converters.py",
+    "tests/test_logging.py",
+    "tests/test_signals.py",
+    "tests/test_async.py",
+    "tests/test_session_interface.py",
+    "tests/test_instance_config.py",
+    "tests/test_views.py",
+    "tests/test_json_tag.py",
+    "tests/test_subclassing.py",
+    "tests/test_reqctx.py",
+    "tests/test_blueprints.py",
+    "tests/test_config.py",
+    "tests/test_user_error_handler.py",
+    "tests/test_helpers.py",
+    "tests/test_json.py",
+    "tests/test_cli.py",
+    "tests/test_templating.py",
+    "tests/test_appctx.py",
+    "tests/test_regression.py"
+  ],
+  "pytest_config_present": true
+}

@@ -1,0 +1,327 @@
+[
+  {
+    "fingerprint": "struct:ast:pickle_loads:cfbad638122ff9f5",
+    "title": "pickle.loads() at tests/models/test_requests.py:182",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:7abb4dcd42dcbabf",
+    "title": "pickle.loads() at tests/models/test_requests.py:202",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:0c86fffac58ebe3b",
+    "title": "pickle.loads() at tests/models/test_requests.py:210",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:45dee64e6927ff27",
+    "title": "pickle.loads() at tests/models/test_requests.py:219",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:5b593ff09fcbc042",
+    "title": "pickle.loads() at tests/models/test_requests.py:227",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:34c2e5faca0b2662",
+    "title": "pickle.loads() at tests/models/test_responses.py:964",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:e89b4574c3b378d4",
+    "title": "pickle.loads() at tests/models/test_responses.py:979",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:8c9292d7a7058038",
+    "title": "pickle.loads() at tests/models/test_responses.py:990",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:491f957f9f458cb5",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:37",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:b3ecb621096048b9",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:45",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:b72b7465f0a099be",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:64",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:7ba6afabe7e0f474",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:80",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:d94240ff22ca844e",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:81",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:12cb008ca118afcc",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:82",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:ea1ad40c9d74e44c",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:83",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:54e4b2c511255a18",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:84",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:166e6fc63c966b99",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:85",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:c58b6a69acbd8347",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:86",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:527d93a508bb2906",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:87",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:d1e2ec0efbff713a",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:93",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:3ca6e3523831a928",
+    "title": "Use of compile() on dynamic input at httpx/_urlparse.py:94",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:cbc0ebfc82011a6a",
+    "title": "Use of compile() on dynamic input at httpx/_utils.py:26",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:d847734b8c3a3490",
+    "title": "Use of compile() on dynamic input at httpx/_utils.py:380",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:45a1b7f125381348",
+    "title": "Use of compile() on dynamic input at httpx/_utils.py:384",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:1c76e2df9bb5a192",
+    "title": "Use of compile() on dynamic input at httpx/_utils.py:388",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  }
+]

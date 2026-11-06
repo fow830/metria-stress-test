@@ -1,0 +1,728 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_f499e94b9cf8",
+  "subject": {
+    "repo_url": "https://github.com/benjaminp/six",
+    "commit_sha": "65486e4383f9f411da95937451205d3c7b61b9e1",
+    "tree_digest": "sha256:03d7a1d591b1b43f4e7fef2b46aeefd5aaeb53664e15c10adedbcb5b74fd0add"
+  },
+  "runner_image_digest": null,
+  "policy_digest": "sha256:75b23f41d9adf7ae28b7ed5fe584e505d837cd227e22db137cdc188757825e55",
+  "started_at": "2026-11-06T19:25:09Z",
+  "finished_at": "2026-11-06T19:25:11Z",
+  "budget": {
+    "wall_clock_s": 1800,
+    "used_s": 1
+  },
+  "overall": "warn",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct:ast:exec:8d0b3a83327a1b7b",
+          "title": "Use of exec() at six.py:735",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:exec.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:005fc146f81a32d8",
+          "title": "ruff F821: Undefined name `basestring` at six.py:49",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:2fecf61952ddd1fd",
+          "title": "ruff F821: Undefined name `long` at six.py:50",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:4b5005d4b37e9908",
+          "title": "ruff F821: Undefined name `unicode` at six.py:52",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:c39d84ab929c1798",
+          "title": "ruff F821: Undefined name `unicode` at six.py:674",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:4f6f8304d5e81b8c",
+          "title": "ruff F821: Undefined name `basestring` at six.py:766",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:73319eb25511f35c",
+          "title": "ruff F821: Undefined name `file` at six.py:769",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:d9078174a346d9b9",
+          "title": "ruff F821: Undefined name `unicode` at six.py:770",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:76cfc3882849a49d",
+          "title": "ruff F821: Undefined name `unicode` at six.py:780",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:31c2c9fd23f0a3f8",
+          "title": "ruff F821: Undefined name `unicode` at six.py:786",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:866289999abbd2a4",
+          "title": "ruff F821: Undefined name `unicode` at six.py:794",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:793eb7a9a5482803",
+          "title": "ruff F821: Undefined name `unicode` at six.py:798",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:d196b80024536ab7",
+          "title": "ruff F821: Undefined name `unicode` at six.py:799",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:a123146d48a7b835",
+          "title": "ruff F821: Undefined name `unicode` at test_six.py:499",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:bbab459912af8264",
+          "title": "ruff F821: Undefined name `unicode` at test_six.py:978",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:4ca3881a6d59fe13",
+          "title": "ruff F821: Undefined name `unicode` at test_six.py:1034",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:16c695942fe04fac",
+          "title": "ruff F821: Undefined name `unicode` at test_six.py:1036",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "finding_count": 17,
+        "high_or_critical": 1,
+        "secrets_head": 0,
+        "ast_findings": 1,
+        "ruff_ran": true,
+        "ruff_issue_count": 28,
+        "py_files": 4
+      },
+      "evidence_refs": [
+        "structural/secrets.json",
+        "structural/ast.json",
+        "structural/ruff.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-ast",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "ruff",
+          "version": "ruff 0.15.1",
+          "ruleset_digest": null
+        },
+        {
+          "name": "metria-secret-regex",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "sca:no-lockfile",
+          "title": "No lockfile/requirements inventory found",
+          "severity": "medium",
+          "detectors": [
+            "inventory"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/inventory.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "components": 0,
+        "lockfiles": [],
+        "sbom_files": []
+      },
+      "evidence_refs": [
+        "supply_chain/inventory.json",
+        "supply_chain/sbom_practice.json",
+        "supply_chain/osv.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-inventory",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "osv.dev",
+          "version": "v1",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "warn",
+          "raw_metrics": {
+            "components": 0,
+            "lockfiles": []
+          }
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "null_display": "UNDECLARED",
+          "raw_metrics": {
+            "published_sbom": false,
+            "files": []
+          }
+        }
+      ]
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "asvs_scope_provided": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:no_strong_oracle",
+          "title": "Suite green but no strong oracle (mutation/PBT) measured",
+          "severity": "medium",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "has_tests_dir": false,
+        "test_file_count": 1,
+        "test_files_sample": [
+          "test_six.py"
+        ],
+        "pytest_config_present": false,
+        "suite": "green",
+        "pytest_exit": 0,
+        "strong_oracle": false
+      },
+      "evidence_refs": [
+        "test_adequacy/layout.json",
+        "test_adequacy/collect.txt",
+        "test_adequacy/pytest.txt"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "pytest",
+          "version": "pytest 8.4.2",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "checked": [
+          "import-linter",
+          "ArchUnit",
+          "Sonar architecture"
+        ],
+        "importlinter": false,
+        "import_linter_ini": false,
+        "archunit": false,
+        "sonar_architecture": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi": [],
+        "pact": [],
+        "json_schema": []
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    }
+  },
+  "top_risks": [
+    {
+      "summary": "Use of exec() at six.py:735",
+      "finding_fingerprint": "struct:ast:exec:8d0b3a83327a1b7b"
+    },
+    {
+      "summary": "Suite green but no strong oracle (mutation/PBT) measured",
+      "finding_fingerprint": "adeq:no_strong_oracle"
+    },
+    {
+      "summary": "No lockfile/requirements inventory found",
+      "finding_fingerprint": "sca:no-lockfile"
+    },
+    {
+      "summary": "ruff F821: Undefined name `basestring` at six.py:49",
+      "finding_fingerprint": "struct:ruff:F821:005fc146f81a32d8"
+    },
+    {
+      "summary": "ruff F821: Undefined name `unicode` at test_six.py:1036",
+      "finding_fingerprint": "struct:ruff:F821:16c695942fe04fac"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "fb4da3bc7ca7c74d037eb6907d9503faebda21083b40311502e75d7fb62336f7",
+    "manifest_sha256": "340aa00d2be1682433f656fed3a383a66bbf1c80431ca61d16bc11cc4c3ca019"
+  }
+}

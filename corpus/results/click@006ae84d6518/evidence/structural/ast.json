@@ -1,0 +1,41 @@
+[
+  {
+    "fingerprint": "struct:ast:compile:e2e52593d5817610",
+    "title": "Use of compile() on dynamic input at src/click/_compat.py:12",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:shell_true:d7368410ec5400a6",
+    "title": "subprocess call with shell=True at src/click/_termui_impl.py:414",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:shell_true.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:shell_true:02e644cdd7955b14",
+    "title": "subprocess call with shell=True at src/click/_termui_impl.py:514",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:shell_true.json"
+    ]
+  }
+]

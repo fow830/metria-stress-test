@@ -1,0 +1,8 @@
+{
+  "has_tests_dir": false,
+  "test_file_count": 1,
+  "test_files_sample": [
+    "test_six.py"
+  ],
+  "pytest_config_present": false
+}

@@ -1,0 +1,5 @@
+
+ImportError while loading conftest '/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-httpx-oma0we4u/tests/conftest.py'.
+tests/conftest.py:9: in <module>
+    import trustme
+E   ModuleNotFoundError: No module named 'trustme'

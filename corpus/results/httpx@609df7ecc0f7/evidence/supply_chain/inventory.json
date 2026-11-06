@@ -1,0 +1,69 @@
+{
+  "lockfiles": [
+    "pyproject.toml",
+    "requirements.txt"
+  ],
+  "packages": [
+    {
+      "name": "build",
+      "specifier": "==1.2.1"
+    },
+    {
+      "name": "chardet",
+      "specifier": "==5.2.0"
+    },
+    {
+      "name": "coverage",
+      "specifier": ""
+    },
+    {
+      "name": "cryptography",
+      "specifier": "==43.0.0"
+    },
+    {
+      "name": "mkautodoc",
+      "specifier": "==0.2.0"
+    },
+    {
+      "name": "mkdocs",
+      "specifier": "==1.6.0"
+    },
+    {
+      "name": "mkdocs-material",
+      "specifier": "==9.5.30"
+    },
+    {
+      "name": "mypy",
+      "specifier": "==1.11.0"
+    },
+    {
+      "name": "pytest",
+      "specifier": "==8.3.1"
+    },
+    {
+      "name": "ruff",
+      "specifier": "==0.5.4"
+    },
+    {
+      "name": "trio",
+      "specifier": "==0.26.0"
+    },
+    {
+      "name": "trio-typing",
+      "specifier": "==0.10.0"
+    },
+    {
+      "name": "trustme",
+      "specifier": "==1.1.0"
+    },
+    {
+      "name": "twine",
+      "specifier": "==5.1.1"
+    },
+    {
+      "name": "uvicorn",
+      "specifier": "==0.30.3"
+    }
+  ],
+  "component_count": 15
+}

@@ -1,0 +1,731 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_2b4afa88b0f1",
+  "subject": {
+    "repo_url": "https://github.com/pallets/flask",
+    "commit_sha": "85039283fc3e986cced4ab39a3fe2b39314d06bb",
+    "tree_digest": "sha256:85acb826583cd6d45412bda8b32c4243e3b6f46af1a8c18688481dab0ea1c7c5"
+  },
+  "runner_image_digest": null,
+  "policy_digest": "sha256:75b23f41d9adf7ae28b7ed5fe584e505d837cd227e22db137cdc188757825e55",
+  "started_at": "2026-11-06T19:25:20Z",
+  "finished_at": "2026-11-06T19:25:31Z",
+  "budget": {
+    "wall_clock_s": 1800,
+    "used_s": 11
+  },
+  "overall": "warn",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct:ast:exec:bef49823f5d0cb68",
+          "title": "Use of exec() at src/flask/config.py:212",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:exec.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:764d41f88d6b5e30",
+          "title": "Use of compile() on dynamic input at src/flask/config.py:212",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:eval:d06d550f2e575640",
+          "title": "Use of eval() at src/flask/cli.py:1005",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:eval.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:efc40ffc2be1950e",
+          "title": "Use of compile() on dynamic input at src/flask/cli.py:1005",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "finding_count": 4,
+        "high_or_critical": 2,
+        "secrets_head": 0,
+        "ast_findings": 4,
+        "ruff_ran": true,
+        "ruff_issue_count": 0,
+        "py_files": 82
+      },
+      "evidence_refs": [
+        "structural/secrets.json",
+        "structural/ast.json",
+        "structural/ruff.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37775,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-ast",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "ruff",
+          "version": "ruff 0.15.1",
+          "ruleset_digest": null
+        },
+        {
+          "name": "metria-secret-regex",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "sca:GHSA-68rp-wp8r-4726:flask@2.3.2",
+          "title": "GHSA-68rp-wp8r-4726 in flask==2.3.2: Flask session does not add `Vary: Cookie` header when accessed in some ways",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:PYSEC-2026-2151:flask@2.3.2",
+          "title": "PYSEC-2026-2151 in flask==2.3.2: PYSEC-2026-2151",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-cpwx-vrp4-4pq7:jinja2@3.1.2",
+          "title": "GHSA-cpwx-vrp4-4pq7 in jinja2==3.1.2: Jinja2 vulnerable to sandbox breakout through attr filter selecting format method",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-gmj6-6f8f-6699:jinja2@3.1.2",
+          "title": "GHSA-gmj6-6f8f-6699 in jinja2==3.1.2: Jinja has a sandbox breakout through malicious filenames",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-h5c8-rqwp-cp95:jinja2@3.1.2",
+          "title": "GHSA-h5c8-rqwp-cp95 in jinja2==3.1.2: Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-h75v-3vvj-5mfj:jinja2@3.1.2",
+          "title": "GHSA-h75v-3vvj-5mfj in jinja2==3.1.2: Jinja vulnerable to HTML attribute injection when passing user input as keys to xmlattr filter",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-q2x7-8rv6-6q7h:jinja2@3.1.2",
+          "title": "GHSA-q2x7-8rv6-6q7h in jinja2==3.1.2: Jinja has a sandbox breakout through indirect reference to format method",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-29vq-49wr-vm6x:werkzeug@2.3.3",
+          "title": "GHSA-29vq-49wr-vm6x in werkzeug==2.3.3: Werkzeug safe_join() allows Windows special device names",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-2g68-c3qc-8985:werkzeug@2.3.3",
+          "title": "GHSA-2g68-c3qc-8985 in werkzeug==2.3.3: Werkzeug debugger vulnerable to remote execution when interacting with attacker controlled domain",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-87hc-h4r5-73f7:werkzeug@2.3.3",
+          "title": "GHSA-87hc-h4r5-73f7 in werkzeug==2.3.3: Werkzeug safe_join() allows Windows special device names with compound extensions",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-f9vj-2wh5-fj8j:werkzeug@2.3.3",
+          "title": "GHSA-f9vj-2wh5-fj8j in werkzeug==2.3.3: Werkzeug safe_join not safe on Windows",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-g6x2-hccm-hh4m:werkzeug@2.3.3",
+          "title": "GHSA-g6x2-hccm-hh4m in werkzeug==2.3.3: Werkzeug safe_join() allows Windows special device names",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "components": 21,
+        "lockfiles": [
+          "examples/celery/requirements.txt",
+          "pyproject.toml"
+        ],
+        "sbom_files": [],
+        "osv_queries": 20,
+        "osv_vuln_hits": 28,
+        "osv_skipped_unpinned": 1,
+        "osv_errors": 0
+      },
+      "evidence_refs": [
+        "supply_chain/inventory.json",
+        "supply_chain/sbom_practice.json",
+        "supply_chain/osv.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37821,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-inventory",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "osv.dev",
+          "version": "v1",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "pass",
+          "raw_metrics": {
+            "components": 21,
+            "lockfiles": [
+              "examples/celery/requirements.txt",
+              "pyproject.toml"
+            ]
+          }
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "null_display": "UNDECLARED",
+          "raw_metrics": {
+            "published_sbom": false,
+            "files": []
+          }
+        }
+      ]
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "asvs_scope_provided": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37821,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:no_strong_oracle",
+          "title": "Suite green but no strong oracle (mutation/PBT) measured",
+          "severity": "medium",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "has_tests_dir": true,
+        "test_file_count": 26,
+        "test_files_sample": [
+          "tests/test_basic.py",
+          "tests/test_converters.py",
+          "tests/test_logging.py",
+          "tests/test_signals.py",
+          "tests/test_async.py",
+          "tests/test_session_interface.py",
+          "tests/test_instance_config.py",
+          "tests/test_views.py",
+          "tests/test_json_tag.py",
+          "tests/test_subclassing.py",
+          "tests/test_reqctx.py",
+          "tests/test_blueprints.py",
+          "tests/test_config.py",
+          "tests/test_user_error_handler.py",
+          "tests/test_helpers.py",
+          "tests/test_json.py",
+          "tests/test_cli.py",
+          "tests/test_templating.py",
+          "tests/test_appctx.py",
+          "tests/test_regression.py"
+        ],
+        "pytest_config_present": true,
+        "suite": "green",
+        "pytest_exit": 0,
+        "strong_oracle": false
+      },
+      "evidence_refs": [
+        "test_adequacy/layout.json",
+        "test_adequacy/collect.txt",
+        "test_adequacy/pytest.txt"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37821,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "pytest",
+          "version": "pytest 8.4.2",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "checked": [
+          "import-linter",
+          "ArchUnit",
+          "Sonar architecture"
+        ],
+        "importlinter": false,
+        "import_linter_ini": false,
+        "archunit": false,
+        "sonar_architecture": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37821,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi": [],
+        "pact": [],
+        "json_schema": []
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37821,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    }
+  },
+  "top_risks": [
+    {
+      "summary": "GHSA-29vq-49wr-vm6x in werkzeug==2.3.3: Werkzeug safe_join() allows Windows special device names",
+      "finding_fingerprint": "sca:GHSA-29vq-49wr-vm6x:werkzeug@2.3.3"
+    },
+    {
+      "summary": "GHSA-2g68-c3qc-8985 in werkzeug==2.3.3: Werkzeug debugger vulnerable to remote execution when interacting with attacker controlled domain",
+      "finding_fingerprint": "sca:GHSA-2g68-c3qc-8985:werkzeug@2.3.3"
+    },
+    {
+      "summary": "GHSA-68rp-wp8r-4726 in flask==2.3.2: Flask session does not add `Vary: Cookie` header when accessed in some ways",
+      "finding_fingerprint": "sca:GHSA-68rp-wp8r-4726:flask@2.3.2"
+    },
+    {
+      "summary": "GHSA-87hc-h4r5-73f7 in werkzeug==2.3.3: Werkzeug safe_join() allows Windows special device names with compound extensions",
+      "finding_fingerprint": "sca:GHSA-87hc-h4r5-73f7:werkzeug@2.3.3"
+    },
+    {
+      "summary": "GHSA-cpwx-vrp4-4pq7 in jinja2==3.1.2: Jinja2 vulnerable to sandbox breakout through attr filter selecting format method",
+      "finding_fingerprint": "sca:GHSA-cpwx-vrp4-4pq7:jinja2@3.1.2"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "cb498f40e9a7abb3f0001564f7cd3f3ee723ba57d7a0dd2d54864a630e05bcde",
+    "manifest_sha256": "efccbba76498175d3201853f644d4616ace0a62dddd44057dfc5c3c9430680ab"
+  }
+}

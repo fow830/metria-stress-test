@@ -1,0 +1,38 @@
+{
+  "lockfiles": [
+    "docs/requirements.txt",
+    "pyproject.toml",
+    "requirements-dev.txt"
+  ],
+  "packages": [
+    {
+      "name": "httpbin",
+      "specifier": "~=0.10.0"
+    },
+    {
+      "name": "pytest",
+      "specifier": ">=2.8.0"
+    },
+    {
+      "name": "pytest-cov",
+      "specifier": ""
+    },
+    {
+      "name": "pytest-httpbin",
+      "specifier": "==2.0.0"
+    },
+    {
+      "name": "Sphinx",
+      "specifier": "==7.2.6"
+    },
+    {
+      "name": "trustme",
+      "specifier": ""
+    },
+    {
+      "name": "wheel",
+      "specifier": ""
+    }
+  ],
+  "component_count": 7
+}

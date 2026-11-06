@@ -1,0 +1,953 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_098817563615",
+  "subject": {
+    "repo_url": "https://github.com/encode/httpx",
+    "commit_sha": "609df7ecc0f7cb10a1c998aa9c269bba77337c5f",
+    "tree_digest": "sha256:a79ac892269f4ea7cdd8eac9ef2fdaa5ea5d614e96c1ecf8418c9b68038ae184"
+  },
+  "runner_image_digest": null,
+  "policy_digest": "sha256:75b23f41d9adf7ae28b7ed5fe584e505d837cd227e22db137cdc188757825e55",
+  "started_at": "2026-11-06T19:25:12Z",
+  "finished_at": "2026-11-06T19:25:19Z",
+  "budget": {
+    "wall_clock_s": 1800,
+    "used_s": 6
+  },
+  "overall": "warn",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct:ast:pickle_loads:cfbad638122ff9f5",
+          "title": "pickle.loads() at tests/models/test_requests.py:182",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:7abb4dcd42dcbabf",
+          "title": "pickle.loads() at tests/models/test_requests.py:202",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:0c86fffac58ebe3b",
+          "title": "pickle.loads() at tests/models/test_requests.py:210",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:45dee64e6927ff27",
+          "title": "pickle.loads() at tests/models/test_requests.py:219",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:5b593ff09fcbc042",
+          "title": "pickle.loads() at tests/models/test_requests.py:227",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:34c2e5faca0b2662",
+          "title": "pickle.loads() at tests/models/test_responses.py:964",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:e89b4574c3b378d4",
+          "title": "pickle.loads() at tests/models/test_responses.py:979",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:8c9292d7a7058038",
+          "title": "pickle.loads() at tests/models/test_responses.py:990",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:491f957f9f458cb5",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:37",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:b3ecb621096048b9",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:45",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:b72b7465f0a099be",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:64",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:7ba6afabe7e0f474",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:80",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:d94240ff22ca844e",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:81",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:12cb008ca118afcc",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:82",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:ea1ad40c9d74e44c",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:83",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:54e4b2c511255a18",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:84",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:166e6fc63c966b99",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:85",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:c58b6a69acbd8347",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:86",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:527d93a508bb2906",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:87",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:d1e2ec0efbff713a",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:93",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:3ca6e3523831a928",
+          "title": "Use of compile() on dynamic input at httpx/_urlparse.py:94",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:cbc0ebfc82011a6a",
+          "title": "Use of compile() on dynamic input at httpx/_utils.py:26",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:d847734b8c3a3490",
+          "title": "Use of compile() on dynamic input at httpx/_utils.py:380",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:45a1b7f125381348",
+          "title": "Use of compile() on dynamic input at httpx/_utils.py:384",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:1c76e2df9bb5a192",
+          "title": "Use of compile() on dynamic input at httpx/_utils.py:388",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "finding_count": 25,
+        "high_or_critical": 8,
+        "secrets_head": 0,
+        "ast_findings": 25,
+        "ruff_ran": true,
+        "ruff_issue_count": 0,
+        "py_files": 61
+      },
+      "evidence_refs": [
+        "structural/secrets.json",
+        "structural/ast.json",
+        "structural/ruff.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49080,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-ast",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "ruff",
+          "version": "ruff 0.15.1",
+          "ruleset_digest": null
+        },
+        {
+          "name": "metria-secret-regex",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "sca:GHSA-537c-gmf6-5ccf:cryptography@43.0.0",
+          "title": "GHSA-537c-gmf6-5ccf in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-79v4-65xg-pq4g:cryptography@43.0.0",
+          "title": "GHSA-79v4-65xg-pq4g in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-h4gh-qq45-vh27:cryptography@43.0.0",
+          "title": "GHSA-h4gh-qq45-vh27 in cryptography==43.0.0: pyca/cryptography has a vulnerable OpenSSL included in cryptography wheels",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-jwv3-5hgf-82ww:cryptography@43.0.0",
+          "title": "GHSA-jwv3-5hgf-82ww in cryptography==43.0.0: python-cryptography: Duplicate self-signed intermediates can cause exponential path-building",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-m959-cc7f-wv43:cryptography@43.0.0",
+          "title": "GHSA-m959-cc7f-wv43 in cryptography==43.0.0: cryptography has incomplete DNS name constraint enforcement on peer names",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-xvg9-69gf-fjrf:mkdocs-material@9.5.30",
+          "title": "GHSA-xvg9-69gf-fjrf in mkdocs-material==9.5.30: Material for MkDocs: DOM XSS in search suggestions via query parameter",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:PYSEC-2026-3864:mkdocs-material@9.5.30",
+          "title": "PYSEC-2026-3864 in mkdocs-material==9.5.30: Material for MkDocs: DOM XSS in search suggestions via query parameter",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-6w46-j5rx-g56g:pytest@8.3.1",
+          "title": "GHSA-6w46-j5rx-g56g in pytest==8.3.1: pytest has vulnerable tmpdir handling",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:PYSEC-2026-1845:pytest@8.3.1",
+          "title": "PYSEC-2026-1845 in pytest==8.3.1: pytest has vulnerable tmpdir handling",
+          "severity": "high",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "components": 15,
+        "lockfiles": [
+          "pyproject.toml",
+          "requirements.txt"
+        ],
+        "sbom_files": [],
+        "osv_queries": 14,
+        "osv_vuln_hits": 15,
+        "osv_skipped_unpinned": 1,
+        "osv_errors": 0
+      },
+      "evidence_refs": [
+        "supply_chain/inventory.json",
+        "supply_chain/sbom_practice.json",
+        "supply_chain/osv.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49098,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-inventory",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "osv.dev",
+          "version": "v1",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "pass",
+          "raw_metrics": {
+            "components": 15,
+            "lockfiles": [
+              "pyproject.toml",
+              "requirements.txt"
+            ]
+          }
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "null_display": "UNDECLARED",
+          "raw_metrics": {
+            "published_sbom": false,
+            "files": []
+          }
+        }
+      ]
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "asvs_scope_provided": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49098,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "has_tests_dir": true,
+        "test_file_count": 31,
+        "test_files_sample": [
+          "tests/test_utils.py",
+          "tests/test_auth.py",
+          "tests/test_timeouts.py",
+          "tests/test_exported_members.py",
+          "tests/test_asgi.py",
+          "tests/test_exceptions.py",
+          "tests/test_decoders.py",
+          "tests/test_config.py",
+          "tests/test_content.py",
+          "tests/test_status_codes.py",
+          "tests/test_multipart.py",
+          "tests/test_wsgi.py",
+          "tests/test_api.py",
+          "tests/test_main.py",
+          "tests/models/test_cookies.py",
+          "tests/models/test_queryparams.py",
+          "tests/models/test_whatwg.py",
+          "tests/models/test_requests.py",
+          "tests/models/test_responses.py",
+          "tests/models/test_url.py"
+        ],
+        "pytest_config_present": true,
+        "suite": "collect_failed",
+        "collect_exit": 4
+      },
+      "evidence_refs": [
+        "test_adequacy/layout.json",
+        "test_adequacy/collect.txt",
+        "test_adequacy/collect_failed.txt"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49098,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "pytest",
+          "version": "pytest 8.4.2",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "build_failed",
+      "null_owner": "metria",
+      "null_display": "NOT MEASURED"
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "checked": [
+          "import-linter",
+          "ArchUnit",
+          "Sonar architecture"
+        ],
+        "importlinter": false,
+        "import_linter_ini": false,
+        "archunit": false,
+        "sonar_architecture": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49098,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi": [],
+        "pact": [],
+        "json_schema": []
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49098,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    }
+  },
+  "top_risks": [
+    {
+      "summary": "GHSA-537c-gmf6-5ccf in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels",
+      "finding_fingerprint": "sca:GHSA-537c-gmf6-5ccf:cryptography@43.0.0"
+    },
+    {
+      "summary": "GHSA-6w46-j5rx-g56g in pytest==8.3.1: pytest has vulnerable tmpdir handling",
+      "finding_fingerprint": "sca:GHSA-6w46-j5rx-g56g:pytest@8.3.1"
+    },
+    {
+      "summary": "GHSA-79v4-65xg-pq4g in cryptography==43.0.0: Vulnerable OpenSSL included in cryptography wheels",
+      "finding_fingerprint": "sca:GHSA-79v4-65xg-pq4g:cryptography@43.0.0"
+    },
+    {
+      "summary": "GHSA-h4gh-qq45-vh27 in cryptography==43.0.0: pyca/cryptography has a vulnerable OpenSSL included in cryptography wheels",
+      "finding_fingerprint": "sca:GHSA-h4gh-qq45-vh27:cryptography@43.0.0"
+    },
+    {
+      "summary": "GHSA-jwv3-5hgf-82ww in cryptography==43.0.0: python-cryptography: Duplicate self-signed intermediates can cause exponential path-building",
+      "finding_fingerprint": "sca:GHSA-jwv3-5hgf-82ww:cryptography@43.0.0"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "553b38c0066dc983124b837f5b2cac509e678302b1398591296fbfdbb4552d15",
+    "manifest_sha256": "1f8e41712fcb0fcf2810875c0fee073c3aa7fcb724159a1675a27b873701c751"
+  }
+}

@@ -1,0 +1,565 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_6586bd4f9445",
+  "subject": {
+    "repo_url": "https://github.com/pallets/click",
+    "commit_sha": "006ae84d651846c944331fff78e340701fe58562",
+    "tree_digest": "sha256:d9023330dbd2c37144454a7d7f77b5b45c379b31bb4209bd241fb17fb2a0f18e"
+  },
+  "runner_image_digest": null,
+  "policy_digest": "sha256:75b23f41d9adf7ae28b7ed5fe584e505d837cd227e22db137cdc188757825e55",
+  "started_at": "2026-11-06T19:24:43Z",
+  "finished_at": "2026-11-06T19:24:46Z",
+  "budget": {
+    "wall_clock_s": 1800,
+    "used_s": 3
+  },
+  "overall": "warn",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct:ast:compile:e2e52593d5817610",
+          "title": "Use of compile() on dynamic input at src/click/_compat.py:12",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:shell_true:d7368410ec5400a6",
+          "title": "subprocess call with shell=True at src/click/_termui_impl.py:414",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:shell_true.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:shell_true:02e644cdd7955b14",
+          "title": "subprocess call with shell=True at src/click/_termui_impl.py:514",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:shell_true.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "finding_count": 3,
+        "high_or_critical": 2,
+        "secrets_head": 0,
+        "ast_findings": 3,
+        "ruff_ran": true,
+        "ruff_issue_count": 0,
+        "py_files": 71
+      },
+      "evidence_refs": [
+        "structural/secrets.json",
+        "structural/ast.json",
+        "structural/ruff.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17551,
+        "loc_total": 26186,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-ast",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "ruff",
+          "version": "ruff 0.15.1",
+          "ruleset_digest": null
+        },
+        {
+          "name": "metria-secret-regex",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "sca:no-lockfile",
+          "title": "No lockfile/requirements inventory found",
+          "severity": "medium",
+          "detectors": [
+            "inventory"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/inventory.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "components": 0,
+        "lockfiles": [],
+        "sbom_files": []
+      },
+      "evidence_refs": [
+        "supply_chain/inventory.json",
+        "supply_chain/sbom_practice.json",
+        "supply_chain/osv.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17551,
+        "loc_total": 26186,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-inventory",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "osv.dev",
+          "version": "v1",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "warn",
+          "raw_metrics": {
+            "components": 0,
+            "lockfiles": []
+          }
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "null_display": "UNDECLARED",
+          "raw_metrics": {
+            "published_sbom": false,
+            "files": []
+          }
+        }
+      ]
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "asvs_scope_provided": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17551,
+        "loc_total": 26186,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:no_strong_oracle",
+          "title": "Suite green but no strong oracle (mutation/PBT) measured",
+          "severity": "medium",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "has_tests_dir": true,
+        "test_file_count": 20,
+        "test_files_sample": [
+          "tests/test_parser.py",
+          "tests/test_shell_completion.py",
+          "tests/test_basic.py",
+          "tests/test_utils.py",
+          "tests/test_termui.py",
+          "tests/test_options.py",
+          "tests/test_info_dict.py",
+          "tests/test_imports.py",
+          "tests/test_command_decorators.py",
+          "tests/test_commands.py",
+          "tests/test_compat.py",
+          "tests/test_formatting.py",
+          "tests/test_context.py",
+          "tests/test_chain.py",
+          "tests/test_normalization.py",
+          "tests/test_defaults.py",
+          "tests/test_custom_classes.py",
+          "tests/test_types.py",
+          "tests/test_arguments.py",
+          "tests/test_testing.py"
+        ],
+        "pytest_config_present": false,
+        "suite": "green",
+        "pytest_exit": 0,
+        "strong_oracle": false
+      },
+      "evidence_refs": [
+        "test_adequacy/layout.json",
+        "test_adequacy/collect.txt",
+        "test_adequacy/pytest.txt"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17551,
+        "loc_total": 26186,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "pytest",
+          "version": "pytest 8.4.2",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "checked": [
+          "import-linter",
+          "ArchUnit",
+          "Sonar architecture"
+        ],
+        "importlinter": false,
+        "import_linter_ini": false,
+        "archunit": false,
+        "sonar_architecture": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17551,
+        "loc_total": 26186,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi": [],
+        "pact": [],
+        "json_schema": []
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17551,
+        "loc_total": 26186,
+        "excluded_paths": [
+          ".eggs",
+          ".git",
+          ".hg",
+          ".mypy_cache",
+          ".pytest_cache",
+          ".svn",
+          ".tox",
+          ".venv",
+          "__pycache__",
+          "build",
+          "dist",
+          "node_modules",
+          "venv"
+        ],
+        "exclusion_reasons": {
+          ".eggs": "tooling_or_vcs",
+          ".git": "tooling_or_vcs",
+          ".hg": "tooling_or_vcs",
+          ".mypy_cache": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs",
+          ".svn": "tooling_or_vcs",
+          ".tox": "tooling_or_vcs",
+          ".venv": "tooling_or_vcs",
+          "__pycache__": "tooling_or_vcs",
+          "build": "tooling_or_vcs",
+          "dist": "tooling_or_vcs",
+          "node_modules": "tooling_or_vcs",
+          "venv": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    }
+  },
+  "top_risks": [
+    {
+      "summary": "subprocess call with shell=True at src/click/_termui_impl.py:514",
+      "finding_fingerprint": "struct:ast:shell_true:02e644cdd7955b14"
+    },
+    {
+      "summary": "subprocess call with shell=True at src/click/_termui_impl.py:414",
+      "finding_fingerprint": "struct:ast:shell_true:d7368410ec5400a6"
+    },
+    {
+      "summary": "Suite green but no strong oracle (mutation/PBT) measured",
+      "finding_fingerprint": "adeq:no_strong_oracle"
+    },
+    {
+      "summary": "No lockfile/requirements inventory found",
+      "finding_fingerprint": "sca:no-lockfile"
+    },
+    {
+      "summary": "Use of compile() on dynamic input at src/click/_compat.py:12",
+      "finding_fingerprint": "struct:ast:compile:e2e52593d5817610"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "dbae3483be930b78fa4b26c62e22e4bcf31a38bc51445fb80afd0b8e9cf57510",
+    "manifest_sha256": "381aa51e2557d3092172a37de843e9e7e09de7b7c58d488b9834acb6e0e007b2"
+  }
+}

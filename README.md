@@ -1,52 +1,74 @@
 # Metria Stress Test
 
-Status-first evidence protocol for external software stress runs.
+**Status:** Commit #0 schema merged · MVP CLI + adapters + fixed-SHA corpus (this PR)
 
-This repository is the product home for **Metria**. Commit #0 ships only the
-machine contract: `schema/stress-run.schema.json` v0.1, fixtures, and schema
-tests. No CLI, adapters, or scores yet.
+Status-first evidence protocol for cold external software audits. Machine output is
+`pass | warn | fail | null` per lens, plus raw metrics and evidence. There is
+**no Ideal Score**, **no A–F grade/band**, and **no numeric risk advisory**.
 
-## Decisions (authoritative)
+Human reports map machine `null` → **UNDECLARED** (subject gap) or **NOT MEASURED** (our tooling gap).
 
-Accepted first-total review (2026-11-06):
+## Quick start
 
-- **Build the product.** v1 is status-first (`pass` / `warn` / `fail` / `null`).
-- Field `score` stays in the schema but is **always `null`** with
-  `score_reason: "uncalibrated"` until a published calibrated corpus exists.
-- **Banned:** Ideal Score, `grade`, `band` (A–F), numeric `risk_advisory`, and
-  weighted protectability blends.
-- **Protectability split:** `supply_chain` + `controls` (no weighted sum).
-- **Normative** is experimental, reserved in schema, out of MVP measurement.
-- Human report uses **`UNDECLARED` / `NOT MEASURED`**, never bare `NULL`.
-- Five lenses remain in the schema vision; v1 measures `structural`,
-  `supply_chain`, and `test_adequacy`; `architectural` / `normative` /
-  `controls` are often undeclared.
+```bash
+python3 -m pip install -e ".[dev]"
+metria run /path/to/checkout --out metria-out --print-report
+# or pinned remote:
+metria run https://github.com/pallets/click@006ae84d651846c944331fff78e340701fe58562 --out metria-out
+```
+
+Outputs: `stress-run.json` (schema v0.1), `report.txt`, `evidence.zip`.
+
+## What v0.1 measures
+
+| Lens | v0.1 behavior |
+|------|----------------|
+| `structural` | AST danger patterns + HEAD-tree secret heuristics + optional `ruff` |
+| `supply_chain` | Lockfile/requirements inventory + OSV queries; `sbom_practice` as sub-result |
+| `test_adequacy` | pytest discovery/collect/run (budgeted); no strong oracle → `warn` |
+| `controls` | `UNDECLARED` |
+| `architectural` | `UNDECLARED` (or `NOT MEASURED` if markers found but not executed) |
+| `normative` | `UNDECLARED` · experimental |
+
+`score` is always `null` with `score_reason: "uncalibrated"`.
+
+## Schema containment
+
+```bash
+python3 -m pytest -q
+```
+
+Negative fixtures reject `ideal_score`, `grade`, `band`, blended protectability weights,
+and `status: null` without attribution.
+
+## Fixed-SHA corpus
+
+Subjects are pinned in `corpus/subjects.yaml`. Publish all results, including FAIL / NOT MEASURED:
+
+```bash
+python3 scripts/run_corpus.py
+# results → corpus/results/<id>@<sha12>/
+```
+
+| id | repo | tag / pin |
+|----|------|-----------|
+| click | pallets/click | 8.1.7 |
+| requests | psf/requests | v2.32.3 |
+| six | benjaminp/six | 1.16.0 |
+| httpx | encode/httpx | 0.27.2 |
+| flask | pallets/flask | 3.0.3 |
 
 ## Layout
 
 ```text
-schema/stress-run.schema.json          # JSON Schema draft 2020-12
-schema/fixtures/valid-minimal.json     # minimal valid StressRun
-schema/fixtures/invalid-*.json         # negative containment fixtures
-tests/test_stress_run_schema.py        # pytest + jsonschema
+schema/stress-run.schema.json
+policy/cold_external.yaml
+metria/                    # CLI + adapters
+corpus/subjects.yaml
+corpus/results/            # published runs
+tests/
 ```
 
-## Run schema tests
+## License
 
-```bash
-python3 -m pip install -r requirements.txt
-python3 -m pytest -q
-```
-
-Valid fixtures must validate. Fixtures that introduce `ideal_score`, `grade`,
-`band`, blended protectability `weights`, or `status: null` without
-`null_reason` / `null_owner` / `null_display` must be rejected.
-
-## Commit map
-
-| Commit | Artifact |
-|--------|----------|
-| **#0** (this) | Schema v0.1 + negative fixtures + tests |
-| #1+ | Policy, discovery, sandbox, adapters, corpus (see review) |
-
-No product code before the schema CI is green.
+Apache-2.0 — see [LICENSE](LICENSE).

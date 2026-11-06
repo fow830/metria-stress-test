@@ -1,0 +1,23 @@
+# Fixed-SHA public Python corpus for Metria cold_external.
+# Results (including FAIL / NOT MEASURED) are published under corpus/results/.
+subjects:
+  - id: click
+    repo_url: https://github.com/pallets/click
+    commit_sha: "006ae84d651846c944331fff78e340701fe58562"
+    note: "click 8.1.7 — mature CLI lib with tests"
+  - id: requests
+    repo_url: https://github.com/psf/requests
+    commit_sha: "61e2240f283f15780ac2d0e2cfefb0fd6fdab627"
+    note: "requests v2.32.3 — popular HTTP client, dependency surface"
+  - id: six
+    repo_url: https://github.com/benjaminp/six
+    commit_sha: "65486e4383f9f411da95937451205d3c7b61b9e1"
+    note: "six 1.16.0 — tiny compatibility shim"
+  - id: httpx
+    repo_url: https://github.com/encode/httpx
+    commit_sha: "609df7ecc0f7cb10a1c998aa9c269bba77337c5f"
+    note: "httpx 0.27.2 — async HTTP client with tests"
+  - id: flask
+    repo_url: https://github.com/pallets/flask
+    commit_sha: "85039283fc3e986cced4ab39a3fe2b39314d06bb"
+    note: "flask 3.0.3 — web framework with tests"

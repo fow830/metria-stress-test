@@ -1,0 +1,93 @@
+{
+  "lockfiles": [
+    "examples/celery/requirements.txt",
+    "pyproject.toml"
+  ],
+  "packages": [
+    {
+      "name": "amqp",
+      "specifier": "==5.1.1"
+    },
+    {
+      "name": "async-timeout",
+      "specifier": "==4.0.2"
+    },
+    {
+      "name": "billiard",
+      "specifier": "==3.6.4.0"
+    },
+    {
+      "name": "blinker",
+      "specifier": "==1.6.2"
+    },
+    {
+      "name": "celery",
+      "specifier": ""
+    },
+    {
+      "name": "click",
+      "specifier": "==8.1.3"
+    },
+    {
+      "name": "click-didyoumean",
+      "specifier": "==0.3.0"
+    },
+    {
+      "name": "click-plugins",
+      "specifier": "==1.1.1"
+    },
+    {
+      "name": "click-repl",
+      "specifier": "==0.2.0"
+    },
+    {
+      "name": "flask",
+      "specifier": "==2.3.2"
+    },
+    {
+      "name": "itsdangerous",
+      "specifier": "==2.1.2"
+    },
+    {
+      "name": "jinja2",
+      "specifier": "==3.1.2"
+    },
+    {
+      "name": "kombu",
+      "specifier": "==5.2.4"
+    },
+    {
+      "name": "markupsafe",
+      "specifier": "==2.1.2"
+    },
+    {
+      "name": "prompt-toolkit",
+      "specifier": "==3.0.38"
+    },
+    {
+      "name": "pytz",
+      "specifier": "==2023.3"
+    },
+    {
+      "name": "redis",
+      "specifier": "==4.5.4"
+    },
+    {
+      "name": "six",
+      "specifier": "==1.16.0"
+    },
+    {
+      "name": "vine",
+      "specifier": "==5.0.0"
+    },
+    {
+      "name": "wcwidth",
+      "specifier": "==0.2.6"
+    },
+    {
+      "name": "werkzeug",
+      "specifier": "==2.3.3"
+    }
+  ],
+  "component_count": 21
+}

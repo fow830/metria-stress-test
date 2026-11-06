@@ -1,0 +1,74 @@
+{
+  "root": "/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-requests-ve30h6p5",
+  "loc": {
+    "py_loc": 11209,
+    "total_loc": 46071,
+    "py_files": 36
+  },
+  "lockfiles": [
+    "docs/requirements.txt",
+    "pyproject.toml",
+    "requirements-dev.txt"
+  ],
+  "tests": {
+    "has_tests_dir": true,
+    "test_file_count": 9,
+    "test_files_sample": [
+      "tests/test_utils.py",
+      "tests/test_structures.py",
+      "tests/test_packages.py",
+      "tests/test_testserver.py",
+      "tests/test_hooks.py",
+      "tests/test_requests.py",
+      "tests/test_adapters.py",
+      "tests/test_help.py",
+      "tests/test_lowlevel.py"
+    ],
+    "pytest_config_present": true
+  },
+  "normative": {
+    "openapi": [],
+    "pact": [],
+    "json_schema": []
+  },
+  "architecture": {
+    "importlinter": false,
+    "import_linter_ini": false,
+    "archunit": false,
+    "sonar_architecture": false
+  },
+  "sbom_files": [],
+  "packages": [
+    {
+      "name": "httpbin",
+      "specifier": "~=0.10.0"
+    },
+    {
+      "name": "pytest",
+      "specifier": ">=2.8.0"
+    },
+    {
+      "name": "pytest-cov",
+      "specifier": ""
+    },
+    {
+      "name": "pytest-httpbin",
+      "specifier": "==2.0.0"
+    },
+    {
+      "name": "Sphinx",
+      "specifier": "==7.2.6"
+    },
+    {
+      "name": "trustme",
+      "specifier": ""
+    },
+    {
+      "name": "wheel",
+      "specifier": ""
+    }
+  ],
+  "languages": [
+    "python"
+  ]
+}

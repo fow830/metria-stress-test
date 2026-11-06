@@ -1,0 +1,33 @@
+{
+  "root": "/private/var/folders/9z/5cv4hb_15t1drvfp2t4n00k40000gn/T/metria-corpus-six-l8f0_7wf",
+  "loc": {
+    "py_loc": 2314,
+    "total_loc": 3851,
+    "py_files": 4
+  },
+  "lockfiles": [],
+  "tests": {
+    "has_tests_dir": false,
+    "test_file_count": 1,
+    "test_files_sample": [
+      "test_six.py"
+    ],
+    "pytest_config_present": false
+  },
+  "normative": {
+    "openapi": [],
+    "pact": [],
+    "json_schema": []
+  },
+  "architecture": {
+    "importlinter": false,
+    "import_linter_ini": false,
+    "archunit": false,
+    "sonar_architecture": false
+  },
+  "sbom_files": [],
+  "packages": [],
+  "languages": [
+    "python"
+  ]
+}

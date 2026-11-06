@@ -1,0 +1,27 @@
+{
+  "has_tests_dir": true,
+  "test_file_count": 31,
+  "test_files_sample": [
+    "tests/test_utils.py",
+    "tests/test_auth.py",
+    "tests/test_timeouts.py",
+    "tests/test_exported_members.py",
+    "tests/test_asgi.py",
+    "tests/test_exceptions.py",
+    "tests/test_decoders.py",
+    "tests/test_config.py",
+    "tests/test_content.py",
+    "tests/test_status_codes.py",
+    "tests/test_multipart.py",
+    "tests/test_wsgi.py",
+    "tests/test_api.py",
+    "tests/test_main.py",
+    "tests/models/test_cookies.py",
+    "tests/models/test_queryparams.py",
+    "tests/models/test_whatwg.py",
+    "tests/models/test_requests.py",
+    "tests/models/test_responses.py",
+    "tests/models/test_url.py"
+  ],
+  "pytest_config_present": true
+}
