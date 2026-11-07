@@ -1,0 +1,33 @@
+........................................................................ [ 15%]
+........................................................................ [ 30%]
+........................................................................ [ 45%]
+................................ss.s..........s......................... [ 60%]
+........................................................................ [ 75%]
+.....................ss..F.............................................. [ 90%]
+............................................                             [100%]
+=================================== FAILURES ===================================
+_____________________ test_bad_environ_raises_bad_request ______________________
+
+    def test_bad_environ_raises_bad_request():
+        app = flask.Flask(__name__)
+    
+        from flask.testing import EnvironBuilder
+    
+        builder = EnvironBuilder(app)
+        environ = builder.get_environ()
+    
+        # use a non-printable character in the Host - this is key to this test
+        environ["HTTP_HOST"] = "\x8a"
+    
+        with app.request_context(environ):
+            response = app.full_dispatch_request()
+>       assert response.status_code == 400
+E       assert 404 == 400
+E        +  where 404 = <Response streamed [404 NOT FOUND]>.status_code
+
+tests/test_reqctx.py:293: AssertionError
+- generated xml file: <junit>
+=========================== short test summary info ============================
+FAILED tests/test_reqctx.py::test_bad_environ_raises_bad_request - assert 404...
+1 failed, 469 passed, 7 skipped in 1.25s
+

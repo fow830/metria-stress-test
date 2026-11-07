@@ -1,21 +1,21 @@
-Metria — WARN                      commit 8503928 · policy digest sha256:493d5e44b95… · schema 0.1
+Metria — FAIL                      commit 8503928 · policy digest sha256:493d5e44b95… · schema 0.1
 
 HARD GATES
   (none)
 
 LENSES
   structural       WARN           finding_count=44 · high_or_critical=2 · secrets_head=0
-  supply_chain     WARN           components=22
+  supply_chain     PASS           components=22
   controls         UNDECLARED  
-  test_adequacy    NOT MEASURED   suite=collect_failed · test_file_count=26
+  test_adequacy    FAIL           suite=failed · strong_oracle=False · test_file_count=26
   architectural    UNDECLARED  
   normative        UNDECLARED    [experimental]
 
 TOP RISKS
-  1. Use of eval() at src/flask/cli.py:1005
-  2. Use of exec() at src/flask/config.py:212
-  3. Use of compile() on dynamic input at src/flask/config.py:212
-  4. Use of compile() on dynamic input at src/flask/cli.py:1005
-  5. ruff S101: Use of `assert` detected at <subject>/examples/javascript/tests/test_js_example.py:16
+  1. pytest failed (exit 1)
+  2. Use of eval() at src/flask/cli.py:1005
+  3. Use of exec() at src/flask/config.py:212
+  4. Use of compile() on dynamic input at src/flask/config.py:212
+  5. Use of compile() on dynamic input at src/flask/cli.py:1005
 
-evidence · sha256 dea222dd9ae4… · reproducible: metria run <repo>@85039283fc3e986cced4ab39a3fe2b39314d06bb --profile cold_external
+evidence · sha256 e9debcc91ed1… · reproducible: metria run <repo>@85039283fc3e986cced4ab39a3fe2b39314d06bb --profile cold_external

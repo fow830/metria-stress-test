@@ -1,7 +1,7 @@
 {
   "installed": [
     "pytest",
-    "-e .[test]"
+    "-e ."
   ],
   "attempts": [
     {
@@ -17,10 +17,11 @@
     {
       "args": [
         "-e",
-        ".[test]"
+        "."
       ],
       "returncode": 0,
-      "stderr_tail": "WARNING: click 8.1.7 does not provide the extra 'test'\n"
+      "stderr_tail": "",
+      "missing_extra": false
     }
   ],
   "ok": true

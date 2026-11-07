@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_b3771b5e61d2",
+  "run_id": "run_02cd4c76008b",
   "subject": {
     "repo_url": "https://github.com/benjaminp/six",
     "commit_sha": "65486e4383f9f411da95937451205d3c7b61b9e1",
@@ -8,8 +8,8 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-06T19:52:10Z",
-  "finished_at": "2026-11-06T19:52:24Z",
+  "started_at": "2026-11-06T20:31:36Z",
+  "finished_at": "2026-11-06T20:31:51Z",
   "budget": {
     "wall_clock_s": 1800,
     "used_s": 14
@@ -643,15 +643,25 @@
         "non_runtime_components": 0,
         "lockfiles": [],
         "sbom_files": [],
+        "resolved_versions": 0,
+        "inventory_meta": {
+          "setup_py_present": true,
+          "setup_py_error": null,
+          "sources_read": [
+            "setup.cfg",
+            "setup.py"
+          ]
+        },
         "osv_queries": 0,
         "osv_vuln_hits": 0,
-        "osv_skipped_unpinned": 0,
+        "osv_skipped_unresolved": 0,
         "osv_errors": 0
       },
       "evidence_refs": [
         "supply_chain/inventory.json",
         "supply_chain/sbom_practice.json",
-        "supply_chain/osv.json"
+        "supply_chain/osv.json",
+        "supply_chain/resolved_versions.json"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -783,17 +793,19 @@
         "install": {
           "installed": [
             "pytest",
-            "-e .[test]"
+            "-e ."
           ],
           "ok": true
-        }
+        },
+        "classify": "pass"
       },
       "evidence_refs": [
         "test_adequacy/layout.json",
         "test_adequacy/runner.json",
         "test_adequacy/collect.txt",
         "test_adequacy/pytest.txt",
-        "test_adequacy/install.json"
+        "test_adequacy/install.json",
+        "test_adequacy/junit.xml"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -928,7 +940,7 @@
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "5c2eebb6bd6d86f8b31305f255caf84be3417f34ef7c6e35d553c82b7a87d1eb",
-    "manifest_sha256": "be1783b088d7df3bf7e25a3082c074fa7ac2b8ca875740a5f6b9dbb73b8e28f8"
+    "sha256": "ab20200ff22861d56c9b5f68fd47544710b9983a452b405e7345e7125f6c0877",
+    "manifest_sha256": "c7eadd0d27f705b8c47ed0acbfdc8df2db41ebf1241013535c2686d128b66acf"
   }
 }

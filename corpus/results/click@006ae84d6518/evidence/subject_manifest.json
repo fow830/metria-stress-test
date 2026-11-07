@@ -45,7 +45,20 @@
     "sonar_architecture": false
   },
   "sbom_files": [],
-  "packages": [],
+  "packages": [
+    {
+      "name": "colorama",
+      "specifier": "",
+      "class": "runtime",
+      "source": "setup.py"
+    },
+    {
+      "name": "importlib-metadata",
+      "specifier": "",
+      "class": "runtime",
+      "source": "setup.py"
+    }
+  ],
   "languages": [
     "python"
   ]

@@ -610,5 +610,5 @@ tests/test_utils.py::test_make_default_short_help[no-wrap mark-truncate]
 tests/test_utils.py::test_make_default_short_help[no-wrap mark-length includes suffix]
 tests/test_utils.py::test_make_default_short_help[no-wrap mark-ignore dot in word]
 
-611 tests collected in 0.40s
+611 tests collected in 0.44s
 

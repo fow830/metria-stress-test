@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
-from metria.discovery import TEST_DIR_NAMES, count_loc, existing_skip_dirs, find_test_layout
+from metria.discovery import count_loc, existing_skip_dirs, find_test_layout
 from metria.model import dimension, not_measured
 from metria.sandbox import (
     cleanup_dir,
@@ -23,10 +23,24 @@ from metria.sandbox import (
     scrub_text_paths,
 )
 
-_NO_MODULE = re.compile(r"No module named ['\"]?([A-Za-z0-9_.\-]+)['\"]?")
-_FIXTURE_NOT_FOUND = re.compile(r"fixture ['\"][^'\"]+['\"] not found", re.I)
-# Assertion only — do NOT match bare "FAILED" (that covers ImportError failures too).
-_ASSERT_HINT = re.compile(r"(AssertionError|assert\s+.*(?:==|!=|<|>| is | in |True|False))", re.I)
+_MISSING_MOD = re.compile(
+    r"(?:No module named\s+|ModuleNotFoundError:\s*(?:No module named\s+)?)['\"]?"
+    r"([A-Za-z0-9_][A-Za-z0-9_\.]*)",
+    re.I,
+)
+_IMPORT_ERR_LINE = re.compile(r"^\s*(?:E\s+)?(?:ImportError|ModuleNotFoundError)\b", re.M | re.I)
+_FIXTURE_MISSING = re.compile(r"fixture ['\"][^'\"]+['\"] not found", re.I)
+_FAILED_LINE = re.compile(r"^FAILED\b", re.M)
+_ERROR_LINE = re.compile(r"^ERROR\b", re.M)
+
+
+def _normalize_junit(text: str, root: Path, *extra_roots: Path) -> str:
+    """Scrub paths and drop volatile junit attrs so evidence manifests stay stable."""
+    text = scrub_text_paths(text, root, *extra_roots)
+    text = re.sub(r'\s+timestamp="[^"]*"', "", text)
+    text = re.sub(r'\s+hostname="[^"]*"', "", text)
+    text = re.sub(r'\s+time="[^"]*"', ' time="0"', text)
+    return text
 
 
 def _runner_versions() -> Dict[str, str]:
@@ -52,170 +66,161 @@ def _pytest_version(py: Optional[Path] = None) -> str:
         return "unknown"
 
 
-def _subject_owned_names(root: Path) -> Set[str]:
-    """Module/package names that resolve inside the subject tree (non-test)."""
-    owned: Set[str] = set()
-    for path in root.rglob("*.py"):
-        try:
-            rel = path.relative_to(root)
-        except ValueError:
-            continue
-        parts = list(rel.with_suffix("").parts)
-        if not parts:
-            continue
-        if parts[0] in TEST_DIR_NAMES or parts[0].startswith("test_"):
-            continue
-        if parts[-1] == "__init__":
-            parts = parts[:-1]
-        if not parts:
-            continue
-        for i in range(len(parts)):
-            owned.add(".".join(parts[: i + 1]))
-            owned.add(parts[i])
-    # Top-level packages/dirs
+def _subject_module_names(root: Path) -> Set[str]:
+    """Top-level import names that belong to the subject tree (not third-party)."""
+    names: Set[str] = set()
     try:
-        for child in root.iterdir():
-            if child.is_dir() and child.name not in TEST_DIR_NAMES and not child.name.startswith("."):
-                if child.name not in {"dist", "build", "venv", ".venv", "docs", "examples"}:
-                    owned.add(child.name)
-            if child.is_file() and child.suffix == ".py" and not child.name.startswith("test_"):
-                owned.add(child.stem)
+        for p in root.iterdir():
+            if p.name.startswith(".") or p.name in {"tests", "test", "docs", "examples", "example"}:
+                continue
+            if p.is_dir() and ((p / "__init__.py").exists() or any(p.glob("*.py"))):
+                names.add(p.name)
+            elif p.suffix == ".py" and p.name not in {"setup.py", "conftest.py"}:
+                names.add(p.stem)
     except OSError:
         pass
-    return owned
+    # Packaging name often matches the import package.
+    for meta in ("pyproject.toml", "setup.cfg"):
+        path = root / meta
+        if not path.is_file():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        m = re.search(r"(?m)^\s*name\s*=\s*[\"']?([A-Za-z0-9][A-Za-z0-9._\-]*)", text)
+        if m:
+            names.add(m.group(1).split(".")[0].replace("-", "_"))
+    return names
 
 
-def _module_resolves_in_subject(mod: str, root: Path, owned: Set[str]) -> bool:
-    clean = mod.strip().strip(".")
-    if not clean:
+def _missing_modules(blob: str) -> List[str]:
+    return [m.group(1) for m in _MISSING_MOD.finditer(blob or "")]
+
+
+def _module_belongs_to_subject(mod: str, subject_names: Set[str], root: Path) -> bool:
+    top = (mod or "").split(".")[0]
+    if not top:
         return False
-    if clean in owned or clean.split(".")[0] in owned:
+    if top in subject_names:
         return True
-    # File/dir resolve
-    rel = Path(*clean.split("."))
-    if (root / rel).is_dir() or (root / f"{rel}.py").is_file() or (root / rel / "__init__.py").is_file():
+    # Resolvable as a path under the subject tree.
+    cand = root / top
+    if cand.is_dir() or (root / f"{top}.py").is_file():
         return True
-    top = clean.split(".", 1)[0]
-    if (root / top).is_dir() or (root / f"{top}.py").is_file():
-        return True
+    # Nested: pkg.helperz → pkg
     return False
 
 
-def _message_is_env_failure(msg: str, root: Path, owned: Set[str]) -> bool:
-    """True only for runner/env gaps — never for subject-owned ImportErrors."""
-    if _FIXTURE_NOT_FOUND.search(msg):
-        return True
-    m = _NO_MODULE.search(msg)
-    if m:
-        return not _module_resolves_in_subject(m.group(1), root, owned)
-    # ImportError without a resolvable missing-module name: treat as subject unless
-    # the message clearly names an external plugin (kept narrow — no whole-blob scan).
-    if "ModuleNotFoundError" in msg or "ImportError" in msg:
-        # cannot import name X from Y — if Y is subject-owned → subject
-        fm = re.search(r"from ['\"]([^'\"]+)['\"]", msg)
-        if fm and _module_resolves_in_subject(fm.group(1), root, owned):
-            return False
-        if fm and not _module_resolves_in_subject(fm.group(1), root, owned):
-            return True
-        return False
-    return False
-
-
-def _parse_junit(path: Path) -> List[Dict[str, str]]:
-    """Return list of {kind, message, text} for failures/errors in junitxml."""
-    if not path.is_file():
-        return []
+def _junit_failure_kinds(junit_path: Path) -> Tuple[bool, bool, List[str]]:
+    """Parse junitxml → (has_subject_failure, has_env_error, notes)."""
+    has_subject = False
+    has_env = False
+    notes: List[str] = []
     try:
-        tree = ET.parse(path)
-    except ET.ParseError:
-        return []
-    items: List[Dict[str, str]] = []
+        tree = ET.parse(str(junit_path))
+    except (ET.ParseError, OSError):
+        return False, False, ["junit_parse_error"]
+    subject_hint_types = {
+        "AssertionError",
+        "assert",
+        "Failed",
+        "pytest.fail",
+        "RuntimeError",
+        "ValueError",
+        "TypeError",
+        "AttributeError",
+        "KeyError",
+        "IndexError",
+        "Exception",
+    }
     for case in tree.iter("testcase"):
         for tag in ("failure", "error"):
             node = case.find(tag)
             if node is None:
                 continue
-            items.append(
-                {
-                    "kind": tag,
-                    "message": node.attrib.get("message") or "",
-                    "text": (node.text or "") + "\n" + (node.attrib.get("message") or ""),
-                }
-            )
-    return items
+            msg = f"{node.get('message') or ''}\n{node.text or ''}"
+            ftype = (node.get("type") or "").strip()
+            notes.append(f"{tag}:{ftype or 'unknown'}")
+            # Assertion / explicit test failure → subject
+            if tag == "failure" or ftype in subject_hint_types or "AssertionError" in msg:
+                has_subject = True
+                continue
+            # Import / module errors: decide by missing module attribution later via msg
+            if "ImportError" in ftype or "ModuleNotFoundError" in ftype or "ImportError" in msg or "ModuleNotFoundError" in msg:
+                # Mark; attribution applied by caller with subject names.
+                notes.append(f"import:{msg[:200]}")
+                continue
+            if _FIXTURE_MISSING.search(msg):
+                has_env = True
+                continue
+            # Default error during a testcase → subject defect
+            has_subject = True
+    return has_subject, has_env, notes
 
 
-def _normalize_junit(text: str) -> str:
-    """Strip wall-clock noise so evidence manifests are deterministic."""
-    text = re.sub(r'\stimestamp="[^"]*"', ' timestamp="0"', text)
-    text = re.sub(r'\stime="[^"]*"', ' time="0"', text)
-    text = re.sub(r'\shostname="[^"]*"', ' hostname="host"', text)
-    if text and not text.endswith("\n"):
-        text += "\n"
-    return text
-
-
-def _classify_pytest_outcome(
-    *,
+def classify_pytest_result(
     out: str,
     err: str,
     code: int,
     root: Path,
+    *,
+    phase: str = "run",
     junit_path: Optional[Path] = None,
-) -> Tuple[str, List[str]]:
-    """Classify a pytest run.
+) -> str:
+    """Return ``pass`` | ``fail`` | ``env``.
 
-    Returns (kind, notes) where kind ∈ {ok, fail, env}.
-    - ok: exit 0
-    - fail: subject assertion / subject-owned import / other subject exception
-    - env: only missing *external* deps / missing fixtures / pure runner gaps
+    Env only when attribution is reliable (third-party ModuleNotFound / missing fixture /
+    collection error for non-subject modules). Subject ImportError and AssertionError → fail.
     """
     if code == 0:
-        return "ok", []
-    owned = _subject_owned_names(root)
-    notes: List[str] = []
-    subject_hits = 0
-    env_hits = 0
-
-    junit_items = _parse_junit(junit_path) if junit_path is not None else []
-    if junit_items:
-        for item in junit_items:
-            blob = f"{item.get('message', '')}\n{item.get('text', '')}"
-            if _ASSERT_HINT.search(blob) and not _message_is_env_failure(blob, root, owned):
-                subject_hits += 1
-                notes.append("junit:assertion_or_subject")
-                continue
-            if _message_is_env_failure(blob, root, owned):
-                env_hits += 1
-                notes.append("junit:env")
-            else:
-                subject_hits += 1
-                notes.append("junit:subject")
-        if subject_hits > 0:
-            return "fail", notes
-        if env_hits > 0:
-            return "env", notes
+        return "pass"
 
     blob = f"{out}\n{err}"
-    # Assertion / FAILED lines → subject, even if ImportError appears elsewhere in the blob.
-    if _ASSERT_HINT.search(blob):
-        return "fail", notes + ["text:assertion_or_failed"]
+    subject_names = _subject_module_names(root)
+    has_subject = bool(_FAILED_LINE.search(blob) or "AssertionError" in blob)
+    has_env = False
 
-    # Per-line / per-message env check — never "ImportError anywhere ⇒ env".
-    env_only = False
-    for m in _NO_MODULE.finditer(blob):
-        if _module_resolves_in_subject(m.group(1), root, owned):
-            return "fail", notes + [f"text:subject_module:{m.group(1)}"]
-        env_only = True
-    if _FIXTURE_NOT_FOUND.search(blob):
-        env_only = True
-    if env_only and subject_hits == 0:
-        return "env", notes + ["text:external_import_or_fixture"]
+    if junit_path is not None and junit_path.is_file():
+        j_subj, j_env, notes = _junit_failure_kinds(junit_path)
+        has_subject = has_subject or j_subj
+        has_env = has_env or j_env
+        for note in notes:
+            if note.startswith("import:"):
+                mods = _missing_modules(note)
+                if not mods:
+                    # ImportError without "No module named" — treat as subject
+                    has_subject = True
+                    continue
+                for mod in mods:
+                    if _module_belongs_to_subject(mod, subject_names, root):
+                        has_subject = True
+                    else:
+                        has_env = True
 
-    # Non-zero without env markers → subject failure (includes subject ImportError typos).
-    if code != 0:
-        return "fail", notes + [f"text:nonzero_exit:{code}"]
-    return "ok", notes
+    for mod in _missing_modules(blob):
+        if _module_belongs_to_subject(mod, subject_names, root):
+            has_subject = True
+        else:
+            has_env = True
+
+    if _FIXTURE_MISSING.search(blob):
+        has_env = True
+
+    # Mixed: any subject failure wins → fail (B1).
+    if has_subject:
+        return "fail"
+
+    # Reliable third-party / fixture env attribution → NOT MEASURED.
+    if has_env:
+        return "env"
+
+    # Collection with no subject attribution: pytest usage/internal codes → env.
+    if phase == "collect" and code in {2, 3, 4} and not _IMPORT_ERR_LINE.search(blob):
+        return "env"
+
+    # Everything else with non-zero exit → subject fail (never silent NOT MEASURED).
+    return "fail"
 
 
 def run_test_adequacy(
@@ -295,7 +300,7 @@ def run_test_adequacy(
             maturity="core",
         )
 
-    # Isolated venv + scrubbed env + install subject test deps.
+    # B1.3 / B3: isolated venv + scrubbed env + install subject test deps.
     work = Path(tempfile.mkdtemp(prefix="metria-adeq-"))
     home = work / "home"
     home.mkdir()
@@ -323,9 +328,6 @@ def run_test_adequacy(
         (evidence_dir / "install.json").write_text(json.dumps(install_log, indent=2), encoding="utf-8")
         tools = [{"name": "pytest", "version": _pytest_version(py), "ruleset_digest": None}]
 
-        def _scrub(s: str) -> str:
-            return scrub_text_paths(s, root, extra_roots=[work, home])
-
         # Collect
         try:
             proc = run_scrubbed(
@@ -350,13 +352,11 @@ def run_test_adequacy(
                 tools=tools,
             )
 
-        out = _scrub(proc.stdout or "")
-        err = _scrub(proc.stderr or "")
+        out = scrub_text_paths(proc.stdout or "", root, work, home, evidence_dir)
+        err = scrub_text_paths(proc.stderr or "", root, work, home, evidence_dir)
         (evidence_dir / "collect.txt").write_text(out + "\n" + err, encoding="utf-8")
         if proc.returncode != 0:
-            kind, notes = _classify_pytest_outcome(
-                out=out, err=err, code=proc.returncode, root=root
-            )
+            kind = classify_pytest_result(out, err, proc.returncode, root, phase="collect")
             (evidence_dir / "collect_failed.txt").write_text(out + "\n" + err, encoding="utf-8")
             if kind == "env":
                 return not_measured(
@@ -366,9 +366,9 @@ def run_test_adequacy(
                         **layout,
                         "suite": "collect_failed",
                         "collect_exit": proc.returncode,
-                        "classify_notes": notes,
                         "runner": runner,
                         "install": install_log,
+                        "classify": kind,
                     },
                     evidence_refs=[
                         "test_adequacy/layout.json",
@@ -380,7 +380,7 @@ def run_test_adequacy(
                     analysis_scope=scope,
                     tools=tools,
                 )
-            # Subject-owned collect failure (e.g. broken package import at collection) → FAIL
+            # Subject defect visible at collection → fail (not NOT MEASURED).
             return dimension(
                 lens_id="test_adequacy",
                 status="fail",
@@ -400,10 +400,11 @@ def run_test_adequacy(
                     **layout,
                     "suite": "collect_failed",
                     "collect_exit": proc.returncode,
-                    "classify_notes": notes,
+                    "strong_oracle": False,
                     "subject_code_executed": True,
                     "runner": runner,
                     "install": {"installed": install_log.get("installed"), "ok": install_log.get("ok")},
+                    "classify": kind,
                 },
                 evidence_refs=[
                     "test_adequacy/layout.json",
@@ -417,7 +418,7 @@ def run_test_adequacy(
                 maturity="core",
             )
 
-        junit_path = evidence_dir / "junit.xml"
+        junit_path = (evidence_dir / "junit.xml").resolve()
         try:
             proc = run_scrubbed(
                 [
@@ -448,38 +449,39 @@ def run_test_adequacy(
                 tools=tools,
             )
 
-        out = _scrub(proc.stdout or "")
-        err = _scrub(proc.stderr or "")
+        out = scrub_text_paths(proc.stdout or "", root, work, home, evidence_dir)
+        err = scrub_text_paths(proc.stderr or "", root, work, home, evidence_dir)
+        # Drop the junit path line entirely — it embeds the evidence dir name.
+        out = re.sub(r"^- generated xml file:.*$", "- generated xml file: <junit>", out, flags=re.M)
         (evidence_dir / "pytest.txt").write_text(out + "\n" + err, encoding="utf-8")
-        # Classify from the raw junit, then rewrite a deterministic scrubbed copy.
-        kind, notes = _classify_pytest_outcome(
-            out=out, err=err, code=proc.returncode, root=root, junit_path=junit_path
+        # Classify from raw junit before scrubbing volatile attrs (timestamp/hostname).
+        code = proc.returncode
+        kind = classify_pytest_result(
+            out, err, code, root, phase="run", junit_path=junit_path if junit_path.is_file() else None
         )
         if junit_path.is_file():
-            raw_junit = junit_path.read_text(encoding="utf-8", errors="ignore")
-            junit_path.write_text(_normalize_junit(_scrub(raw_junit)), encoding="utf-8")
-        code = proc.returncode
+            junit_path.write_text(
+                _normalize_junit(
+                    junit_path.read_text(encoding="utf-8", errors="ignore"),
+                    root,
+                    work,
+                    home,
+                    evidence_dir,
+                ),
+                encoding="utf-8",
+            )
 
         if kind == "env":
-            env_finding = {
-                "fingerprint": "adeq:env_gap",
-                "title": "Test environment gap (external import/fixture); subject result not attributed",
-                "severity": "medium",
-                "detectors": ["pytest"],
-                "confirmation": "unconfirmed",
-                "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
-                "evidence_refs": ["test_adequacy/pytest.txt"],
-            }
-            nm = not_measured(
+            return not_measured(
                 "test_adequacy",
                 null_reason="test_env_unavailable",
                 raw_metrics={
                     **layout,
                     "suite": "env_error",
                     "pytest_exit": code,
-                    "classify_notes": notes,
                     "runner": runner,
                     "install": install_log,
+                    "classify": kind,
                 },
                 evidence_refs=[
                     "test_adequacy/layout.json",
@@ -491,9 +493,6 @@ def run_test_adequacy(
                 analysis_scope=scope,
                 tools=tools,
             )
-            nm["findings"] = [env_finding]
-            nm["confidence"] = "low"
-            return nm
 
         findings: List[Dict[str, Any]] = []
         if kind == "fail" or code != 0:
@@ -544,12 +543,12 @@ def run_test_adequacy(
                 **layout,
                 "suite": suite,
                 "pytest_exit": code,
-                "classify_notes": notes,
                 "strong_oracle": False,
                 "subject_code_executed": True,
                 "env_scrubbed": True,
                 "runner": runner,
                 "install": {"installed": install_log.get("installed"), "ok": install_log.get("ok")},
+                "classify": kind,
             },
             evidence_refs=evidence_refs,
             analysis_scope=scope,

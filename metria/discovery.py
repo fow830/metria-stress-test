@@ -23,8 +23,8 @@ SKIP_DIRS = {
     ".eggs",
 }
 
-# Path *components* only — never substring match ("test/" ∈ "latest/", "attest/", …).
-TEST_DIR_NAMES = frozenset({"tests", "test", "testdata", "test_data", "fixtures"})
+# Path *segments* only — never substring match (B2: "test/" must not hit latest/attest/contest).
+TEST_DIR_SEGMENTS = frozenset({"tests", "test", "testdata", "test_data", "fixtures"})
 
 
 def iter_files(root: Path) -> List[Path]:
@@ -295,80 +295,83 @@ def parse_setup_cfg_requires(path: Path) -> List[Dict[str, str]]:
     return pkgs
 
 
-def parse_setup_cfg_extras(path: Path) -> List[str]:
-    """Return extra names declared under [options.extras_require]."""
-    try:
-        text = path.read_text(encoding="utf-8", errors="ignore")
-    except OSError:
-        return []
-    extras: List[str] = []
-    in_section = False
-    for line in text.splitlines():
-        stripped = line.strip()
-        if stripped.startswith("[") and stripped.endswith("]"):
-            in_section = stripped.lower() in {"[options.extras_require]", "[extras_require]"}
-            continue
-        if in_section and stripped and not stripped.startswith("#") and "=" in stripped:
-            name = stripped.split("=", 1)[0].strip()
-            if name:
-                extras.append(name)
-    return extras
-
-
-def parse_pyproject_extras(path: Path) -> List[str]:
-    data = _load_toml(path)
-    if data is None:
-        return []
-    project = data.get("project") or {}
-    opt = project.get("optional-dependencies") or {}
-    if isinstance(opt, dict):
-        return [str(k) for k in opt.keys()]
-    return []
-
-
 def parse_setup_py_requires(path: Path) -> Tuple[List[Dict[str, str]], Optional[str]]:
-    """Static scrape of install_requires from setup.py (no exec).
-
-    Returns (packages, error). error='unparsed' when setup.py exists but the
-    list could not be recovered statically — caller must not claim components=0.
-    """
+    """Static AST scrape of setup(install_requires=[...]). Returns (pkgs, error)."""
+    try:
+        import ast
+    except ImportError:
+        return [], "ast_unavailable"
     try:
         text = path.read_text(encoding="utf-8", errors="ignore")
-    except OSError:
-        return [], "unreadable"
+    except OSError as exc:
+        return [], f"read_error:{exc}"
+    try:
+        tree = ast.parse(text)
+    except SyntaxError as exc:
+        return [], f"syntax_error:{exc}"
+
     pkgs: List[Dict[str, str]] = []
-    # install_requires=["a", "b>=1"] or install_requires=['a']
-    m = re.search(
-        r"install_requires\s*=\s*\[(.*?)\]",
-        text,
-        flags=re.S,
-    )
-    if not m:
-        if "install_requires" not in text:
-            return [], None  # setup.py without install_requires → genuinely empty
-        return [], "unparsed"
-    body = m.group(1)
-    # Only top-level string literals (skip marker comparisons like python_version < "3.8").
-    for sm in re.finditer(r"""(?m)^\s*['"]([^'"]+)['"]\s*,?\s*$""", body):
-        parsed = _dep_name_spec(sm.group(1))
-        if parsed:
-            pkgs.append(parsed)
-    if not pkgs:
-        # Fallback: requirement strings that start a list element (name first).
-        for sm in re.finditer(
-            r"""['"]([A-Za-z0-9][A-Za-z0-9._\-]*(?:\[[^\]]*\])?[^'"]*)['"]""",
-            body,
-        ):
-            raw = sm.group(1).strip()
-            # Skip bare version-like fragments from markers.
-            if re.match(r"^\d", raw):
-                continue
-            parsed = _dep_name_spec(raw)
-            if parsed and parsed["name"].lower() not in {p["name"].lower() for p in pkgs}:
-                pkgs.append(parsed)
-    if not pkgs and body.strip():
-        return [], "unparsed"
+
+    def _from_list(node: ast.AST) -> None:
+        if not isinstance(node, (ast.List, ast.Tuple)):
+            return
+        for elt in node.elts:
+            if isinstance(elt, ast.Constant) and isinstance(elt.value, str):
+                # Drop environment markers after ';'
+                raw = elt.value.split(";", 1)[0].strip()
+                parsed = _dep_name_spec(raw)
+                if parsed:
+                    pkgs.append(parsed)
+
+    for node in ast.walk(tree):
+        # setup(..., install_requires=[...]) or setuptools.setup(...)
+        if isinstance(node, ast.Call):
+            func = node.func
+            name = ""
+            if isinstance(func, ast.Name):
+                name = func.id
+            elif isinstance(func, ast.Attribute):
+                name = func.attr
+            if name in {"setup", "setuptools"}:
+                for kw in node.keywords:
+                    if kw.arg in {"install_requires", "requires"}:
+                        _from_list(kw.value)
+        # install_requires = [...] assignment
+        if isinstance(node, ast.Assign):
+            for t in node.targets:
+                if isinstance(t, ast.Name) and t.id == "install_requires":
+                    _from_list(node.value)
     return pkgs, None
+
+
+def declared_optional_extras(root: Path) -> List[str]:
+    """Names of optional-dependency / extras_require extras declared by the subject."""
+    extras: List[str] = []
+    pyproject = root / "pyproject.toml"
+    if pyproject.is_file():
+        data = _load_toml(pyproject)
+        if data:
+            opt = (data.get("project") or {}).get("optional-dependencies") or {}
+            if isinstance(opt, dict):
+                extras.extend(str(k) for k in opt.keys())
+    setup_cfg = root / "setup.cfg"
+    if setup_cfg.is_file():
+        try:
+            text = setup_cfg.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            text = ""
+        in_extras = False
+        for line in text.splitlines():
+            stripped = line.strip()
+            if stripped.lower() in {"[options.extras_require]", "[extras_require]"}:
+                in_extras = True
+                continue
+            if in_extras:
+                if stripped.startswith("["):
+                    break
+                if "=" in stripped and not stripped.startswith((" ", "\t", "#")):
+                    extras.append(stripped.split("=", 1)[0].strip())
+    return sorted(set(extras))
 
 
 def classify_req_path(rel: str) -> str:
@@ -397,12 +400,17 @@ def classify_req_path(rel: str) -> str:
 def inventory_packages(root: Path) -> List[Dict[str, str]]:
     """Inventory with source classification. CVE lens should use class==runtime only.
 
-    When setup.py is present but not statically parseable, a sentinel entry
-    ``{"name": "", "class": "adapter_gap", "source": "setup.py"}`` may appear
-    so supply_chain does not claim components=0.
+    Extra key ``_meta`` is not returned; callers that need parse gaps should use
+    ``inventory_packages_with_meta``.
     """
+    pkgs, _meta = inventory_packages_with_meta(root)
+    return pkgs
+
+
+def inventory_packages_with_meta(root: Path) -> Tuple[List[Dict[str, str]], Dict[str, Any]]:
+    """Like inventory_packages, plus meta about unreadable sources (setup.py gaps)."""
     found: Dict[str, Dict[str, str]] = {}
-    gaps: List[Dict[str, str]] = []
+    meta: Dict[str, Any] = {"setup_py_present": False, "setup_py_error": None, "sources_read": []}
     pyproject = root / "pyproject.toml"
     has_declared_runtime = False
     if pyproject.is_file():
@@ -417,15 +425,9 @@ def inventory_packages(root: Path) -> List[Dict[str, str]]:
                 }
                 found[pkg["name"].lower()] = entry
                 has_declared_runtime = True
+            meta["sources_read"].append("pyproject.toml")
         else:
-            gaps.append(
-                {
-                    "name": "__setup_parse_gap__",
-                    "specifier": "",
-                    "class": "adapter_gap",
-                    "source": "pyproject.toml",
-                }
-            )
+            meta["pyproject_error"] = err
 
     setup_cfg = root / "setup.cfg"
     if setup_cfg.is_file():
@@ -439,20 +441,16 @@ def inventory_packages(root: Path) -> List[Dict[str, str]]:
                     "source": "setup.cfg",
                 }
                 has_declared_runtime = True
+        meta["sources_read"].append("setup.cfg")
 
     setup_py = root / "setup.py"
     if setup_py.is_file():
+        meta["setup_py_present"] = True
         setup_pkgs, setup_err = parse_setup_py_requires(setup_py)
         if setup_err:
-            gaps.append(
-                {
-                    "name": "__setup_parse_gap__",
-                    "specifier": "",
-                    "class": "adapter_gap",
-                    "source": "setup.py",
-                }
-            )
+            meta["setup_py_error"] = setup_err
         else:
+            meta["sources_read"].append("setup.py")
             for pkg in setup_pkgs:
                 key = pkg["name"].lower()
                 if key not in found:
@@ -469,7 +467,7 @@ def inventory_packages(root: Path) -> List[Dict[str, str]]:
             continue
         path = root / rel
         cls = classify_req_path(rel)
-        # When a packaging metadata file already gave runtime deps, treat root requirements*.txt as non-runtime.
+        # When packaging metadata already gave runtime deps, treat root requirements*.txt as non-runtime.
         if has_declared_runtime and cls == "runtime" and path.suffix == ".txt":
             cls = "dev"
         if path.name.endswith(".lock") and "poetry" in path.name:
@@ -503,15 +501,7 @@ def inventory_packages(root: Path) -> List[Dict[str, str]]:
                         "class": cls,
                         "source": rel,
                     }
-    out = sorted(found.values(), key=lambda p: p["name"].lower())
-    # Deduplicate gap sentinels (one per source).
-    seen_gap_src = set()
-    for g in gaps:
-        src = g["source"]
-        if src not in seen_gap_src:
-            out.append(g)
-            seen_gap_src.add(src)
-    return out
+    return sorted(found.values(), key=lambda p: p["name"].lower()), meta
 
 
 def _class_rank(cls: str) -> int:
@@ -520,14 +510,21 @@ def _class_rank(cls: str) -> int:
 
 
 def is_test_fixture_path(rel: str) -> bool:
-    """True when a path component marks test/fixture material (segment match only)."""
-    parts = [p for p in rel.replace("\\", "/").lower().split("/") if p]
-    for p in parts:
-        if p in TEST_DIR_NAMES:
+    """True when a path segment is a test/fixture dir (or conftest.py), not a substring."""
+    low = rel.replace("\\", "/").lower().strip("/")
+    if not low:
+        return False
+    parts = [p for p in low.split("/") if p]
+    if not parts:
+        return False
+    fname = parts[-1]
+    if fname == "conftest.py" or fname.startswith("conftest."):
+        return True
+    for seg in parts:
+        if seg in TEST_DIR_SEGMENTS:
             return True
-        if p.startswith("test_"):
-            return True
-        if p == "conftest.py":
+        # test_foo/ as a directory segment (not files like test_x.py at repo root alone)
+        if seg.startswith("test_") and seg != fname:
             return True
     return False
 

@@ -250,5 +250,12 @@
     }
   ],
   "component_count": 20,
-  "runtime_component_count": 5
+  "runtime_component_count": 5,
+  "inventory_meta": {
+    "setup_py_present": false,
+    "setup_py_error": null,
+    "sources_read": [
+      "pyproject.toml"
+    ]
+  }
 }

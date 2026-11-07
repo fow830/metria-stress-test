@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_88f5d39ba55d",
+  "run_id": "run_17662b7a8f05",
   "subject": {
     "repo_url": "https://github.com/pallets/click",
     "commit_sha": "006ae84d651846c944331fff78e340701fe58562",
@@ -8,11 +8,11 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-06T19:51:17Z",
-  "finished_at": "2026-11-06T19:51:33Z",
+  "started_at": "2026-11-06T20:29:03Z",
+  "finished_at": "2026-11-06T20:29:29Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 16
+    "used_s": 26
   },
   "overall": "warn",
   "lenses": {
@@ -630,41 +630,65 @@
     },
     "supply_chain": {
       "id": "supply_chain",
-      "status": "pass",
+      "status": "warn",
       "score": null,
       "score_reason": "uncalibrated",
-      "confidence": "low",
+      "confidence": "medium",
       "hard_gate_failures": [],
       "findings": [
         {
-          "fingerprint": "sca:no-deps",
-          "title": "No runtime dependencies declared (components=0)",
-          "severity": "info",
+          "fingerprint": "sca:unresolved:colorama",
+          "title": "Could not resolve version for runtime dependency colorama (adapter_gap)",
+          "severity": "low",
           "detectors": [
             "inventory"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/inventory.json"
+            "supply_chain/resolved_versions.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:unresolved:importlib-metadata",
+          "title": "Could not resolve version for runtime dependency importlib-metadata (adapter_gap)",
+          "severity": "low",
+          "detectors": [
+            "inventory"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/resolved_versions.json"
           ]
         }
       ],
       "raw_metrics": {
-        "components": 0,
-        "runtime_components": 0,
+        "components": 2,
+        "runtime_components": 2,
         "non_runtime_components": 0,
         "lockfiles": [],
         "sbom_files": [],
+        "resolved_versions": 0,
+        "inventory_meta": {
+          "setup_py_present": true,
+          "setup_py_error": null,
+          "sources_read": [
+            "setup.cfg",
+            "setup.py"
+          ]
+        },
         "osv_queries": 0,
         "osv_vuln_hits": 0,
-        "osv_skipped_unpinned": 0,
-        "osv_errors": 0
+        "osv_skipped_unresolved": 2,
+        "osv_errors": 0,
+        "osv_error_samples": []
       },
       "evidence_refs": [
         "supply_chain/inventory.json",
         "supply_chain/sbom_practice.json",
-        "supply_chain/osv.json"
+        "supply_chain/osv.json",
+        "supply_chain/resolved_versions.json"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -699,8 +723,8 @@
           "id": "inventory",
           "status": "pass",
           "raw_metrics": {
-            "components": 0,
-            "runtime_components": 0,
+            "components": 2,
+            "runtime_components": 2,
             "lockfiles": []
           }
         },
@@ -815,17 +839,19 @@
         "install": {
           "installed": [
             "pytest",
-            "-e .[test]"
+            "-e ."
           ],
           "ok": true
-        }
+        },
+        "classify": "pass"
       },
       "evidence_refs": [
         "test_adequacy/layout.json",
         "test_adequacy/runner.json",
         "test_adequacy/collect.txt",
         "test_adequacy/pytest.txt",
-        "test_adequacy/install.json"
+        "test_adequacy/install.json",
+        "test_adequacy/junit.xml"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -960,7 +986,7 @@
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "17c4be6c49e9fc7bd6bd4729225e2c2062884c53b589902d76aa0fad599d0872",
-    "manifest_sha256": "51e0afc98af2eeaaabb557fe752f12ee2e4da87a519c56e4dcbbe075880ed666"
+    "sha256": "3a9fd02da59a23ccc265711b2dc667141a66f4f2926914544050408d42f10337",
+    "manifest_sha256": "69b46d5a53615ca6ff20a841bd58f54fef5b74dc32786171bf63d6164f7ea4be"
   }
 }

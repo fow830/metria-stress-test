@@ -1,8 +1,42 @@
 {
   "lockfiles": [],
-  "packages": [],
-  "runtime_packages": [],
+  "packages": [
+    {
+      "name": "colorama",
+      "specifier": "",
+      "class": "runtime",
+      "source": "setup.py"
+    },
+    {
+      "name": "importlib-metadata",
+      "specifier": "",
+      "class": "runtime",
+      "source": "setup.py"
+    }
+  ],
+  "runtime_packages": [
+    {
+      "name": "colorama",
+      "specifier": "",
+      "class": "runtime",
+      "source": "setup.py"
+    },
+    {
+      "name": "importlib-metadata",
+      "specifier": "",
+      "class": "runtime",
+      "source": "setup.py"
+    }
+  ],
   "non_runtime_packages": [],
-  "component_count": 0,
-  "runtime_component_count": 0
+  "component_count": 2,
+  "runtime_component_count": 2,
+  "inventory_meta": {
+    "setup_py_present": true,
+    "setup_py_error": null,
+    "sources_read": [
+      "setup.cfg",
+      "setup.py"
+    ]
+  }
 }

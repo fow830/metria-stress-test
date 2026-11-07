@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_f50290acc530",
+  "run_id": "run_76911a8bf0d6",
   "subject": {
     "repo_url": "https://github.com/encode/httpx",
     "commit_sha": "609df7ecc0f7cb10a1c998aa9c269bba77337c5f",
@@ -8,13 +8,13 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-06T19:52:26Z",
-  "finished_at": "2026-11-06T19:52:45Z",
+  "started_at": "2026-11-07T07:44:09Z",
+  "finished_at": "2026-11-07T07:50:15Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 19
+    "used_s": 366
   },
-  "overall": "warn",
+  "overall": "fail",
   "lenses": {
     "structural": {
       "id": "structural",
@@ -708,62 +708,61 @@
     },
     "supply_chain": {
       "id": "supply_chain",
-      "status": "warn",
+      "status": "fail",
       "score": null,
       "score_reason": "uncalibrated",
       "confidence": "medium",
-      "hard_gate_failures": [],
+      "hard_gate_failures": [
+        "GHSA-82r6-8w77-94w6 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing"
+      ],
       "findings": [
         {
-          "fingerprint": "sca:unpinned:anyio",
-          "title": "Unpinned runtime dependency anyio (CVE lookup skipped)",
-          "severity": "low",
+          "fingerprint": "sca:GHSA-5p39-cfhj-2xmp:anyio@4.12.1",
+          "title": "GHSA-5p39-cfhj-2xmp in anyio==4.12.1: AnyIO process-pool workers can block indefinitely on undrained stderr",
           "detectors": [
-            "inventory"
+            "osv"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/inventory.json"
+            "supply_chain/osv.json"
           ]
         },
         {
-          "fingerprint": "sca:unpinned:certifi",
-          "title": "Unpinned runtime dependency certifi (CVE lookup skipped)",
-          "severity": "low",
+          "fingerprint": "sca:GHSA-82r6-8w77-94w6:anyio@4.12.1",
+          "title": "GHSA-82r6-8w77-94w6 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing",
           "detectors": [
-            "inventory"
+            "osv"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/inventory.json"
+            "supply_chain/osv.json"
+          ],
+          "severity": "critical"
+        },
+        {
+          "fingerprint": "sca:PYSEC-2026-4024:anyio@4.12.1",
+          "title": "PYSEC-2026-4024 in anyio==4.12.1: AnyIO process-pool workers can block indefinitely on undrained stderr",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
           ]
         },
         {
-          "fingerprint": "sca:unpinned:idna",
-          "title": "Unpinned runtime dependency idna (CVE lookup skipped)",
-          "severity": "low",
+          "fingerprint": "sca:PYSEC-2026-4025:anyio@4.12.1",
+          "title": "PYSEC-2026-4025 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing",
           "detectors": [
-            "inventory"
+            "osv"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:unpinned:sniffio",
-          "title": "Unpinned runtime dependency sniffio (CVE lookup skipped)",
-          "severity": "low",
-          "detectors": [
-            "inventory"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/inventory.json"
+            "supply_chain/osv.json"
           ]
         }
       ],
@@ -776,16 +775,25 @@
           "requirements.txt"
         ],
         "sbom_files": [],
-        "osv_queries": 1,
-        "osv_vuln_hits": 0,
-        "osv_skipped_unpinned": 4,
+        "resolved_versions": 5,
+        "inventory_meta": {
+          "setup_py_present": false,
+          "setup_py_error": null,
+          "sources_read": [
+            "pyproject.toml"
+          ]
+        },
+        "osv_queries": 5,
+        "osv_vuln_hits": 4,
+        "osv_skipped_unresolved": 0,
         "osv_errors": 0,
         "osv_error_samples": []
       },
       "evidence_refs": [
         "supply_chain/inventory.json",
         "supply_chain/sbom_practice.json",
-        "supply_chain/osv.json"
+        "supply_chain/osv.json",
+        "supply_chain/resolved_versions.json"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -862,10 +870,12 @@
         "loc_analyzed": 18256,
         "loc_total": 49080,
         "excluded_paths": [
-          ".git"
+          ".git",
+          ".pytest_cache"
         ],
         "exclusion_reasons": {
-          ".git": "tooling_or_vcs"
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -878,12 +888,26 @@
     },
     "test_adequacy": {
       "id": "test_adequacy",
-      "status": "null",
+      "status": "warn",
       "score": null,
       "score_reason": "uncalibrated",
-      "confidence": "low",
+      "confidence": "medium",
       "hard_gate_failures": [],
-      "findings": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:no_strong_oracle",
+          "title": "Suite green but no strong oracle (mutation/PBT) measured",
+          "severity": "medium",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
       "raw_metrics": {
         "has_tests_dir": true,
         "test_file_count": 31,
@@ -910,8 +934,11 @@
           "tests/models/test_url.py"
         ],
         "pytest_config_present": true,
-        "suite": "collect_failed",
-        "collect_exit": 4,
+        "suite": "green",
+        "pytest_exit": 0,
+        "strong_oracle": false,
+        "subject_code_executed": true,
+        "env_scrubbed": true,
         "runner": {
           "python": "3.9.6",
           "platform": "macOS-26.1-arm64-arm-64bit",
@@ -920,37 +947,20 @@
         "install": {
           "installed": [
             "pytest",
-            "-e .[test]"
-          ],
-          "attempts": [
-            {
-              "args": [
-                "pip",
-                "install",
-                "pip",
-                "pytest"
-              ],
-              "returncode": 0,
-              "stderr_tail": ""
-            },
-            {
-              "args": [
-                "-e",
-                ".[test]"
-              ],
-              "returncode": 0,
-              "stderr_tail": "WARNING: httpx 0.27.2 does not provide the extra 'test'\n"
-            }
+            "-e .",
+            "-r requirements.txt"
           ],
           "ok": true
-        }
+        },
+        "classify": "pass"
       },
       "evidence_refs": [
         "test_adequacy/layout.json",
         "test_adequacy/runner.json",
         "test_adequacy/collect.txt",
-        "test_adequacy/collect_failed.txt",
-        "test_adequacy/install.json"
+        "test_adequacy/pytest.txt",
+        "test_adequacy/install.json",
+        "test_adequacy/junit.xml"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -968,16 +978,13 @@
       "tools": [
         {
           "name": "pytest",
-          "version": "pytest 8.4.2",
+          "version": "pytest 8.3.1",
           "ruleset_digest": null
         }
       ],
       "suppressions_applied": [],
       "maturity": "core",
-      "rubric_id": null,
-      "null_reason": "test_env_unavailable",
-      "null_owner": "metria",
-      "null_display": "NOT MEASURED"
+      "rubric_id": null
     },
     "architectural": {
       "id": "architectural",
@@ -1008,10 +1015,12 @@
         "loc_analyzed": 18256,
         "loc_total": 49080,
         "excluded_paths": [
-          ".git"
+          ".git",
+          ".pytest_cache"
         ],
         "exclusion_reasons": {
-          ".git": "tooling_or_vcs"
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -1045,10 +1054,12 @@
         "loc_analyzed": 18256,
         "loc_total": 49080,
         "excluded_paths": [
-          ".git"
+          ".git",
+          ".pytest_cache"
         ],
         "exclusion_reasons": {
-          ".git": "tooling_or_vcs"
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -1061,6 +1072,10 @@
     }
   },
   "top_risks": [
+    {
+      "summary": "GHSA-82r6-8w77-94w6 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing",
+      "finding_fingerprint": "sca:GHSA-82r6-8w77-94w6:anyio@4.12.1"
+    },
     {
       "summary": "pickle.loads() at tests/models/test_requests.py:210",
       "finding_fingerprint": "struct:ast:pickle_loads:0c86fffac58ebe3b"
@@ -1076,15 +1091,11 @@
     {
       "summary": "pickle.loads() at tests/models/test_requests.py:227",
       "finding_fingerprint": "struct:ast:pickle_loads:5b593ff09fcbc042"
-    },
-    {
-      "summary": "pickle.loads() at tests/models/test_requests.py:202",
-      "finding_fingerprint": "struct:ast:pickle_loads:7abb4dcd42dcbabf"
     }
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "dcedb8fab98ace9eed266b4fe09a1cf7aa5788a4ab0329198eba62c07c3d0619",
-    "manifest_sha256": "bbd4da7cddcd3bf4c2a87c1587a19ace9f58b5e3d4e6d9426f4124c157103339"
+    "sha256": "ba86e4b4e16f7a0ab294f6dcd50ca0ea44f02ff57f794cee748b44d27f6a9ce9",
+    "manifest_sha256": "ee3325258d4659fa9704349cc40954cf833af098eb56f2e179166a9ec8278340"
   }
 }

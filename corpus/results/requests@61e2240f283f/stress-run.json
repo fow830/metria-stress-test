@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_2bb0fab46b52",
+  "run_id": "run_2d70356e090a",
   "subject": {
     "repo_url": "https://github.com/psf/requests",
     "commit_sha": "61e2240f283f15780ac2d0e2cfefb0fd6fdab627",
@@ -8,13 +8,13 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-06T19:51:35Z",
-  "finished_at": "2026-11-06T19:52:08Z",
+  "started_at": "2026-11-06T20:29:31Z",
+  "finished_at": "2026-11-06T20:31:35Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 33
+    "used_s": 124
   },
-  "overall": "warn",
+  "overall": "fail",
   "lenses": {
     "structural": {
       "id": "structural",
@@ -767,56 +767,68 @@
       "hard_gate_failures": [],
       "findings": [
         {
-          "fingerprint": "sca:unpinned:certifi",
-          "title": "Unpinned runtime dependency certifi (CVE lookup skipped)",
-          "severity": "low",
+          "fingerprint": "sca:GHSA-8988-9cw3-xx77:urllib3@2.6.3",
+          "title": "GHSA-8988-9cw3-xx77 in urllib3==2.6.3: urllib3: HTTPS proxy TLS configuration may be ignored or overridden",
           "detectors": [
-            "inventory"
+            "osv"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/inventory.json"
+            "supply_chain/osv.json"
+          ],
+          "severity": "high"
+        },
+        {
+          "fingerprint": "sca:GHSA-gh4c-6fx4-qh6g:urllib3@2.6.3",
+          "title": "GHSA-gh4c-6fx4-qh6g in urllib3==2.6.3: urllib3: Chunked Deflate streaming can enter an infinite loop",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
           ]
         },
         {
-          "fingerprint": "sca:unpinned:charset_normalizer",
-          "title": "Unpinned runtime dependency charset_normalizer (CVE lookup skipped)",
-          "severity": "low",
+          "fingerprint": "sca:GHSA-mf9v-mfxr-j63j:urllib3@2.6.3",
+          "title": "GHSA-mf9v-mfxr-j63j in urllib3==2.6.3: urllib3: Decompression-bomb safeguards bypassed in parts of the streaming API",
           "detectors": [
-            "inventory"
+            "osv"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
+            "supply_chain/osv.json"
+          ],
+          "severity": "high"
         },
         {
-          "fingerprint": "sca:unpinned:idna",
-          "title": "Unpinned runtime dependency idna (CVE lookup skipped)",
-          "severity": "low",
+          "fingerprint": "sca:GHSA-qccp-gfcp-xxvc:urllib3@2.6.3",
+          "title": "GHSA-qccp-gfcp-xxvc in urllib3==2.6.3: urllib3: Sensitive headers forwarded across origins in proxied low-level redirects",
           "detectors": [
-            "inventory"
+            "osv"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
+            "supply_chain/osv.json"
+          ],
+          "severity": "high"
         },
         {
-          "fingerprint": "sca:unpinned:urllib3",
-          "title": "Unpinned runtime dependency urllib3 (CVE lookup skipped)",
-          "severity": "low",
+          "fingerprint": "sca:GHSA-vxq7-64xx-v4gw:urllib3@2.6.3",
+          "title": "GHSA-vxq7-64xx-v4gw in urllib3==2.6.3: urllib3: HTTPResponse.stream()/read_chunked() buffers an unbounded chunk-size line into memory",
           "detectors": [
-            "inventory"
+            "osv"
           ],
           "confirmation": "unconfirmed",
           "lens_routing_rule": "dependency_cve_to_supply_chain",
           "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
+            "supply_chain/osv.json"
+          ],
+          "severity": "high"
         }
       ],
       "raw_metrics": {
@@ -829,16 +841,27 @@
           "requirements-dev.txt"
         ],
         "sbom_files": [],
-        "osv_queries": 0,
-        "osv_vuln_hits": 0,
-        "osv_skipped_unpinned": 4,
+        "resolved_versions": 4,
+        "inventory_meta": {
+          "setup_py_present": true,
+          "setup_py_error": null,
+          "sources_read": [
+            "pyproject.toml",
+            "setup.cfg",
+            "setup.py"
+          ]
+        },
+        "osv_queries": 4,
+        "osv_vuln_hits": 10,
+        "osv_skipped_unresolved": 0,
         "osv_errors": 0,
         "osv_error_samples": []
       },
       "evidence_refs": [
         "supply_chain/inventory.json",
         "supply_chain/sbom_practice.json",
-        "supply_chain/osv.json"
+        "supply_chain/osv.json",
+        "supply_chain/resolved_versions.json"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -934,12 +957,26 @@
     },
     "test_adequacy": {
       "id": "test_adequacy",
-      "status": "null",
+      "status": "fail",
       "score": null,
       "score_reason": "uncalibrated",
-      "confidence": "low",
+      "confidence": "medium",
       "hard_gate_failures": [],
-      "findings": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:suite_failed",
+          "title": "pytest failed (exit 1)",
+          "severity": "high",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
       "raw_metrics": {
         "has_tests_dir": true,
         "test_file_count": 9,
@@ -955,8 +992,11 @@
           "tests/test_lowlevel.py"
         ],
         "pytest_config_present": true,
-        "suite": "env_error",
+        "suite": "failed",
         "pytest_exit": 1,
+        "strong_oracle": false,
+        "subject_code_executed": true,
+        "env_scrubbed": true,
         "runner": {
           "python": "3.9.6",
           "platform": "macOS-26.1-arm64-arm-64bit",
@@ -965,37 +1005,20 @@
         "install": {
           "installed": [
             "pytest",
-            "-e .[test]"
-          ],
-          "attempts": [
-            {
-              "args": [
-                "pip",
-                "install",
-                "pip",
-                "pytest"
-              ],
-              "returncode": 0,
-              "stderr_tail": ""
-            },
-            {
-              "args": [
-                "-e",
-                ".[test]"
-              ],
-              "returncode": 0,
-              "stderr_tail": "WARNING: requests 2.32.3 does not provide the extra 'test'\n"
-            }
+            "-e .",
+            "-r requirements-dev.txt"
           ],
           "ok": true
-        }
+        },
+        "classify": "fail"
       },
       "evidence_refs": [
         "test_adequacy/layout.json",
         "test_adequacy/runner.json",
         "test_adequacy/collect.txt",
         "test_adequacy/pytest.txt",
-        "test_adequacy/install.json"
+        "test_adequacy/install.json",
+        "test_adequacy/junit.xml"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -1019,10 +1042,7 @@
       ],
       "suppressions_applied": [],
       "maturity": "core",
-      "rubric_id": null,
-      "null_reason": "test_env_unavailable",
-      "null_owner": "metria",
-      "null_display": "NOT MEASURED"
+      "rubric_id": null
     },
     "architectural": {
       "id": "architectural",
@@ -1111,29 +1131,29 @@
   },
   "top_risks": [
     {
-      "summary": "Use of exec() at setup.py:79",
-      "finding_fingerprint": "struct:ast:exec:0901a64ebd0ca000"
+      "summary": "pytest failed (exit 1)",
+      "finding_fingerprint": "adeq:suite_failed"
     },
     {
-      "summary": "pickle.loads() at tests/test_requests.py:1488",
-      "finding_fingerprint": "struct:ast:pickle_loads:15c9cd4ce970aaf5"
+      "summary": "GHSA-8988-9cw3-xx77 in urllib3==2.6.3: urllib3: HTTPS proxy TLS configuration may be ignored or overridden",
+      "finding_fingerprint": "sca:GHSA-8988-9cw3-xx77:urllib3@2.6.3"
     },
     {
-      "summary": "pickle.loads() at tests/test_requests.py:2975",
-      "finding_fingerprint": "struct:ast:pickle_loads:2dd52a7fa73c8e81"
+      "summary": "GHSA-mf9v-mfxr-j63j in urllib3==2.6.3: urllib3: Decompression-bomb safeguards bypassed in parts of the streaming API",
+      "finding_fingerprint": "sca:GHSA-mf9v-mfxr-j63j:urllib3@2.6.3"
     },
     {
-      "summary": "pickle.loads() at tests/test_requests.py:1512",
-      "finding_fingerprint": "struct:ast:pickle_loads:77fe8d43a636fdeb"
+      "summary": "GHSA-qccp-gfcp-xxvc in urllib3==2.6.3: urllib3: Sensitive headers forwarded across origins in proxied low-level redirects",
+      "finding_fingerprint": "sca:GHSA-qccp-gfcp-xxvc:urllib3@2.6.3"
     },
     {
-      "summary": "pickle.loads() at tests/test_requests.py:1557",
-      "finding_fingerprint": "struct:ast:pickle_loads:9cfb89ed3c8a3615"
+      "summary": "GHSA-vxq7-64xx-v4gw in urllib3==2.6.3: urllib3: HTTPResponse.stream()/read_chunked() buffers an unbounded chunk-size line into memory",
+      "finding_fingerprint": "sca:GHSA-vxq7-64xx-v4gw:urllib3@2.6.3"
     }
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "23e17167841ce793d72d641f56998d93806c3dcc02971cdad154c1eb9ee2838d",
-    "manifest_sha256": "a574c9c36ee8dda1584f6b41cbc6f959f61721c777ba73c4949e70566265f2a2"
+    "sha256": "58bcf56ee90aba51e9704e7617aeabc33805ce58461b5bbe79554a8237914ded",
+    "manifest_sha256": "8ac6637da2584d65b9c8f8cd52d05c98144b512b8d63cd0512d4709fd0cf8895"
   }
 }

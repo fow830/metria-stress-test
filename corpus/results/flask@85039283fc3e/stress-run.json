@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_c9c923380939",
+  "run_id": "run_0fdbb90f52dc",
   "subject": {
     "repo_url": "https://github.com/pallets/flask",
     "commit_sha": "85039283fc3e986cced4ab39a3fe2b39314d06bb",
@@ -8,13 +8,13 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-06T19:52:47Z",
-  "finished_at": "2026-11-06T19:53:02Z",
+  "started_at": "2026-11-07T07:50:17Z",
+  "finished_at": "2026-11-07T07:54:06Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 15
+    "used_s": 229
   },
-  "overall": "warn",
+  "overall": "fail",
   "lenses": {
     "structural": {
       "id": "structural",
@@ -656,91 +656,12 @@
     },
     "supply_chain": {
       "id": "supply_chain",
-      "status": "warn",
+      "status": "pass",
       "score": null,
       "score_reason": "uncalibrated",
       "confidence": "medium",
       "hard_gate_failures": [],
-      "findings": [
-        {
-          "fingerprint": "sca:unpinned:blinker",
-          "title": "Unpinned runtime dependency blinker (CVE lookup skipped)",
-          "severity": "low",
-          "detectors": [
-            "inventory"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:unpinned:click",
-          "title": "Unpinned runtime dependency click (CVE lookup skipped)",
-          "severity": "low",
-          "detectors": [
-            "inventory"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:unpinned:importlib-metadata",
-          "title": "Unpinned runtime dependency importlib-metadata (CVE lookup skipped)",
-          "severity": "low",
-          "detectors": [
-            "inventory"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:unpinned:itsdangerous",
-          "title": "Unpinned runtime dependency itsdangerous (CVE lookup skipped)",
-          "severity": "low",
-          "detectors": [
-            "inventory"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:unpinned:jinja2",
-          "title": "Unpinned runtime dependency Jinja2 (CVE lookup skipped)",
-          "severity": "low",
-          "detectors": [
-            "inventory"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
-        },
-        {
-          "fingerprint": "sca:unpinned:werkzeug",
-          "title": "Unpinned runtime dependency Werkzeug (CVE lookup skipped)",
-          "severity": "low",
-          "detectors": [
-            "inventory"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "dependency_cve_to_supply_chain",
-          "evidence_refs": [
-            "supply_chain/inventory.json"
-          ]
-        }
-      ],
+      "findings": [],
       "raw_metrics": {
         "components": 22,
         "runtime_components": 6,
@@ -750,16 +671,25 @@
           "pyproject.toml"
         ],
         "sbom_files": [],
-        "osv_queries": 0,
+        "resolved_versions": 6,
+        "inventory_meta": {
+          "setup_py_present": false,
+          "setup_py_error": null,
+          "sources_read": [
+            "pyproject.toml"
+          ]
+        },
+        "osv_queries": 6,
         "osv_vuln_hits": 0,
-        "osv_skipped_unpinned": 6,
+        "osv_skipped_unresolved": 0,
         "osv_errors": 0,
         "osv_error_samples": []
       },
       "evidence_refs": [
         "supply_chain/inventory.json",
         "supply_chain/sbom_practice.json",
-        "supply_chain/osv.json"
+        "supply_chain/osv.json",
+        "supply_chain/resolved_versions.json"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -836,10 +766,12 @@
         "loc_analyzed": 17565,
         "loc_total": 37775,
         "excluded_paths": [
-          ".git"
+          ".git",
+          ".pytest_cache"
         ],
         "exclusion_reasons": {
-          ".git": "tooling_or_vcs"
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -852,12 +784,26 @@
     },
     "test_adequacy": {
       "id": "test_adequacy",
-      "status": "null",
+      "status": "fail",
       "score": null,
       "score_reason": "uncalibrated",
-      "confidence": "low",
+      "confidence": "medium",
       "hard_gate_failures": [],
-      "findings": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:suite_failed",
+          "title": "pytest failed (exit 1)",
+          "severity": "high",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
       "raw_metrics": {
         "has_tests_dir": true,
         "test_file_count": 26,
@@ -884,8 +830,11 @@
           "tests/test_regression.py"
         ],
         "pytest_config_present": true,
-        "suite": "collect_failed",
-        "collect_exit": 0,
+        "suite": "failed",
+        "pytest_exit": 1,
+        "strong_oracle": false,
+        "subject_code_executed": true,
+        "env_scrubbed": true,
         "runner": {
           "python": "3.9.6",
           "platform": "macOS-26.1-arm64-arm-64bit",
@@ -894,37 +843,19 @@
         "install": {
           "installed": [
             "pytest",
-            "-e .[test]"
-          ],
-          "attempts": [
-            {
-              "args": [
-                "pip",
-                "install",
-                "pip",
-                "pytest"
-              ],
-              "returncode": 0,
-              "stderr_tail": ""
-            },
-            {
-              "args": [
-                "-e",
-                ".[test]"
-              ],
-              "returncode": 0,
-              "stderr_tail": "WARNING: flask 3.0.3 does not provide the extra 'test'\n"
-            }
+            "-e ."
           ],
           "ok": true
-        }
+        },
+        "classify": "fail"
       },
       "evidence_refs": [
         "test_adequacy/layout.json",
         "test_adequacy/runner.json",
         "test_adequacy/collect.txt",
-        "test_adequacy/collect_failed.txt",
-        "test_adequacy/install.json"
+        "test_adequacy/pytest.txt",
+        "test_adequacy/install.json",
+        "test_adequacy/junit.xml"
       ],
       "analysis_scope": {
         "languages_analyzed": [
@@ -948,10 +879,7 @@
       ],
       "suppressions_applied": [],
       "maturity": "core",
-      "rubric_id": null,
-      "null_reason": "test_env_unavailable",
-      "null_owner": "metria",
-      "null_display": "NOT MEASURED"
+      "rubric_id": null
     },
     "architectural": {
       "id": "architectural",
@@ -982,10 +910,12 @@
         "loc_analyzed": 17565,
         "loc_total": 37775,
         "excluded_paths": [
-          ".git"
+          ".git",
+          ".pytest_cache"
         ],
         "exclusion_reasons": {
-          ".git": "tooling_or_vcs"
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -1019,10 +949,12 @@
         "loc_analyzed": 17565,
         "loc_total": 37775,
         "excluded_paths": [
-          ".git"
+          ".git",
+          ".pytest_cache"
         ],
         "exclusion_reasons": {
-          ".git": "tooling_or_vcs"
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
         }
       },
       "tools": [],
@@ -1035,6 +967,10 @@
     }
   },
   "top_risks": [
+    {
+      "summary": "pytest failed (exit 1)",
+      "finding_fingerprint": "adeq:suite_failed"
+    },
     {
       "summary": "Use of eval() at src/flask/cli.py:1005",
       "finding_fingerprint": "struct:ast:eval:d06d550f2e575640"
@@ -1050,15 +986,11 @@
     {
       "summary": "Use of compile() on dynamic input at src/flask/cli.py:1005",
       "finding_fingerprint": "struct:ast:compile:efc40ffc2be1950e"
-    },
-    {
-      "summary": "ruff S101: Use of `assert` detected at <subject>/examples/javascript/tests/test_js_example.py:16",
-      "finding_fingerprint": "struct:ruff:S101:0785cbeebe14a63e"
     }
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "dea222dd9ae4c8cc8d1415db9faa87a7a4390c158cecd4627c8c4fc1492fddfb",
-    "manifest_sha256": "7db77632ff6bffe7be669c001eb485a34a696e2475c0046bde267f83df1f2812"
+    "sha256": "e9debcc91ed1df3607c074bcf79c5af916e56c10a6d7be3ab47800d50a4d99dd",
+    "manifest_sha256": "35f6f9c7af01ff32a36998151fcc3fe4e6530bbbce868860987c8e2054e77be9"
   }
 }
