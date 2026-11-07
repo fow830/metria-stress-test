@@ -1,0 +1,112 @@
+{
+  "root": ".",
+  "loc": {
+    "py_loc": 11209,
+    "total_loc": 46071,
+    "py_files": 36
+  },
+  "lockfiles": [
+    "docs/requirements.txt",
+    "pyproject.toml",
+    "requirements-dev.txt"
+  ],
+  "tests": {
+    "has_tests_dir": true,
+    "test_file_count": 9,
+    "test_files_sample": [
+      "tests/test_utils.py",
+      "tests/test_structures.py",
+      "tests/test_packages.py",
+      "tests/test_testserver.py",
+      "tests/test_hooks.py",
+      "tests/test_requests.py",
+      "tests/test_adapters.py",
+      "tests/test_help.py",
+      "tests/test_lowlevel.py"
+    ],
+    "pytest_config_present": true
+  },
+  "normative": {
+    "openapi": [],
+    "pact": [],
+    "json_schema": []
+  },
+  "architecture": {
+    "importlinter": false,
+    "import_linter_ini": false,
+    "archunit": false,
+    "sonar_architecture": false
+  },
+  "sbom_files": [],
+  "packages": [
+    {
+      "name": "certifi",
+      "specifier": ">=2017.4.17",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
+      "name": "charset_normalizer",
+      "specifier": ">=2",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
+      "name": "httpbin",
+      "specifier": "~=0.10.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "idna",
+      "specifier": ">=2.5",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
+      "name": "pytest",
+      "specifier": ">=2.8.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "pytest-cov",
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "pytest-httpbin",
+      "specifier": "==2.0.0",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "Sphinx",
+      "specifier": "==7.2.6",
+      "class": "docs",
+      "source": "docs/requirements.txt"
+    },
+    {
+      "name": "trustme",
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    },
+    {
+      "name": "urllib3",
+      "specifier": ">=1.21.1",
+      "class": "runtime",
+      "source": "setup.cfg"
+    },
+    {
+      "name": "wheel",
+      "specifier": "",
+      "class": "dev",
+      "source": "requirements-dev.txt"
+    }
+  ],
+  "languages": [
+    "python"
+  ]
+}

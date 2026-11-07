@@ -1,0 +1,673 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_9a6360382d6f",
+  "subject": {
+    "repo_url": "https://github.com/benjaminp/six",
+    "commit_sha": "65486e4383f9f411da95937451205d3c7b61b9e1",
+    "tree_digest": "git_tree:04286e6721311d23ff004088d39d4e4925b4a1cc"
+  },
+  "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
+  "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
+  "started_at": "2026-11-07T09:22:06Z",
+  "finished_at": "2026-11-07T09:22:20Z",
+  "budget": {
+    "wall_clock_s": 1800,
+    "used_s": 13
+  },
+  "overall": "warn",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct:ast:exec:8d0b3a83327a1b7b",
+          "title": "Use of exec() at six.py:735",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:exec.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:005fc146f81a32d8",
+          "title": "ruff F821: Undefined name `basestring` at six.py:49",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:2fecf61952ddd1fd",
+          "title": "ruff F821: Undefined name `long` at six.py:50",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:4b5005d4b37e9908",
+          "title": "ruff F821: Undefined name `unicode` at six.py:52",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:5702ee1e910b0040",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at six.py:203",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:f7bacba553aacce9",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at six.py:523",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:c39d84ab929c1798",
+          "title": "ruff F821: Undefined name `unicode` at six.py:674",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B009:0f55d4b815a99336",
+          "title": "ruff B009: Do not call `getattr` with a constant attribute value. It is not any safer than normal property access. at six.py:711",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S102:342f6294e1a55951",
+          "title": "ruff S102: Use of `exec` detected at six.py:735",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:4f6f8304d5e81b8c",
+          "title": "ruff F821: Undefined name `basestring` at six.py:766",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:73319eb25511f35c",
+          "title": "ruff F821: Undefined name `file` at six.py:769",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:d9078174a346d9b9",
+          "title": "ruff F821: Undefined name `unicode` at six.py:770",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:76cfc3882849a49d",
+          "title": "ruff F821: Undefined name `unicode` at six.py:780",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:31c2c9fd23f0a3f8",
+          "title": "ruff F821: Undefined name `unicode` at six.py:786",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:866289999abbd2a4",
+          "title": "ruff F821: Undefined name `unicode` at six.py:794",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:793eb7a9a5482803",
+          "title": "ruff F821: Undefined name `unicode` at six.py:798",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:F821:d196b80024536ab7",
+          "title": "ruff F821: Undefined name `unicode` at six.py:799",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B905:2948095319718006",
+          "title": "ruff B905: `zip()` without an explicit `strict=` parameter at test_six.py:386",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B023:6f03ce134c0bf6ef",
+          "title": "ruff B023: Function definition does not bind loop variable `record` at test_six.py:395",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B023:776eff0b154469c0",
+          "title": "ruff B023: Function definition does not bind loop variable `old` at test_six.py:396",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "finding_count": 20,
+        "high_or_critical": 1,
+        "secrets_head": 0,
+        "ast_findings": 1,
+        "ruff_ran": true,
+        "ruff_issue_count": 228,
+        "ruff_absent": false,
+        "py_files": 4
+      },
+      "evidence_refs": [
+        "structural/secrets.json",
+        "structural/ast.json",
+        "structural/ruff.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-ast",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "ruff",
+          "version": "ruff 0.15.1",
+          "ruleset_digest": "metria-isolated-SBE9F82x"
+        },
+        {
+          "name": "metria-secret-regex",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [
+        {
+          "rule": "ruff-isolated",
+          "path": ".",
+          "justification": "Metria runs ruff --isolated with fixed select; subject noqa/config ignored",
+          "expires_at": null,
+          "source": "policy"
+        }
+      ],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "pass",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "sca:no-deps",
+          "title": "No runtime dependencies declared (components=0)",
+          "severity": "info",
+          "detectors": [
+            "inventory"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/inventory.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "components": 0,
+        "runtime_components": 0,
+        "non_runtime_components": 0,
+        "lockfiles": [],
+        "sbom_files": [],
+        "resolved_versions": 0,
+        "inventory_meta": {
+          "setup_py_present": true,
+          "setup_py_error": null,
+          "sources_read": [
+            "setup.cfg",
+            "setup.py"
+          ]
+        },
+        "osv_queries": 0,
+        "osv_vuln_hits": 0,
+        "osv_skipped_unresolved": 0,
+        "osv_errors": 0
+      },
+      "evidence_refs": [
+        "supply_chain/inventory.json",
+        "supply_chain/sbom_practice.json",
+        "supply_chain/osv.json",
+        "supply_chain/resolved_versions.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 0,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-inventory",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "osv.dev",
+          "version": "v1",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "pass",
+          "raw_metrics": {
+            "components": 0,
+            "runtime_components": 0,
+            "lockfiles": []
+          }
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "null_display": "UNDECLARED",
+          "raw_metrics": {
+            "published_sbom": false,
+            "files": []
+          }
+        }
+      ]
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "asvs_scope_provided": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:no_strong_oracle",
+          "title": "Suite green but no strong oracle (mutation/PBT) measured",
+          "severity": "medium",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "has_tests_dir": false,
+        "test_file_count": 1,
+        "test_files_sample": [
+          "test_six.py"
+        ],
+        "pytest_config_present": false,
+        "suite": "green",
+        "pytest_exit": 0,
+        "strong_oracle": false,
+        "subject_code_executed": true,
+        "env_scrubbed": true,
+        "runner": {
+          "python": "3.9.6",
+          "platform": "macOS-26.1-arm64-arm-64bit",
+          "implementation": "CPython"
+        },
+        "install": {
+          "installed": [
+            "pytest",
+            "-e ."
+          ],
+          "ok": true
+        },
+        "classify": "pass"
+      },
+      "evidence_refs": [
+        "test_adequacy/layout.json",
+        "test_adequacy/runner.json",
+        "test_adequacy/collect.txt",
+        "test_adequacy/pytest.txt",
+        "test_adequacy/install.json",
+        "test_adequacy/junit.xml"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "pytest",
+          "version": "pytest 8.4.2",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "checked": [
+          "import-linter",
+          "ArchUnit",
+          "Sonar architecture"
+        ],
+        "importlinter": false,
+        "import_linter_ini": false,
+        "archunit": false,
+        "sonar_architecture": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi": [],
+        "pact": [],
+        "json_schema": []
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 2314,
+        "loc_total": 3851,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    }
+  },
+  "top_risks": [
+    {
+      "summary": "Use of exec() at six.py:735",
+      "finding_fingerprint": "struct:ast:exec:8d0b3a83327a1b7b"
+    },
+    {
+      "summary": "Suite green but no strong oracle (mutation/PBT) measured",
+      "finding_fingerprint": "adeq:no_strong_oracle"
+    },
+    {
+      "summary": "ruff S102: Use of `exec` detected at six.py:735",
+      "finding_fingerprint": "struct:ruff:S102:342f6294e1a55951"
+    },
+    {
+      "summary": "ruff B009: Do not call `getattr` with a constant attribute value. It is not any safer than normal property access. at six.py:711",
+      "finding_fingerprint": "struct:ruff:B009:0f55d4b815a99336"
+    },
+    {
+      "summary": "ruff B023: Function definition does not bind loop variable `record` at test_six.py:395",
+      "finding_fingerprint": "struct:ruff:B023:6f03ce134c0bf6ef"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "50135e83b2f59948f0057f7b1bac1b549146c2c84c5fb7d252cd65a741189c9b",
+    "manifest_sha256": "9fb86e49fc36ce2d1f781c2ed8cdb1078532c35ea731f81b8092dd37dd681129"
+  }
+}

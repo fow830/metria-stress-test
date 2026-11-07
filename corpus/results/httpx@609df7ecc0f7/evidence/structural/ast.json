@@ -1,0 +1,106 @@
+[
+  {
+    "fingerprint": "struct:ast:pickle_loads:cfbad638122ff9f5",
+    "title": "pickle.loads() at tests/models/test_requests.py:182",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:7abb4dcd42dcbabf",
+    "title": "pickle.loads() at tests/models/test_requests.py:202",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:0c86fffac58ebe3b",
+    "title": "pickle.loads() at tests/models/test_requests.py:210",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:45dee64e6927ff27",
+    "title": "pickle.loads() at tests/models/test_requests.py:219",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:5b593ff09fcbc042",
+    "title": "pickle.loads() at tests/models/test_requests.py:227",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:34c2e5faca0b2662",
+    "title": "pickle.loads() at tests/models/test_responses.py:964",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:e89b4574c3b378d4",
+    "title": "pickle.loads() at tests/models/test_responses.py:979",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:pickle_loads:8c9292d7a7058038",
+    "title": "pickle.loads() at tests/models/test_responses.py:990",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:pickle_loads.json"
+    ]
+  }
+]

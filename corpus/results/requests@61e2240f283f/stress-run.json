@@ -1,0 +1,1159 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_fc5f0e3b62f6",
+  "subject": {
+    "repo_url": "https://github.com/psf/requests",
+    "commit_sha": "61e2240f283f15780ac2d0e2cfefb0fd6fdab627",
+    "tree_digest": "git_tree:9474485f84c7244930abc1b8023f847486572091"
+  },
+  "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
+  "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
+  "started_at": "2026-11-07T09:20:08Z",
+  "finished_at": "2026-11-07T09:22:04Z",
+  "budget": {
+    "wall_clock_s": 1800,
+    "used_s": 116
+  },
+  "overall": "fail",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct:secret:private_key_header:5eb95d5adb6c4b52",
+          "title": "Test-fixture key material (private_key_header) at tests/certs/valid/server/server.key:1",
+          "severity": "medium",
+          "detectors": [
+            "secret_regex"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "secret_head_to_structural",
+          "evidence_refs": [
+            "structural/secrets.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:secret:private_key_header:f923dc228e5ef17f",
+          "title": "Test-fixture key material (private_key_header) at tests/certs/mtls/client/client.key:1",
+          "severity": "medium",
+          "detectors": [
+            "secret_regex"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "secret_head_to_structural",
+          "evidence_refs": [
+            "structural/secrets.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:secret:private_key_header:820803787ac79237",
+          "title": "Test-fixture key material (private_key_header) at tests/certs/expired/ca/ca-private.key:1",
+          "severity": "medium",
+          "detectors": [
+            "secret_regex"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "secret_head_to_structural",
+          "evidence_refs": [
+            "structural/secrets.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:secret:private_key_header:8a8c0f140e8eedb7",
+          "title": "Test-fixture key material (private_key_header) at tests/certs/expired/server/server.key:1",
+          "severity": "medium",
+          "detectors": [
+            "secret_regex"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "secret_head_to_structural",
+          "evidence_refs": [
+            "structural/secrets.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:exec:0901a64ebd0ca000",
+          "title": "Use of exec() at setup.py:79",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:exec.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:c8475c4687f75ebe",
+          "title": "pickle.loads() at tests/test_requests.py:1484",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:15c9cd4ce970aaf5",
+          "title": "pickle.loads() at tests/test_requests.py:1488",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:bcefe8e289e10a2b",
+          "title": "pickle.loads() at tests/test_requests.py:1496",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:77fe8d43a636fdeb",
+          "title": "pickle.loads() at tests/test_requests.py:1512",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:ea5b529bff0af291",
+          "title": "pickle.loads() at tests/test_requests.py:1527",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:9cfb89ed3c8a3615",
+          "title": "pickle.loads() at tests/test_requests.py:1557",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:2dd52a7fa73c8e81",
+          "title": "pickle.loads() at tests/test_requests.py:2975",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S605:458546c017f291a2",
+          "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at setup.py:57",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S607:dcdffd2811fda8ce",
+          "title": "ruff S607: Starting a process with a partial executable path at setup.py:57",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S605:58fd9f0b90548e0f",
+          "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at setup.py:58",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S607:cfeba35af89ddfe7",
+          "title": "ruff S607: Starting a process with a partial executable path at setup.py:58",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S102:97bd5516b87061b5",
+          "title": "ruff S102: Use of `exec` detected at setup.py:79",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:01a28d76c4648414",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:60",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:92466ddc759642c2",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:70",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:fd7803521072f660",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:72",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:2722934fbe41d5d9",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:79",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:ee6b835ce7a3a4d3",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:84",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:4572b115ddd3878e",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/__init__.py:86",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:e58806308a6b625d",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/__init__.py:104",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:a0822096b2263a24",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/__init__.py:113",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:3a725c3156781e88",
+          "title": "ruff S101: Use of `assert` detected at src/requests/_internal_utils.py:45",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:21d4a73e434d4653",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:474",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:a90a51f3bee09ea1",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/adapters.py:507",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:eb75f0a324fda803",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:637",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:f216c5530358489c",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:657",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:05467d2b20cab3aa",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:682",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:be13bbfa9c2ffb61",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:688",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:6fccded578ddf8cf",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:691",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:d40d4ad8cf171614",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:694",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:6fcf297acd1445b6",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:698",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:3f9e30c38f9666aa",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:700",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:4731757b1a999591",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:703",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:f83e46df67052b62",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:706",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:7b2feec20949de2f",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:711",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:d80da68cef970c0c",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:713",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:cdcd4250ee1f8015",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:715",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:7ddd72ad8b27352d",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/auth.py:36",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:7ebfe728b344c2e5",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/auth.py:46",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S324:b8209c106d5c4039",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `md5` at src/requests/auth.py:148",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S324:82b13b3679a3f550",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at src/requests/auth.py:156",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S324:4d04e498df330e0e",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at src/requests/auth.py:205",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B018:c11ecd6ba0aff4ae",
+          "title": "ruff B018: Found useless expression. Either assign it to a variable or remove it. at src/requests/auth.py:267",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:2a490a7b1a703b8f",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/cookies.py:500",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B004:75bd9dedb40e2622",
+          "title": "ruff B004: Using `hasattr(x, \"__call__\")` to test if x is callable is unreliable. Use `callable(x)` for consistent results. at src/requests/hooks.py:27",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:3e124cc8df578ac2",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/models.py:406",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:7704fa7688e24efe",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/models.py:435",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:bad2c1e1263df39f",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/models.py:454",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "finding_count": 52,
+        "high_or_critical": 8,
+        "secrets_head": 4,
+        "ast_findings": 8,
+        "ruff_ran": true,
+        "ruff_issue_count": 734,
+        "ruff_absent": false,
+        "py_files": 36
+      },
+      "evidence_refs": [
+        "structural/secrets.json",
+        "structural/ast.json",
+        "structural/ruff.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 11209,
+        "loc_total": 46071,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-ast",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "ruff",
+          "version": "ruff 0.15.1",
+          "ruleset_digest": "metria-isolated-SBE9F82x"
+        },
+        {
+          "name": "metria-secret-regex",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [
+        {
+          "rule": "ruff-isolated",
+          "path": ".",
+          "justification": "Metria runs ruff --isolated with fixed select; subject noqa/config ignored",
+          "expires_at": null,
+          "source": "policy"
+        }
+      ],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "sca:GHSA-8988-9cw3-xx77:urllib3@2.6.3",
+          "title": "GHSA-8988-9cw3-xx77 in urllib3==2.6.3: urllib3: HTTPS proxy TLS configuration may be ignored or overridden",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ],
+          "severity": "high"
+        },
+        {
+          "fingerprint": "sca:GHSA-gh4c-6fx4-qh6g:urllib3@2.6.3",
+          "title": "GHSA-gh4c-6fx4-qh6g in urllib3==2.6.3: urllib3: Chunked Deflate streaming can enter an infinite loop",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-mf9v-mfxr-j63j:urllib3@2.6.3",
+          "title": "GHSA-mf9v-mfxr-j63j in urllib3==2.6.3: urllib3: Decompression-bomb safeguards bypassed in parts of the streaming API",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ],
+          "severity": "high"
+        },
+        {
+          "fingerprint": "sca:GHSA-qccp-gfcp-xxvc:urllib3@2.6.3",
+          "title": "GHSA-qccp-gfcp-xxvc in urllib3==2.6.3: urllib3: Sensitive headers forwarded across origins in proxied low-level redirects",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ],
+          "severity": "high"
+        },
+        {
+          "fingerprint": "sca:GHSA-vxq7-64xx-v4gw:urllib3@2.6.3",
+          "title": "GHSA-vxq7-64xx-v4gw in urllib3==2.6.3: urllib3: HTTPResponse.stream()/read_chunked() buffers an unbounded chunk-size line into memory",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ],
+          "severity": "high"
+        }
+      ],
+      "raw_metrics": {
+        "components": 11,
+        "runtime_components": 4,
+        "non_runtime_components": 7,
+        "lockfiles": [
+          "docs/requirements.txt",
+          "pyproject.toml",
+          "requirements-dev.txt"
+        ],
+        "sbom_files": [],
+        "resolved_versions": 4,
+        "inventory_meta": {
+          "setup_py_present": true,
+          "setup_py_error": null,
+          "sources_read": [
+            "pyproject.toml",
+            "setup.cfg",
+            "setup.py"
+          ]
+        },
+        "osv_queries": 4,
+        "osv_vuln_hits": 10,
+        "osv_skipped_unresolved": 0,
+        "osv_errors": 0,
+        "osv_error_samples": []
+      },
+      "evidence_refs": [
+        "supply_chain/inventory.json",
+        "supply_chain/sbom_practice.json",
+        "supply_chain/osv.json",
+        "supply_chain/resolved_versions.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 0,
+        "loc_total": 46071,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-inventory",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "osv.dev",
+          "version": "v1",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "pass",
+          "raw_metrics": {
+            "components": 11,
+            "runtime_components": 4,
+            "lockfiles": [
+              "docs/requirements.txt",
+              "pyproject.toml",
+              "requirements-dev.txt"
+            ]
+          }
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "null_display": "UNDECLARED",
+          "raw_metrics": {
+            "published_sbom": false,
+            "files": []
+          }
+        }
+      ]
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "asvs_scope_provided": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 11209,
+        "loc_total": 46071,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "fail",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:suite_failed",
+          "title": "pytest failed (exit 1)",
+          "severity": "high",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "has_tests_dir": true,
+        "test_file_count": 9,
+        "test_files_sample": [
+          "tests/test_utils.py",
+          "tests/test_structures.py",
+          "tests/test_packages.py",
+          "tests/test_testserver.py",
+          "tests/test_hooks.py",
+          "tests/test_requests.py",
+          "tests/test_adapters.py",
+          "tests/test_help.py",
+          "tests/test_lowlevel.py"
+        ],
+        "pytest_config_present": true,
+        "suite": "failed",
+        "pytest_exit": 1,
+        "strong_oracle": false,
+        "subject_code_executed": true,
+        "env_scrubbed": true,
+        "runner": {
+          "python": "3.9.6",
+          "platform": "macOS-26.1-arm64-arm-64bit",
+          "implementation": "CPython"
+        },
+        "install": {
+          "installed": [
+            "pytest",
+            "-e .",
+            "-r requirements-dev.txt"
+          ],
+          "ok": true
+        },
+        "classify": "fail"
+      },
+      "evidence_refs": [
+        "test_adequacy/layout.json",
+        "test_adequacy/runner.json",
+        "test_adequacy/collect.txt",
+        "test_adequacy/pytest.txt",
+        "test_adequacy/install.json",
+        "test_adequacy/junit.xml"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 11209,
+        "loc_total": 46071,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "pytest",
+          "version": "pytest 8.4.2",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "checked": [
+          "import-linter",
+          "ArchUnit",
+          "Sonar architecture"
+        ],
+        "importlinter": false,
+        "import_linter_ini": false,
+        "archunit": false,
+        "sonar_architecture": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 11209,
+        "loc_total": 46071,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi": [],
+        "pact": [],
+        "json_schema": []
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 11209,
+        "loc_total": 46071,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    }
+  },
+  "top_risks": [
+    {
+      "summary": "pytest failed (exit 1)",
+      "finding_fingerprint": "adeq:suite_failed"
+    },
+    {
+      "summary": "GHSA-8988-9cw3-xx77 in urllib3==2.6.3: urllib3: HTTPS proxy TLS configuration may be ignored or overridden",
+      "finding_fingerprint": "sca:GHSA-8988-9cw3-xx77:urllib3@2.6.3"
+    },
+    {
+      "summary": "GHSA-mf9v-mfxr-j63j in urllib3==2.6.3: urllib3: Decompression-bomb safeguards bypassed in parts of the streaming API",
+      "finding_fingerprint": "sca:GHSA-mf9v-mfxr-j63j:urllib3@2.6.3"
+    },
+    {
+      "summary": "GHSA-qccp-gfcp-xxvc in urllib3==2.6.3: urllib3: Sensitive headers forwarded across origins in proxied low-level redirects",
+      "finding_fingerprint": "sca:GHSA-qccp-gfcp-xxvc:urllib3@2.6.3"
+    },
+    {
+      "summary": "GHSA-vxq7-64xx-v4gw in urllib3==2.6.3: urllib3: HTTPResponse.stream()/read_chunked() buffers an unbounded chunk-size line into memory",
+      "finding_fingerprint": "sca:GHSA-vxq7-64xx-v4gw:urllib3@2.6.3"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "6dbf8090084c0c472a3ca28d3265f61972ea33e92ef12a7d33c94af7c7ea70eb",
+    "manifest_sha256": "d3c34953f8760efb31771ba139b3df40fe3e1efb313326d4b1601265d3046edf"
+  }
+}

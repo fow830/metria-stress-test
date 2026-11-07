@@ -1,0 +1,8 @@
+{
+  "python": "3.9.6",
+  "python_full": "3.9.6 (default, Jan  9 2026, 11:03:41)  [Clang 17.0.0 (clang-1700.6.4.2)]",
+  "platform": "macOS-26.1-arm64-arm-64bit",
+  "system": "Darwin",
+  "machine": "arm64",
+  "metria_version": "0.1.0"
+}

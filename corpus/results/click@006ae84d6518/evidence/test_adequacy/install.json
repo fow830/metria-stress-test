@@ -1,0 +1,28 @@
+{
+  "installed": [
+    "pytest",
+    "-e ."
+  ],
+  "attempts": [
+    {
+      "args": [
+        "pip",
+        "install",
+        "pip",
+        "pytest"
+      ],
+      "returncode": 0,
+      "stderr_tail": ""
+    },
+    {
+      "args": [
+        "-e",
+        "."
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "missing_extra": false
+    }
+  ],
+  "ok": true
+}

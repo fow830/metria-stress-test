@@ -1,0 +1,671 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_2e04cb3d69bb",
+  "subject": {
+    "repo_url": "https://github.com/pallets/flask",
+    "commit_sha": "85039283fc3e986cced4ab39a3fe2b39314d06bb",
+    "tree_digest": "git_tree:a7d387faad3ef6b8cce7a9920d3329a3403d7fce"
+  },
+  "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
+  "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
+  "started_at": "2026-11-07T09:23:41Z",
+  "finished_at": "2026-11-07T09:24:10Z",
+  "budget": {
+    "wall_clock_s": 1800,
+    "used_s": 29
+  },
+  "overall": "fail",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct:ast:exec:bef49823f5d0cb68",
+          "title": "Use of exec() at src/flask/config.py:212",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:exec.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:764d41f88d6b5e30",
+          "title": "Use of compile() on dynamic input at src/flask/config.py:212",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:eval:d06d550f2e575640",
+          "title": "Use of eval() at src/flask/cli.py:1005",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:eval.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:compile:efc40ffc2be1950e",
+          "title": "Use of compile() on dynamic input at src/flask/cli.py:1005",
+          "severity": "medium",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:compile.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S106:2771891995ffb287",
+          "title": "ruff S106: Possible hardcoded password assigned to argument: \"SECRET_KEY\" at examples/tutorial/flaskr/__init__.py:11",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S107:d1c215ed4b765de9",
+          "title": "ruff S107: Possible hardcoded password assigned to function default: \"password\" at examples/tutorial/tests/conftest.py:51",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:4261f555f39b3143",
+          "title": "ruff S101: Use of `assert` detected at src/flask/app.py:260",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S307:5bda38ccf5340239",
+          "title": "ruff S307: Use of possibly insecure function; consider using `ast.literal_eval` at src/flask/cli.py:1005",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:9b0ba96dd942ef85",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/flask/config.py:163",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S102:eab008fe6e718095",
+          "title": "ruff S102: Use of `exec` detected at src/flask/config.py:212",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:4d779e4f83ceff9f",
+          "title": "ruff S101: Use of `assert` detected at src/flask/debughelpers.py:59",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S704:2b4a93e1c28ebf21",
+          "title": "ruff S704: Unsafe use of `markupsafe.Markup` detected at src/flask/json/tag.py:188",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:2b5b1a70e9c134a6",
+          "title": "ruff S101: Use of `assert` detected at src/flask/sansio/scaffold.py:705",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S324:a9f1f4b8b536b902",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at src/flask/sessions.py:285",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:cb3ce210a164c3ab",
+          "title": "ruff S101: Use of `assert` detected at src/flask/testing.py:58",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:f95705787861d6b8",
+          "title": "ruff S101: Use of `assert` detected at src/flask/views.py:190",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S106:cf87e66739ac51b1",
+          "title": "ruff S106: Possible hardcoded password assigned to argument: \"SECRET_KEY\" at tests/conftest.py:50",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:b44fabef1a1ac6c9",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at tests/test_appctx.py:66",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S110:393a280a7239adcd",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at tests/test_appctx.py:85",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "finding_count": 19,
+        "high_or_critical": 2,
+        "secrets_head": 0,
+        "ast_findings": 4,
+        "ruff_ran": true,
+        "ruff_issue_count": 999,
+        "ruff_absent": false,
+        "py_files": 82
+      },
+      "evidence_refs": [
+        "structural/secrets.json",
+        "structural/ast.json",
+        "structural/ruff.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37775,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-ast",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "ruff",
+          "version": "ruff 0.15.1",
+          "ruleset_digest": "metria-isolated-SBE9F82x"
+        },
+        {
+          "name": "metria-secret-regex",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [
+        {
+          "rule": "ruff-isolated",
+          "path": ".",
+          "justification": "Metria runs ruff --isolated with fixed select; subject noqa/config ignored",
+          "expires_at": null,
+          "source": "policy"
+        }
+      ],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "pass",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "components": 22,
+        "runtime_components": 6,
+        "non_runtime_components": 16,
+        "lockfiles": [
+          "examples/celery/requirements.txt",
+          "pyproject.toml"
+        ],
+        "sbom_files": [],
+        "resolved_versions": 6,
+        "inventory_meta": {
+          "setup_py_present": false,
+          "setup_py_error": null,
+          "sources_read": [
+            "pyproject.toml"
+          ]
+        },
+        "osv_queries": 6,
+        "osv_vuln_hits": 0,
+        "osv_skipped_unresolved": 0,
+        "osv_errors": 0,
+        "osv_error_samples": []
+      },
+      "evidence_refs": [
+        "supply_chain/inventory.json",
+        "supply_chain/sbom_practice.json",
+        "supply_chain/osv.json",
+        "supply_chain/resolved_versions.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 0,
+        "loc_total": 37775,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-inventory",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "osv.dev",
+          "version": "v1",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "pass",
+          "raw_metrics": {
+            "components": 22,
+            "runtime_components": 6,
+            "lockfiles": [
+              "examples/celery/requirements.txt",
+              "pyproject.toml"
+            ]
+          }
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "null_display": "UNDECLARED",
+          "raw_metrics": {
+            "published_sbom": false,
+            "files": []
+          }
+        }
+      ]
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "asvs_scope_provided": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37775,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "fail",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:suite_failed",
+          "title": "pytest failed (exit 1)",
+          "severity": "high",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "has_tests_dir": true,
+        "test_file_count": 26,
+        "test_files_sample": [
+          "tests/test_basic.py",
+          "tests/test_converters.py",
+          "tests/test_logging.py",
+          "tests/test_signals.py",
+          "tests/test_async.py",
+          "tests/test_session_interface.py",
+          "tests/test_instance_config.py",
+          "tests/test_views.py",
+          "tests/test_json_tag.py",
+          "tests/test_subclassing.py",
+          "tests/test_reqctx.py",
+          "tests/test_blueprints.py",
+          "tests/test_config.py",
+          "tests/test_user_error_handler.py",
+          "tests/test_helpers.py",
+          "tests/test_json.py",
+          "tests/test_cli.py",
+          "tests/test_templating.py",
+          "tests/test_appctx.py",
+          "tests/test_regression.py"
+        ],
+        "pytest_config_present": true,
+        "suite": "failed",
+        "pytest_exit": 1,
+        "strong_oracle": false,
+        "subject_code_executed": true,
+        "env_scrubbed": true,
+        "runner": {
+          "python": "3.9.6",
+          "platform": "macOS-26.1-arm64-arm-64bit",
+          "implementation": "CPython"
+        },
+        "install": {
+          "installed": [
+            "pytest",
+            "-e ."
+          ],
+          "ok": true
+        },
+        "classify": "fail"
+      },
+      "evidence_refs": [
+        "test_adequacy/layout.json",
+        "test_adequacy/runner.json",
+        "test_adequacy/collect.txt",
+        "test_adequacy/pytest.txt",
+        "test_adequacy/install.json",
+        "test_adequacy/junit.xml"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37775,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "pytest",
+          "version": "pytest 8.4.2",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "checked": [
+          "import-linter",
+          "ArchUnit",
+          "Sonar architecture"
+        ],
+        "importlinter": false,
+        "import_linter_ini": false,
+        "archunit": false,
+        "sonar_architecture": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37775,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi": [],
+        "pact": [],
+        "json_schema": []
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 17565,
+        "loc_total": 37775,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    }
+  },
+  "top_risks": [
+    {
+      "summary": "pytest failed (exit 1)",
+      "finding_fingerprint": "adeq:suite_failed"
+    },
+    {
+      "summary": "Use of eval() at src/flask/cli.py:1005",
+      "finding_fingerprint": "struct:ast:eval:d06d550f2e575640"
+    },
+    {
+      "summary": "Use of exec() at src/flask/config.py:212",
+      "finding_fingerprint": "struct:ast:exec:bef49823f5d0cb68"
+    },
+    {
+      "summary": "Use of compile() on dynamic input at src/flask/config.py:212",
+      "finding_fingerprint": "struct:ast:compile:764d41f88d6b5e30"
+    },
+    {
+      "summary": "Use of compile() on dynamic input at src/flask/cli.py:1005",
+      "finding_fingerprint": "struct:ast:compile:efc40ffc2be1950e"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "b0146588f053482c49926e949d10718cd14fdfabe8100624d54a61bdf3387e4b",
+    "manifest_sha256": "eef33bcb15b851c5d15692f8497fc920649d3d857c67bb13c7d5ae7dfa3c4d6b"
+  }
+}

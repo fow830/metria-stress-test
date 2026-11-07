@@ -1,0 +1,1101 @@
+{
+  "schema_version": "0.1",
+  "run_id": "run_1f03614777a7",
+  "subject": {
+    "repo_url": "https://github.com/encode/httpx",
+    "commit_sha": "609df7ecc0f7cb10a1c998aa9c269bba77337c5f",
+    "tree_digest": "git_tree:eb588c22adc997f4cff844ffd0c71e77c4ee9a7e"
+  },
+  "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
+  "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
+  "started_at": "2026-11-07T09:22:22Z",
+  "finished_at": "2026-11-07T09:23:39Z",
+  "budget": {
+    "wall_clock_s": 1800,
+    "used_s": 77
+  },
+  "overall": "fail",
+  "lenses": {
+    "structural": {
+      "id": "structural",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "struct:ast:pickle_loads:cfbad638122ff9f5",
+          "title": "pickle.loads() at tests/models/test_requests.py:182",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:7abb4dcd42dcbabf",
+          "title": "pickle.loads() at tests/models/test_requests.py:202",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:0c86fffac58ebe3b",
+          "title": "pickle.loads() at tests/models/test_requests.py:210",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:45dee64e6927ff27",
+          "title": "pickle.loads() at tests/models/test_requests.py:219",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:5b593ff09fcbc042",
+          "title": "pickle.loads() at tests/models/test_requests.py:227",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:34c2e5faca0b2662",
+          "title": "pickle.loads() at tests/models/test_responses.py:964",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:e89b4574c3b378d4",
+          "title": "pickle.loads() at tests/models/test_responses.py:979",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ast:pickle_loads:8c9292d7a7058038",
+          "title": "pickle.loads() at tests/models/test_responses.py:990",
+          "severity": "high",
+          "detectors": [
+            "ast"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ast:pickle_loads.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:0e9e46352089e42d",
+          "title": "ruff S101: Use of `assert` detected at httpx/_auth.py:235",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S324:bd6527e48a21fb35",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at httpx/_auth.py:309",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:25f604cf2f0b726e",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:681",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:60b297d99c2a9ed2",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:690",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:39aee24ee529489c",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:822",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:9d32ec258e0662d7",
+          "title": "ruff S101: Use of `assert` detected at httpx/_client.py:1029",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:3856f3644b2f4df1",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:1428",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:31e79ea2707764fd",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:1437",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:c877a3e2b690de55",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:1570",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:90bb31404fce6cc7",
+          "title": "ruff S101: Use of `assert` detected at httpx/_client.py:1778",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:c16233d151aed2e8",
+          "title": "ruff S101: Use of `assert` detected at httpx/_config.py:221",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:5335bbdaa9b48123",
+          "title": "ruff S101: Use of `assert` detected at httpx/_config.py:222",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:061161ed24ffe56f",
+          "title": "ruff S101: Use of `assert` detected at httpx/_config.py:223",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:6d401299db2f84be",
+          "title": "ruff S101: Use of `assert` detected at httpx/_config.py:224",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B028:e3610246ce3e049d",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_content.py:204",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:7d12aaf5b14bbeed",
+          "title": "ruff S101: Use of `assert` detected at httpx/_decoders.py:162",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:2d2de74ad36fb639",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_main.py:282",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S105:59d8bd541e0cb86f",
+          "title": "ruff S105: Possible hardcoded password assigned to: \"password\" at httpx/_main.py:294",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:298ef2af9b893d06",
+          "title": "ruff S101: Use of `assert` detected at httpx/_models.py:407",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:c8f996930f07c492",
+          "title": "ruff S101: Use of `assert` detected at httpx/_models.py:421",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:d8fd9c5b232f7dfd",
+          "title": "ruff S101: Use of `assert` detected at httpx/_models.py:1135",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:82fefd2f35e1fb3d",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:90",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:4ae714a220fde2d8",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:139",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:3a06422715d48454",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:146",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:9ffd0f4cb25e259a",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:168",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:6261b2e94569f4b0",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:169",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:bbd0c1d535e2b495",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:170",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:396a0b5436eb6635",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/default.py:221",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:002b0d3c6bea469f",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/default.py:238",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:2182a8fd860ec0e2",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/default.py:362",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:467516d392a8a5bf",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/default.py:379",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:c56f3cd4509a5c9e",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/wsgi.py:138",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:57ea8de39cbc3dd0",
+          "title": "ruff S101: Use of `assert` detected at httpx/_transports/wsgi.py:139",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:b847cb86ca6fada3",
+          "title": "ruff S101: Use of `assert` detected at httpx/_urlparse.py:229",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:6ab8136f786a982a",
+          "title": "ruff S101: Use of `assert` detected at httpx/_urlparse.py:245",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:45e0521f0c307165",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_urlparse.py:316",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:2e652c8283ccc833",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_urlparse.py:331",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:7e9264bc5bdcedab",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_urlparse.py:347",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:B904:b98c4cd102722d1d",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_urlparse.py:366",
+          "severity": "low",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        },
+        {
+          "fingerprint": "struct:ruff:S101:9c04dfe3ac98bf6f",
+          "title": "ruff S101: Use of `assert` detected at httpx/_urls.py:426",
+          "severity": "medium",
+          "detectors": [
+            "ruff"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "sast_or_secret_to_structural",
+          "evidence_refs": [
+            "structural/ruff.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "finding_count": 48,
+        "high_or_critical": 8,
+        "secrets_head": 0,
+        "ast_findings": 8,
+        "ruff_ran": true,
+        "ruff_issue_count": 1360,
+        "ruff_absent": false,
+        "py_files": 61
+      },
+      "evidence_refs": [
+        "structural/secrets.json",
+        "structural/ast.json",
+        "structural/ruff.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49080,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-ast",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "ruff",
+          "version": "ruff 0.15.1",
+          "ruleset_digest": "metria-isolated-SBE9F82x"
+        },
+        {
+          "name": "metria-secret-regex",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [
+        {
+          "rule": "ruff-isolated",
+          "path": ".",
+          "justification": "Metria runs ruff --isolated with fixed select; subject noqa/config ignored",
+          "expires_at": null,
+          "source": "policy"
+        }
+      ],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "supply_chain": {
+      "id": "supply_chain",
+      "status": "fail",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [
+        "GHSA-82r6-8w77-94w6 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing"
+      ],
+      "findings": [
+        {
+          "fingerprint": "sca:GHSA-5p39-cfhj-2xmp:anyio@4.12.1",
+          "title": "GHSA-5p39-cfhj-2xmp in anyio==4.12.1: AnyIO process-pool workers can block indefinitely on undrained stderr",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:GHSA-82r6-8w77-94w6:anyio@4.12.1",
+          "title": "GHSA-82r6-8w77-94w6 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ],
+          "severity": "critical"
+        },
+        {
+          "fingerprint": "sca:PYSEC-2026-4024:anyio@4.12.1",
+          "title": "PYSEC-2026-4024 in anyio==4.12.1: AnyIO process-pool workers can block indefinitely on undrained stderr",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        },
+        {
+          "fingerprint": "sca:PYSEC-2026-4025:anyio@4.12.1",
+          "title": "PYSEC-2026-4025 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing",
+          "detectors": [
+            "osv"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "dependency_cve_to_supply_chain",
+          "evidence_refs": [
+            "supply_chain/osv.json"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "components": 20,
+        "runtime_components": 5,
+        "non_runtime_components": 15,
+        "lockfiles": [
+          "pyproject.toml",
+          "requirements.txt"
+        ],
+        "sbom_files": [],
+        "resolved_versions": 5,
+        "inventory_meta": {
+          "setup_py_present": false,
+          "setup_py_error": null,
+          "sources_read": [
+            "pyproject.toml"
+          ]
+        },
+        "osv_queries": 5,
+        "osv_vuln_hits": 4,
+        "osv_skipped_unresolved": 0,
+        "osv_errors": 0,
+        "osv_error_samples": []
+      },
+      "evidence_refs": [
+        "supply_chain/inventory.json",
+        "supply_chain/sbom_practice.json",
+        "supply_chain/osv.json",
+        "supply_chain/resolved_versions.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 0,
+        "loc_total": 49080,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "metria-inventory",
+          "version": "0.1.0",
+          "ruleset_digest": null
+        },
+        {
+          "name": "osv.dev",
+          "version": "v1",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "sub_results": [
+        {
+          "id": "inventory",
+          "status": "pass",
+          "raw_metrics": {
+            "components": 20,
+            "runtime_components": 5,
+            "lockfiles": [
+              "pyproject.toml",
+              "requirements.txt"
+            ]
+          }
+        },
+        {
+          "id": "sbom_practice",
+          "status": "null",
+          "null_reason": "not_declared_by_subject",
+          "null_owner": "subject",
+          "null_display": "UNDECLARED",
+          "raw_metrics": {
+            "published_sbom": false,
+            "files": []
+          }
+        }
+      ]
+    },
+    "controls": {
+      "id": "controls",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "asvs_scope_provided": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49080,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "test_adequacy": {
+      "id": "test_adequacy",
+      "status": "warn",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "medium",
+      "hard_gate_failures": [],
+      "findings": [
+        {
+          "fingerprint": "adeq:no_strong_oracle",
+          "title": "Suite green but no strong oracle (mutation/PBT) measured",
+          "severity": "medium",
+          "detectors": [
+            "pytest"
+          ],
+          "confirmation": "unconfirmed",
+          "lens_routing_rule": "test_oracle_gap_to_test_adequacy",
+          "evidence_refs": [
+            "test_adequacy/pytest.txt"
+          ]
+        }
+      ],
+      "raw_metrics": {
+        "has_tests_dir": true,
+        "test_file_count": 31,
+        "test_files_sample": [
+          "tests/test_utils.py",
+          "tests/test_auth.py",
+          "tests/test_timeouts.py",
+          "tests/test_exported_members.py",
+          "tests/test_asgi.py",
+          "tests/test_exceptions.py",
+          "tests/test_decoders.py",
+          "tests/test_config.py",
+          "tests/test_content.py",
+          "tests/test_status_codes.py",
+          "tests/test_multipart.py",
+          "tests/test_wsgi.py",
+          "tests/test_api.py",
+          "tests/test_main.py",
+          "tests/models/test_cookies.py",
+          "tests/models/test_queryparams.py",
+          "tests/models/test_whatwg.py",
+          "tests/models/test_requests.py",
+          "tests/models/test_responses.py",
+          "tests/models/test_url.py"
+        ],
+        "pytest_config_present": true,
+        "suite": "green",
+        "pytest_exit": 0,
+        "strong_oracle": false,
+        "subject_code_executed": true,
+        "env_scrubbed": true,
+        "runner": {
+          "python": "3.9.6",
+          "platform": "macOS-26.1-arm64-arm-64bit",
+          "implementation": "CPython"
+        },
+        "install": {
+          "installed": [
+            "pytest",
+            "-e .",
+            "-r requirements.txt"
+          ],
+          "ok": true
+        },
+        "classify": "pass"
+      },
+      "evidence_refs": [
+        "test_adequacy/layout.json",
+        "test_adequacy/runner.json",
+        "test_adequacy/collect.txt",
+        "test_adequacy/pytest.txt",
+        "test_adequacy/install.json",
+        "test_adequacy/junit.xml"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49080,
+        "excluded_paths": [
+          ".git"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs"
+        }
+      },
+      "tools": [
+        {
+          "name": "pytest",
+          "version": "pytest 8.3.1",
+          "ruleset_digest": null
+        }
+      ],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null
+    },
+    "architectural": {
+      "id": "architectural",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "checked": [
+          "import-linter",
+          "ArchUnit",
+          "Sonar architecture"
+        ],
+        "importlinter": false,
+        "import_linter_ini": false,
+        "archunit": false,
+        "sonar_architecture": false
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49080,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "core",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    },
+    "normative": {
+      "id": "normative",
+      "status": "null",
+      "score": null,
+      "score_reason": "uncalibrated",
+      "confidence": "low",
+      "hard_gate_failures": [],
+      "findings": [],
+      "raw_metrics": {
+        "openapi": [],
+        "pact": [],
+        "json_schema": []
+      },
+      "evidence_refs": [
+        "subject_manifest.json"
+      ],
+      "analysis_scope": {
+        "languages_analyzed": [
+          "python"
+        ],
+        "loc_analyzed": 18256,
+        "loc_total": 49080,
+        "excluded_paths": [
+          ".git",
+          ".pytest_cache"
+        ],
+        "exclusion_reasons": {
+          ".git": "tooling_or_vcs",
+          ".pytest_cache": "tooling_or_vcs"
+        }
+      },
+      "tools": [],
+      "suppressions_applied": [],
+      "maturity": "experimental",
+      "rubric_id": null,
+      "null_reason": "not_declared_by_subject",
+      "null_owner": "subject",
+      "null_display": "UNDECLARED"
+    }
+  },
+  "top_risks": [
+    {
+      "summary": "GHSA-82r6-8w77-94w6 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing",
+      "finding_fingerprint": "sca:GHSA-82r6-8w77-94w6:anyio@4.12.1"
+    },
+    {
+      "summary": "pickle.loads() at tests/models/test_requests.py:210",
+      "finding_fingerprint": "struct:ast:pickle_loads:0c86fffac58ebe3b"
+    },
+    {
+      "summary": "pickle.loads() at tests/models/test_responses.py:964",
+      "finding_fingerprint": "struct:ast:pickle_loads:34c2e5faca0b2662"
+    },
+    {
+      "summary": "pickle.loads() at tests/models/test_requests.py:219",
+      "finding_fingerprint": "struct:ast:pickle_loads:45dee64e6927ff27"
+    },
+    {
+      "summary": "pickle.loads() at tests/models/test_requests.py:227",
+      "finding_fingerprint": "struct:ast:pickle_loads:5b593ff09fcbc042"
+    }
+  ],
+  "evidence_pack": {
+    "uri": "evidence.zip",
+    "sha256": "a6185ae2a333ce96d360c4362d88ae675fc9f247a3bc83f44face9410b5bb00b",
+    "manifest_sha256": "f0781d5e3500c57102491b20c6c5c35c61d02cccc9e7955038003d39414f2c31"
+  }
+}

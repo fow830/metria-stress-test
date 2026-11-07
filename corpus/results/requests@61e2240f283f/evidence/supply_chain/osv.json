@@ -1,0 +1,66 @@
+[
+  {
+    "fingerprint": "sca:GHSA-8988-9cw3-xx77:urllib3@2.6.3",
+    "title": "GHSA-8988-9cw3-xx77 in urllib3==2.6.3: urllib3: HTTPS proxy TLS configuration may be ignored or overridden",
+    "detectors": [
+      "osv"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "dependency_cve_to_supply_chain",
+    "evidence_refs": [
+      "supply_chain/osv.json"
+    ],
+    "severity": "high"
+  },
+  {
+    "fingerprint": "sca:GHSA-gh4c-6fx4-qh6g:urllib3@2.6.3",
+    "title": "GHSA-gh4c-6fx4-qh6g in urllib3==2.6.3: urllib3: Chunked Deflate streaming can enter an infinite loop",
+    "detectors": [
+      "osv"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "dependency_cve_to_supply_chain",
+    "evidence_refs": [
+      "supply_chain/osv.json"
+    ]
+  },
+  {
+    "fingerprint": "sca:GHSA-mf9v-mfxr-j63j:urllib3@2.6.3",
+    "title": "GHSA-mf9v-mfxr-j63j in urllib3==2.6.3: urllib3: Decompression-bomb safeguards bypassed in parts of the streaming API",
+    "detectors": [
+      "osv"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "dependency_cve_to_supply_chain",
+    "evidence_refs": [
+      "supply_chain/osv.json"
+    ],
+    "severity": "high"
+  },
+  {
+    "fingerprint": "sca:GHSA-qccp-gfcp-xxvc:urllib3@2.6.3",
+    "title": "GHSA-qccp-gfcp-xxvc in urllib3==2.6.3: urllib3: Sensitive headers forwarded across origins in proxied low-level redirects",
+    "detectors": [
+      "osv"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "dependency_cve_to_supply_chain",
+    "evidence_refs": [
+      "supply_chain/osv.json"
+    ],
+    "severity": "high"
+  },
+  {
+    "fingerprint": "sca:GHSA-vxq7-64xx-v4gw:urllib3@2.6.3",
+    "title": "GHSA-vxq7-64xx-v4gw in urllib3==2.6.3: urllib3: HTTPResponse.stream()/read_chunked() buffers an unbounded chunk-size line into memory",
+    "detectors": [
+      "osv"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "dependency_cve_to_supply_chain",
+    "evidence_refs": [
+      "supply_chain/osv.json"
+    ],
+    "severity": "high"
+  }
+]

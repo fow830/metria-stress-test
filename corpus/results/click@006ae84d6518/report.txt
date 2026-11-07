@@ -1,0 +1,21 @@
+Metria — WARN                      commit 006ae84 · policy digest sha256:493d5e44b95… · schema 0.1
+
+HARD GATES
+  (none)
+
+LENSES
+  structural       WARN           finding_count=38 · high_or_critical=2 · secrets_head=0
+  supply_chain     PASS           components=2
+  controls         UNDECLARED  
+  test_adequacy    WARN           suite=green · strong_oracle=False · test_file_count=20
+  architectural    UNDECLARED  
+  normative        UNDECLARED    [experimental]
+
+TOP RISKS
+  1. subprocess call with shell=True at src/click/_termui_impl.py:514
+  2. subprocess call with shell=True at src/click/_termui_impl.py:414
+  3. Suite green but no strong oracle (mutation/PBT) measured
+  4. ruff S101: Use of `assert` detected at src/click/core.py:1928
+  5. ruff S101: Use of `assert` detected at src/click/core.py:1705
+
+evidence · sha256 dc90a4eb793f… · reproducible: metria run <repo>@006ae84d651846c944331fff78e340701fe58562 --profile cold_external

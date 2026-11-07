@@ -1,0 +1,16 @@
+{
+  "has_tests_dir": true,
+  "test_file_count": 9,
+  "test_files_sample": [
+    "tests/test_utils.py",
+    "tests/test_structures.py",
+    "tests/test_packages.py",
+    "tests/test_testserver.py",
+    "tests/test_hooks.py",
+    "tests/test_requests.py",
+    "tests/test_adapters.py",
+    "tests/test_help.py",
+    "tests/test_lowlevel.py"
+  ],
+  "pytest_config_present": true
+}

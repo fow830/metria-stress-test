@@ -1,0 +1,21 @@
+Metria — FAIL                      commit 61e2240 · policy digest sha256:493d5e44b95… · schema 0.1
+
+HARD GATES
+  (none)
+
+LENSES
+  structural       WARN           finding_count=52 · high_or_critical=8 · secrets_head=4
+  supply_chain     WARN           components=11
+  controls         UNDECLARED  
+  test_adequacy    FAIL           suite=failed · strong_oracle=False · test_file_count=9
+  architectural    UNDECLARED  
+  normative        UNDECLARED    [experimental]
+
+TOP RISKS
+  1. pytest failed (exit 1)
+  2. GHSA-8988-9cw3-xx77 in urllib3==2.6.3: urllib3: HTTPS proxy TLS configuration may be ignored or overridden
+  3. GHSA-mf9v-mfxr-j63j in urllib3==2.6.3: urllib3: Decompression-bomb safeguards bypassed in parts of the streaming API
+  4. GHSA-qccp-gfcp-xxvc in urllib3==2.6.3: urllib3: Sensitive headers forwarded across origins in proxied low-level redirects
+  5. GHSA-vxq7-64xx-v4gw in urllib3==2.6.3: urllib3: HTTPResponse.stream()/read_chunked() buffers an unbounded chunk-size line into memory
+
+evidence · sha256 6dbf8090084c… · reproducible: metria run <repo>@61e2240f283f15780ac2d0e2cfefb0fd6fdab627 --profile cold_external

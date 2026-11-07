@@ -1,0 +1,51 @@
+[
+  {
+    "fingerprint": "sca:GHSA-5p39-cfhj-2xmp:anyio@4.12.1",
+    "title": "GHSA-5p39-cfhj-2xmp in anyio==4.12.1: AnyIO process-pool workers can block indefinitely on undrained stderr",
+    "detectors": [
+      "osv"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "dependency_cve_to_supply_chain",
+    "evidence_refs": [
+      "supply_chain/osv.json"
+    ]
+  },
+  {
+    "fingerprint": "sca:GHSA-82r6-8w77-94w6:anyio@4.12.1",
+    "title": "GHSA-82r6-8w77-94w6 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing",
+    "detectors": [
+      "osv"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "dependency_cve_to_supply_chain",
+    "evidence_refs": [
+      "supply_chain/osv.json"
+    ],
+    "severity": "critical"
+  },
+  {
+    "fingerprint": "sca:PYSEC-2026-4024:anyio@4.12.1",
+    "title": "PYSEC-2026-4024 in anyio==4.12.1: AnyIO process-pool workers can block indefinitely on undrained stderr",
+    "detectors": [
+      "osv"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "dependency_cve_to_supply_chain",
+    "evidence_refs": [
+      "supply_chain/osv.json"
+    ]
+  },
+  {
+    "fingerprint": "sca:PYSEC-2026-4025:anyio@4.12.1",
+    "title": "PYSEC-2026-4025 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing",
+    "detectors": [
+      "osv"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "dependency_cve_to_supply_chain",
+    "evidence_refs": [
+      "supply_chain/osv.json"
+    ]
+  }
+]

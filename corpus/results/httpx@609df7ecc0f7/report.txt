@@ -1,0 +1,21 @@
+Metria — FAIL                      commit 609df7e · policy digest sha256:493d5e44b95… · schema 0.1
+
+HARD GATES
+  supply_chain     GHSA-82r6-8w77-94w6 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing
+
+LENSES
+  structural       WARN           finding_count=48 · high_or_critical=8 · secrets_head=0
+  supply_chain     FAIL           components=20
+  controls         UNDECLARED  
+  test_adequacy    WARN           suite=green · strong_oracle=False · test_file_count=31
+  architectural    UNDECLARED  
+  normative        UNDECLARED    [experimental]
+
+TOP RISKS
+  1. GHSA-82r6-8w77-94w6 in anyio==4.12.1: AnyIO: TLSStream IDNA 2003 host name encoding enables potential TLS certificate spoofing
+  2. pickle.loads() at tests/models/test_requests.py:210
+  3. pickle.loads() at tests/models/test_responses.py:964
+  4. pickle.loads() at tests/models/test_requests.py:219
+  5. pickle.loads() at tests/models/test_requests.py:227
+
+evidence · sha256 a6185ae2a333… · reproducible: metria run <repo>@609df7ecc0f7cb10a1c998aa9c269bba77337c5f --profile cold_external

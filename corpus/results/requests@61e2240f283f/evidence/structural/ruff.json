@@ -1,0 +1,522 @@
+[
+  {
+    "fingerprint": "struct:ruff:S605:458546c017f291a2",
+    "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at setup.py:57",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S607:dcdffd2811fda8ce",
+    "title": "ruff S607: Starting a process with a partial executable path at setup.py:57",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S605:58fd9f0b90548e0f",
+    "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at setup.py:58",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S607:cfeba35af89ddfe7",
+    "title": "ruff S607: Starting a process with a partial executable path at setup.py:58",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S102:97bd5516b87061b5",
+    "title": "ruff S102: Use of `exec` detected at setup.py:79",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:01a28d76c4648414",
+    "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:60",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:92466ddc759642c2",
+    "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:70",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:fd7803521072f660",
+    "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:72",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:2722934fbe41d5d9",
+    "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:79",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:ee6b835ce7a3a4d3",
+    "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:84",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:4572b115ddd3878e",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/__init__.py:86",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:e58806308a6b625d",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/__init__.py:104",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:a0822096b2263a24",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/__init__.py:113",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:3a725c3156781e88",
+    "title": "ruff S101: Use of `assert` detected at src/requests/_internal_utils.py:45",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:21d4a73e434d4653",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:474",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:a90a51f3bee09ea1",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/adapters.py:507",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:eb75f0a324fda803",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:637",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:f216c5530358489c",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:657",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:05467d2b20cab3aa",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:682",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:be13bbfa9c2ffb61",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:688",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:6fccded578ddf8cf",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:691",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:d40d4ad8cf171614",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:694",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:6fcf297acd1445b6",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:698",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:3f9e30c38f9666aa",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:700",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:4731757b1a999591",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:703",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:f83e46df67052b62",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:706",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:7b2feec20949de2f",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:711",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:d80da68cef970c0c",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:713",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:cdcd4250ee1f8015",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:715",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:7ddd72ad8b27352d",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/auth.py:36",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B028:7ebfe728b344c2e5",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/auth.py:46",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S324:b8209c106d5c4039",
+    "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `md5` at src/requests/auth.py:148",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S324:82b13b3679a3f550",
+    "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at src/requests/auth.py:156",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S324:4d04e498df330e0e",
+    "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at src/requests/auth.py:205",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B018:c11ecd6ba0aff4ae",
+    "title": "ruff B018: Found useless expression. Either assign it to a variable or remove it. at src/requests/auth.py:267",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:2a490a7b1a703b8f",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/cookies.py:500",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B004:75bd9dedb40e2622",
+    "title": "ruff B004: Using `hasattr(x, \"__call__\")` to test if x is callable is unreliable. Use `callable(x)` for consistent results. at src/requests/hooks.py:27",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:3e124cc8df578ac2",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/models.py:406",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:7704fa7688e24efe",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/models.py:435",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:B904:bad2c1e1263df39f",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/models.py:454",
+    "severity": "low",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  }
+]

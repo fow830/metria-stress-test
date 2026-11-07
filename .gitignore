@@ -5,3 +5,7 @@ __pycache__/
 venv/
 *.egg-info/
 .DS_Store
+dist/
+build/
+metria-out/
+.ruff_cache/

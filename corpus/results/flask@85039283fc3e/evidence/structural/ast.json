@@ -1,0 +1,54 @@
+[
+  {
+    "fingerprint": "struct:ast:exec:bef49823f5d0cb68",
+    "title": "Use of exec() at src/flask/config.py:212",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:exec.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:764d41f88d6b5e30",
+    "title": "Use of compile() on dynamic input at src/flask/config.py:212",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:eval:d06d550f2e575640",
+    "title": "Use of eval() at src/flask/cli.py:1005",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:eval.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ast:compile:efc40ffc2be1950e",
+    "title": "Use of compile() on dynamic input at src/flask/cli.py:1005",
+    "severity": "medium",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:compile.json"
+    ]
+  }
+]

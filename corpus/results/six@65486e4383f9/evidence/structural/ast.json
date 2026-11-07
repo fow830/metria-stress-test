@@ -1,0 +1,15 @@
+[
+  {
+    "fingerprint": "struct:ast:exec:8d0b3a83327a1b7b",
+    "title": "Use of exec() at six.py:735",
+    "severity": "high",
+    "detectors": [
+      "ast"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ast:exec.json"
+    ]
+  }
+]

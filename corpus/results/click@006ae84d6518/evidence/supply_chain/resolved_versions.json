@@ -1,0 +1,13 @@
+{
+  "resolved": {},
+  "meta": {
+    "method": "empty",
+    "errors": [],
+    "venv_used": false,
+    "allow_subject_install": true,
+    "not_applicable": [
+      "colorama",
+      "importlib-metadata"
+    ]
+  }
+}

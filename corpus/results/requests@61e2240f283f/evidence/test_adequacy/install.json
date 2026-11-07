@@ -1,0 +1,38 @@
+{
+  "installed": [
+    "pytest",
+    "-e .",
+    "-r requirements-dev.txt"
+  ],
+  "attempts": [
+    {
+      "args": [
+        "pip",
+        "install",
+        "pip",
+        "pytest"
+      ],
+      "returncode": 0,
+      "stderr_tail": ""
+    },
+    {
+      "args": [
+        "-e",
+        "."
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "missing_extra": false
+    },
+    {
+      "args": [
+        "-r",
+        "requirements-dev.txt"
+      ],
+      "returncode": 0,
+      "stderr_tail": "",
+      "missing_extra": false
+    }
+  ],
+  "ok": true
+}
