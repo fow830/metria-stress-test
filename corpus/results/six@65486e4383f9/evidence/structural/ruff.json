@@ -1,7 +1,7 @@
 [
   {
-    "fingerprint": "struct:ruff:F821:75493a568d203d63",
-    "title": "ruff F821: Undefined name `basestring` at <subject>/six.py:49",
+    "fingerprint": "struct:ruff:F821:005fc146f81a32d8",
+    "title": "ruff F821: Undefined name `basestring` at six.py:49",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -13,8 +13,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:18839d0dad4622e0",
-    "title": "ruff F821: Undefined name `long` at <subject>/six.py:50",
+    "fingerprint": "struct:ruff:F821:2fecf61952ddd1fd",
+    "title": "ruff F821: Undefined name `long` at six.py:50",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -26,8 +26,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:04da2e391e9c3955",
-    "title": "ruff F821: Undefined name `unicode` at <subject>/six.py:52",
+    "fingerprint": "struct:ruff:F821:4b5005d4b37e9908",
+    "title": "ruff F821: Undefined name `unicode` at six.py:52",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -39,8 +39,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B904:492afdddf4497534",
-    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/six.py:203",
+    "fingerprint": "struct:ruff:B904:5702ee1e910b0040",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at six.py:203",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -52,8 +52,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B904:fbe1349ca44acbfb",
-    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/six.py:523",
+    "fingerprint": "struct:ruff:B904:f7bacba553aacce9",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at six.py:523",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -65,8 +65,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:c4ed5e416cdeb7a7",
-    "title": "ruff F821: Undefined name `unicode` at <subject>/six.py:674",
+    "fingerprint": "struct:ruff:F821:c39d84ab929c1798",
+    "title": "ruff F821: Undefined name `unicode` at six.py:674",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -78,8 +78,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B009:c621d29144090c00",
-    "title": "ruff B009: Do not call `getattr` with a constant attribute value. It is not any safer than normal property access. at <subject>/six.py:711",
+    "fingerprint": "struct:ruff:B009:0f55d4b815a99336",
+    "title": "ruff B009: Do not call `getattr` with a constant attribute value. It is not any safer than normal property access. at six.py:711",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -91,8 +91,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S102:0e87e2c62c9a1d79",
-    "title": "ruff S102: Use of `exec` detected at <subject>/six.py:735",
+    "fingerprint": "struct:ruff:S102:342f6294e1a55951",
+    "title": "ruff S102: Use of `exec` detected at six.py:735",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -104,8 +104,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:aa8e4bdf03059d8b",
-    "title": "ruff F821: Undefined name `basestring` at <subject>/six.py:766",
+    "fingerprint": "struct:ruff:F821:4f6f8304d5e81b8c",
+    "title": "ruff F821: Undefined name `basestring` at six.py:766",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -117,8 +117,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:ede15ee7f7e7f7de",
-    "title": "ruff F821: Undefined name `file` at <subject>/six.py:769",
+    "fingerprint": "struct:ruff:F821:73319eb25511f35c",
+    "title": "ruff F821: Undefined name `file` at six.py:769",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -130,8 +130,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:f8e925dd66d96862",
-    "title": "ruff F821: Undefined name `unicode` at <subject>/six.py:770",
+    "fingerprint": "struct:ruff:F821:d9078174a346d9b9",
+    "title": "ruff F821: Undefined name `unicode` at six.py:770",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -143,8 +143,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:812383b39092204f",
-    "title": "ruff F821: Undefined name `unicode` at <subject>/six.py:780",
+    "fingerprint": "struct:ruff:F821:76cfc3882849a49d",
+    "title": "ruff F821: Undefined name `unicode` at six.py:780",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -156,8 +156,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:285adcf94e11cf2c",
-    "title": "ruff F821: Undefined name `unicode` at <subject>/six.py:786",
+    "fingerprint": "struct:ruff:F821:31c2c9fd23f0a3f8",
+    "title": "ruff F821: Undefined name `unicode` at six.py:786",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -169,8 +169,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:e2cd8225a3a14b5d",
-    "title": "ruff F821: Undefined name `unicode` at <subject>/six.py:794",
+    "fingerprint": "struct:ruff:F821:866289999abbd2a4",
+    "title": "ruff F821: Undefined name `unicode` at six.py:794",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -182,8 +182,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:bd3e230fc3ac5c82",
-    "title": "ruff F821: Undefined name `unicode` at <subject>/six.py:798",
+    "fingerprint": "struct:ruff:F821:793eb7a9a5482803",
+    "title": "ruff F821: Undefined name `unicode` at six.py:798",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -195,8 +195,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:F821:19b28c763e941f66",
-    "title": "ruff F821: Undefined name `unicode` at <subject>/six.py:799",
+    "fingerprint": "struct:ruff:F821:d196b80024536ab7",
+    "title": "ruff F821: Undefined name `unicode` at six.py:799",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -208,9 +208,9 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:4c2411e48a07a4c8",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:37",
-    "severity": "medium",
+    "fingerprint": "struct:ruff:B905:2948095319718006",
+    "title": "ruff B905: `zip()` without an explicit `strict=` parameter at test_six.py:386",
+    "severity": "low",
     "detectors": [
       "ruff"
     ],
@@ -221,9 +221,9 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:a853577c4e9be787",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:43",
-    "severity": "medium",
+    "fingerprint": "struct:ruff:B023:6f03ce134c0bf6ef",
+    "title": "ruff B023: Function definition does not bind loop variable `record` at test_six.py:395",
+    "severity": "low",
     "detectors": [
       "ruff"
     ],
@@ -234,282 +234,9 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:573d03d2f1167e2c",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:47",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:1ec06e207ed29386",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:48",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:0bd6d48218cc6172",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:49",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:c342e537e0a0e7c6",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:50",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:05cbecd1dcaa9d9a",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:54",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:ef2db20553959b63",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:55",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:2c4b2835fe9929f6",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:56",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:a71c5926e9dc3378",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:64",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:decf9fc45f462111",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:65",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:1c51c107fdf5facb",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:66",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:c3eea89cf2d09e43",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:70",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:c1aae1ddfe97eb57",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:74",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:60eebb6096631449",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:94",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:61c5928ae68fd681",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:96",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:cbb6a881f1125663",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:97",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:aa8060eeeec82955",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:133",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:de36e8ec028690f3",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:140",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:71daacd860cc5976",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:148",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:27a4ce18dd7d3bc9",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:156",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:0e7b331f90674eaf",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:164",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:b951fab0deb24fd1",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:172",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:9bf9c480602cb067",
-    "title": "ruff S101: Use of `assert` detected at <subject>/test_six.py:180",
-    "severity": "medium",
+    "fingerprint": "struct:ruff:B023:776eff0b154469c0",
+    "title": "ruff B023: Function definition does not bind loop variable `old` at test_six.py:396",
+    "severity": "low",
     "detectors": [
       "ruff"
     ],

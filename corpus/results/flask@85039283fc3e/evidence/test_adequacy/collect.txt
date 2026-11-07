@@ -475,5 +475,5 @@ tests/test_views.py::test_multiple_inheritance
 tests/test_views.py::test_remove_method_from_parent
 tests/test_views.py::test_init_once
 
-476 tests collected in 0.47s
+476 tests collected in 0.46s
 

@@ -9,6 +9,7 @@
     "method": "venv_pip_list",
     "errors": [],
     "venv_used": true,
-    "allow_subject_install": true
+    "allow_subject_install": true,
+    "not_applicable": []
   }
 }

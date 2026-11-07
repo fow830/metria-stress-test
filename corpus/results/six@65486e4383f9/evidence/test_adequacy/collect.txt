@@ -200,16 +200,16 @@ test_six.py::test_assertRaisesRegex
 test_six.py::test_python_2_unicode_compatible
 
 =============================== warnings summary ===============================
-../metria-adeq-fjiggazb/venv/lib/python3.9/site-packages/_pytest/config/__init__.py:1474
+../metria-adeq-5vegabqx/venv/lib/python3.9/site-packages/_pytest/config/__init__.py:1474
   <metria-tmp>/venv/lib/python3.9/site-packages/_pytest/config/__init__.py:1474: PytestConfigWarning: Unknown config option: flakes-ignore
   
     self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
 
-../metria-adeq-fjiggazb/venv/lib/python3.9/site-packages/_pytest/config/__init__.py:1474
+../metria-adeq-5vegabqx/venv/lib/python3.9/site-packages/_pytest/config/__init__.py:1474
   <metria-tmp>/venv/lib/python3.9/site-packages/_pytest/config/__init__.py:1474: PytestConfigWarning: Unknown config option: pep8ignore
   
     self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-200 tests collected in 0.12s
+200 tests collected in 0.11s
 

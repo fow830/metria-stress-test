@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_a07bfa1404aa",
+  "run_id": "run_fc5f0e3b62f6",
   "subject": {
     "repo_url": "https://github.com/psf/requests",
     "commit_sha": "61e2240f283f15780ac2d0e2cfefb0fd6fdab627",
@@ -8,11 +8,11 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-07T08:26:35Z",
-  "finished_at": "2026-11-07T08:28:30Z",
+  "started_at": "2026-11-07T09:20:08Z",
+  "finished_at": "2026-11-07T09:22:04Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 115
+    "used_s": 116
   },
   "overall": "fail",
   "lenses": {
@@ -181,8 +181,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S605:3530e5201bac73cf",
-          "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at <subject>/setup.py:57",
+          "fingerprint": "struct:ruff:S605:458546c017f291a2",
+          "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at setup.py:57",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -194,8 +194,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S607:b3ed6db28ec41f50",
-          "title": "ruff S607: Starting a process with a partial executable path at <subject>/setup.py:57",
+          "fingerprint": "struct:ruff:S607:dcdffd2811fda8ce",
+          "title": "ruff S607: Starting a process with a partial executable path at setup.py:57",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -207,8 +207,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S605:37ceee7c3ccc84b0",
-          "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at <subject>/setup.py:58",
+          "fingerprint": "struct:ruff:S605:58fd9f0b90548e0f",
+          "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at setup.py:58",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -220,8 +220,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S607:1dd05718614c8aca",
-          "title": "ruff S607: Starting a process with a partial executable path at <subject>/setup.py:58",
+          "fingerprint": "struct:ruff:S607:cfeba35af89ddfe7",
+          "title": "ruff S607: Starting a process with a partial executable path at setup.py:58",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -233,8 +233,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S102:a90aa1ce4bbd037b",
-          "title": "ruff S102: Use of `exec` detected at <subject>/setup.py:79",
+          "fingerprint": "struct:ruff:S102:97bd5516b87061b5",
+          "title": "ruff S102: Use of `exec` detected at setup.py:79",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -246,8 +246,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:08e90416a4838b7c",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/requests/__init__.py:60",
+          "fingerprint": "struct:ruff:S101:01a28d76c4648414",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:60",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -259,8 +259,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:fd64f75769c9e886",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/requests/__init__.py:70",
+          "fingerprint": "struct:ruff:S101:92466ddc759642c2",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:70",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -272,8 +272,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:0500e981c18474ac",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/requests/__init__.py:72",
+          "fingerprint": "struct:ruff:S101:fd7803521072f660",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:72",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -285,8 +285,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:63b8a95884a55b17",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/requests/__init__.py:79",
+          "fingerprint": "struct:ruff:S101:2722934fbe41d5d9",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:79",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -298,8 +298,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:4a48378217db3432",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/requests/__init__.py:84",
+          "fingerprint": "struct:ruff:S101:ee6b835ce7a3a4d3",
+          "title": "ruff S101: Use of `assert` detected at src/requests/__init__.py:84",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -311,8 +311,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B028:eb74c8a04fb9d803",
-          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/src/requests/__init__.py:86",
+          "fingerprint": "struct:ruff:B028:4572b115ddd3878e",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/__init__.py:86",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -324,8 +324,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B028:ffa521c758968965",
-          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/src/requests/__init__.py:104",
+          "fingerprint": "struct:ruff:B028:e58806308a6b625d",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/__init__.py:104",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -337,8 +337,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B028:ae9ab0d5b6d84bf4",
-          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/src/requests/__init__.py:113",
+          "fingerprint": "struct:ruff:B028:a0822096b2263a24",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/__init__.py:113",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -350,8 +350,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:198501edfa840ae7",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/requests/_internal_utils.py:45",
+          "fingerprint": "struct:ruff:S101:3a725c3156781e88",
+          "title": "ruff S101: Use of `assert` detected at src/requests/_internal_utils.py:45",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -363,8 +363,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:a60f198068f99395",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:474",
+          "fingerprint": "struct:ruff:B904:21d4a73e434d4653",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:474",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -376,8 +376,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B028:aa3d612e94d08be6",
-          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/src/requests/adapters.py:507",
+          "fingerprint": "struct:ruff:B028:a90a51f3bee09ea1",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/adapters.py:507",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -389,8 +389,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:30f6f34ba71661c2",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:637",
+          "fingerprint": "struct:ruff:B904:eb75f0a324fda803",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:637",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -402,8 +402,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:631a4af5ae81b33a",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:657",
+          "fingerprint": "struct:ruff:B904:f216c5530358489c",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:657",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -415,8 +415,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:4e8c574805a1410a",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:682",
+          "fingerprint": "struct:ruff:B904:05467d2b20cab3aa",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:682",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -428,8 +428,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:57d51c8819b8479b",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:688",
+          "fingerprint": "struct:ruff:B904:be13bbfa9c2ffb61",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:688",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -441,8 +441,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:f00b9ee7ead419a1",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:691",
+          "fingerprint": "struct:ruff:B904:6fccded578ddf8cf",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:691",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -454,8 +454,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:6933aabc561f600d",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:694",
+          "fingerprint": "struct:ruff:B904:d40d4ad8cf171614",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:694",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -467,8 +467,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:b4c0fc9ff9cd70ec",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:698",
+          "fingerprint": "struct:ruff:B904:6fcf297acd1445b6",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:698",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -480,8 +480,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:c1e340dd0573ef7b",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:700",
+          "fingerprint": "struct:ruff:B904:3f9e30c38f9666aa",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:700",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -493,8 +493,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:8329e79894379434",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:703",
+          "fingerprint": "struct:ruff:B904:4731757b1a999591",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:703",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -506,8 +506,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:d3b3c1db50c1a9bd",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:706",
+          "fingerprint": "struct:ruff:B904:f83e46df67052b62",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:706",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -519,8 +519,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:ffde474c09b74dca",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:711",
+          "fingerprint": "struct:ruff:B904:7b2feec20949de2f",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:711",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -532,8 +532,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:dffcf4b15daa71b0",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:713",
+          "fingerprint": "struct:ruff:B904:d80da68cef970c0c",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:713",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -545,8 +545,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:2965d7ef8a731f93",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/adapters.py:715",
+          "fingerprint": "struct:ruff:B904:cdcd4250ee1f8015",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/adapters.py:715",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -558,8 +558,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B028:fa9f40f80083273f",
-          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/src/requests/auth.py:36",
+          "fingerprint": "struct:ruff:B028:7ddd72ad8b27352d",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/auth.py:36",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -571,8 +571,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B028:bb58b0f7893d4bec",
-          "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/src/requests/auth.py:46",
+          "fingerprint": "struct:ruff:B028:7ebfe728b344c2e5",
+          "title": "ruff B028: No explicit `stacklevel` keyword argument found at src/requests/auth.py:46",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -584,8 +584,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S324:72e7bd1ecc8f64d2",
-          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `md5` at <subject>/src/requests/auth.py:148",
+          "fingerprint": "struct:ruff:S324:b8209c106d5c4039",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `md5` at src/requests/auth.py:148",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -597,8 +597,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S324:74957df557aefaea",
-          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at <subject>/src/requests/auth.py:156",
+          "fingerprint": "struct:ruff:S324:82b13b3679a3f550",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at src/requests/auth.py:156",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -610,8 +610,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S324:685ca1d31a445d03",
-          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at <subject>/src/requests/auth.py:205",
+          "fingerprint": "struct:ruff:S324:4d04e498df330e0e",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at src/requests/auth.py:205",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -623,8 +623,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B018:2bedc0dd6bd701e9",
-          "title": "ruff B018: Found useless expression. Either assign it to a variable or remove it. at <subject>/src/requests/auth.py:267",
+          "fingerprint": "struct:ruff:B018:c11ecd6ba0aff4ae",
+          "title": "ruff B018: Found useless expression. Either assign it to a variable or remove it. at src/requests/auth.py:267",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -636,8 +636,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:b29e3d68364ad9a7",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/cookies.py:500",
+          "fingerprint": "struct:ruff:B904:2a490a7b1a703b8f",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/cookies.py:500",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -649,8 +649,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B004:65f529e04515e467",
-          "title": "ruff B004: Using `hasattr(x, \"__call__\")` to test if x is callable is unreliable. Use `callable(x)` for consistent results. at <subject>/src/requests/hooks.py:27",
+          "fingerprint": "struct:ruff:B004:75bd9dedb40e2622",
+          "title": "ruff B004: Using `hasattr(x, \"__call__\")` to test if x is callable is unreliable. Use `callable(x)` for consistent results. at src/requests/hooks.py:27",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -662,8 +662,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:2a0f6b52d5b47ed3",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/models.py:406",
+          "fingerprint": "struct:ruff:B904:3e124cc8df578ac2",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/models.py:406",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -675,8 +675,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:8e82ec0729e32de8",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/models.py:435",
+          "fingerprint": "struct:ruff:B904:7704fa7688e24efe",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/models.py:435",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -688,8 +688,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:B904:a173be0181f5b446",
-          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/src/requests/models.py:454",
+          "fingerprint": "struct:ruff:B904:bad2c1e1263df39f",
+          "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at src/requests/models.py:454",
           "severity": "low",
           "detectors": [
             "ruff"
@@ -1153,7 +1153,7 @@
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "10f79f06fa6e495eb375cf545f012962125237d9b654cb48fff3bf4ce87a4bca",
-    "manifest_sha256": "6b788d5e8eb14af8b04d3665ca41713880339abe8e00942823f8ecd6649497e4"
+    "sha256": "6dbf8090084c0c472a3ca28d3265f61972ea33e92ef12a7d33c94af7c7ea70eb",
+    "manifest_sha256": "d3c34953f8760efb31771ba139b3df40fe3e1efb313326d4b1601265d3046edf"
   }
 }

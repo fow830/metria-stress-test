@@ -1,9 +1,13 @@
 {
   "resolved": {},
   "meta": {
-    "method": "venv_pip_list",
+    "method": "empty",
     "errors": [],
-    "venv_used": true,
-    "allow_subject_install": true
+    "venv_used": false,
+    "allow_subject_install": true,
+    "not_applicable": [
+      "colorama",
+      "importlib-metadata"
+    ]
   }
 }

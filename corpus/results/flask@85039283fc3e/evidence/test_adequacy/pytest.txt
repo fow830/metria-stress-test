@@ -29,5 +29,5 @@ tests/test_reqctx.py:293: AssertionError
 - generated xml file: <junit>
 =========================== short test summary info ============================
 FAILED tests/test_reqctx.py::test_bad_environ_raises_bad_request - assert 404...
-1 failed, 469 passed, 7 skipped in 1.37s
+1 failed, 469 passed, 7 skipped in 1.20s
 

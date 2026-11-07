@@ -38,15 +38,30 @@ def test_b2_deploy_latest_key_hard_gates(tmp_path: Path) -> None:
 
 
 def _stub_venv_with_pytest(work: Path):
-    """Clean venv + install pytest (N-r3-1: no operator PYTHONUSERBASE)."""
+    """Offline-safe stub (N-r4-1): system-site-packages + optional host .pth, no pip."""
+    import site
+
     d = work / "venv"
     subprocess.run(
-        [sys.executable, "-m", "venv", str(d)],
+        [sys.executable, "-m", "venv", "--system-site-packages", str(d)],
         check=True,
         capture_output=True,
     )
     py, pip = d / "bin" / "python", d / "bin" / "pip"
-    subprocess.run([str(pip), "install", "-q", "pytest"], check=True, capture_output=True)
+    # If host keeps pytest in user-site (macOS), add a venv .pth so PYTHONNOUSERSITE
+    # still leaves pytest importable — without opening product scrub_env or hitting PyPI.
+    check = subprocess.run(
+        [str(py), "-c", "import pytest"],
+        capture_output=True,
+        env={"PATH": "/usr/bin:/bin", "PYTHONNOUSERSITE": "1", "HOME": str(work / "home")},
+    )
+    if check.returncode != 0:
+        host = site.getusersitepackages()
+        if isinstance(host, str) and Path(host).is_dir():
+            ver = f"{sys.version_info.major}.{sys.version_info.minor}"
+            sp = d / "lib" / f"python{ver}" / "site-packages"
+            if sp.is_dir():
+                (sp / "_metria_host_usersite.pth").write_text(host + "\n", encoding="utf-8")
     return py, pip
 
 

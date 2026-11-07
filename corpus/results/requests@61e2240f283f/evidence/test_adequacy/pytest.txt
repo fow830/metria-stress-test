@@ -12,7 +12,7 @@ attempting to ignore so the rest of the tests can run
 =================================== FAILURES ===================================
 __________________ TestTimeout.test_connect_timeout[timeout0] __________________
 
-self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10b9f07c0>
+self = <HTTPConnection(host='10.255.255.1', port=80) at 0x108fa3fa0>
 
     def _new_conn(self) -> socket.socket:
         """Establish a socket connection and set nodelay settings on it.
@@ -27,9 +27,9 @@ self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10b9f07c0>
                 socket_options=self.socket_options,
             )
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:204: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:204: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/connection.py:85: in create_connection
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/connection.py:85: in create_connection
     raise err
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
@@ -85,11 +85,11 @@ socket_options = [(6, 1, 1)]
 >               sock.connect(sa)
 E               OSError: [Errno 65] No route to host
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/connection.py:73: OSError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/connection.py:73: OSError
 
 The above exception was the direct cause of the following exception:
 
-self = <urllib3.connectionpool.HTTPConnectionPool object at 0x10c7382e0>
+self = <urllib3.connectionpool.HTTPConnectionPool object at 0x108fa3f10>
 method = 'GET', url = '/', body = None
 headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
 retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
@@ -311,11 +311,11 @@ http_tunnel_required = False, err = None, clean_exit = False
                 **response_kw,
             )
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:493: in _make_request
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:493: in _make_request
     conn.request(
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:500: in request
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:500: in request
     self.endheaders()
 /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:1252: in endheaders
     self._send_output(message_body, encode_chunked=encode_chunked)
@@ -323,11 +323,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     self.send(msg)
 /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:952: in send
     self.connect()
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:331: in connect
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:331: in connect
     self.sock = self._new_conn()
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10b9f07c0>
+self = <HTTPConnection(host='10.255.255.1', port=80) at 0x108fa3fa0>
 
     def _new_conn(self) -> socket.socket:
         """Establish a socket connection and set nodelay settings on it.
@@ -355,11 +355,11 @@ self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10b9f07c0>
             ) from e
 E           urllib3.exceptions.NewConnectionError: HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:219: NewConnectionError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:219: NewConnectionError
 
 The above exception was the direct cause of the following exception:
 
-self = <requests.adapters.HTTPAdapter object at 0x10c738f10>
+self = <requests.adapters.HTTPAdapter object at 0x108fa3640>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=0.1, read=None, total=None), verify = True
 cert = None, proxies = OrderedDict()
@@ -434,15 +434,15 @@ cert = None, proxies = OrderedDict()
 
 src/requests/adapters.py:667: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
     retries = retries.increment(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
 method = 'GET', url = '/', response = None
 error = NewConnectionError("HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host")
-_pool = <urllib3.connectionpool.HTTPConnectionPool object at 0x10c7382e0>
-_stacktrace = <traceback object at 0x10c54ef80>
+_pool = <urllib3.connectionpool.HTTPConnectionPool object at 0x108fa3f10>
+_stacktrace = <traceback object at 0x109b829c0>
 
     def increment(
         self,
@@ -538,11 +538,11 @@ _stacktrace = <traceback object at 0x10c54ef80>
 >           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
 E           urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.255.255.1', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host"))
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
 
 During handling of the above exception, another exception occurred:
 
-self = <tests.test_requests.TestTimeout object at 0x10b738040>
+self = <tests.test_requests.TestTimeout object at 0x10915c7f0>
 timeout = (0.1, None)
 
     @pytest.mark.parametrize(
@@ -564,7 +564,7 @@ src/requests/sessions.py:703: in send
     r = adapter.send(request, **kwargs)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <requests.adapters.HTTPAdapter object at 0x10c738f10>
+self = <requests.adapters.HTTPAdapter object at 0x108fa3640>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=0.1, read=None, total=None), verify = True
 cert = None, proxies = OrderedDict()
@@ -662,7 +662,7 @@ E           requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.255
 src/requests/adapters.py:700: ConnectionError
 __________________ TestTimeout.test_connect_timeout[timeout1] __________________
 
-self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10be22160>
+self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10950a160>
 
     def _new_conn(self) -> socket.socket:
         """Establish a socket connection and set nodelay settings on it.
@@ -677,9 +677,9 @@ self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10be22160>
                 socket_options=self.socket_options,
             )
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:204: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:204: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/connection.py:85: in create_connection
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/connection.py:85: in create_connection
     raise err
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
@@ -735,11 +735,11 @@ socket_options = [(6, 1, 1)]
 >               sock.connect(sa)
 E               OSError: [Errno 65] No route to host
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/connection.py:73: OSError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/connection.py:73: OSError
 
 The above exception was the direct cause of the following exception:
 
-self = <urllib3.connectionpool.HTTPConnectionPool object at 0x10be22400>
+self = <urllib3.connectionpool.HTTPConnectionPool object at 0x10950a400>
 method = 'GET', url = '/', body = None
 headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
 retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
@@ -961,11 +961,11 @@ http_tunnel_required = False, err = None, clean_exit = False
                 **response_kw,
             )
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:493: in _make_request
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:493: in _make_request
     conn.request(
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:500: in request
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:500: in request
     self.endheaders()
 /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:1252: in endheaders
     self._send_output(message_body, encode_chunked=encode_chunked)
@@ -973,11 +973,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     self.send(msg)
 /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:952: in send
     self.connect()
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:331: in connect
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:331: in connect
     self.sock = self._new_conn()
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10be22160>
+self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10950a160>
 
     def _new_conn(self) -> socket.socket:
         """Establish a socket connection and set nodelay settings on it.
@@ -1005,11 +1005,11 @@ self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10be22160>
             ) from e
 E           urllib3.exceptions.NewConnectionError: HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:219: NewConnectionError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:219: NewConnectionError
 
 The above exception was the direct cause of the following exception:
 
-self = <requests.adapters.HTTPAdapter object at 0x10be22820>
+self = <requests.adapters.HTTPAdapter object at 0x10950a730>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=0.1, read=None, total=None), verify = True
 cert = None, proxies = OrderedDict()
@@ -1084,15 +1084,15 @@ cert = None, proxies = OrderedDict()
 
 src/requests/adapters.py:667: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
     retries = retries.increment(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
 method = 'GET', url = '/', response = None
 error = NewConnectionError("HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host")
-_pool = <urllib3.connectionpool.HTTPConnectionPool object at 0x10be22400>
-_stacktrace = <traceback object at 0x10bda4d80>
+_pool = <urllib3.connectionpool.HTTPConnectionPool object at 0x10950a400>
+_stacktrace = <traceback object at 0x109488700>
 
     def increment(
         self,
@@ -1188,11 +1188,11 @@ _stacktrace = <traceback object at 0x10bda4d80>
 >           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
 E           urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.255.255.1', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host"))
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
 
 During handling of the above exception, another exception occurred:
 
-self = <tests.test_requests.TestTimeout object at 0x10b738070>
+self = <tests.test_requests.TestTimeout object at 0x10915c610>
 timeout = Timeout(connect=0.1, read=None, total=None)
 
     @pytest.mark.parametrize(
@@ -1214,7 +1214,7 @@ src/requests/sessions.py:703: in send
     r = adapter.send(request, **kwargs)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <requests.adapters.HTTPAdapter object at 0x10be22820>
+self = <requests.adapters.HTTPAdapter object at 0x10950a730>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=0.1, read=None, total=None), verify = True
 cert = None, proxies = OrderedDict()
@@ -1312,7 +1312,7 @@ E           requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.255
 src/requests/adapters.py:700: ConnectionError
 _______________ TestTimeout.test_total_timeout_connect[timeout0] _______________
 
-self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10c3b3070>
+self = <HTTPConnection(host='10.255.255.1', port=80) at 0x109a841c0>
 
     def _new_conn(self) -> socket.socket:
         """Establish a socket connection and set nodelay settings on it.
@@ -1327,9 +1327,9 @@ self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10c3b3070>
                 socket_options=self.socket_options,
             )
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:204: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:204: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/connection.py:85: in create_connection
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/connection.py:85: in create_connection
     raise err
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
@@ -1385,11 +1385,11 @@ socket_options = [(6, 1, 1)]
 >               sock.connect(sa)
 E               OSError: [Errno 65] No route to host
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/connection.py:73: OSError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/connection.py:73: OSError
 
 The above exception was the direct cause of the following exception:
 
-self = <urllib3.connectionpool.HTTPConnectionPool object at 0x10c3b3370>
+self = <urllib3.connectionpool.HTTPConnectionPool object at 0x109a843d0>
 method = 'GET', url = '/', body = None
 headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
 retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
@@ -1611,11 +1611,11 @@ http_tunnel_required = False, err = None, clean_exit = False
                 **response_kw,
             )
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:493: in _make_request
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:493: in _make_request
     conn.request(
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:500: in request
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:500: in request
     self.endheaders()
 /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:1252: in endheaders
     self._send_output(message_body, encode_chunked=encode_chunked)
@@ -1623,11 +1623,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     self.send(msg)
 /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:952: in send
     self.connect()
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:331: in connect
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:331: in connect
     self.sock = self._new_conn()
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10c3b3070>
+self = <HTTPConnection(host='10.255.255.1', port=80) at 0x109a841c0>
 
     def _new_conn(self) -> socket.socket:
         """Establish a socket connection and set nodelay settings on it.
@@ -1655,11 +1655,11 @@ self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10c3b3070>
             ) from e
 E           urllib3.exceptions.NewConnectionError: HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:219: NewConnectionError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:219: NewConnectionError
 
 The above exception was the direct cause of the following exception:
 
-self = <requests.adapters.HTTPAdapter object at 0x10c3b3820>
+self = <requests.adapters.HTTPAdapter object at 0x109a84850>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=0.1, read=0.1, total=None), verify = True, cert = None
 proxies = OrderedDict()
@@ -1734,15 +1734,15 @@ proxies = OrderedDict()
 
 src/requests/adapters.py:667: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
     retries = retries.increment(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
 method = 'GET', url = '/', response = None
 error = NewConnectionError("HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host")
-_pool = <urllib3.connectionpool.HTTPConnectionPool object at 0x10c3b3370>
-_stacktrace = <traceback object at 0x10c3986c0>
+_pool = <urllib3.connectionpool.HTTPConnectionPool object at 0x109a843d0>
+_stacktrace = <traceback object at 0x1099c64c0>
 
     def increment(
         self,
@@ -1838,11 +1838,11 @@ _stacktrace = <traceback object at 0x10c3986c0>
 >           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
 E           urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.255.255.1', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host"))
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
 
 During handling of the above exception, another exception occurred:
 
-self = <tests.test_requests.TestTimeout object at 0x10b9e70a0>
+self = <tests.test_requests.TestTimeout object at 0x10915c730>
 timeout = (0.1, 0.1)
 
     @pytest.mark.parametrize(
@@ -1864,7 +1864,7 @@ src/requests/sessions.py:703: in send
     r = adapter.send(request, **kwargs)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <requests.adapters.HTTPAdapter object at 0x10c3b3820>
+self = <requests.adapters.HTTPAdapter object at 0x109a84850>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=0.1, read=0.1, total=None), verify = True, cert = None
 proxies = OrderedDict()
@@ -1962,7 +1962,7 @@ E           requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.255
 src/requests/adapters.py:700: ConnectionError
 _______________ TestTimeout.test_total_timeout_connect[timeout1] _______________
 
-self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10bd29310>
+self = <HTTPConnection(host='10.255.255.1', port=80) at 0x1091d2310>
 
     def _new_conn(self) -> socket.socket:
         """Establish a socket connection and set nodelay settings on it.
@@ -1977,9 +1977,9 @@ self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10bd29310>
                 socket_options=self.socket_options,
             )
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:204: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:204: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/connection.py:85: in create_connection
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/connection.py:85: in create_connection
     raise err
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
@@ -2035,11 +2035,11 @@ socket_options = [(6, 1, 1)]
 >               sock.connect(sa)
 E               OSError: [Errno 65] No route to host
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/connection.py:73: OSError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/connection.py:73: OSError
 
 The above exception was the direct cause of the following exception:
 
-self = <urllib3.connectionpool.HTTPConnectionPool object at 0x10bd296a0>
+self = <urllib3.connectionpool.HTTPConnectionPool object at 0x1091d2700>
 method = 'GET', url = '/', body = None
 headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
 retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
@@ -2261,11 +2261,11 @@ http_tunnel_required = False, err = None, clean_exit = False
                 **response_kw,
             )
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:493: in _make_request
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:493: in _make_request
     conn.request(
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:500: in request
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:500: in request
     self.endheaders()
 /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:1252: in endheaders
     self._send_output(message_body, encode_chunked=encode_chunked)
@@ -2273,11 +2273,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     self.send(msg)
 /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py:952: in send
     self.connect()
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:331: in connect
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:331: in connect
     self.sock = self._new_conn()
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10bd29310>
+self = <HTTPConnection(host='10.255.255.1', port=80) at 0x1091d2310>
 
     def _new_conn(self) -> socket.socket:
         """Establish a socket connection and set nodelay settings on it.
@@ -2305,11 +2305,11 @@ self = <HTTPConnection(host='10.255.255.1', port=80) at 0x10bd29310>
             ) from e
 E           urllib3.exceptions.NewConnectionError: HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:219: NewConnectionError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:219: NewConnectionError
 
 The above exception was the direct cause of the following exception:
 
-self = <requests.adapters.HTTPAdapter object at 0x10bd29bb0>
+self = <requests.adapters.HTTPAdapter object at 0x1091d2ac0>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=0.1, read=0.1, total=None), verify = True, cert = None
 proxies = OrderedDict()
@@ -2384,15 +2384,15 @@ proxies = OrderedDict()
 
 src/requests/adapters.py:667: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
     retries = retries.increment(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
 method = 'GET', url = '/', response = None
 error = NewConnectionError("HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host")
-_pool = <urllib3.connectionpool.HTTPConnectionPool object at 0x10bd296a0>
-_stacktrace = <traceback object at 0x10bd2dc40>
+_pool = <urllib3.connectionpool.HTTPConnectionPool object at 0x1091d2700>
+_stacktrace = <traceback object at 0x109cee880>
 
     def increment(
         self,
@@ -2488,11 +2488,11 @@ _stacktrace = <traceback object at 0x10bd2dc40>
 >           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
 E           urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.255.255.1', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='10.255.255.1', port=80): Failed to establish a new connection: [Errno 65] No route to host"))
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
 
 During handling of the above exception, another exception occurred:
 
-self = <tests.test_requests.TestTimeout object at 0x10b9e7280>
+self = <tests.test_requests.TestTimeout object at 0x10915ca60>
 timeout = Timeout(connect=0.1, read=0.1, total=None)
 
     @pytest.mark.parametrize(
@@ -2514,7 +2514,7 @@ src/requests/sessions.py:703: in send
     r = adapter.send(request, **kwargs)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <requests.adapters.HTTPAdapter object at 0x10bd29bb0>
+self = <requests.adapters.HTTPAdapter object at 0x1091d2ac0>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=0.1, read=0.1, total=None), verify = True, cert = None
 proxies = OrderedDict()
@@ -2612,13 +2612,13 @@ E           requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.255
 src/requests/adapters.py:700: ConnectionError
 ______ TestPreparingURLs.test_different_connection_pool_for_mtls_settings ______
 
-self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x10b8df100>
-conn = <HTTPSConnection(host='localhost', port=51680) at 0x10b8df280>
+self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x108df6bb0>
+conn = <HTTPSConnection(host='localhost', port=58027) at 0x108df6880>
 method = 'GET', url = '/', body = None
 headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
 retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
 timeout = Timeout(connect=None, read=None, total=None), chunked = False
-response_conn = <HTTPSConnection(host='localhost', port=51680) at 0x10b8df280>
+response_conn = <HTTPSConnection(host='localhost', port=58027) at 0x108df6880>
 preload_content = False, decode_content = False, enforce_content_length = True
 
     def _make_request(
@@ -2710,17 +2710,17 @@ preload_content = False, decode_content = False, enforce_content_length = True
             try:
 >               self._validate_conn(conn)
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:464: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:464: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1093: in _validate_conn
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1093: in _validate_conn
     conn.connect()
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:796: in connect
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:796: in connect
     sock_and_verified = _ssl_wrap_socket_and_match_hostname(
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connection.py:975: in _ssl_wrap_socket_and_match_hostname
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connection.py:975: in _ssl_wrap_socket_and_match_hostname
     ssl_sock = ssl_wrap_socket(
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/ssl_.py:483: in ssl_wrap_socket
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/ssl_.py:483: in ssl_wrap_socket
     ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/ssl_.py:527: in _ssl_wrap_socket_impl
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/ssl_.py:527: in _ssl_wrap_socket_impl
     return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
 /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/ssl.py:500: in wrap_socket
     return self.sslsocket_class._create(
@@ -2745,7 +2745,7 @@ E           ssl.SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] sslv3 alert cer
 
 During handling of the above exception, another exception occurred:
 
-self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x10b8df100>
+self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x108df6bb0>
 method = 'GET', url = '/', body = None
 headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
 retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
@@ -2967,16 +2967,16 @@ http_tunnel_required = False, err = None, clean_exit = False
                 **response_kw,
             )
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:787: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x10b8df100>
-conn = <HTTPSConnection(host='localhost', port=51680) at 0x10b8df280>
+self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x108df6bb0>
+conn = <HTTPSConnection(host='localhost', port=58027) at 0x108df6880>
 method = 'GET', url = '/', body = None
 headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive'}
 retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
 timeout = Timeout(connect=None, read=None, total=None), chunked = False
-response_conn = <HTTPSConnection(host='localhost', port=51680) at 0x10b8df280>
+response_conn = <HTTPSConnection(host='localhost', port=58027) at 0x108df6880>
 preload_content = False, decode_content = False, enforce_content_length = True
 
     def _make_request(
@@ -3093,11 +3093,11 @@ preload_content = False, decode_content = False, enforce_content_length = True
 >           raise new_e
 E           urllib3.exceptions.SSLError: [SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] sslv3 alert certificate expired (_ssl.c:1129)
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:488: SSLError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:488: SSLError
 
 The above exception was the direct cause of the following exception:
 
-self = <requests.adapters.HTTPAdapter object at 0x10c410310>
+self = <requests.adapters.HTTPAdapter object at 0x109cd87c0>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=None, read=None, total=None), verify = False
 cert = ('tests/certs/mtls/client/client.pem', 'tests/certs/mtls/client/client.key')
@@ -3173,15 +3173,15 @@ proxies = OrderedDict()
 
 src/requests/adapters.py:667: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/connectionpool.py:841: in urlopen
     retries = retries.increment(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
 method = 'GET', url = '/', response = None
 error = SSLError(SSLError(1, '[SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] sslv3 alert certificate expired (_ssl.c:1129)'))
-_pool = <urllib3.connectionpool.HTTPSConnectionPool object at 0x10b8df100>
-_stacktrace = <traceback object at 0x10bf44dc0>
+_pool = <urllib3.connectionpool.HTTPSConnectionPool object at 0x108df6bb0>
+_stacktrace = <traceback object at 0x108dce9c0>
 
     def increment(
         self,
@@ -3275,13 +3275,13 @@ _stacktrace = <traceback object at 0x10bf44dc0>
         if new_retry.is_exhausted():
             reason = error or ResponseError(cause)
 >           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-E           urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='localhost', port=51680): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] sslv3 alert certificate expired (_ssl.c:1129)')))
+E           urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='localhost', port=58027): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] sslv3 alert certificate expired (_ssl.c:1129)')))
 
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/util/retry.py:535: MaxRetryError
 
 During handling of the above exception, another exception occurred:
 
-self = <tests.test_requests.TestPreparingURLs object at 0x10ba73610>
+self = <tests.test_requests.TestPreparingURLs object at 0x10901b9d0>
 
     def test_different_connection_pool_for_mtls_settings(self):
         client_cert = None
@@ -3326,7 +3326,7 @@ src/requests/sessions.py:703: in send
     r = adapter.send(request, **kwargs)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <requests.adapters.HTTPAdapter object at 0x10c410310>
+self = <requests.adapters.HTTPAdapter object at 0x109cd87c0>
 request = <PreparedRequest [GET]>, stream = False
 timeout = Timeout(connect=None, read=None, total=None), verify = False
 cert = ('tests/certs/mtls/client/client.pem', 'tests/certs/mtls/client/client.key')
@@ -3418,11 +3418,11 @@ proxies = OrderedDict()
             if isinstance(e.reason, _SSLError):
                 # This branch is for urllib3 v1.22 and later.
 >               raise SSLError(e, request=request)
-E               requests.exceptions.SSLError: HTTPSConnectionPool(host='localhost', port=51680): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] sslv3 alert certificate expired (_ssl.c:1129)')))
+E               requests.exceptions.SSLError: HTTPSConnectionPool(host='localhost', port=58027): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_CERTIFICATE_EXPIRED] sslv3 alert certificate expired (_ssl.c:1129)')))
 
 src/requests/adapters.py:698: SSLError
 =============================== warnings summary ===============================
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/__init__.py:35
   <metria-tmp>/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
     warnings.warn(
 
@@ -3469,7 +3469,8 @@ FAILED tests/test_requests.py::TestTimeout::test_connect_timeout[timeout1] - ...
 FAILED tests/test_requests.py::TestTimeout::test_total_timeout_connect[timeout0]
 FAILED tests/test_requests.py::TestTimeout::test_total_timeout_connect[timeout1]
 FAILED tests/test_requests.py::TestPreparingURLs::test_different_connection_pool_for_mtls_settings
-5 failed, 585 passed, 15 skipped, 1 xfailed, 18 warnings in 74.11s (0:01:14)
+5 failed, 585 passed, 15 skipped, 1 xfailed, 18 warnings in 74.05s (0:01:14)
 
-[2026-11-07 09:27:15,527] WARNING in core: flasgger is not installed; serving the static landing page at / and skipping the Swagger UI and /spec.json.
-127.0.0.1 - - [07/Nov/2026 09:27:37] "GET /stream/4 HTTP/1.1" 200 1008
+[2026-11-07 10:20:50,096] WARNING in core: flasgger is not installed; serving the static landing page at / and skipping the Swagger UI and /spec.json.
+127.0.0.1 - - [07/Nov/2026 10:21:11] "GET /digest-auth/auth/user/pass/SHA-512 HTTP/1.1" 200 46
+127.0.0.1 - - [07/Nov/2026 10:21:12] "GET /get HTTP/1.1" 200 272

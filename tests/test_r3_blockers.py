@@ -17,11 +17,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def _stub_venv_with_pytest(work: Path):
-    d = work / "venv"
-    subprocess.run([sys.executable, "-m", "venv", str(d)], check=True, capture_output=True)
-    py, pip = d / "bin" / "python", d / "bin" / "pip"
-    subprocess.run([str(pip), "install", "-q", "pytest"], check=True, capture_output=True)
-    return py, pip
+    """Reuse r2 offline-safe stub (system-site + optional host .pth)."""
+    from tests.test_r2_blockers import _stub_venv_with_pytest as _stub
+
+    return _stub(work)
 
 
 def test_r3_b1_scrub_does_not_eat_tmpfoo() -> None:
@@ -88,6 +87,9 @@ def test_r3_b3_third_party_import_in_test_body_is_env(tmp_path: Path, monkeypatc
     assert r["status"] == "null"
     assert r.get("null_reason") == "test_env_unavailable"
     assert r.get("null_display") == "NOT MEASURED"
+    # N-r4-1: prove classification, not a failed stub venv.
+    assert r["raw_metrics"].get("classify") == "env"
+    assert r["raw_metrics"].get("suite") in {"env_error", "collect_failed"}
 
 
 def test_r3_n2_wildcard_not_pinned() -> None:

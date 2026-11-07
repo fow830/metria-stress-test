@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_2df7b3c2ca3e",
+  "run_id": "run_2e04cb3d69bb",
   "subject": {
     "repo_url": "https://github.com/pallets/flask",
     "commit_sha": "85039283fc3e986cced4ab39a3fe2b39314d06bb",
@@ -8,8 +8,8 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-07T08:30:02Z",
-  "finished_at": "2026-11-07T08:30:32Z",
+  "started_at": "2026-11-07T09:23:41Z",
+  "finished_at": "2026-11-07T09:24:10Z",
   "budget": {
     "wall_clock_s": 1800,
     "used_s": 29
@@ -77,8 +77,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S106:6e497f0e79d58102",
-          "title": "ruff S106: Possible hardcoded password assigned to argument: \"SECRET_KEY\" at <subject>/examples/tutorial/flaskr/__init__.py:11",
+          "fingerprint": "struct:ruff:S106:2771891995ffb287",
+          "title": "ruff S106: Possible hardcoded password assigned to argument: \"SECRET_KEY\" at examples/tutorial/flaskr/__init__.py:11",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -90,8 +90,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S107:97a385f120f1b455",
-          "title": "ruff S107: Possible hardcoded password assigned to function default: \"password\" at <subject>/examples/tutorial/tests/conftest.py:51",
+          "fingerprint": "struct:ruff:S107:d1c215ed4b765de9",
+          "title": "ruff S107: Possible hardcoded password assigned to function default: \"password\" at examples/tutorial/tests/conftest.py:51",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -103,8 +103,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:e7a74fe55418de80",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/app.py:260",
+          "fingerprint": "struct:ruff:S101:4261f555f39b3143",
+          "title": "ruff S101: Use of `assert` detected at src/flask/app.py:260",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -116,8 +116,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S307:a71e6ece2b3abf00",
-          "title": "ruff S307: Use of possibly insecure function; consider using `ast.literal_eval` at <subject>/src/flask/cli.py:1005",
+          "fingerprint": "struct:ruff:S307:5bda38ccf5340239",
+          "title": "ruff S307: Use of possibly insecure function; consider using `ast.literal_eval` at src/flask/cli.py:1005",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -129,8 +129,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S110:ed6eb5e0713764f6",
-          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/flask/config.py:163",
+          "fingerprint": "struct:ruff:S110:9b0ba96dd942ef85",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/flask/config.py:163",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -142,8 +142,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S102:7ccf6fc5b9a6f5d0",
-          "title": "ruff S102: Use of `exec` detected at <subject>/src/flask/config.py:212",
+          "fingerprint": "struct:ruff:S102:eab008fe6e718095",
+          "title": "ruff S102: Use of `exec` detected at src/flask/config.py:212",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -155,8 +155,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:7d5d9a3853444522",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/debughelpers.py:59",
+          "fingerprint": "struct:ruff:S101:4d779e4f83ceff9f",
+          "title": "ruff S101: Use of `assert` detected at src/flask/debughelpers.py:59",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -168,8 +168,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S704:3123ffbc3b400acd",
-          "title": "ruff S704: Unsafe use of `markupsafe.Markup` detected at <subject>/src/flask/json/tag.py:188",
+          "fingerprint": "struct:ruff:S704:2b4a93e1c28ebf21",
+          "title": "ruff S704: Unsafe use of `markupsafe.Markup` detected at src/flask/json/tag.py:188",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -181,8 +181,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:000006c5a4b88de1",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/sansio/scaffold.py:705",
+          "fingerprint": "struct:ruff:S101:2b5b1a70e9c134a6",
+          "title": "ruff S101: Use of `assert` detected at src/flask/sansio/scaffold.py:705",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -194,8 +194,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S324:efe667175035319e",
-          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at <subject>/src/flask/sessions.py:285",
+          "fingerprint": "struct:ruff:S324:a9f1f4b8b536b902",
+          "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at src/flask/sessions.py:285",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -207,8 +207,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:c20c43eabb3a0910",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/testing.py:58",
+          "fingerprint": "struct:ruff:S101:cb3ce210a164c3ab",
+          "title": "ruff S101: Use of `assert` detected at src/flask/testing.py:58",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -220,8 +220,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S101:60d22304a7e34ecf",
-          "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/views.py:190",
+          "fingerprint": "struct:ruff:S101:f95705787861d6b8",
+          "title": "ruff S101: Use of `assert` detected at src/flask/views.py:190",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -233,8 +233,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S106:c5f786d11ff2d85b",
-          "title": "ruff S106: Possible hardcoded password assigned to argument: \"SECRET_KEY\" at <subject>/tests/conftest.py:50",
+          "fingerprint": "struct:ruff:S106:cf87e66739ac51b1",
+          "title": "ruff S106: Possible hardcoded password assigned to argument: \"SECRET_KEY\" at tests/conftest.py:50",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -246,8 +246,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S110:1ab9ef831cf44454",
-          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/tests/test_appctx.py:66",
+          "fingerprint": "struct:ruff:S110:b44fabef1a1ac6c9",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at tests/test_appctx.py:66",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -259,8 +259,8 @@
           ]
         },
         {
-          "fingerprint": "struct:ruff:S110:baeaf17650002a0e",
-          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/tests/test_appctx.py:85",
+          "fingerprint": "struct:ruff:S110:393a280a7239adcd",
+          "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at tests/test_appctx.py:85",
           "severity": "medium",
           "detectors": [
             "ruff"
@@ -665,7 +665,7 @@
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "854d5e4c06399bbe9e5df0374b8e436a0c1b1211f670bcf7f06b4aa9b70ad6a9",
-    "manifest_sha256": "95708d4c7cbd50c1cf86a34eb04d65fe761c9d9706c68ef28e150c4503b579b4"
+    "sha256": "b0146588f053482c49926e949d10718cd14fdfabe8100624d54a61bdf3387e4b",
+    "manifest_sha256": "eef33bcb15b851c5d15692f8497fc920649d3d857c67bb13c7d5ae7dfa3c4d6b"
   }
 }

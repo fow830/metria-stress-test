@@ -66,12 +66,19 @@ def _pytest_version(py: Optional[Path] = None) -> str:
         return "unknown"
 
 
-def _subject_module_names(root: Path) -> Set[str]:
-    """Top-level import names that belong to the subject tree (not third-party)."""
+_SKIP_TOP = frozenset(
+    {"tests", "test", "docs", "doc", "examples", "example", "build", "dist", "venv", ".venv"}
+)
+
+
+def _collect_pkg_names_under(base: Path) -> Set[str]:
+    """Importable top-level names under ``base`` (packages with __init__ or *.py modules)."""
     names: Set[str] = set()
+    if not base.is_dir():
+        return names
     try:
-        for p in root.iterdir():
-            if p.name.startswith(".") or p.name in {"tests", "test", "docs", "examples", "example"}:
+        for p in base.iterdir():
+            if p.name.startswith(".") or p.name in _SKIP_TOP:
                 continue
             if p.is_dir() and ((p / "__init__.py").exists() or any(p.glob("*.py"))):
                 names.add(p.name)
@@ -79,18 +86,32 @@ def _subject_module_names(root: Path) -> Set[str]:
                 names.add(p.stem)
     except OSError:
         pass
-    # Packaging name often matches the import package.
-    for meta in ("pyproject.toml", "setup.cfg"):
-        path = root / meta
-        if not path.is_file():
-            continue
-        try:
-            text = path.read_text(encoding="utf-8", errors="ignore")
-        except OSError:
-            continue
-        m = re.search(r"(?m)^\s*name\s*=\s*[\"']?([A-Za-z0-9][A-Za-z0-9._\-]*)", text)
-        if m:
-            names.add(m.group(1).split(".")[0].replace("-", "_"))
+    return names
+
+
+def _subject_module_names(root: Path) -> Set[str]:
+    """Import names that belong to the subject tree (flat + src-layout, r4 B1).
+
+    Prefer filesystem packages over distribution ``name =`` (Pillow≠PIL).
+    """
+    names = _collect_pkg_names_under(root)
+    # src-layout: packages live under src/<pkg>/ (r4 B1 — independent of dist name).
+    names |= _collect_pkg_names_under(root / "src")
+    # lib/ is another common packaging root.
+    names |= _collect_pkg_names_under(root / "lib")
+    # Distribution name is a weak hint only when no filesystem packages found.
+    if not names:
+        for meta in ("pyproject.toml", "setup.cfg"):
+            path = root / meta
+            if not path.is_file():
+                continue
+            try:
+                text = path.read_text(encoding="utf-8", errors="ignore")
+            except OSError:
+                continue
+            m = re.search(r"(?m)^\s*name\s*=\s*[\"']?([A-Za-z0-9][A-Za-z0-9._\-]*)", text)
+            if m:
+                names.add(m.group(1).split(".")[0].replace("-", "_"))
     return names
 
 
@@ -104,11 +125,10 @@ def _module_belongs_to_subject(mod: str, subject_names: Set[str], root: Path) ->
         return False
     if top in subject_names:
         return True
-    # Resolvable as a path under the subject tree.
-    cand = root / top
-    if cand.is_dir() or (root / f"{top}.py").is_file():
-        return True
-    # Nested: pkg.helperz → pkg
+    # Flat or src-layout path existence (most reliable for r4 B1).
+    for base in (root, root / "src"):
+        if (base / top).is_dir() or (base / f"{top}.py").is_file():
+            return True
     return False
 
 

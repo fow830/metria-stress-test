@@ -14,8 +14,6 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from metria.discovery import count_loc, existing_skip_dirs, is_test_fixture_path, iter_files
 from metria.model import dimension
-from metria.sandbox import scrub_text_paths
-
 SECRET_PATTERNS: List[Tuple[str, re.Pattern[str]]] = [
     ("aws_access_key_id", re.compile(r"AKIA[0-9A-Z]{16}")),
     ("generic_api_key_assign", re.compile(r"(?i)(api[_-]?key|secret|token)\s*=\s*['\"][A-Za-z0-9_\-]{16,}")),
@@ -179,25 +177,35 @@ def _run_ruff(root: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any], List[Di
             check=False,
         )
         metrics["ruff_ran"] = True
-        raw_out = scrub_text_paths(proc.stdout or "", root)
-        if not raw_out.strip():
+        # Parse absolute paths first; scrub only the evidence blob (r4 N-5).
+        raw_stdout = proc.stdout or ""
+        if not raw_stdout.strip():
             return findings, metrics, tools, suppressions
-        data = json.loads(raw_out)
+        data = json.loads(raw_stdout)
         metrics["ruff_issue_count"] = len(data)
-        # Filter interesting first, THEN cap (N-2). Drop S101 on test paths (N-r3-5).
+        # Filter interesting first, THEN cap (N-2). Drop S101 on test paths (N-r3-5 / N-r4-5).
         interesting = []
         for item in data:
             code = str(item.get("code") or "")
             if code.startswith(("S", "B", "E9")) or code in {"F821", "F822", "F823"}:
                 interesting.append(item)
+        root_resolved = root.resolve()
         for item in interesting[:80]:
             code = str(item.get("code") or "")
             loc = item.get("location") or {}
             path = item.get("filename") or ""
             try:
-                rel = str(Path(path).resolve().relative_to(root.resolve())).replace("\\", "/")
+                rel = str(Path(path).resolve().relative_to(root_resolved)).replace("\\", "/")
             except Exception:
-                rel = scrub_text_paths(path, root)
+                try:
+                    rel = str(Path(path)).replace("\\", "/")
+                    root_s = str(root_resolved).replace("\\", "/")
+                    if rel.startswith(root_s.rstrip("/") + "/"):
+                        rel = rel[len(root_s.rstrip("/")) + 1 :]
+                    elif rel.startswith("<subject>/"):
+                        rel = rel[len("<subject>/") :]
+                except Exception:
+                    rel = Path(path).name
             if code == "S101" and is_test_fixture_path(rel):
                 continue
             line = loc.get("row") or 0

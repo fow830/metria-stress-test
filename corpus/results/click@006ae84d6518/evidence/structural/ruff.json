@@ -1,7 +1,7 @@
 [
   {
-    "fingerprint": "struct:ruff:S311:65b86b8c6386ad5c",
-    "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at <subject>/examples/termui/termui.py:43",
+    "fingerprint": "struct:ruff:S311:160de4e39febcafd",
+    "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at examples/termui/termui.py:43",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -13,8 +13,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S311:6eeb7d8b4db55b7f",
-    "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at <subject>/examples/termui/termui.py:47",
+    "fingerprint": "struct:ruff:S311:7c3b766187e8b5d2",
+    "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at examples/termui/termui.py:47",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -26,8 +26,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S110:bd8ebb78927c62d4",
-    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:70",
+    "fingerprint": "struct:ruff:S110:7b74c58fbebf4b25",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/click/_compat.py:70",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -39,8 +39,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S110:f0ab810c7d0f25a9",
-    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:163",
+    "fingerprint": "struct:ruff:S110:8f8420f1cef7a53c",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/click/_compat.py:163",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -52,8 +52,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S311:9729fda6dab84a5e",
-    "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at <subject>/src/click/_compat.py:431",
+    "fingerprint": "struct:ruff:S311:ea3c7c4e800960e0",
+    "title": "ruff S311: Standard pseudo-random generators are not suitable for cryptographic purposes at src/click/_compat.py:431",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -65,8 +65,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S110:0a8323a94b4ef511",
-    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:551",
+    "fingerprint": "struct:ruff:S110:5f2d61cbd2970316",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/click/_compat.py:551",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -78,8 +78,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S110:064c3947717a3c29",
-    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_compat.py:599",
+    "fingerprint": "struct:ruff:S110:22f7aa7f55238eff",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/click/_compat.py:599",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -91,8 +91,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S605:042bc468a5835731",
-    "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at <subject>/src/click/_termui_impl.py:380",
+    "fingerprint": "struct:ruff:S605:a8e6d6d5b60d8938",
+    "title": "ruff S605: Starting a process with a shell: seems safe, but may be changed in the future; consider rewriting without `shell` at src/click/_termui_impl.py:380",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -104,8 +104,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S607:01cb735cd39bbd8e",
-    "title": "ruff S607: Starting a process with a partial executable path at <subject>/src/click/_termui_impl.py:380",
+    "fingerprint": "struct:ruff:S607:3b51b708ace7640e",
+    "title": "ruff S607: Starting a process with a partial executable path at src/click/_termui_impl.py:380",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -117,8 +117,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S605:8232a887a75efe50",
-    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:388",
+    "fingerprint": "struct:ruff:S605:91d2813576fb01d7",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at src/click/_termui_impl.py:388",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -130,8 +130,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S602:6d269653d75ee9cb",
-    "title": "ruff S602: `subprocess` call with `shell=True` identified, security issue at <subject>/src/click/_termui_impl.py:414",
+    "fingerprint": "struct:ruff:S602:6758832ab6210b51",
+    "title": "ruff S602: `subprocess` call with `shell=True` identified, security issue at src/click/_termui_impl.py:414",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -143,8 +143,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S605:2212491ed651f1c3",
-    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:460",
+    "fingerprint": "struct:ruff:S605:a456b96546c2d7a9",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at src/click/_termui_impl.py:460",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -156,8 +156,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S605:cd04d6bac0cd5f6a",
-    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:499",
+    "fingerprint": "struct:ruff:S605:4af1f3bd711ae427",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at src/click/_termui_impl.py:499",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -169,8 +169,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S602:8b3a49dc4b792d6e",
-    "title": "ruff S602: `subprocess` call with `shell=True` identified, security issue at <subject>/src/click/_termui_impl.py:514",
+    "fingerprint": "struct:ruff:S602:2356f95892a0073f",
+    "title": "ruff S602: `subprocess` call with `shell=True` identified, security issue at src/click/_termui_impl.py:514",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -182,8 +182,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S603:f69d8533eb098760",
-    "title": "ruff S603: `subprocess` call: check for execution of untrusted input at <subject>/src/click/_termui_impl.py:593",
+    "fingerprint": "struct:ruff:S603:1f6ae3fc0f672de7",
+    "title": "ruff S603: `subprocess` call: check for execution of untrusted input at src/click/_termui_impl.py:593",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -195,8 +195,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S605:fb22c9680c74734b",
-    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:604",
+    "fingerprint": "struct:ruff:S605:9d5c7acc526265d3",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at src/click/_termui_impl.py:604",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -208,8 +208,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S605:575fb33e46463b77",
-    "title": "ruff S605: Starting a process with a shell, possible injection detected at <subject>/src/click/_termui_impl.py:613",
+    "fingerprint": "struct:ruff:S605:8eb87955405bf121",
+    "title": "ruff S605: Starting a process with a shell, possible injection detected at src/click/_termui_impl.py:613",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -221,8 +221,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S603:9ce5a7558c136980",
-    "title": "ruff S603: `subprocess` call: check for execution of untrusted input at <subject>/src/click/_termui_impl.py:620",
+    "fingerprint": "struct:ruff:S603:c36703bfeba9b274",
+    "title": "ruff S603: `subprocess` call: check for execution of untrusted input at src/click/_termui_impl.py:620",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -234,8 +234,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S607:82d0b268e9b8529a",
-    "title": "ruff S607: Starting a process with a partial executable path at <subject>/src/click/_termui_impl.py:620",
+    "fingerprint": "struct:ruff:S607:386dba95c2a31cee",
+    "title": "ruff S607: Starting a process with a partial executable path at src/click/_termui_impl.py:620",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -247,8 +247,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:2e3814ae9bf88128",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/_winconsole.py:30",
+    "fingerprint": "struct:ruff:S101:80032463ae2ea308",
+    "title": "ruff S101: Use of `assert` detected at src/click/_winconsole.py:30",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -260,8 +260,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S110:f8e1e4f39ca89b58",
-    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/_winconsole.py:195",
+    "fingerprint": "struct:ruff:S110:217b6ac290f16db7",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/click/_winconsole.py:195",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -273,8 +273,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B905:5869514e0250a6c8",
-    "title": "ruff B905: `zip()` without an explicit `strict=` parameter at <subject>/src/click/core.py:92",
+    "fingerprint": "struct:ruff:B905:9183a129c7afaeb6",
+    "title": "ruff B905: `zip()` without an explicit `strict=` parameter at src/click/core.py:92",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -286,8 +286,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:174abfebb1c92942",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1683",
+    "fingerprint": "struct:ruff:S101:e9c89c8802df2c4b",
+    "title": "ruff S101: Use of `assert` detected at src/click/core.py:1683",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -299,8 +299,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:d654aeef7b807be4",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1705",
+    "fingerprint": "struct:ruff:S101:3a3c00fdb46d9e1b",
+    "title": "ruff S101: Use of `assert` detected at src/click/core.py:1705",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -312,8 +312,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:46307ff03e35fdce",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1877",
+    "fingerprint": "struct:ruff:S101:e3ecce6ae49f5d6f",
+    "title": "ruff S101: Use of `assert` detected at src/click/core.py:1877",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -325,8 +325,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:909c1a4bc64e706c",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1928",
+    "fingerprint": "struct:ruff:S101:36f518127ba3d497",
+    "title": "ruff S101: Use of `assert` detected at src/click/core.py:1928",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -338,8 +338,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:6b47ee62cfc5e2d3",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:2876",
+    "fingerprint": "struct:ruff:S101:ddad7ccf79a3567f",
+    "title": "ruff S101: Use of `assert` detected at src/click/core.py:2876",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -351,8 +351,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:c7fb39cb792600fd",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/decorators.py:210",
+    "fingerprint": "struct:ruff:S101:97cde66c688f95f6",
+    "title": "ruff S101: Use of `assert` detected at src/click/decorators.py:210",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -364,8 +364,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:b7a0d8710b85123d",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/decorators.py:211",
+    "fingerprint": "struct:ruff:S101:98de4aae84502050",
+    "title": "ruff S101: Use of `assert` detected at src/click/decorators.py:211",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -377,8 +377,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:6b5acaba2f3b6858",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/parser.py:225",
+    "fingerprint": "struct:ruff:S101:70f279d902a445fd",
+    "title": "ruff S101: Use of `assert` detected at src/click/parser.py:225",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -390,8 +390,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S607:f31bd7b2976501e3",
-    "title": "ruff S607: Starting a process with a partial executable path at <subject>/src/click/shell_completion.py:309",
+    "fingerprint": "struct:ruff:S607:98104cd7799d63d4",
+    "title": "ruff S607: Starting a process with a partial executable path at src/click/shell_completion.py:309",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -403,8 +403,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:28309fdf6f07f243",
-    "title": "ruff S101: Use of `assert` detected at <subject>/src/click/shell_completion.py:448",
+    "fingerprint": "struct:ruff:S101:bf4288490e463040",
+    "title": "ruff S101: Use of `assert` detected at src/click/shell_completion.py:448",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -416,8 +416,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S110:f3c6bd95d302df1d",
-    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/testing.py:326",
+    "fingerprint": "struct:ruff:S110:e7c82d3f25d0638e",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/click/testing.py:326",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -429,8 +429,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S110:d66ac7068dab5afa",
-    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/testing.py:336",
+    "fingerprint": "struct:ruff:S110:831fbf147b6963e6",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/click/testing.py:336",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -442,8 +442,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B905:0bb1211fb6787893",
-    "title": "ruff B905: `zip()` without an explicit `strict=` parameter at <subject>/src/click/types.py:996",
+    "fingerprint": "struct:ruff:B905:7e003e5a40a745f8",
+    "title": "ruff B905: `zip()` without an explicit `strict=` parameter at src/click/types.py:996",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -455,8 +455,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S110:ad36c3572b31db6d",
-    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/click/utils.py:39",
+    "fingerprint": "struct:ruff:S110:0b711022bea41a76",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at src/click/utils.py:39",
     "severity": "medium",
     "detectors": [
       "ruff"

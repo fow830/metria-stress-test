@@ -217,6 +217,10 @@ def _dep_name_spec(item: str) -> Optional[Dict[str, str]]:
     s = item.strip()
     if not s or s.startswith((".", "/", "[")):
         return None
+    marker = ""
+    if ";" in s:
+        s, marker = s.split(";", 1)
+        s, marker = s.strip(), marker.strip()
     # strip extras: name[extra]>=1
     m = re.match(
         r"^([A-Za-z0-9][A-Za-z0-9._\-]*)\s*(?:\[[^\]]*\])?\s*(.*)$",
@@ -231,9 +235,11 @@ def _dep_name_spec(item: str) -> Optional[Dict[str, str]]:
     if sm:
         spec = sm.group(1) + sm.group(2)
     elif rest.startswith(("==", ">=", "<=", "~=", "!=", ">", "<")):
-        # Multi-clause / complex — store raw rest up to first ';' or whitespace comma pair.
-        spec = rest.split(";", 1)[0].strip()
-    return {"name": name, "specifier": spec}
+        spec = rest.strip()
+    out: Dict[str, str] = {"name": name, "specifier": spec}
+    if marker:
+        out["marker"] = marker
+    return out
 
 
 def parse_pyproject_runtime(path: Path) -> Tuple[List[Dict[str, str]], Optional[str]]:
@@ -321,9 +327,8 @@ def parse_setup_py_requires(path: Path) -> Tuple[List[Dict[str, str]], Optional[
             return
         for elt in node.elts:
             if isinstance(elt, ast.Constant) and isinstance(elt.value, str):
-                # Drop environment markers after ';'
-                raw = elt.value.split(";", 1)[0].strip()
-                parsed = _dep_name_spec(raw)
+                # Keep environment markers (r4 N-3); _dep_name_spec splits on ';'.
+                parsed = _dep_name_spec(elt.value.strip())
                 if parsed:
                     pkgs.append(parsed)
 
@@ -427,6 +432,8 @@ def inventory_packages_with_meta(root: Path) -> Tuple[List[Dict[str, str]], Dict
                     "class": "runtime",
                     "source": "pyproject.toml",
                 }
+                if pkg.get("marker"):
+                    entry["marker"] = pkg["marker"]
                 found[pkg["name"].lower()] = entry
                 has_declared_runtime = True
             meta["sources_read"].append("pyproject.toml")
@@ -438,12 +445,15 @@ def inventory_packages_with_meta(root: Path) -> Tuple[List[Dict[str, str]], Dict
         for pkg in parse_setup_cfg_requires(setup_cfg):
             key = pkg["name"].lower()
             if key not in found:
-                found[key] = {
+                entry = {
                     "name": pkg["name"],
                     "specifier": pkg.get("specifier") or "",
                     "class": "runtime",
                     "source": "setup.cfg",
                 }
+                if pkg.get("marker"):
+                    entry["marker"] = pkg["marker"]
+                found[key] = entry
                 has_declared_runtime = True
         meta["sources_read"].append("setup.cfg")
 
@@ -458,12 +468,15 @@ def inventory_packages_with_meta(root: Path) -> Tuple[List[Dict[str, str]], Dict
             for pkg in setup_pkgs:
                 key = pkg["name"].lower()
                 if key not in found:
-                    found[key] = {
+                    entry = {
                         "name": pkg["name"],
                         "specifier": pkg.get("specifier") or "",
                         "class": "runtime",
                         "source": "setup.py",
                     }
+                    if pkg.get("marker"):
+                        entry["marker"] = pkg["marker"]
+                    found[key] = entry
                     has_declared_runtime = True
 
     for rel in find_lockfiles(root):
@@ -513,8 +526,8 @@ def _class_rank(cls: str) -> int:
     return order.get(cls, 9)
 
 
-def is_test_fixture_path(rel: str) -> bool:
-    """True when a path segment is a test/fixture dir (or conftest.py), not a substring."""
+def is_test_path(rel: str) -> bool:
+    """True for test dirs OR test module filenames (``test_*.py`` / ``*_test.py``)."""
     low = rel.replace("\\", "/").lower().strip("/")
     if not low:
         return False
@@ -524,13 +537,19 @@ def is_test_fixture_path(rel: str) -> bool:
     fname = parts[-1]
     if fname == "conftest.py" or fname.startswith("conftest."):
         return True
-    for seg in parts:
-        if seg in TEST_DIR_SEGMENTS:
+    if fname.endswith(".py") and (fname.startswith("test_") or fname.endswith("_test.py")):
+        return True
+    for seg in parts[:-1]:
+        if seg in TEST_DIR_SEGMENTS or seg.startswith("test_"):
             return True
-        # test_foo/ as a directory segment (not files like test_x.py at repo root alone)
-        if seg.startswith("test_") and seg != fname:
-            return True
+    if any(seg in TEST_DIR_SEGMENTS for seg in parts):
+        return True
     return False
+
+
+def is_test_fixture_path(rel: str) -> bool:
+    """True when a path is under a test/fixture dir or is a test module (r4 N-5)."""
+    return is_test_path(rel)
 
 
 def discover(root: Path) -> Dict[str, Any]:

@@ -606,11 +606,11 @@ tests/test_utils.py::test_set_environ_raises_exception
 tests/test_utils.py::test_should_bypass_proxies_win_registry_ProxyOverride_value
 
 =============================== warnings summary ===============================
-../metria-adeq-j9iylx95/venv/lib/python3.9/site-packages/urllib3/__init__.py:35
+../metria-adeq-u35ystbd/venv/lib/python3.9/site-packages/urllib3/__init__.py:35
   <metria-tmp>/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
     warnings.warn(
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-606 tests collected in 0.34s
+606 tests collected in 0.35s
 
-[2026-11-07 09:27:14,073] WARNING in core: flasgger is not installed; serving the static landing page at / and skipping the Swagger UI and /spec.json.
+[2026-11-07 10:20:48,544] WARNING in core: flasgger is not installed; serving the static landing page at / and skipping the Swagger UI and /spec.json.

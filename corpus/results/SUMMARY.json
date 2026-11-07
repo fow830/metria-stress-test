@@ -19,7 +19,7 @@
           "null_display": null
         },
         "supply_chain": {
-          "status": "warn",
+          "status": "pass",
           "null_display": null
         },
         "controls": {

@@ -113,7 +113,8 @@
       "name": "importlib-metadata",
       "specifier": ">=3.6.0",
       "class": "runtime",
-      "source": "pyproject.toml"
+      "source": "pyproject.toml",
+      "marker": "python_version < '3.10'"
     },
     {
       "name": "itsdangerous",

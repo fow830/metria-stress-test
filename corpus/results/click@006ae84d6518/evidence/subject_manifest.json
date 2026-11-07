@@ -50,13 +50,15 @@
       "name": "colorama",
       "specifier": "",
       "class": "runtime",
-      "source": "setup.py"
+      "source": "setup.py",
+      "marker": "platform_system == 'Windows'"
     },
     {
       "name": "importlib-metadata",
       "specifier": "",
       "class": "runtime",
-      "source": "setup.py"
+      "source": "setup.py",
+      "marker": "python_version < '3.8'"
     }
   ],
   "languages": [

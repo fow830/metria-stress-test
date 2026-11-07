@@ -1,7 +1,7 @@
 [
   {
-    "fingerprint": "struct:ruff:S101:360fd43598f9a17a",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_auth.py:235",
+    "fingerprint": "struct:ruff:S101:0e9e46352089e42d",
+    "title": "ruff S101: Use of `assert` detected at httpx/_auth.py:235",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -13,8 +13,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S324:e73fcb0e725199e4",
-    "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at <subject>/httpx/_auth.py:309",
+    "fingerprint": "struct:ruff:S324:bd6527e48a21fb35",
+    "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at httpx/_auth.py:309",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -26,8 +26,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B028:483e3b7dbd27edfb",
-    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:681",
+    "fingerprint": "struct:ruff:B028:25f604cf2f0b726e",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:681",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -39,8 +39,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B028:f557bb26caba01f5",
-    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:690",
+    "fingerprint": "struct:ruff:B028:60b297d99c2a9ed2",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:690",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -52,8 +52,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B028:40c8a25884b9c9ce",
-    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:822",
+    "fingerprint": "struct:ruff:B028:39aee24ee529489c",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:822",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -65,8 +65,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:d58b7b3531d5267c",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_client.py:1029",
+    "fingerprint": "struct:ruff:S101:9d32ec258e0662d7",
+    "title": "ruff S101: Use of `assert` detected at httpx/_client.py:1029",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -78,8 +78,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B028:303a6412fe828b2e",
-    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:1428",
+    "fingerprint": "struct:ruff:B028:3856f3644b2f4df1",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:1428",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -91,8 +91,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B028:e56b9102c891555c",
-    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:1437",
+    "fingerprint": "struct:ruff:B028:31e79ea2707764fd",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:1437",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -104,8 +104,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B028:b609f12046a8b48b",
-    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_client.py:1570",
+    "fingerprint": "struct:ruff:B028:c877a3e2b690de55",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_client.py:1570",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -117,8 +117,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:058edc405f8f46ef",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_client.py:1778",
+    "fingerprint": "struct:ruff:S101:90bb31404fce6cc7",
+    "title": "ruff S101: Use of `assert` detected at httpx/_client.py:1778",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -130,8 +130,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:f4da5ea040776c78",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:221",
+    "fingerprint": "struct:ruff:S101:c16233d151aed2e8",
+    "title": "ruff S101: Use of `assert` detected at httpx/_config.py:221",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -143,8 +143,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:ff3cc046bfc131e2",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:222",
+    "fingerprint": "struct:ruff:S101:5335bbdaa9b48123",
+    "title": "ruff S101: Use of `assert` detected at httpx/_config.py:222",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -156,8 +156,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:37c867e9d5033346",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:223",
+    "fingerprint": "struct:ruff:S101:061161ed24ffe56f",
+    "title": "ruff S101: Use of `assert` detected at httpx/_config.py:223",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -169,8 +169,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:3161f22163944aa6",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_config.py:224",
+    "fingerprint": "struct:ruff:S101:6d401299db2f84be",
+    "title": "ruff S101: Use of `assert` detected at httpx/_config.py:224",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -182,8 +182,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B028:62a87899b56ad04f",
-    "title": "ruff B028: No explicit `stacklevel` keyword argument found at <subject>/httpx/_content.py:204",
+    "fingerprint": "struct:ruff:B028:e3610246ce3e049d",
+    "title": "ruff B028: No explicit `stacklevel` keyword argument found at httpx/_content.py:204",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -195,8 +195,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:3a04f566be007bc6",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_decoders.py:162",
+    "fingerprint": "struct:ruff:S101:7d12aaf5b14bbeed",
+    "title": "ruff S101: Use of `assert` detected at httpx/_decoders.py:162",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -208,8 +208,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B904:556e991967e84bd7",
-    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_main.py:282",
+    "fingerprint": "struct:ruff:B904:2d2de74ad36fb639",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_main.py:282",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -221,8 +221,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S105:a6839ed87a6e4b63",
-    "title": "ruff S105: Possible hardcoded password assigned to: \"password\" at <subject>/httpx/_main.py:294",
+    "fingerprint": "struct:ruff:S105:59d8bd541e0cb86f",
+    "title": "ruff S105: Possible hardcoded password assigned to: \"password\" at httpx/_main.py:294",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -234,8 +234,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:db339bae480f6f59",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_models.py:407",
+    "fingerprint": "struct:ruff:S101:298ef2af9b893d06",
+    "title": "ruff S101: Use of `assert` detected at httpx/_models.py:407",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -247,8 +247,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:b50257076b59cfa2",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_models.py:421",
+    "fingerprint": "struct:ruff:S101:c8f996930f07c492",
+    "title": "ruff S101: Use of `assert` detected at httpx/_models.py:421",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -260,8 +260,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:7f6e3fdf70e8e067",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_models.py:1135",
+    "fingerprint": "struct:ruff:S101:d8fd9c5b232f7dfd",
+    "title": "ruff S101: Use of `assert` detected at httpx/_models.py:1135",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -273,8 +273,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:40c72f7a38f330e8",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:90",
+    "fingerprint": "struct:ruff:S101:82fefd2f35e1fb3d",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:90",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -286,8 +286,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:6426f9645e65c948",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:139",
+    "fingerprint": "struct:ruff:S101:4ae714a220fde2d8",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:139",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -299,8 +299,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:9475583458bc44bd",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:146",
+    "fingerprint": "struct:ruff:S101:3a06422715d48454",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:146",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -312,8 +312,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:3ba579417637ef6f",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:168",
+    "fingerprint": "struct:ruff:S101:9ffd0f4cb25e259a",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:168",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -325,8 +325,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:4a314d18385248c0",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:169",
+    "fingerprint": "struct:ruff:S101:6261b2e94569f4b0",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:169",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -338,8 +338,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:98bf1449005750fc",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/asgi.py:170",
+    "fingerprint": "struct:ruff:S101:bbd0c1d535e2b495",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/asgi.py:170",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -351,8 +351,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:3192edac11828cbb",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:221",
+    "fingerprint": "struct:ruff:S101:396a0b5436eb6635",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/default.py:221",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -364,8 +364,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:5e51e975ad523748",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:238",
+    "fingerprint": "struct:ruff:S101:002b0d3c6bea469f",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/default.py:238",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -377,8 +377,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:70d4405f3669a06e",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:362",
+    "fingerprint": "struct:ruff:S101:2182a8fd860ec0e2",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/default.py:362",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -390,8 +390,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:85bc6efd9be6f701",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/default.py:379",
+    "fingerprint": "struct:ruff:S101:467516d392a8a5bf",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/default.py:379",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -403,8 +403,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:be3616062ed7a20c",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/wsgi.py:138",
+    "fingerprint": "struct:ruff:S101:c56f3cd4509a5c9e",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/wsgi.py:138",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -416,8 +416,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:e4869b775dff86d1",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_transports/wsgi.py:139",
+    "fingerprint": "struct:ruff:S101:57ea8de39cbc3dd0",
+    "title": "ruff S101: Use of `assert` detected at httpx/_transports/wsgi.py:139",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -429,8 +429,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:a70629df7696aa0c",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_urlparse.py:229",
+    "fingerprint": "struct:ruff:S101:b847cb86ca6fada3",
+    "title": "ruff S101: Use of `assert` detected at httpx/_urlparse.py:229",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -442,8 +442,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:3043c4536ee00933",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_urlparse.py:245",
+    "fingerprint": "struct:ruff:S101:6ab8136f786a982a",
+    "title": "ruff S101: Use of `assert` detected at httpx/_urlparse.py:245",
     "severity": "medium",
     "detectors": [
       "ruff"
@@ -455,8 +455,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B904:763723236114746a",
-    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:316",
+    "fingerprint": "struct:ruff:B904:45e0521f0c307165",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_urlparse.py:316",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -468,8 +468,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B904:caeb8367da593025",
-    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:331",
+    "fingerprint": "struct:ruff:B904:2e652c8283ccc833",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_urlparse.py:331",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -481,8 +481,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B904:7f17dca101e407c8",
-    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:347",
+    "fingerprint": "struct:ruff:B904:7e9264bc5bdcedab",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_urlparse.py:347",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -494,8 +494,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:B904:c02b90b6ea7352cd",
-    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at <subject>/httpx/_urlparse.py:366",
+    "fingerprint": "struct:ruff:B904:b98c4cd102722d1d",
+    "title": "ruff B904: Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling at httpx/_urlparse.py:366",
     "severity": "low",
     "detectors": [
       "ruff"
@@ -507,8 +507,8 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:e16a80b88bb873c6",
-    "title": "ruff S101: Use of `assert` detected at <subject>/httpx/_urls.py:426",
+    "fingerprint": "struct:ruff:S101:9c04dfe3ac98bf6f",
+    "title": "ruff S101: Use of `assert` detected at httpx/_urls.py:426",
     "severity": "medium",
     "detectors": [
       "ruff"

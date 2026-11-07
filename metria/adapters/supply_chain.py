@@ -24,6 +24,7 @@ from metria.sandbox import (
     pip_list_versions,
     run_scrubbed,
     scrub_env,
+    scrub_text_paths,
 )
 
 OSV_URL = "https://api.osv.dev/v1/query"
@@ -90,6 +91,19 @@ def _norm_name(name: str) -> str:
     return name.lower().replace("_", "-")
 
 
+def _marker_applies(marker: str) -> Optional[bool]:
+    """Return True/False if marker can be evaluated; None if unknown (skip OSV)."""
+    if not (marker or "").strip():
+        return True
+    try:
+        from packaging.markers import Marker  # type: ignore
+
+        return bool(Marker(marker).evaluate())
+    except Exception:
+        # Without packaging or on odd markers — do not invent a version to query.
+        return None
+
+
 def resolve_runtime_versions(
     root: Path,
     runtime: List[Dict[str, str]],
@@ -100,6 +114,7 @@ def resolve_runtime_versions(
 
     When ``allow_subject_install`` is False (``--no-tests``), never run
     ``pip install -e .`` — that executes subject setup.py (r3 B2 / r1 B1.2).
+    Never invent versions via range lower-bound (r4 N-3).
     """
     resolved: Dict[str, str] = {}
     meta: Dict[str, Any] = {
@@ -107,10 +122,18 @@ def resolve_runtime_versions(
         "errors": [],
         "venv_used": False,
         "allow_subject_install": allow_subject_install,
+        "not_applicable": [],
     }
     pending = []
     for pkg in runtime:
         key = _norm_name(pkg["name"])
+        applies = _marker_applies(pkg.get("marker") or "")
+        if applies is False:
+            meta["not_applicable"].append(pkg["name"])
+            continue
+        if applies is None and pkg.get("marker"):
+            meta["not_applicable"].append(pkg["name"])
+            continue
         pin = _pinned_version(pkg.get("specifier") or "")
         if pin:
             resolved[key] = pin
@@ -118,11 +141,10 @@ def resolve_runtime_versions(
         pending.append(pkg)
 
     if not pending:
-        meta["method"] = "pinned"
+        meta["method"] = "pinned" if resolved else "empty"
         return resolved, meta
 
     if not allow_subject_install:
-        # Static-only: leave unpinned unresolved → adapter_gap (no subject build).
         meta["method"] = "static_no_subject_exec"
         meta["errors"].append("version unresolved: subject code execution disabled")
         return resolved, meta
@@ -137,7 +159,7 @@ def resolve_runtime_versions(
         try:
             py, pip = create_subject_venv(work)
         except Exception as exc:  # noqa: BLE001
-            meta["errors"].append(f"venv:{exc}")
+            meta["errors"].append(scrub_text_paths(str(exc), root, work))
             meta["method"] = "unresolved"
             return resolved, meta
         env = scrub_env(home=home, extra={"VIRTUAL_ENV": str(work / "venv")})
@@ -156,18 +178,16 @@ def resolve_runtime_versions(
                 timeout=300,
             )
             if proc.returncode != 0:
-                meta["errors"].append(f"pip_install:{(proc.stderr or '')[-300:]}")
+                meta["errors"].append(
+                    scrub_text_paths((proc.stderr or "")[-300:], root, work)
+                )
         installed = pip_list_versions(pip, env)
         for pkg in pending:
             key = _norm_name(pkg["name"])
             if key in installed:
                 resolved[key] = installed[key]
-            else:
-                lower = _range_lower_bound(pkg.get("specifier") or "")
-                if lower:
-                    resolved[key] = lower
-                    meta.setdefault("range_fallback", []).append(pkg["name"])
-        meta["method"] = "venv_pip_list" if installed else "range_or_none"
+            # else: leave unresolved — do NOT use range lower bound (r4 N-3)
+        meta["method"] = "venv_pip_list" if installed else "unresolved"
         _ = py
     finally:
         cleanup_dir(work)
@@ -362,14 +382,23 @@ def run_supply_chain(
     # N-r2-5: setup.py present but unreadable → inventory gap, not "no deps".
     setup_py_gap = bool(inv_meta.get("setup_py_present")) and bool(inv_meta.get("setup_py_error"))
 
+    na_names = set()
     if query_osv and runtime:
         resolved, resolve_meta = resolve_runtime_versions(
             root, runtime, allow_subject_install=allow_subject_install
         )
+        na_names = {_norm_name(n) for n in (resolve_meta.get("not_applicable") or [])}
+        # N-r4-4: scrub paths in resolve meta before writing evidence.
+        if resolve_meta.get("errors"):
+            resolve_meta["errors"] = [
+                scrub_text_paths(str(e), root) for e in resolve_meta["errors"]
+            ]
         (evidence_dir / "resolved_versions.json").write_text(
             json.dumps({"resolved": resolved, "meta": resolve_meta}, indent=2), encoding="utf-8"
         )
-        findings, osv_metrics = query_osv_for_packages(runtime, resolved=resolved)
+        # Only query OSV for packages we actually resolved (installed or pinned).
+        queryable = [p for p in runtime if _norm_name(p["name"]) in resolved]
+        findings, osv_metrics = query_osv_for_packages(queryable, resolved=resolved)
         (evidence_dir / "osv.json").write_text(json.dumps(findings, indent=2), encoding="utf-8")
     else:
         (evidence_dir / "osv.json").write_text("[]\n", encoding="utf-8")
@@ -419,12 +448,15 @@ def run_supply_chain(
         if f.get("severity") == "critical":
             hard.append(f["title"])
 
-    # N-r2-4: unresolved runtime → adapter_gap, not WARN for unpinned library practice.
+    # Unresolved applicable runtime (not marker-excluded) → adapter_gap findings.
+    unresolved: List[Dict[str, str]] = []
     if query_osv and runtime:
         unresolved = [
             p
             for p in runtime
-            if _norm_name(p["name"]) not in resolved and not _pinned_version(p.get("specifier") or "")
+            if _norm_name(p["name"]) not in resolved
+            and _norm_name(p["name"]) not in na_names
+            and not _pinned_version(p.get("specifier") or "")
         ]
         for p in unresolved[:10]:
             findings.append(
@@ -460,9 +492,37 @@ def run_supply_chain(
             tools=tools,
         )
 
+    # N-r4-2: nothing measured (0 OSV queries, only adapter_gap) → NOT MEASURED, not WARN.
+    only_gaps = findings and all("adapter_gap" in (f.get("title") or "") for f in findings)
+    if query_osv and int(osv_metrics.get("osv_queries") or 0) == 0 and unresolved and only_gaps:
+        nm = not_measured(
+            "supply_chain",
+            null_reason="adapter_gap",
+            raw_metrics={
+                "components": len(packages),
+                "runtime_components": len(runtime),
+                "non_runtime_components": len(non_runtime),
+                "lockfiles": lockfiles,
+                "sbom_files": sbom_files,
+                "unresolved": len(unresolved),
+                **osv_metrics,
+                "resolve": resolve_meta,
+            },
+            evidence_refs=[
+                "supply_chain/inventory.json",
+                "supply_chain/sbom_practice.json",
+                "supply_chain/osv.json",
+                "supply_chain/resolved_versions.json",
+            ],
+            analysis_scope=scope,
+            tools=tools,
+        )
+        nm["findings"] = findings
+        nm["null_owner"] = "metria"
+        return nm
+
     if not lockfiles and not packages:
         # N-12: library with no dependency surface → pass, not WARN.
-        # Only when we actually read packaging sources (or none exist).
         status = "pass"
         findings.append(
             {
