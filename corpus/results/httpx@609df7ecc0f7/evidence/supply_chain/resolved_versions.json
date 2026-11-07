@@ -1,14 +1,15 @@
 {
   "resolved": {
-    "httpcore": "1.",
     "anyio": "4.12.1",
     "certifi": "2026.10.23",
+    "httpcore": "1.0.9",
     "idna": "3.20",
     "sniffio": "1.3.1"
   },
   "meta": {
     "method": "venv_pip_list",
     "errors": [],
-    "venv_used": true
+    "venv_used": true,
+    "allow_subject_install": true
   }
 }

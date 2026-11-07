@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_17662b7a8f05",
+  "run_id": "run_429931b45685",
   "subject": {
     "repo_url": "https://github.com/pallets/click",
     "commit_sha": "006ae84d651846c944331fff78e340701fe58562",
@@ -8,11 +8,11 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-06T20:29:03Z",
-  "finished_at": "2026-11-06T20:29:29Z",
+  "started_at": "2026-11-07T08:26:09Z",
+  "finished_at": "2026-11-07T08:26:33Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 26
+    "used_s": 24
   },
   "overall": "warn",
   "lenses": {
@@ -517,62 +517,10 @@
           "evidence_refs": [
             "structural/ruff.json"
           ]
-        },
-        {
-          "fingerprint": "struct:ruff:S101:10a77098af66b1aa",
-          "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:18",
-          "severity": "medium",
-          "detectors": [
-            "ruff"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "sast_or_secret_to_structural",
-          "evidence_refs": [
-            "structural/ruff.json"
-          ]
-        },
-        {
-          "fingerprint": "struct:ruff:S101:971db31844eaaed2",
-          "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:19",
-          "severity": "medium",
-          "detectors": [
-            "ruff"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "sast_or_secret_to_structural",
-          "evidence_refs": [
-            "structural/ruff.json"
-          ]
-        },
-        {
-          "fingerprint": "struct:ruff:S101:76e1a98e6b33861e",
-          "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:41",
-          "severity": "medium",
-          "detectors": [
-            "ruff"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "sast_or_secret_to_structural",
-          "evidence_refs": [
-            "structural/ruff.json"
-          ]
-        },
-        {
-          "fingerprint": "struct:ruff:S101:2e373d62895db7cd",
-          "title": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:42",
-          "severity": "medium",
-          "detectors": [
-            "ruff"
-          ],
-          "confirmation": "unconfirmed",
-          "lens_routing_rule": "sast_or_secret_to_structural",
-          "evidence_refs": [
-            "structural/ruff.json"
-          ]
         }
       ],
       "raw_metrics": {
-        "finding_count": 42,
+        "finding_count": 38,
         "high_or_critical": 2,
         "secrets_head": 0,
         "ast_findings": 2,
@@ -976,17 +924,17 @@
       "finding_fingerprint": "adeq:no_strong_oracle"
     },
     {
-      "summary": "ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:18",
-      "finding_fingerprint": "struct:ruff:S101:10a77098af66b1aa"
-    },
-    {
       "summary": "ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1683",
       "finding_fingerprint": "struct:ruff:S101:174abfebb1c92942"
+    },
+    {
+      "summary": "ruff S101: Use of `assert` detected at <subject>/src/click/shell_completion.py:448",
+      "finding_fingerprint": "struct:ruff:S101:28309fdf6f07f243"
     }
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "3a9fd02da59a23ccc265711b2dc667141a66f4f2926914544050408d42f10337",
-    "manifest_sha256": "69b46d5a53615ca6ff20a841bd58f54fef5b74dc32786171bf63d6164f7ea4be"
+    "sha256": "06831f0be1fd4ac0ef398184b8c1093c805f4c2c9b47bb5492df8556cc7b8f97",
+    "manifest_sha256": "bae257d2d69da22f30650735a32c207dbdad83b434e32f07d9b06f8cca4ffd5a"
   }
 }

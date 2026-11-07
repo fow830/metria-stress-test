@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_2d70356e090a",
+  "run_id": "run_a07bfa1404aa",
   "subject": {
     "repo_url": "https://github.com/psf/requests",
     "commit_sha": "61e2240f283f15780ac2d0e2cfefb0fd6fdab627",
@@ -8,11 +8,11 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-06T20:29:31Z",
-  "finished_at": "2026-11-06T20:31:35Z",
+  "started_at": "2026-11-07T08:26:35Z",
+  "finished_at": "2026-11-07T08:28:30Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 124
+    "used_s": 115
   },
   "overall": "fail",
   "lenses": {
@@ -1153,7 +1153,7 @@
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "58bcf56ee90aba51e9704e7617aeabc33805ce58461b5bbe79554a8237914ded",
-    "manifest_sha256": "8ac6637da2584d65b9c8f8cd52d05c98144b512b8d63cd0512d4709fd0cf8895"
+    "sha256": "10f79f06fa6e495eb375cf545f012962125237d9b654cb48fff3bf4ce87a4bca",
+    "manifest_sha256": "6b788d5e8eb14af8b04d3665ca41713880339abe8e00942823f8ecd6649497e4"
   }
 }

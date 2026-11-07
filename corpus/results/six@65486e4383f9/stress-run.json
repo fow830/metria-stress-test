@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_02cd4c76008b",
+  "run_id": "run_7290d76eaf2c",
   "subject": {
     "repo_url": "https://github.com/benjaminp/six",
     "commit_sha": "65486e4383f9f411da95937451205d3c7b61b9e1",
@@ -8,11 +8,11 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-06T20:31:36Z",
-  "finished_at": "2026-11-06T20:31:51Z",
+  "started_at": "2026-11-07T08:28:31Z",
+  "finished_at": "2026-11-07T08:28:44Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 14
+    "used_s": 13
   },
   "overall": "warn",
   "lenses": {
@@ -940,7 +940,7 @@
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "ab20200ff22861d56c9b5f68fd47544710b9983a452b405e7345e7125f6c0877",
-    "manifest_sha256": "c7eadd0d27f705b8c47ed0acbfdc8df2db41ebf1241013535c2686d128b66acf"
+    "sha256": "f381bac8db48e108cb9a6720804fec7c97cd60878df54fe566559e8e928187c1",
+    "manifest_sha256": "6309468c198e7ef2246b1f1467b2b9d3b1b07f8a6fff787c554e266bd207eec4"
   }
 }

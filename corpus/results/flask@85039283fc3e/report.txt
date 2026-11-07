@@ -4,7 +4,7 @@ HARD GATES
   (none)
 
 LENSES
-  structural       WARN           finding_count=44 · high_or_critical=2 · secrets_head=0
+  structural       WARN           finding_count=19 · high_or_critical=2 · secrets_head=0
   supply_chain     PASS           components=22
   controls         UNDECLARED  
   test_adequacy    FAIL           suite=failed · strong_oracle=False · test_file_count=26
@@ -18,4 +18,4 @@ TOP RISKS
   4. Use of compile() on dynamic input at src/flask/config.py:212
   5. Use of compile() on dynamic input at src/flask/cli.py:1005
 
-evidence · sha256 e9debcc91ed1… · reproducible: metria run <repo>@85039283fc3e986cced4ab39a3fe2b39314d06bb --profile cold_external
+evidence · sha256 854d5e4c0639… · reproducible: metria run <repo>@85039283fc3e986cced4ab39a3fe2b39314d06bb --profile cold_external

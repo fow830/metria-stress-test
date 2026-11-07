@@ -1429,5 +1429,5 @@ tests/test_wsgi.py::test_wsgi_server_port[explicit-port]
 tests/test_wsgi.py::test_wsgi_server_protocol
 tests/test_wsgi.py::test_deprecated_shortcut
 
-1430 tests collected in 0.60s
+1430 tests collected in 0.76s
 

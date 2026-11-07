@@ -1,31 +1,5 @@
 [
   {
-    "fingerprint": "struct:ruff:S101:0785cbeebe14a63e",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/javascript/tests/test_js_example.py:16",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:657052a467c0176c",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/javascript/tests/test_js_example.py:27",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
     "fingerprint": "struct:ruff:S106:6e497f0e79d58102",
     "title": "ruff S106: Possible hardcoded password assigned to argument: \"SECRET_KEY\" at <subject>/examples/tutorial/flaskr/__init__.py:11",
     "severity": "medium",
@@ -52,463 +26,164 @@
     ]
   },
   {
-    "fingerprint": "struct:ruff:S101:518855f85fae7ed8",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:10",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:a8356e1feff787f5",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:14",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:d9a6006ed3649802",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:18",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:c90ae93c2005bd27",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:36",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:e85c3cb55a587f01",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:41",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:9ee5d0e22a99849b",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:45",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:f5659039aa81a225",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:51",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:b601bf68ca477724",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:52",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:cd1a836a4de23721",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:61",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:116444619d7b2cd1",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_auth.py:69",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:c0e4534794f55c8e",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:8",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:88bfffa1d18780bb",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:9",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:0a8267a26cb3be97",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:13",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:e1517c984c6e5c53",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:14",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:fead30241d59c016",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:15",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:6b7bd94e9e4d48d4",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:16",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:b1390479c0c900fe",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:22",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:c97724302158535d",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:34",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:2b9cb32cadc4acb7",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:35",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:554dfdafc5d65d01",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:37",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:3bc20c19c8ef407a",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:43",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:f538f923b2355b17",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:48",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:9093772528610c63",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:54",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:f659a424b41c4f21",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:59",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:97b58e8324b77d7e",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:65",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:380c1446aaa8f256",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:72",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:fbdd6065388af378",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:78",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:e23086f6ae0ba69a",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_blog.py:83",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:ca7942b5dbacc6c2",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_db.py:11",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:1013f41ef45a7cea",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_db.py:16",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:e227cb3dcb5b2e95",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_db.py:28",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:c46ad284fa89f2e3",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_db.py:29",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:e427de240b203cd0",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_factory.py:6",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:b9cbe3124401b301",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_factory.py:7",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
-    "fingerprint": "struct:ruff:S101:5e8b891516075b52",
-    "title": "ruff S101: Use of `assert` detected at <subject>/examples/tutorial/tests/test_factory.py:12",
-    "severity": "medium",
-    "detectors": [
-      "ruff"
-    ],
-    "confirmation": "unconfirmed",
-    "lens_routing_rule": "sast_or_secret_to_structural",
-    "evidence_refs": [
-      "structural/ruff.json"
-    ]
-  },
-  {
     "fingerprint": "struct:ruff:S101:e7a74fe55418de80",
     "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/app.py:260",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S307:a71e6ece2b3abf00",
+    "title": "ruff S307: Use of possibly insecure function; consider using `ast.literal_eval` at <subject>/src/flask/cli.py:1005",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:ed6eb5e0713764f6",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/src/flask/config.py:163",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S102:7ccf6fc5b9a6f5d0",
+    "title": "ruff S102: Use of `exec` detected at <subject>/src/flask/config.py:212",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:7d5d9a3853444522",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/debughelpers.py:59",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S704:3123ffbc3b400acd",
+    "title": "ruff S704: Unsafe use of `markupsafe.Markup` detected at <subject>/src/flask/json/tag.py:188",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:000006c5a4b88de1",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/sansio/scaffold.py:705",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S324:efe667175035319e",
+    "title": "ruff S324: Probable use of insecure hash functions in `hashlib`: `sha1` at <subject>/src/flask/sessions.py:285",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:c20c43eabb3a0910",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/testing.py:58",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S101:60d22304a7e34ecf",
+    "title": "ruff S101: Use of `assert` detected at <subject>/src/flask/views.py:190",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S106:c5f786d11ff2d85b",
+    "title": "ruff S106: Possible hardcoded password assigned to argument: \"SECRET_KEY\" at <subject>/tests/conftest.py:50",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:1ab9ef831cf44454",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/tests/test_appctx.py:66",
+    "severity": "medium",
+    "detectors": [
+      "ruff"
+    ],
+    "confirmation": "unconfirmed",
+    "lens_routing_rule": "sast_or_secret_to_structural",
+    "evidence_refs": [
+      "structural/ruff.json"
+    ]
+  },
+  {
+    "fingerprint": "struct:ruff:S110:baeaf17650002a0e",
+    "title": "ruff S110: `try`-`except`-`pass` detected, consider logging the exception at <subject>/tests/test_appctx.py:85",
     "severity": "medium",
     "detectors": [
       "ruff"

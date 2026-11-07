@@ -38,14 +38,16 @@ def test_b2_deploy_latest_key_hard_gates(tmp_path: Path) -> None:
 
 
 def _stub_venv_with_pytest(work: Path):
-    """Match Claude r2 probes: system-site-packages venv (host pytest via scrub PYTHONPATH)."""
+    """Clean venv + install pytest (N-r3-1: no operator PYTHONUSERBASE)."""
     d = work / "venv"
     subprocess.run(
-        [sys.executable, "-m", "venv", "--system-site-packages", str(d)],
+        [sys.executable, "-m", "venv", str(d)],
         check=True,
         capture_output=True,
     )
-    return d / "bin" / "python", d / "bin" / "pip"
+    py, pip = d / "bin" / "python", d / "bin" / "pip"
+    subprocess.run([str(pip), "install", "-q", "pytest"], check=True, capture_output=True)
+    return py, pip
 
 
 def test_b1_broken_subject_import_is_fail(tmp_path: Path, monkeypatch) -> None:
@@ -124,6 +126,10 @@ def test_n_r2_3_scrub_linux_tmp_paths() -> None:
     assert "/tmp/metria-adeq-8v60pk2h" not in scrubbed
     assert "metria-adeq" not in scrubbed
     assert "<metria-tmp>" in scrubbed
+    # r3 B1: bare /tmp must not rewrite unrelated paths like /tmpfoo
+    other = scrub_text_paths("see /tmpfoo/bar and /tmp/build.log", Path("/x"))
+    assert "/tmpfoo/bar" in other
+    assert "<metria-tmp>foo" not in other
 
 
 def test_n_r2_5_parse_setup_py_install_requires(tmp_path: Path) -> None:
@@ -153,6 +159,8 @@ def test_n_r2_1_pythonpath_not_inherited() -> None:
         env = scrub_env(home=Path(tempfile.mkdtemp()))
         assert "PYTHONPATH" not in env
         assert "PYTHONHOME" not in env
+        assert "PYTHONUSERBASE" not in env
+        assert env.get("PYTHONNOUSERSITE") == "1"
     finally:
         os.environ.pop("PYTHONPATH", None)
 
@@ -163,7 +171,7 @@ def test_n_r2_4_unresolved_not_unpinned_warn(tmp_path: Path, monkeypatch) -> Non
         encoding="utf-8",
     )
 
-    def fake_resolve(root, runtime):
+    def fake_resolve(root, runtime, allow_subject_install=True):
         return {}, {"method": "unresolved", "errors": ["forced"]}
 
     monkeypatch.setattr(supply_chain, "resolve_runtime_versions", fake_resolve)

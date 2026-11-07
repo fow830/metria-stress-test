@@ -226,9 +226,13 @@ def _dep_name_spec(item: str) -> Optional[Dict[str, str]]:
         return None
     name, rest = m.group(1), (m.group(2) or "").strip()
     spec = ""
-    sm = re.match(r"^(==|>=|<=|~=|!=|>|<)\s*([A-Za-z0-9_.+\-]+)", rest)
+    # Keep wildcards in the specifier string (N-r3-2); do not truncate ==1.* → ==1.
+    sm = re.match(r"^(==|>=|<=|~=|!=|>|<)\s*([A-Za-z0-9_.*+\-]+)", rest)
     if sm:
         spec = sm.group(1) + sm.group(2)
+    elif rest.startswith(("==", ">=", "<=", "~=", "!=", ">", "<")):
+        # Multi-clause / complex — store raw rest up to first ';' or whitespace comma pair.
+        spec = rest.split(";", 1)[0].strip()
     return {"name": name, "specifier": spec}
 
 

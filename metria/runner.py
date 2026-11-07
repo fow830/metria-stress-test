@@ -142,8 +142,12 @@ def run_subject(
     write_json(evidence_root / "runner_environment.json", env_info)
 
     structural_lens = structural.run_structural(root, evidence_root / "structural")
+    # r3 B2: never pip-install the subject when --no-tests (setup.py would run).
     supply_lens = supply_chain.run_supply_chain(
-        root, evidence_root / "supply_chain", query_osv=query_osv
+        root,
+        evidence_root / "supply_chain",
+        query_osv=query_osv,
+        allow_subject_install=run_tests,
     )
     adequacy_lens = test_adequacy.run_test_adequacy(
         root,

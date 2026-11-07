@@ -4,7 +4,7 @@ HARD GATES
   (none)
 
 LENSES
-  structural       WARN           finding_count=42 · high_or_critical=2 · secrets_head=0
+  structural       WARN           finding_count=38 · high_or_critical=2 · secrets_head=0
   supply_chain     WARN           components=2
   controls         UNDECLARED  
   test_adequacy    WARN           suite=green · strong_oracle=False · test_file_count=20
@@ -15,7 +15,7 @@ TOP RISKS
   1. subprocess call with shell=True at src/click/_termui_impl.py:514
   2. subprocess call with shell=True at src/click/_termui_impl.py:414
   3. Suite green but no strong oracle (mutation/PBT) measured
-  4. ruff S101: Use of `assert` detected at <subject>/tests/test_arguments.py:18
-  5. ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1683
+  4. ruff S101: Use of `assert` detected at <subject>/src/click/core.py:1683
+  5. ruff S101: Use of `assert` detected at <subject>/src/click/shell_completion.py:448
 
-evidence · sha256 3a9fd02da59a… · reproducible: metria run <repo>@006ae84d651846c944331fff78e340701fe58562 --profile cold_external
+evidence · sha256 06831f0be1fd… · reproducible: metria run <repo>@006ae84d651846c944331fff78e340701fe58562 --profile cold_external

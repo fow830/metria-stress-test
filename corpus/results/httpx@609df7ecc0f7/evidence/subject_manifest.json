@@ -87,7 +87,7 @@
     },
     {
       "name": "httpcore",
-      "specifier": "==1.",
+      "specifier": "==1.*",
       "class": "runtime",
       "source": "pyproject.toml"
     },

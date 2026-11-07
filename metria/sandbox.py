@@ -49,22 +49,6 @@ def scrub_env(
         out["PATH"] = "/usr/bin:/bin:/usr/local/bin"
     if "LANG" not in out:
         out["LANG"] = "C.UTF-8"
-    # Capture host user-site base before HOME swap (macOS often keeps pytest there).
-    # Prefer PYTHONUSERBASE over inheriting operator PYTHONPATH (N-r2-1).
-    host_user_base = ""
-    try:
-        import site
-
-        cand = site.getusersitepackages()
-        sites = [cand] if isinstance(cand, str) else list(cand or [])
-        for c in sites:
-            p = Path(c)
-            if p.is_dir() and p.name == "site-packages" and len(p.parts) >= 3:
-                # .../<base>/lib/python*/site-packages → <base>
-                host_user_base = str(p.parents[2])
-                break
-    except Exception:
-        host_user_base = ""
     home_path = home or Path(tempfile.mkdtemp(prefix="metria-home-"))
     out["HOME"] = str(home_path)
     tmp = home_path / "tmp"
@@ -73,26 +57,38 @@ def scrub_env(
     out["TEMP"] = str(tmp)
     out["TMP"] = str(tmp)
     out["PYTHONDONTWRITEBYTECODE"] = "1"
-    if host_user_base:
-        out["PYTHONUSERBASE"] = host_user_base
+    # N-r3-1: never expose operator user-site; clean venvs isolate imports.
+    out["PYTHONNOUSERSITE"] = "1"
     if extra:
-        allow = {x.upper() for x in _ENV_ALLOW} | {"PYTHONUSERBASE"}
+        allow = {x.upper() for x in _ENV_ALLOW} | {"PYTHONNOUSERSITE"}
         for k, v in extra.items():
             if k.upper() in allow or k.startswith("METRIA_"):
                 out[k] = v
     return out
 
 
-# Any OS: metria temp dirs under common temp roots (macOS + Linux + Windows-ish).
+# Metria temp dirs anywhere under common temp roots — never bare "/tmp" replace (r3 B1).
 _METRIA_TMP = re.compile(
     r"(?:/private)?(?:/var/folders/[^\s:\"']+|/tmp|/var/tmp|/private/tmp)"
-    r"/metria-(?:adeq|home|subject|worktree|corpus)-[A-Za-z0-9_]+[^\s:\"']*"
+    r"/metria-(?:adeq|home|subject|worktree|corpus|sca)-[A-Za-z0-9_]+[^\s:\"']*"
+)
+_MKTEMP_DIR = re.compile(
+    r"(?:/private)?(?:/var/folders/[^\s:\"']+|/tmp|/var/tmp)/tmp\.[A-Za-z0-9_]+[^\s:\"']*"
 )
 _MAC_FOLDER_STUB = re.compile(r"(?:/private)?/var/folders/[A-Za-z0-9_./\-]+")
 
 
+def _path_boundary_replace(text: str, path: str, repl: str) -> str:
+    """Replace ``path`` only as a full path prefix (component boundary), not a substring."""
+    if not path or len(path) < 4:
+        return text
+    # Escape and require end-of-path or a following path separator / word boundary.
+    pat = re.compile(re.escape(path.rstrip("/")) + r"(?=/|\b|$)")
+    return pat.sub(repl.rstrip("/"), text)
+
+
 def scrub_text_paths(text: str, root: Path, *extra_roots: Path) -> str:
-    """Replace absolute subject/tmp paths so evidence is portable (B4 / N-r2-3)."""
+    """Replace absolute subject/tmp paths so evidence is portable (B4 / N-r2-3 / r3 B1)."""
     if not text:
         return text
 
@@ -104,36 +100,32 @@ def scrub_text_paths(text: str, root: Path, *extra_roots: Path) -> str:
             s = str(resolved)
             if s.startswith("/private/"):
                 out.append(s[len("/private") :])
-            elif s.startswith("/var/") or s.startswith("/tmp"):
+            elif s.startswith("/var/") or s.startswith("/tmp/"):
                 out.append("/private" + s)
         except OSError:
             pass
         out.append(str(p))
         return out
 
-    roots = [root, *extra_roots, Path(tempfile.gettempdir())]
-    variants: List[str] = []
-    for r in roots:
-        variants.extend(_variants(r))
-    for v in sorted(set(variants), key=len, reverse=True):
+    # Exact known roots only — never bare gettempdir() like "/tmp" (r3 B1).
+    subject_vars = set(_variants(root))
+    other_vars: List[str] = []
+    for r in extra_roots:
+        for v in _variants(r):
+            if v not in subject_vars:
+                other_vars.append(v)
+    for v in sorted(subject_vars, key=len, reverse=True):
         if v and len(v) > 3:
-            # Map subject root → <subject>; other known roots → <metria-tmp>
-            repl = "<subject>" if v in set(_variants(root)) else "<metria-tmp>"
-            text = text.replace(v, repl)
+            text = _path_boundary_replace(text, v, "<subject>")
+    for v in sorted(set(other_vars), key=len, reverse=True):
+        if v and len(v) > 3:
+            # Skip generic short temp roots (/tmp, /var/tmp).
+            if v.rstrip("/") in {"/tmp", "/var/tmp", "/private/tmp"}:
+                continue
+            text = _path_boundary_replace(text, v, "<metria-tmp>")
     text = _METRIA_TMP.sub("<metria-tmp>", text)
+    text = _MKTEMP_DIR.sub("<metria-tmp>", text)
     text = _MAC_FOLDER_STUB.sub("<tmp>", text)
-    # Leftover Linux-style metria temp even if gettempdir() differed at scrub time.
-    text = re.sub(
-        r"/tmp/metria-(?:adeq|home|subject|worktree|corpus|sca)-[A-Za-z0-9_]+[^\s:\"']*",
-        "<metria-tmp>",
-        text,
-    )
-    # Generic mktemp dirs under /tmp or macOS folder stubs (probe outer temps).
-    text = re.sub(
-        r"(?:/private)?(?:/var/folders/[^\s:\"']+|/tmp|/var/tmp)/tmp\.[A-Za-z0-9_]+[^\s:\"']*",
-        "<metria-tmp>",
-        text,
-    )
     return text
 
 

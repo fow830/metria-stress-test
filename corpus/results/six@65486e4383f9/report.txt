@@ -18,4 +18,4 @@ TOP RISKS
   4. ruff S101: Use of `assert` detected at <subject>/test_six.py:49
   5. ruff S101: Use of `assert` detected at <subject>/test_six.py:164
 
-evidence · sha256 ab20200ff228… · reproducible: metria run <repo>@65486e4383f9f411da95937451205d3c7b61b9e1 --profile cold_external
+evidence · sha256 f381bac8db48… · reproducible: metria run <repo>@65486e4383f9f411da95937451205d3c7b61b9e1 --profile cold_external

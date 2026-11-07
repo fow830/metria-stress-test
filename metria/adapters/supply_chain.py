@@ -27,7 +27,8 @@ from metria.sandbox import (
 )
 
 OSV_URL = "https://api.osv.dev/v1/query"
-VERSION_EQ = re.compile(r"^==\s*([A-Za-z0-9_.+\-]+)$")
+# Exact pin only — no wildcards / trailing dots (N-r3-2: ==1.* must not become "1.").
+VERSION_EQ_STRICT = re.compile(r"^==\s*([0-9]+(?:\.[0-9A-Za-z]+)*)$")
 # First concrete lower-bound from a range specifier (query / resolve hint).
 VERSION_LOWER = re.compile(r"(?:>=|>|~=|==)\s*([A-Za-z0-9_.+\-]+)")
 CVSS_VECTOR = re.compile(r"^CVSS:3\.\d+/(.+)$")
@@ -54,20 +55,35 @@ def _osv_query(name: str, version: Optional[str], timeout: float = 12.0) -> Tupl
 
 
 def _pinned_version(specifier: str) -> Optional[str]:
-    m = VERSION_EQ.match((specifier or "").strip())
-    return m.group(1) if m else None
+    """Exact ``==X.Y.Z`` only. Wildcards (``==1.*``) and truncated tokens are not pins."""
+    s = (specifier or "").strip()
+    if "*" in s or "," in s or s.endswith("."):
+        return None
+    m = VERSION_EQ_STRICT.match(s)
+    if not m:
+        return None
+    ver = m.group(1)
+    # Reject trailing empty segments / lone major with dangling junk already filtered.
+    if ver.endswith(".") or not ver:
+        return None
+    return ver
 
 
 def _range_lower_bound(specifier: str) -> Optional[str]:
-    """Best-effort first version token from a range (N-r2-4)."""
+    """Best-effort first version token from a range (N-r2-4). Never from wildcards."""
     s = (specifier or "").strip()
-    if not s:
+    if not s or "*" in s:
         return None
     pinned = _pinned_version(s)
     if pinned:
         return pinned
     m = VERSION_LOWER.search(s)
-    return m.group(1) if m else None
+    if not m:
+        return None
+    ver = m.group(1)
+    if "*" in ver or ver.endswith("."):
+        return None
+    return ver
 
 
 def _norm_name(name: str) -> str:
@@ -75,11 +91,23 @@ def _norm_name(name: str) -> str:
 
 
 def resolve_runtime_versions(
-    root: Path, runtime: List[Dict[str, str]]
+    root: Path,
+    runtime: List[Dict[str, str]],
+    *,
+    allow_subject_install: bool = True,
 ) -> Tuple[Dict[str, str], Dict[str, Any]]:
-    """Resolve concrete versions: pin → range lower → pip list after editable install."""
+    """Resolve concrete versions: pin → (optional) pip list after editable install.
+
+    When ``allow_subject_install`` is False (``--no-tests``), never run
+    ``pip install -e .`` — that executes subject setup.py (r3 B2 / r1 B1.2).
+    """
     resolved: Dict[str, str] = {}
-    meta: Dict[str, Any] = {"method": None, "errors": [], "venv_used": False}
+    meta: Dict[str, Any] = {
+        "method": None,
+        "errors": [],
+        "venv_used": False,
+        "allow_subject_install": allow_subject_install,
+    }
     pending = []
     for pkg in runtime:
         key = _norm_name(pkg["name"])
@@ -91,6 +119,12 @@ def resolve_runtime_versions(
 
     if not pending:
         meta["method"] = "pinned"
+        return resolved, meta
+
+    if not allow_subject_install:
+        # Static-only: leave unpinned unresolved → adapter_gap (no subject build).
+        meta["method"] = "static_no_subject_exec"
+        meta["errors"].append("version unresolved: subject code execution disabled")
         return resolved, meta
 
     # Try ephemeral venv + editable install → pip list (N-r2-4).
@@ -107,7 +141,6 @@ def resolve_runtime_versions(
             meta["method"] = "unresolved"
             return resolved, meta
         env = scrub_env(home=home, extra={"VIRTUAL_ENV": str(work / "venv")})
-        # Upgrade pip quietly, then editable install of subject (pulls runtime deps).
         run_scrubbed(
             [str(pip), "install", "-q", "--upgrade", "pip"],
             cwd=root,
@@ -130,13 +163,11 @@ def resolve_runtime_versions(
             if key in installed:
                 resolved[key] = installed[key]
             else:
-                # Fallback: query OSV at range lower bound if we have one.
                 lower = _range_lower_bound(pkg.get("specifier") or "")
                 if lower:
                     resolved[key] = lower
                     meta.setdefault("range_fallback", []).append(pkg["name"])
         meta["method"] = "venv_pip_list" if installed else "range_or_none"
-        # Keep py referenced so linters know create_subject_venv result is used.
         _ = py
     finally:
         cleanup_dir(work)
@@ -276,7 +307,13 @@ def query_osv_for_packages(
     return findings, metrics
 
 
-def run_supply_chain(root: Path, evidence_dir: Path, *, query_osv: bool = True) -> Dict[str, Any]:
+def run_supply_chain(
+    root: Path,
+    evidence_dir: Path,
+    *,
+    query_osv: bool = True,
+    allow_subject_install: bool = True,
+) -> Dict[str, Any]:
     evidence_dir.mkdir(parents=True, exist_ok=True)
     loc = count_loc(root)
     packages, inv_meta = inventory_packages_with_meta(root)
@@ -326,7 +363,9 @@ def run_supply_chain(root: Path, evidence_dir: Path, *, query_osv: bool = True) 
     setup_py_gap = bool(inv_meta.get("setup_py_present")) and bool(inv_meta.get("setup_py_error"))
 
     if query_osv and runtime:
-        resolved, resolve_meta = resolve_runtime_versions(root, runtime)
+        resolved, resolve_meta = resolve_runtime_versions(
+            root, runtime, allow_subject_install=allow_subject_install
+        )
         (evidence_dir / "resolved_versions.json").write_text(
             json.dumps({"resolved": resolved, "meta": resolve_meta}, indent=2), encoding="utf-8"
         )

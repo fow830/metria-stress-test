@@ -47,82 +47,6 @@
       }
     },
     {
-      "id": "flask",
-      "repo_url": "https://github.com/pallets/flask",
-      "commit_sha": "85039283fc3e986cced4ab39a3fe2b39314d06bb",
-      "overall": "fail",
-      "lenses": {
-        "structural": {
-          "status": "warn",
-          "null_display": null
-        },
-        "supply_chain": {
-          "status": "pass",
-          "null_display": null
-        },
-        "controls": {
-          "status": "null",
-          "null_display": "UNDECLARED"
-        },
-        "test_adequacy": {
-          "status": "fail",
-          "null_display": null
-        },
-        "architectural": {
-          "status": "null",
-          "null_display": "UNDECLARED"
-        },
-        "normative": {
-          "status": "null",
-          "null_display": "UNDECLARED"
-        }
-      },
-      "result_dir": "corpus/results/flask@85039283fc3e",
-      "runner": {
-        "python": "3.9.6",
-        "platform": "macOS-26.1-arm64-arm-64bit",
-        "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6"
-      }
-    },
-    {
-      "id": "httpx",
-      "repo_url": "https://github.com/encode/httpx",
-      "commit_sha": "609df7ecc0f7cb10a1c998aa9c269bba77337c5f",
-      "overall": "fail",
-      "lenses": {
-        "structural": {
-          "status": "warn",
-          "null_display": null
-        },
-        "supply_chain": {
-          "status": "fail",
-          "null_display": null
-        },
-        "controls": {
-          "status": "null",
-          "null_display": "UNDECLARED"
-        },
-        "test_adequacy": {
-          "status": "warn",
-          "null_display": null
-        },
-        "architectural": {
-          "status": "null",
-          "null_display": "UNDECLARED"
-        },
-        "normative": {
-          "status": "null",
-          "null_display": "UNDECLARED"
-        }
-      },
-      "result_dir": "corpus/results/httpx@609df7ecc0f7",
-      "runner": {
-        "python": "3.9.6",
-        "platform": "macOS-26.1-arm64-arm-64bit",
-        "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6"
-      }
-    },
-    {
       "id": "requests",
       "repo_url": "https://github.com/psf/requests",
       "commit_sha": "61e2240f283f15780ac2d0e2cfefb0fd6fdab627",
@@ -192,6 +116,82 @@
         }
       },
       "result_dir": "corpus/results/six@65486e4383f9",
+      "runner": {
+        "python": "3.9.6",
+        "platform": "macOS-26.1-arm64-arm-64bit",
+        "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6"
+      }
+    },
+    {
+      "id": "httpx",
+      "repo_url": "https://github.com/encode/httpx",
+      "commit_sha": "609df7ecc0f7cb10a1c998aa9c269bba77337c5f",
+      "overall": "fail",
+      "lenses": {
+        "structural": {
+          "status": "warn",
+          "null_display": null
+        },
+        "supply_chain": {
+          "status": "fail",
+          "null_display": null
+        },
+        "controls": {
+          "status": "null",
+          "null_display": "UNDECLARED"
+        },
+        "test_adequacy": {
+          "status": "warn",
+          "null_display": null
+        },
+        "architectural": {
+          "status": "null",
+          "null_display": "UNDECLARED"
+        },
+        "normative": {
+          "status": "null",
+          "null_display": "UNDECLARED"
+        }
+      },
+      "result_dir": "corpus/results/httpx@609df7ecc0f7",
+      "runner": {
+        "python": "3.9.6",
+        "platform": "macOS-26.1-arm64-arm-64bit",
+        "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6"
+      }
+    },
+    {
+      "id": "flask",
+      "repo_url": "https://github.com/pallets/flask",
+      "commit_sha": "85039283fc3e986cced4ab39a3fe2b39314d06bb",
+      "overall": "fail",
+      "lenses": {
+        "structural": {
+          "status": "warn",
+          "null_display": null
+        },
+        "supply_chain": {
+          "status": "pass",
+          "null_display": null
+        },
+        "controls": {
+          "status": "null",
+          "null_display": "UNDECLARED"
+        },
+        "test_adequacy": {
+          "status": "fail",
+          "null_display": null
+        },
+        "architectural": {
+          "status": "null",
+          "null_display": "UNDECLARED"
+        },
+        "normative": {
+          "status": "null",
+          "null_display": "UNDECLARED"
+        }
+      },
+      "result_dir": "corpus/results/flask@85039283fc3e",
       "runner": {
         "python": "3.9.6",
         "platform": "macOS-26.1-arm64-arm-64bit",

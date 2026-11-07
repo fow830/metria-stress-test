@@ -184,13 +184,13 @@ def _run_ruff(root: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any], List[Di
             return findings, metrics, tools, suppressions
         data = json.loads(raw_out)
         metrics["ruff_issue_count"] = len(data)
-        # Filter interesting first, THEN cap (N-2).
+        # Filter interesting first, THEN cap (N-2). Drop S101 on test paths (N-r3-5).
         interesting = []
         for item in data:
             code = str(item.get("code") or "")
             if code.startswith(("S", "B", "E9")) or code in {"F821", "F822", "F823"}:
                 interesting.append(item)
-        for item in interesting[:40]:
+        for item in interesting[:80]:
             code = str(item.get("code") or "")
             loc = item.get("location") or {}
             path = item.get("filename") or ""
@@ -198,6 +198,8 @@ def _run_ruff(root: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any], List[Di
                 rel = str(Path(path).resolve().relative_to(root.resolve())).replace("\\", "/")
             except Exception:
                 rel = scrub_text_paths(path, root)
+            if code == "S101" and is_test_fixture_path(rel):
+                continue
             line = loc.get("row") or 0
             msg = item.get("message") or code
             fp = hashlib.sha256(f"ruff:{code}:{rel}:{line}".encode()).hexdigest()[:16]
@@ -212,6 +214,8 @@ def _run_ruff(root: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any], List[Di
                     "evidence_refs": ["structural/ruff.json"],
                 }
             )
+            if len(findings) >= 40:
+                break
         # Note subject-config gaming surface: we force --isolated; record that.
         suppressions.append(
             {

@@ -13,7 +13,7 @@
         "pytest"
       ],
       "returncode": 0,
-      "stderr_tail": "WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))': /simple/pip/\n"
+      "stderr_tail": ""
     },
     {
       "args": [

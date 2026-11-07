@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "run_id": "run_76911a8bf0d6",
+  "run_id": "run_ff56fdf58307",
   "subject": {
     "repo_url": "https://github.com/encode/httpx",
     "commit_sha": "609df7ecc0f7cb10a1c998aa9c269bba77337c5f",
@@ -8,11 +8,11 @@
   },
   "runner_image_digest": "local:Darwin-arm64/cpython-3.9.6",
   "policy_digest": "sha256:493d5e44b95b06ab9aeb50e5cc020e1b924f6d15d52b9ee64dd375f7fe504a86",
-  "started_at": "2026-11-07T07:44:09Z",
-  "finished_at": "2026-11-07T07:50:15Z",
+  "started_at": "2026-11-07T08:28:46Z",
+  "finished_at": "2026-11-07T08:30:00Z",
   "budget": {
     "wall_clock_s": 1800,
-    "used_s": 366
+    "used_s": 73
   },
   "overall": "fail",
   "lenses": {
@@ -1095,7 +1095,7 @@
   ],
   "evidence_pack": {
     "uri": "evidence.zip",
-    "sha256": "ba86e4b4e16f7a0ab294f6dcd50ca0ea44f02ff57f794cee748b44d27f6a9ce9",
-    "manifest_sha256": "ee3325258d4659fa9704349cc40954cf833af098eb56f2e179166a9ec8278340"
+    "sha256": "20ad62d35c8197e70fe402bcbeabe7ce74e0eaf146a8237b9460b07b10363801",
+    "manifest_sha256": "661ac06b400507926bd462cb2dc36445b5302a2e5a737f6ea5ea1bf203c4ad1d"
   }
 }

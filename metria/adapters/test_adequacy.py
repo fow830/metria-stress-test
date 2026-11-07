@@ -112,8 +112,14 @@ def _module_belongs_to_subject(mod: str, subject_names: Set[str], root: Path) ->
     return False
 
 
-def _junit_failure_kinds(junit_path: Path) -> Tuple[bool, bool, List[str]]:
-    """Parse junitxml → (has_subject_failure, has_env_error, notes)."""
+def _junit_classify(
+    junit_path: Path, subject_names: Set[str], root: Path
+) -> Tuple[bool, bool, List[str]]:
+    """Per-testcase attribution → (has_subject_failure, has_env_error, notes).
+
+    r3 B3: ModuleNotFoundError/ImportError inside a ``<failure>`` is env when the
+    missing module is not part of the subject tree (six/_dbm case).
+    """
     has_subject = False
     has_env = False
     notes: List[str] = []
@@ -121,18 +127,10 @@ def _junit_failure_kinds(junit_path: Path) -> Tuple[bool, bool, List[str]]:
         tree = ET.parse(str(junit_path))
     except (ET.ParseError, OSError):
         return False, False, ["junit_parse_error"]
-    subject_hint_types = {
+    subject_assert_types = {
         "AssertionError",
-        "assert",
         "Failed",
         "pytest.fail",
-        "RuntimeError",
-        "ValueError",
-        "TypeError",
-        "AttributeError",
-        "KeyError",
-        "IndexError",
-        "Exception",
     }
     for case in tree.iter("testcase"):
         for tag in ("failure", "error"):
@@ -142,19 +140,31 @@ def _junit_failure_kinds(junit_path: Path) -> Tuple[bool, bool, List[str]]:
             msg = f"{node.get('message') or ''}\n{node.text or ''}"
             ftype = (node.get("type") or "").strip()
             notes.append(f"{tag}:{ftype or 'unknown'}")
-            # Assertion / explicit test failure → subject
-            if tag == "failure" or ftype in subject_hint_types or "AssertionError" in msg:
-                has_subject = True
-                continue
-            # Import / module errors: decide by missing module attribution later via msg
-            if "ImportError" in ftype or "ModuleNotFoundError" in ftype or "ImportError" in msg or "ModuleNotFoundError" in msg:
-                # Mark; attribution applied by caller with subject names.
-                notes.append(f"import:{msg[:200]}")
+            # Import / ModuleNotFound — attribute by module ownership (r3 B3).
+            is_import = (
+                "ImportError" in ftype
+                or "ModuleNotFoundError" in ftype
+                or "ImportError" in msg
+                or "ModuleNotFoundError" in msg
+            )
+            if is_import:
+                mods = _missing_modules(msg)
+                if not mods:
+                    has_subject = True
+                    continue
+                for mod in mods:
+                    if _module_belongs_to_subject(mod, subject_names, root):
+                        has_subject = True
+                    else:
+                        has_env = True
                 continue
             if _FIXTURE_MISSING.search(msg):
                 has_env = True
                 continue
-            # Default error during a testcase → subject defect
+            if ftype in subject_assert_types or "AssertionError" in msg:
+                has_subject = True
+                continue
+            # Other exception types in a test body → subject defect by default.
             has_subject = True
     return has_subject, has_env, notes
 
@@ -172,31 +182,22 @@ def classify_pytest_result(
 
     Env only when attribution is reliable (third-party ModuleNotFound / missing fixture /
     collection error for non-subject modules). Subject ImportError and AssertionError → fail.
+    Do not treat bare ``FAILED`` lines as subject (r3 B3) — prefer junit per-case.
     """
     if code == 0:
         return "pass"
 
     blob = f"{out}\n{err}"
     subject_names = _subject_module_names(root)
-    has_subject = bool(_FAILED_LINE.search(blob) or "AssertionError" in blob)
+    has_subject = "AssertionError" in blob
     has_env = False
+    used_junit = False
 
     if junit_path is not None and junit_path.is_file():
-        j_subj, j_env, notes = _junit_failure_kinds(junit_path)
+        j_subj, j_env, _notes = _junit_classify(junit_path, subject_names, root)
         has_subject = has_subject or j_subj
         has_env = has_env or j_env
-        for note in notes:
-            if note.startswith("import:"):
-                mods = _missing_modules(note)
-                if not mods:
-                    # ImportError without "No module named" — treat as subject
-                    has_subject = True
-                    continue
-                for mod in mods:
-                    if _module_belongs_to_subject(mod, subject_names, root):
-                        has_subject = True
-                    else:
-                        has_env = True
+        used_junit = True
 
     for mod in _missing_modules(blob):
         if _module_belongs_to_subject(mod, subject_names, root):
@@ -207,11 +208,15 @@ def classify_pytest_result(
     if _FIXTURE_MISSING.search(blob):
         has_env = True
 
-    # Mixed: any subject failure wins → fail (B1).
+    # Without junit, a FAILED line + no env attribution → subject; with junit, ignore FAILED.
+    if not used_junit and _FAILED_LINE.search(blob) and not has_env:
+        has_subject = True
+
+    # Mixed: any subject failure wins → fail (r2 B1).
     if has_subject:
         return "fail"
 
-    # Reliable third-party / fixture env attribution → NOT MEASURED.
+    # Only env cases → NOT MEASURED (r3 B3).
     if has_env:
         return "env"
 
